@@ -1,0 +1,27 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("z3++.h" include (:system-flag t) nil [21 38])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [49 58])
+                    ("argv" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [59 72]))                  
+                :type "int")
+                nil [40 469]))          
+      :file "proof_unsat.cpp"
+      :pointmax 470
+      :fsize 469
+      :lastmodtime '(24135 3637 506684 649000)
+      :unmatched-syntax nil))
+  :file "!home!jose!Documents!GithubProjects!z3-proofs2latex!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

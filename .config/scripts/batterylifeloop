@@ -1,0 +1,6 @@
+#!/bin/bash
+while true
+do
+    polybar-msg hook battery-time 2
+    sleep 5
+done

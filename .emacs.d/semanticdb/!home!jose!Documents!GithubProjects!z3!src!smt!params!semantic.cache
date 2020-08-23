@@ -1,0 +1,423 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("__SMT_PARAMS_HELPER_HPP_" variable (:constant-flag t) nil [74 98])
+            ("util/params.h" include nil nil [99 123])
+            ("util/gparams.h" include nil nil [124 149])
+            ("smt_params_helper" type
+               (:members 
+                  ( ("p" variable (:type ("params_ref" type (:type "class") nil nil)) (reparse-symbol classsubparts) [179 200])
+                    ("g" variable (:type ("params_ref" type (:type "class") nil nil)) (reparse-symbol classsubparts) [203 216])
+                    ("smt_params_helper" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("_p" variable
+                               (:reference 1
+                                :constant-flag t
+                                :default-value "params_ref::get_empty()"
+                                :type ("params_ref" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [237 284]))                          
+                        :type ("smt_params_helper" type (:type "struct") nil nil))
+                        (reparse-symbol classsubparts) [219 331])
+                    ("collect_param_descrs" function
+                       (:typemodifiers ("static")
+                        :arguments 
+                          ( ("d" variable
+                               (:reference 1
+                                :type ("param_descrs" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [367 384]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [334 13455])
+                    ("auto_config" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [13608 13679])
+                    ("logic" function
+                       (:methodconst-flag t
+                        :type ("symbol" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [13682 13748])
+                    ("random_seed" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [13751 13824])
+                    ("relevancy" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [13827 13896])
+                    ("macro_finder" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [13899 13973])
+                    ("quasi_macros" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [13976 14050])
+                    ("restricted_quasi_macros" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [14053 14149])
+                    ("ematching" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [14152 14219])
+                    ("phase_selection" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [14222 14303])
+                    ("restart_strategy" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [14306 14389])
+                    ("restart_factor" function
+                       (:methodconst-flag t
+                        :type "double")
+                        (reparse-symbol classsubparts) [14392 14472])
+                    ("case_split" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [14475 14546])
+                    ("delay_units" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [14549 14621])
+                    ("delay_units_threshold" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [14624 14718])
+                    ("pull_nested_quantifiers" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [14721 14817])
+                    ("refine_inj_axioms" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [14820 14903])
+                    ("max_conflicts" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [14906 14992])
+                    ("restart_max" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [14995 15077])
+                    ("mbqi" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [15080 15137])
+                    ("mbqi_max_cexs" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [15140 15217])
+                    ("mbqi_max_cexs_incr" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [15220 15307])
+                    ("mbqi_max_iterations" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [15310 15402])
+                    ("mbqi_trace" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [15405 15475])
+                    ("mbqi_force_template" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [15478 15568])
+                    ("mbqi_id" function
+                       (:methodconst-flag t
+                        :pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [15571 15639])
+                    ("qi_profile" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [15642 15712])
+                    ("qi_profile_freq" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [15715 15805])
+                    ("qi_max_instances" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [15808 15900])
+                    ("qi_eager_threshold" function
+                       (:methodconst-flag t
+                        :type "double")
+                        (reparse-symbol classsubparts) [15903 15992])
+                    ("qi_lazy_threshold" function
+                       (:methodconst-flag t
+                        :type "double")
+                        (reparse-symbol classsubparts) [15995 16082])
+                    ("qi_cost" function
+                       (:methodconst-flag t
+                        :pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [16085 16174])
+                    ("qi_max_multi_patterns" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [16177 16270])
+                    ("qi_quick_checker" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [16273 16356])
+                    ("bv_reflect" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [16359 16428])
+                    ("bv_enable_int2bv" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [16431 16512])
+                    ("arith_random_initial_value" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [16515 16617])
+                    ("arith_solver" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [16620 16695])
+                    ("arith_nl" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [16698 16763])
+                    ("arith_nl_gb" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [16766 16837])
+                    ("arith_nl_branching" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [16840 16925])
+                    ("arith_nl_rounds" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [16928 17012])
+                    ("arith_euclidean_solver" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [17015 17109])
+                    ("arith_propagate_eqs" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [17112 17199])
+                    ("arith_propagation_mode" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [17202 17297])
+                    ("arith_reflect" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [17300 17375])
+                    ("arith_branch_cut_ratio" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [17378 17473])
+                    ("arith_int_eq_branch" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [17476 17564])
+                    ("arith_ignore_int" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [17567 17649])
+                    ("arith_dump_lemmas" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [17652 17736])
+                    ("arith_greatest_error_pivot" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [17739 17841])
+                    ("arith_eager_eq_axioms" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [17844 17935])
+                    ("arith_auto_config_simplex" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [17938 18038])
+                    ("pb_conflict_frequency" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [18041 18137])
+                    ("pb_learn_complements" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [18140 18229])
+                    ("array_weak" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [18232 18302])
+                    ("array_extensional" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [18305 18388])
+                    ("clause_proof" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [18391 18465])
+                    ("dack" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [18468 18527])
+                    ("dack_eq" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [18530 18594])
+                    ("dack_factor" function
+                       (:methodconst-flag t
+                        :type "double")
+                        (reparse-symbol classsubparts) [18597 18671])
+                    ("dack_gc" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [18674 18742])
+                    ("dack_gc_inv_decay" function
+                       (:methodconst-flag t
+                        :type "double")
+                        (reparse-symbol classsubparts) [18745 18831])
+                    ("dack_threshold" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [18834 18914])
+                    ("theory_case_split" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [18917 19001])
+                    ("string_solver" function
+                       (:methodconst-flag t
+                        :type ("symbol" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [19004 19089])
+                    ("core_validate" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [19092 19168])
+                    ("seq_split_w_len" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [19171 19250])
+                    ("str_strong_arrangements" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [19253 19348])
+                    ("str_aggressive_length_testing" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [19351 19459])
+                    ("str_aggressive_value_testing" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [19462 19568])
+                    ("str_aggressive_unroll_testing" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [19571 19678])
+                    ("str_fast_length_tester_cache" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [19681 19787])
+                    ("str_fast_value_tester_cache" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [19790 19893])
+                    ("str_string_constant_cache" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [19896 19995])
+                    ("str_use_binary_search" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [19998 20090])
+                    ("str_binary_search_start" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [20093 20191])
+                    ("theory_aware_branching" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [20194 20288])
+                    ("str_finite_overlap_models" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [20291 20391])
+                    ("str_overlap_priority" function
+                       (:methodconst-flag t
+                        :type "double")
+                        (reparse-symbol classsubparts) [20394 20487])
+                    ("str_regex_automata" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [20490 20575])
+                    ("str_regex_automata_difficulty_threshold" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [20578 20710])
+                    ("str_regex_automata_intersection_difficulty_threshold" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [20713 20871])
+                    ("str_regex_automata_failed_automaton_threshold" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [20874 21016])
+                    ("str_regex_automata_failed_intersection_threshold" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [21019 21167])
+                    ("str_regex_automata_length_attempt_threshold" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [21170 21308])
+                    ("core_minimize" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [21311 21387])
+                    ("core_extend_patterns" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [21390 21480])
+                    ("core_extend_patterns_max_distance" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [21483 21609])
+                    ("core_extend_nonlocal_patterns" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [21612 21720])
+                    ("lemma_gc_strategy" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [21723 21808])
+                    ("dt_lazy_splits" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [21811 21890])
+                    ("recfun_native" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [21893 21968])
+                    ("recfun_depth" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [21971 22046]))                  
+                :type "struct")
+                nil [150 22049]))          
+      :file "smt_params_helper.hpp"
+      :pointmax 22057
+      :fsize 22056
+      :lastmodtime '(23891 14924 176462 754000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("__SMT_PARAMS_HELPER_HPP_")
+          )
+))
+  :file "!home!jose!Documents!GithubProjects!z3!src!smt!params!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

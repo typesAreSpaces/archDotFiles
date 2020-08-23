@@ -1,0 +1,34 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'run-script', 'build' ]
+2 info using npm@6.14.7
+3 info using node@v14.8.0
+4 verbose run-script [ 'prebuild', 'build', 'postbuild' ]
+5 info lifecycle bosque-reference-implementation@0.0.1~prebuild: bosque-reference-implementation@0.0.1
+6 info lifecycle bosque-reference-implementation@0.0.1~build: bosque-reference-implementation@0.0.1
+7 verbose lifecycle bosque-reference-implementation@0.0.1~build: unsafe-perm in lifecycle true
+8 verbose lifecycle bosque-reference-implementation@0.0.1~build: PATH: /usr/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/home/jose/Documents/GithubProjects/BosqueLanguage/ref_impl/node_modules/.bin:/home/jose/Documents/Apps/LADR-2009-11A/bin:/home/jose/Documents/Apps:/home/jose/maple2020/bin:/home/jose/.cargo/bin:/home/jose/Documents/GithubProjects/cool-retro-term:/home/jose/.opam/system/bin:/home/jose/.local/bin:/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+9 verbose lifecycle bosque-reference-implementation@0.0.1~build: CWD: /home/jose/Documents/GithubProjects/BosqueLanguage/ref_impl
+10 silly lifecycle bosque-reference-implementation@0.0.1~build: Args: [ '-c', 'tsc -p tsconfig.json' ]
+11 silly lifecycle bosque-reference-implementation@0.0.1~build: Returned: code: 1  signal: null
+12 info lifecycle bosque-reference-implementation@0.0.1~build: Failed to exec build script
+13 verbose stack Error: bosque-reference-implementation@0.0.1 build: `tsc -p tsconfig.json`
+13 verbose stack Exit status 1
+13 verbose stack     at EventEmitter.<anonymous> (/usr/lib/node_modules/npm/node_modules/npm-lifecycle/index.js:332:16)
+13 verbose stack     at EventEmitter.emit (events.js:314:20)
+13 verbose stack     at ChildProcess.<anonymous> (/usr/lib/node_modules/npm/node_modules/npm-lifecycle/lib/spawn.js:55:14)
+13 verbose stack     at ChildProcess.emit (events.js:314:20)
+13 verbose stack     at maybeClose (internal/child_process.js:1051:16)
+13 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:287:5)
+14 verbose pkgid bosque-reference-implementation@0.0.1
+15 verbose cwd /home/jose/Documents/GithubProjects/BosqueLanguage/ref_impl
+16 verbose Linux 5.8.1-arch1-1
+17 verbose argv "/usr/bin/node" "/usr/bin/npm" "run-script" "build"
+18 verbose node v14.8.0
+19 verbose npm  v6.14.7
+20 error code ELIFECYCLE
+21 error errno 1
+22 error bosque-reference-implementation@0.0.1 build: `tsc -p tsconfig.json`
+22 error Exit status 1
+23 error Failed at the bosque-reference-implementation@0.0.1 build script.
+23 error This is probably not a problem with npm. There is likely additional logging output above.
+24 verbose exit [ 1, true ]

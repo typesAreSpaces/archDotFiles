@@ -1,0 +1,35 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode makefile-gmake-mode
+      :tags 
+        '( ("PACKAGE" variable (:default-value ("acmart")) nil [127 142])
+            ("PDF" variable (:default-value ("$(PACKAGE).pdf" "acmguide.pdf")) nil [144 178])
+            ("all" function (:arguments ("${PDF}" "ALLSAMPLES")) nil [179 203])
+            ("%.pdf" function (:arguments ("%.dtx" "$(PACKAGE).cls")) nil [205 465])
+            ("acmguide.pdf" function (:arguments ("$(PACKAGE).dtx" "$(PACKAGE).cls")) nil [467 745])
+            ("%.cls" function (:arguments ("%.ins" "%.dtx")) nil [746 780])
+            ("ALLSAMPLES" function nil nil [782 934])
+            ("samples/%" function (:arguments ("%")) nil [935 963])
+            ("samples/" function (:arguments ("$(PACKAGE).cls")) nil [965 1004])
+            ("samples/ACM-Reference-Format.bst" function (:arguments ("ACM-Reference-Format.bst")) nil [1004 1063])
+            ("samples/%.pdf" function (:arguments ("samples/%.tex" "samples/$(PACKAGE).cls" "samples/ACM-Reference-Format.bst")) nil [1064 1469])
+            ("samples/sample-xelatex.pdf" function (:arguments ("samples/sample-xelatex.tex" "samples/$(PACKAGE).cls" "samples/ACM-Reference-Format.bst")) nil [1470 1897])
+            (".PRECIOUS" function (:arguments ("$(PACKAGE).cfg" "$(PACKAGE).cls")) nil [1900 1942])
+            ("docclean" function nil nil [1943 2253])
+            ("clean" function (:arguments ("docclean")) nil [2256 2312])
+            ("distclean" function (:arguments ("clean")) nil [2313 2365])
+            ("archive" function (:arguments ("all" "clean")) nil [2433 2626])
+            ("zip" function (:arguments ("all" "clean")) nil [2627 2717])
+            ("documents.zip" function (:arguments ("all" "docclean")) nil [2718 2818]))          
+      :file "Makefile"
+      :pointmax 2879
+      :fsize 2878
+      :lastmodtime '(24160 2287 556578 687000)
+      :unmatched-syntax nil))
+  :file "!home!jose!Downloads!acmart-master!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

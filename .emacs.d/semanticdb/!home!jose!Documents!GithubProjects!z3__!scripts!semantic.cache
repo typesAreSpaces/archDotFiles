@@ -1,0 +1,35 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode python-mode
+      :tags nil
+      :file "mk_util.py"
+      :pointmax 137937
+      :fsize 137936
+      :lastmodtime '(24137 53473 817206 296000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode python-mode
+      :tags 
+        '( ("mk_util" include nil nil [247 268])
+            ("mk_project" include nil nil [269 293])
+            ("parse_options" code nil nil [295 310])
+            ("check_eol" code nil nil [311 322])
+            ("API_files" variable nil nil [323 353])
+            ("update_version" code nil nil [355 371])
+            ("mk_auto_src" code nil nil [372 385])
+            ("mk_bindings" code nil nil [386 408])
+            ("mk_vs_proj" code nil nil [409 436])
+            ("mk_vs_proj_dll" code nil nil [437 473])
+            ("mk_makefile" code nil nil [474 487]))          
+      :file "mk_make.py"
+      :pointmax 488
+      :fsize 487
+      :lastmodtime '(24101 11787 110475 569000)
+      :unmatched-syntax nil))
+  :file "!home!jose!Documents!GithubProjects!z3__!scripts!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

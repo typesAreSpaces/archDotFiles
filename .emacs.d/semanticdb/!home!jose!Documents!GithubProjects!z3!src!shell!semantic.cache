@@ -1,0 +1,306 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("iostream" include (:system-flag t) nil [227 245])
+            ("util/memory_manager.h" include nil nil [246 278])
+            ("util/trace.h" include nil nil [279 302])
+            ("util/debug.h" include nil nil [303 326])
+            ("util/util.h" include nil nil [327 349])
+            ("ast/pp.h" include nil nil [350 369])
+            ("shell/smtlib_frontend.h" include nil nil [370 404])
+            ("shell/z3_log_frontend.h" include nil nil [405 439])
+            ("util/warning.h" include nil nil [440 465])
+            ("util/z3_version.h" include nil nil [466 494])
+            ("shell/dimacs_frontend.h" include nil nil [495 529])
+            ("shell/datalog_frontend.h" include nil nil [530 565])
+            ("shell/opt_frontend.h" include nil nil [566 597])
+            ("util/timeout.h" include nil nil [598 623])
+            ("util/z3_exception.h" include nil nil [624 654])
+            ("util/error_codes.h" include nil nil [655 684])
+            ("util/file_path.h" include nil nil [685 712])
+            ("util/gparams.h" include nil nil [713 738])
+            ("util/env_params.h" include nil nil [739 767])
+            ("util/file_path.h" include nil nil [768 795])
+            ("shell/lp_frontend.h" include nil nil [796 826])
+            ("input_kind" type
+               (:typedef ("" type
+                     (:members 
+                        ( ("IN_UNSPECIFIED" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [972 987])
+                          ("IN_SMTLIB_2" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [988 1000])
+                          ("IN_DATALOG" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1001 1012])
+                          ("IN_DIMACS" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1013 1023])
+                          ("IN_WCNF" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1024 1032])
+                          ("IN_OPB" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1033 1040])
+                          ("IN_LP" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1041 1047])
+                          ("IN_Z3_LOG" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1048 1058])
+                          ("IN_MPS" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1059 1067]))                        
+                      :type "enum")
+                      nil nil)
+                :type "typedef")
+                nil [957 1079])
+            ("g_aux_input_file" variable
+               (:typemodifiers ("static")
+                :type ("std::string" type (:type "class") nil nil))
+                nil [1081 1118])
+            ("g_input_file" variable
+               (:pointer 1
+                :typemodifiers ("static")
+                :default-value "nullptr"
+                :type "char")
+                nil [1119 1171])
+            ("g_standard_input" variable
+               (:typemodifiers ("static")
+                :default-value "false"
+                :type "bool")
+                nil [1172 1222])
+            ("g_input_kind" variable
+               (:typemodifiers ("static")
+                :default-value "IN_UNSPECIFIED"
+                :type ("input_kind" type (:type "class") nil nil))
+                nil [1223 1282])
+            ("g_display_statistics" variable
+               (:default-value "false"
+                :type "bool")
+                nil [1283 1333])
+            ("g_display_istatistics" variable
+               (:typemodifiers ("static")
+                :default-value "false"
+                :type "bool")
+                nil [1334 1384])
+            ("error" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("msg" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1404 1421]))                  
+                :type "void")
+                nil [1386 1543])
+            ("STRINGIZE" variable (:constant-flag t) nil [1553 1562])
+            ("STRINGIZE_VALUE_OF" variable (:constant-flag t) nil [1577 1595])
+            ("display_usage" function (:type "void") nil [1613 4771])
+            ("parse_cmd_line_args" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [4808 4817])
+                    ("argv" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [4818 4831]))                  
+                :type "void")
+                nil [4776 11179])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [11200 11209])
+                    ("argv" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [11210 11223]))                  
+                :type ("STD_CALL" type (:type "class") nil nil))
+                nil [11186 14410]))          
+      :file "main.cpp"
+      :pointmax 14412
+      :fsize 14411
+      :lastmodtime '(24102 6896 330020 813000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("STRINGIZE_VALUE_OF" (spp-arg-list ("x") 1595 . 1598) . ((symbol "STRINGIZE" 1599 . 1608) (semantic-list "(x)" 1608 . 1611)))
+          ("STRINGIZE" (spp-arg-list ("x") 1562 . 1565) . ((punctuation "#" 1566 . 1567) (symbol "x" 1567 . 1568)))
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("SMTLIB_FRONTEND_H_" variable (:constant-flag t) nil [231 249])
+            ("read_smtlib_file" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("benchmark_file" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [277 305]))                  
+                :type "unsigned int")
+                nil [251 306])
+            ("read_smtlib2_commands" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("command_file" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [338 364]))                  
+                :type "unsigned int")
+                nil [307 365]))          
+      :file "smtlib_frontend.h"
+      :pointmax 401
+      :fsize 400
+      :lastmodtime '(24101 13997 187834 633000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SMTLIB_FRONTEND_H_")
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("Z3_LOG_FRONTEND_H_" variable (:constant-flag t) nil [265 283])
+            ("replay_z3_log" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("benchmark_file" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [304 332]))                  
+                :type "void")
+                nil [285 333]))          
+      :file "z3_log_frontend.h"
+      :pointmax 365
+      :fsize 364
+      :lastmodtime '(24101 13997 187834 633000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("Z3_LOG_FRONTEND_H_")
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("DIMACS_FRONTEND_H_" variable (:constant-flag t) nil [226 244])
+            ("read_dimacs" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("benchmark_file" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [267 295]))                  
+                :type "unsigned int")
+                nil [246 296]))          
+      :file "dimacs_frontend.h"
+      :pointmax 331
+      :fsize 330
+      :lastmodtime '(24101 13997 187834 633000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("DIMACS_FRONTEND_H_")
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("DATALOG_FRONTEND_H_" variable (:constant-flag t) nil [228 247])
+            ("read_datalog" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("file" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [272 290]))                  
+                :type "unsigned int")
+                nil [250 291]))          
+      :file "datalog_frontend.h"
+      :pointmax 328
+      :fsize 327
+      :lastmodtime '(24101 13997 187834 633000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("DATALOG_FRONTEND_H_")
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("OPT_FRONTEND_H_" variable (:constant-flag t) nil [172 187])
+            ("opt_format" type
+               (:members 
+                  ( ("opb_t" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [207 213])
+                    ("wcnf_t" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [214 221])
+                    ("lp_t" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [222 228]))                  
+                :type "enum")
+                nil [189 229])
+            ("parse_opt" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("file_name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [250 272])
+                    ("f" variable (:type ("opt_format" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [273 286]))                  
+                :type "unsigned int")
+                nil [231 287]))          
+      :file "opt_frontend.h"
+      :pointmax 320
+      :fsize 319
+      :lastmodtime '(24101 13997 187834 633000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("OPT_FRONTEND_H_")
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("read_mps_file" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("mps_file_name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [134 161]))                  
+                :type "unsigned int")
+                nil [111 162]))          
+      :file "lp_frontend.h"
+      :pointmax 163
+      :fsize 162
+      :lastmodtime '(24101 13997 187834 633000)
+      :unmatched-syntax '((symbol 106 . 110) (symbol 99 . 105) (punctuation 98 . 99))))
+  :file "!home!jose!Documents!GithubProjects!z3!src!shell!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

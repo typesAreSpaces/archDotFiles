@@ -1,0 +1,87 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("Purifier.h" include nil nil [1 22])
+            ("Purifier" function
+               (:constructor-flag t
+                :parent "Purifier"
+                :arguments 
+                  ( ("e" variable
+                       (:reference 1
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [43 56]))                  
+                :type ("Purifier" type (:type "class") nil nil))
+                nil [24 119])
+            ("Purifier" function
+               (:destructor-flag t
+                :parent "Purifier"
+                :type "void")
+                nil [121 145])
+            ("purify" function
+               (:parent "Purifier"
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [147 658])
+            ("traverse" function
+               (:parent "Purifier"
+                :arguments 
+                  ( ("e" variable
+                       (:reference 1
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [684 697]))                  
+                :type "void")
+                nil [660 1390])
+            ("purifyOctagonTerm" function
+               (:parent "Purifier"
+                :arguments 
+                  ( ("e" variable
+                       (:reference 1
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1429 1442]))                  
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [1392 2606])
+            ("purifyEUFTerm" function
+               (:parent "Purifier"
+                :arguments 
+                  ( ("e" variable
+                       (:reference 1
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2641 2654]))                  
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [2608 3972])
+            ("<<" function
+               (:operator-flag t
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4002 4020])
+                    ("p" variable
+                       (:reference 1
+                        :type ("Purifier" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4021 4034]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [3974 4069]))          
+      :file "Purifier.cpp"
+      :pointmax 4070
+      :fsize 4069
+      :lastmodtime '(24049 22680 807282 861000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("Purifier.h" include nil nil [1 22])
+            ("main" function (:type "int") nil [24 831]))          
+      :file "main.cpp"
+      :pointmax 832
+      :fsize 831
+      :lastmodtime '(24049 22911 745890 88000)
+      :unmatched-syntax nil)
+)
+  :file "!home!jose!Purifier!src!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,51 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("api/z3.h" include nil nil [55 74])
+            ("util/trace.h" include nil nil [75 98])
+            ("util/debug.h" include nil nil [99 122])
+            ("mk_var" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ctx" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [145 160])
+                    ("name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [161 178])
+                    ("s" variable (:type ("Z3_sort" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [179 189]))                  
+                :type ("Z3_ast" type (:type "class") nil nil))
+                nil [124 257])
+            ("mk_int_var" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ctx" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [284 299])
+                    ("name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [300 317]))                  
+                :type ("Z3_ast" type (:type "class") nil nil))
+                nil [259 372])
+            ("tst_get_implied_equalities1" function
+               (:typemodifiers ("static")
+                :type "void")
+                nil [376 2553])
+            ("tst_get_implied_equalities2" function
+               (:typemodifiers ("static")
+                :type "void")
+                nil [2555 4177])
+            ("tst_get_implied_equalities" function (:type "void") nil [4179 4290]))          
+      :file "get_implied_equalities.cpp"
+      :pointmax 4291
+      :fsize 4290
+      :lastmodtime '(23891 14902 960446 542000)
+      :unmatched-syntax nil))
+  :file "!home!jose!Documents!GithubProjects!z3!src!test!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

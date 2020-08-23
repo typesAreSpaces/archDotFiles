@@ -1,0 +1,35 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode makefile-gmake-mode
+      :tags 
+        '( ("UNAME" variable (:default-value ("$(shell uname)")) nil [1 24])
+            ("WHO" variable (:default-value ("$(shell whoami)")) nil [24 46])
+            ("Z3EXT" variable (:default-value ("so")) nil [308 319])
+            ("Z3DIR" variable (:default-value ("/Users/joseabelcastellanosjoo/Documents/Applications/z3")) nil [349 413])
+            ("Z3EXT" variable (:default-value ("dylib")) nil [413 427])
+            ("IDIR" variable (:default-value ("./include")) nil [434 451])
+            ("ODIR" variable (:default-value ("./obj")) nil [451 464])
+            ("SDIR" variable (:default-value ("./src")) nil [464 477])
+            ("CC" variable (:default-value ("g++")) nil [477 486])
+            ("FLAGS" variable (:default-value ("-I$(IDIR)" "-std=c++11")) nil [486 515])
+            ("SRC" variable (:default-value ("$(wildcard $(SDIR)/*.cpp)")) nil [516 548])
+            ("OBJS" variable (:default-value ("$(patsubst $(SDIR)/%.cpp, $(ODIR)/%.o, $(SRC))")) nil [548 602])
+            ("DEPS" variable (:default-value ("$(wildcard $(IDIR)/*.h)")) nil [602 633])
+            ("all" function (:arguments ("thcombination")) nil [634 653])
+            ("$(ODIR)" function (:arguments ("$(SDIR)/%.cpp" "$(DEPS)")) nil [654 727])
+            ("thcombination" function (:arguments ("$(OBJS)" "$(Z3DIR)/build/libz3.$(Z3EXT)")) nil [728 816])
+            ("run" function (:arguments ("thcombination")) nil [817 853])
+            (".PHONY" function (:arguments ("clean")) nil [854 868])
+            ("clean" function nil nil [868 907]))          
+      :file "Makefile"
+      :pointmax 907
+      :fsize 906
+      :lastmodtime '(24102 12362 103967 153000)
+      :unmatched-syntax '((shell-command 876 . 906) (bol 875 . 875) (shell-command 302 . 307) (bol 301 . 301) (shell-command 254 . 300) (bol 253 . 253) (shell-command 182 . 201) (bol 181 . 181) (shell-command 175 . 180) (bol 174 . 174) (shell-command 106 . 173) (bol 105 . 105) (shell-command 70 . 104) (bol 69 . 69) (shell-command 782 . 815) (bol 781 . 781))))
+  :file "!home!jose!Documents!GithubProjects!master-thesis!Software!Cpp!NelsonOppen!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

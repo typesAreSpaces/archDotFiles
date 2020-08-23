@@ -1,0 +1,69 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("fstream" include (:system-flag t) nil [21 39])
+            ("structures.hpp" include nil nil [40 65])
+            ("readFile.hpp" include nil nil [66 89])
+            ("generateTest.hpp" include nil nil [90 117])
+            ("interpolationOct.hpp" include nil nil [118 149])
+            ("testSolution.hpp" include nil nil [150 177])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [188 197])
+                    ("argv" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [198 211]))                  
+                :type "int")
+                nil [179 4271]))          
+      :file "main.cpp"
+      :pointmax 4272
+      :fsize 4271
+      :lastmodtime '(23891 14801 220367 904000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("interpolationOct.hpp" include nil nil [1 32])
+            ("interpolationOct" function
+               (:arguments 
+                  ( ("fileOut" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [56 79])
+                    ("systemOfInequalities" variable
+                       (:reference 1
+                        :type ("inequalities" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [88 124])
+                    ("variablesToEliminate" variable
+                       (:reference 1
+                        :type ("vi" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [133 159])
+                    ("posPositions" variable
+                       (:reference 1
+                        :type ("positions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [168 193])
+                    ("negPositions" variable
+                       (:reference 1
+                        :type ("positions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [202 227])
+                    ("numVar" variable
+                       (:reference 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [236 249]))                  
+                :type "void")
+                nil [34 1949]))          
+      :file "interpolationOct.cpp"
+      :pointmax 1950
+      :fsize 1949
+      :lastmodtime '(23891 14801 220367 904000)
+      :unmatched-syntax nil))
+  :file "!home!jose!Documents!GithubProjects!master-thesis!Software!Cpp!Octagonal Formulas!src!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,2044 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("fstream" include (:system-flag t) nil [21 39])
+            ("cstdlib" include (:system-flag t) nil [40 58])
+            ("ctime" include (:system-flag t) nil [59 75])
+            ("EUFInterpolant.h" include nil nil [76 103])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [114 123])
+                    ("argv" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [124 137]))                  
+                :type "int")
+                nil [105 1795]))          
+      :file "main.cpp"
+      :pointmax 1796
+      :fsize 1795
+      :lastmodtime '(24107 34206 683242 843000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("Term.h" include nil nil [1 18])
+            ("Term::total_num_vertex" variable
+               (:default-value "0"
+                :type "unsigned int")
+                nil [20 56])
+            ("Term" function
+               (:constructor-flag t
+                :parent "Term"
+                :arguments 
+                  ( ("name" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [69 86])
+                    ("arity" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [91 106])
+                    ("original_arity" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [107 131]))                  
+                :type ("Term" type (:type "class") nil nil))
+                nil [58 294])
+            ("Term" function
+               (:constructor-flag t
+                :parent "Term"
+                :type ("Term" type (:type "class") nil nil))
+                nil [296 407])
+            ("Term" function
+               (:destructor-flag t
+                :parent "Term"
+                :type "void")
+                nil [409 425])
+            ("setName" function
+               (:parent "Term"
+                :arguments 
+                  ( ("name" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [447 464]))                  
+                :type "void")
+                nil [428 488])
+            ("setSymbolCommonQ" function
+               (:parent "Term"
+                :arguments 
+                  ( ("is_symbol_common" variable (:type "bool") (reparse-symbol arg-sub-list) [518 540]))                  
+                :type "void")
+                nil [490 588])
+            ("define" function
+               (:parent "Term"
+                :type "void")
+                nil [590 633])
+            ("setArity" function
+               (:parent "Term"
+                :arguments 
+                  ( ("arity" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [655 670])
+                    ("original_arity" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [671 695]))                  
+                :type "void")
+                nil [635 762])
+            ("addSuccessor" function
+               (:parent "Term"
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [788 797]))                  
+                :type "void")
+                nil [764 908])
+            ("addOriginalSuccessor" function
+               (:parent "Term"
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [942 951]))                  
+                :type "void")
+                nil [910 1010])
+            ("mergePredecessors" function
+               (:parent "Term"
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1041 1050]))                  
+                :type "void")
+                nil [1012 1103])
+            ("getTotalNumTerm" function
+               (:parent "Term"
+                :type "unsigned int")
+                nil [1105 1167])
+            ("getName" function
+               (:parent "Term"
+                :constant-flag t
+                :type ("std::string" type (:type "class") nil nil))
+                nil [1169 1222])
+            ("getSymbolCommonQ" function
+               (:parent "Term"
+                :type "bool")
+                nil [1224 1283])
+            ("getId" function
+               (:parent "Term"
+                :type "unsigned int")
+                nil [1285 1323])
+            ("getArity" function
+               (:parent "Term"
+                :type "unsigned int")
+                nil [1325 1369])
+            ("getOriginalArity" function
+               (:parent "Term"
+                :type "unsigned int")
+                nil [1371 1432])
+            ("getLength" function
+               (:parent "Term"
+                :type "unsigned int")
+                nil [1434 1493])
+            ("getSuccessors" function
+               (:parent "Term"
+                :constant-flag t
+                :type ("std::vector" type
+                     (:template-specifier 
+                        ( ("Term" type (:pointer 1) nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [1495 1567])
+            ("getOriginalSuccessors" function
+               (:parent "Term"
+                :constant-flag t
+                :type ("std::vector" type
+                     (:template-specifier 
+                        ( ("Term" type (:pointer 1) nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [1569 1658])
+            ("getPredecessors" function
+               (:parent "Term"
+                :type ("CircularList" type
+                     (:template-specifier 
+                        ( ("Term" type (:pointer 1) nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [1660 1731])
+            ("to_string" function
+               (:parent "Term"
+                :type ("std::string" type (:type "class") nil nil))
+                nil [1733 2079])
+            ("getLeftChild" function
+               (:pointer 1
+                :parent "Term"
+                :type ("Term" type (:type "class") nil nil))
+                nil [2081 2171])
+            ("getRightChild" function
+               (:pointer 1
+                :parent "Term"
+                :type ("Term" type (:type "class") nil nil))
+                nil [2173 2264])
+            ("functionPrettyPrint" function
+               (:parent "Term"
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2308 2326]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [2266 2619])
+            ("<<" function
+               (:operator-flag t
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2649 2667])
+                    ("v" variable
+                       (:reference 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2668 2677]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [2621 3110])
+            ("==" function
+               (:operator-flag t
+                :arguments 
+                  ( ("u" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3129 3144])
+                    ("v" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3145 3160]))                  
+                :type "bool")
+                nil [3112 3188])
+            ("!=" function
+               (:operator-flag t
+                :arguments 
+                  ( ("u" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3207 3222])
+                    ("v" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3223 3238]))                  
+                :type "bool")
+                nil [3190 3261])
+            ("<" function
+               (:operator-flag t
+                :arguments 
+                  ( ("u" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3280 3295])
+                    ("v" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3296 3311]))                  
+                :type "bool")
+                nil [3263 3640])
+            ("<=" function
+               (:operator-flag t
+                :arguments 
+                  ( ("u" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3660 3675])
+                    ("v" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3676 3691]))                  
+                :type "bool")
+                nil [3642 3722])
+            (">" function
+               (:operator-flag t
+                :arguments 
+                  ( ("u" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3740 3755])
+                    ("v" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3756 3771]))                  
+                :type "bool")
+                nil [3724 3792])
+            (">=" function
+               (:operator-flag t
+                :arguments 
+                  ( ("u" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3810 3825])
+                    ("v" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3826 3841]))                  
+                :type "bool")
+                nil [3793 3872]))          
+      :file "Term.cpp"
+      :pointmax 3873
+      :fsize 3872
+      :lastmodtime '(24098 55489 125914 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("Terms" function
+               (:constructor-flag t
+                :parent "Terms"
+                :arguments 
+                  ( ("ctx" variable
+                       (:reference 1
+                        :type ("z3::context" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [509 527])
+                    ("v" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [528 547]))                  
+                :type ("Terms" type (:type "class") nil nil))
+                nil [496 2301])
+            ("Terms" function
+               (:constructor-flag t
+                :parent "Terms"
+                :arguments 
+                  ( ("ctx" variable
+                       (:reference 1
+                        :type ("z3::context" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2440 2458])
+                    ("v" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2459 2478])
+                    ("symbols_to_elim" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("UncommonSymbols" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2479 2519]))                  
+                :type ("Terms" type (:type "class") nil nil))
+                nil [2427 4036])
+            ("Terms" function
+               (:destructor-flag t
+                :parent "Terms"
+                :type "void")
+                nil [4038 4094])
+            ("exitf" function
+               (:parent "Terms"
+                :arguments 
+                  ( ("message" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [4165 4185]))                  
+                :type "void")
+                nil [4147 4240])
+            ("unreachable" function
+               (:parent "Terms"
+                :type "void")
+                nil [4297 4366])
+            ("extractSymbolsAndTerms" function
+               (:parent "Terms"
+                :arguments 
+                  ( ("v" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4445 4464])
+                    ("symbols" variable
+                       (:reference 1
+                        :type ("UncommonSymbols" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4465 4491]))                  
+                :type "void")
+                nil [4410 7091])
+            ("extractTerms" function
+               (:parent "Terms"
+                :arguments 
+                  ( ("v" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7148 7167]))                  
+                :type "void")
+                nil [7123 9580])
+            ("removeSymbols" function
+               (:parent "Terms"
+                :arguments 
+                  ( ("v" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9654 9673])
+                    ("symbols" variable
+                       (:reference 1
+                        :type ("UncommonSymbols" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9674 9700]))                  
+                :type "void")
+                nil [9628 10179])
+            ("identifyCommonSymbols" function
+               (:parent "Terms"
+                :type "void")
+                nil [10266 12564])
+            ("getTerms" function
+               (:parent "Terms"
+                :type ("std::vector" type
+                     (:template-specifier 
+                        ( ("Term" type (:pointer 1) nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [12566 12623])
+            ("setEquivalenceClass" function
+               (:parent "Terms"
+                :arguments 
+                  ( ("uf" variable
+                       (:reference 1
+                        :type ("UnionFind" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12657 12672]))                  
+                :type "void")
+                nil [12625 12701])
+            ("getEquivalenceClass" function
+               (:parent "Terms"
+                :type ("UnionFind" type (:type "class") nil nil))
+                nil [12703 12775])
+            ("getDeepEquivalenceClass" function
+               (:methodconst-flag t
+                :parent "Terms"
+                :constant-flag t
+                :type ("UnionFind" type (:type "class") nil nil))
+                nil [12777 13087])
+            ("getOriginalTerm" function
+               (:methodconst-flag t
+                :pointer 1
+                :parent "Terms"
+                :arguments 
+                  ( ("i" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [13119 13130]))                  
+                :type ("Term" type (:type "class") nil nil))
+                nil [13089 13159])
+            ("getReprTerm" function
+               (:pointer 1
+                :parent "Terms"
+                :arguments 
+                  ( ("i" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [13188 13199]))                  
+                :type ("Term" type (:type "class") nil nil))
+                nil [13161 13245])
+            ("getReprTerm" function
+               (:pointer 1
+                :parent "Terms"
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13273 13282]))                  
+                :type ("Term" type (:type "class") nil nil))
+                nil [13247 13337])
+            ("merge" function
+               (:parent "Terms"
+                :arguments 
+                  ( ("u" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13357 13366])
+                    ("v" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13367 13376]))                  
+                :type "void")
+                nil [13339 13531])
+            ("merge" function
+               (:parent "Terms"
+                :arguments 
+                  ( ("i" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [13551 13562])
+                    ("j" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [13563 13574]))                  
+                :type "void")
+                nil [13533 13784])
+            ("rotate" function
+               (:parent "Terms"
+                :arguments 
+                  ( ("u" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13805 13814])
+                    ("v" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13815 13824]))                  
+                :type "void")
+                nil [13786 14227])
+            ("getRootNum" function
+               (:parent "Terms"
+                :type "unsigned int")
+                nil [14229 14279])
+            ("getCtx" function
+               (:parent "Terms"
+                :type ("z3::context" type (:type "class") nil nil))
+                nil [14281 14327])
+            ("getSymbolsToElim" function
+               (:parent "Terms"
+                :constant-flag t
+                :type ("UncommonSymbols" type (:type "class") nil nil))
+                nil [14329 14407])
+            ("getEquations" function
+               (:parent "Terms"
+                :constant-flag t
+                :type ("std::vector" type
+                     (:template-specifier 
+                        ( ("Equation" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [14409 14483])
+            ("getDisequations" function
+               (:parent "Terms"
+                :constant-flag t
+                :type ("std::vector" type
+                     (:template-specifier 
+                        ( ("Disequation" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [14485 14568])
+            ("areEqual" function
+               (:parent "Terms"
+                :arguments 
+                  ( ("u" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14591 14600])
+                    ("v" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14601 14610]))                  
+                :type "bool")
+                nil [14570 14726])
+            ("areEqual" function
+               (:parent "Terms"
+                :arguments 
+                  ( ("i" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [14749 14760])
+                    ("j" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [14761 14772]))                  
+                :type "bool")
+                nil [14728 14888])
+            ("<<" function
+               (:operator-flag t
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14918 14936])
+                    ("gterms" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Terms" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14937 14958]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [14890 15062]))          
+      :file "Terms.cpp"
+      :pointmax 15063
+      :fsize 15062
+      :lastmodtime '(24098 55489 125914 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("UnionFind.h" include nil nil [1 23])
+            ("UnionFind" function
+               (:constructor-flag t
+                :parent "UnionFind"
+                :type ("UnionFind" type (:type "class") nil nil))
+                nil [25 49])
+            ("UnionFind" function
+               (:constructor-flag t
+                :parent "UnionFind"
+                :arguments 
+                  ( ("n" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [73 84]))                  
+                :type ("UnionFind" type (:type "class") nil nil))
+                nil [52 176])
+            ("UnionFind" function
+               (:constructor-flag t
+                :parent "UnionFind"
+                :arguments 
+                  ( ("values" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("unsigned int" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [199 236]))                  
+                :type ("UnionFind" type (:type "class") nil nil))
+                nil [178 264])
+            ("UnionFind" function
+               (:destructor-flag t
+                :parent "UnionFind"
+                :type "void")
+                nil [267 293])
+            ("merge" function
+               (:parent "UnionFind"
+                :arguments 
+                  ( ("x" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [382 393])
+                    ("y" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [394 405]))                  
+                :type "void")
+                nil [360 445])
+            ("link" function
+               (:parent "UnionFind"
+                :arguments 
+                  ( ("x" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [468 479])
+                    ("y" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [480 491]))                  
+                :type "void")
+                nil [447 519])
+            ("reset" function
+               (:parent "UnionFind"
+                :arguments 
+                  ( ("i" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [543 554]))                  
+                :type "void")
+                nil [521 582])
+            ("find" function
+               (:parent "UnionFind"
+                :arguments 
+                  ( ("x" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [609 620]))                  
+                :type "unsigned int")
+                nil [584 731])
+            ("size" function
+               (:methodconst-flag t
+                :parent "UnionFind"
+                :type "unsigned int")
+                nil [733 801])
+            ("[]" function
+               (:methodconst-flag t
+                :operator-flag t
+                :parent "UnionFind"
+                :arguments 
+                  ( ("index" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [834 849]))                  
+                :type "unsigned int")
+                nil [803 891])
+            ("<<" function
+               (:operator-flag t
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [921 939])
+                    ("uf" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("UnionFind" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [940 961]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [893 1125]))          
+      :file "UnionFind.cpp"
+      :pointmax 1126
+      :fsize 1125
+      :lastmodtime '(24138 64105 475569 794000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("EUFInterpolant.h" include nil nil [1 28])
+            ("DEBUG_EUFINTERPOLANT" variable (:constant-flag t) nil [37 57])
+            ("EquationTerm" type
+               (:typedef ("std::pair" type
+                     (:template-specifier 
+                        ( ("Term" type (:pointer 1) nil nil)
+                          ("Term" type (:pointer 1) nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [65 110])
+            ("EUFInterpolant" function
+               (:constructor-flag t
+                :parent "EUFInterpolant"
+                :arguments 
+                  ( ("e" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [143 162])
+                    ("s" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::sort" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [163 182]))                  
+                :type ("EUFInterpolant" type (:type "class") nil nil))
+                nil [112 413])
+            ("EUFInterpolant" function
+               (:constructor-flag t
+                :parent "EUFInterpolant"
+                :arguments 
+                  ( ("e" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [446 465])
+                    ("symbols_to_elim" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("UncommonSymbols" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [466 506])
+                    ("s" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::sort" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [507 526]))                  
+                :type ("EUFInterpolant" type (:type "class") nil nil))
+                nil [415 791])
+            ("EUFInterpolant" function
+               (:destructor-flag t
+                :parent "EUFInterpolant"
+                :type "void")
+                nil [793 829])
+            ("buildInterpolant" function
+               (:parent "EUFInterpolant"
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [831 1647])
+            ("getHornClauses" function
+               (:parent "EUFInterpolant"
+                :type ("std::vector" type
+                     (:template-specifier 
+                        ( ("HornClause" type (:pointer 1) nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [1649 1749])
+            ("eliminationOfUncommonFSyms" function
+               (:parent "EUFInterpolant"
+                :type "void")
+                nil [1894 3072])
+            ("addNegativeHornClauses" function
+               (:parent "EUFInterpolant"
+                :type "void")
+                nil [3074 3940])
+            ("getUncommonTermsToElim" function
+               (:parent "EUFInterpolant"
+                :arguments 
+                  ( ("horn_clauses" variable
+                       (:reference 1
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("HornClause" type (:pointer 1) nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3997 4037]))                  
+                :type ("z3::expr_vector" type (:type "class") nil nil))
+                nil [3942 4472])
+            ("exponentialElimination" function
+               (:parent "EUFInterpolant"
+                :arguments 
+                  ( ("equations" variable
+                       (:reference 1
+                        :type ("z3::expr_vector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4529 4557])
+                    ("terms_elim" variable
+                       (:reference 1
+                        :type ("z3::expr_vector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4571 4600])
+                    ("hcs" variable
+                       (:reference 1
+                        :type ("z3::expr_vector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4614 4636]))                  
+                :type ("z3::expr_vector" type (:type "class") nil nil))
+                nil [4474 5946])
+            ("substitutions" function
+               (:parent "EUFInterpolant"
+                :arguments 
+                  ( ("equation" variable
+                       (:reference 1
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5995 6015])
+                    ("term_elim" variable
+                       (:reference 1
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6027 6048])
+                    ("hcs" variable
+                       (:reference 1
+                        :type ("z3::expr_vector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6060 6082]))                  
+                :type ("z3::expr_vector" type (:type "class") nil nil))
+                nil [5949 7150])
+            ("<<" function
+               (:operator-flag t
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7204 7222])
+                    ("euf" variable
+                       (:reference 1
+                        :type ("EUFInterpolant" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7223 7244]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [7176 7260]))          
+      :file "EUFInterpolant.cpp"
+      :pointmax 7261
+      :fsize 7260
+      :lastmodtime '(24098 55489 109914 0)
+      :unmatched-syntax '((semantic-list 7245 . 7261) (symbol 7244 . 7245) (semantic-list 7203 . 7244) (punctuation 7201 . 7202) (punctuation 7200 . 7201) (OPERATOR 7191 . 7199) (punctuation 7189 . 7190) (symbol 7181 . 7188) (punctuation 7180 . 7181) (punctuation 7179 . 7180) (symbol 7176 . 7179))
+      :lexical-table 
+        '(("DEBUG_EUFINTERPOLANT" . ((symbol "false" 58 . 63)))
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("CongruenceClosure.h" include nil nil [1 31])
+            ("TRACE_MERGE" variable (:constant-flag t) nil [41 52])
+            ("TRACE_COMBINE" variable (:constant-flag t) nil [73 86])
+            ("TRACE_PENDING" variable (:constant-flag t) nil [105 118])
+            ("TRACE_EC" variable (:constant-flag t) nil [137 145])
+            ("TRACE_SIG_TABLE" variable (:constant-flag t) nil [169 184])
+            ("BEFORE_CC" variable (:constant-flag t) nil [201 210])
+            ("AFTER_CC" variable (:constant-flag t) nil [233 241])
+            ("CHECK_CORRECTNESS" variable (:constant-flag t) nil [265 282])
+            ("DEBUG_SCR" variable (:constant-flag t) nil [297 306])
+            ("setCommonRepresentatives" function
+               (:parent "CongruenceClosure"
+                :type "void")
+                nil [322 1301])
+            ("processEquations" function
+               (:parent "CongruenceClosure"
+                :type "void")
+                nil [1303 3369])
+            ("CongruenceClosure" function
+               (:constructor-flag t
+                :parent "CongruenceClosure"
+                :arguments 
+                  ( ("ctx" variable
+                       (:reference 1
+                        :type ("z3::context" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3408 3426])
+                    ("v" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3427 3446]))                  
+                :type ("CongruenceClosure" type (:type "class") nil nil))
+                nil [3371 3490])
+            ("CongruenceClosure" function
+               (:constructor-flag t
+                :parent "CongruenceClosure"
+                :arguments 
+                  ( ("ctx" variable
+                       (:reference 1
+                        :type ("z3::context" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3529 3547])
+                    ("v" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3557 3576])
+                    ("symbols_to_elim" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("UncommonSymbols" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3586 3626]))                  
+                :type ("CongruenceClosure" type (:type "class") nil nil))
+                nil [3492 3687])
+            ("CongruenceClosure" function
+               (:destructor-flag t
+                :parent "CongruenceClosure"
+                :type "void")
+                nil [3689 3731])
+            ("buildCongruenceClosure" function
+               (:parent "CongruenceClosure"
+                :type "void")
+                nil [3733 6944])
+            ("checkCorrectness" function
+               (:parent "CongruenceClosure"
+                :type "bool")
+                nil [6946 8236])
+            ("transferEqClassAndPreds" function
+               (:parent "CongruenceClosure"
+                :arguments 
+                  ( ("cc" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("CongruenceClosure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8286 8315]))                  
+                :type "void")
+                nil [8238 8374])
+            ("transferEqClass" function
+               (:parent "CongruenceClosure"
+                :arguments 
+                  ( ("cc" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("CongruenceClosure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8416 8445]))                  
+                :type "void")
+                nil [8376 8535])
+            ("transferPreds" function
+               (:parent "CongruenceClosure"
+                :arguments 
+                  ( ("cc" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("CongruenceClosure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8575 8604]))                  
+                :type "void")
+                nil [8537 9136])
+            ("addEquation" function
+               (:parent "CongruenceClosure"
+                :arguments 
+                  ( ("u" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9174 9183])
+                    ("v" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9184 9193]))                  
+                :type "void")
+                nil [9138 9235])
+            ("addEquation" function
+               (:parent "CongruenceClosure"
+                :arguments 
+                  ( ("i" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [9273 9284])
+                    ("j" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [9285 9296]))                  
+                :type "void")
+                nil [9237 9755])
+            ("getSymbolLocations" function
+               (:parent "CongruenceClosure"
+                :constant-flag t
+                :type ("SymbolLocations" type (:type "class") nil nil))
+                nil [9757 9850])
+            ("<<" function
+               (:operator-flag t
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9880 9898])
+                    ("cc" variable
+                       (:reference 1
+                        :type ("CongruenceClosure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9899 9922]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [9852 10732]))          
+      :file "CongruenceClosure.cpp"
+      :pointmax 10733
+      :fsize 10732
+      :lastmodtime '(24098 55489 101914 0)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("TRACE_SIG_TABLE" . ((symbol "false" 187 . 192)))
+          ("AFTER_CC" . ((symbol "false" 251 . 256)))
+          ("TRACE_PENDING" . ((symbol "false" 123 . 128)))
+          ("TRACE_EC" . ((symbol "false" 155 . 160)))
+          ("BEFORE_CC" . ((symbol "false" 219 . 224)))
+          ("CHECK_CORRECTNESS" . ((symbol "false" 283 . 288)))
+          ("TRACE_COMBINE" . ((symbol "false" 91 . 96)))
+          ("TRACE_MERGE" . ((symbol "false" 59 . 64)))
+          ("DEBUG_SCR" . ((symbol "false" 315 . 320)))
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("CircularList" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type ("CircularList" type (:type "class") nil nil)
+                :parent "CircularList"
+                :constructor-flag t)
+                nil [1 88])
+            ("CircularList" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type "void"
+                :parent "CircularList"
+                :destructor-flag t)
+                nil [90 457])
+            ("size" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type "unsigned int"
+                :parent "CircularList")
+                nil [459 537])
+            ("add" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type "void"
+                :arguments 
+                  ( ("element" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("T" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [587 605]))                  
+                :parent "CircularList")
+                nil [539 696])
+            ("addEmpty" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type "void"
+                :arguments 
+                  ( ("element" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("T" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [751 769]))                  
+                :parent "CircularList")
+                nil [698 908])
+            ("addNonEmpty" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type "void"
+                :arguments 
+                  ( ("element" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("T" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [966 984]))                  
+                :parent "CircularList")
+                nil [910 1158])
+            ("merge" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type "void"
+                :arguments 
+                  ( ("circular_list" variable
+                       (:reference 1
+                        :type ("CircularList" type
+                             (:template-specifier 
+                                ( ("T" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1210 1242]))                  
+                :parent "CircularList")
+                nil [1160 1689])
+            ("getElements" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type ("node" type
+                     (:template-specifier 
+                        ( ("T" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :constant-flag t
+                :parent "CircularList")
+                nil [1691 1781])
+            ("begin" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type ("node" type
+                     (:template-specifier 
+                        ( ("T" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :parent "CircularList"
+                :pointer 1)
+                nil [1783 1867])
+            ("end" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type ("node" type
+                     (:template-specifier 
+                        ( ("T" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :parent "CircularList"
+                :pointer 1)
+                nil [1869 1945])
+            ("empty" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type "bool"
+                :parent "CircularList")
+                nil [1947 2039])
+            ("iterator" function
+               (:constructor-flag t
+                :parent "iterator"
+                :arguments 
+                  ( ("n" variable
+                       (:pointer 1
+                        :type ("node" type
+                             (:template-specifier 
+                                ( ("T" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2099 2111]))                  
+                :type ("iterator" type (:type "class") nil nil))
+                nil [2080 2122])
+            ("iterator" function
+               (:destructor-flag t
+                :parent "iterator"
+                :type "void")
+                nil [2164 2187])
+            ("++" function
+               (:operator-flag t
+                :parent "iterator"
+                :type "int")
+                nil [2265 2325])
+            ("==" function
+               (:methodconst-flag t
+                :operator-flag t
+                :parent "iterator"
+                :arguments 
+                  ( ("n" variable
+                       (:pointer 1
+                        :type ("node" type
+                             (:template-specifier 
+                                ( ("T" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2394 2406]))                  
+                :type "int")
+                nil [2371 2436])
+            ("!=" function
+               (:methodconst-flag t
+                :operator-flag t
+                :parent "iterator"
+                :arguments 
+                  ( ("n" variable
+                       (:pointer 1
+                        :type ("node" type
+                             (:template-specifier 
+                                ( ("T" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2505 2517]))                  
+                :type "int")
+                nil [2482 2547])
+            ("" function
+               (:operator-flag t
+                :function-pointer t
+                :parent "iterator"
+                :type "int")
+                nil [2597 2638])
+            ("<<" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type ("std::ostream" type (:type "class") nil nil)
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2690 2708])
+                    ("x" variable
+                       (:reference 1
+                        :type ("CircularList" type
+                             (:template-specifier 
+                                ( ("T" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2709 2729]))                  
+                :operator-flag t)
+                nil [2640 2884])
+            ("<<" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type ("std::ostream" type (:type "class") nil nil)
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2989 3007])
+                    ("x" variable
+                       (:reference 1
+                        :type ("CircularList" type
+                             (:template-specifier 
+                                ( ("T" type (:pointer 1) nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3008 3029]))                  
+                :operator-flag t)
+                nil [2939 3192]))          
+      :file "CircularList.tpp"
+      :pointmax 3193
+      :fsize 3192
+      :lastmodtime '(24138 64340 653992 422000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("SignatureTable.h" include nil nil [1 28])
+            ("SignatureTable" function
+               (:constructor-flag t
+                :parent "SignatureTable"
+                :type ("SignatureTable" type (:type "class") nil nil))
+                nil [30 64])
+            ("SignatureTable" function
+               (:destructor-flag t
+                :parent "SignatureTable"
+                :type "void")
+                nil [67 102])
+            ("enter" function
+               (:parent "SignatureTable"
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [131 139])
+                    ("eq_class" variable
+                       (:reference 1
+                        :type ("UnionFind" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [140 161]))                  
+                :type "void")
+                nil [104 478])
+            ("remove" function
+               (:parent "SignatureTable"
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [508 517])
+                    ("eq_class" variable
+                       (:reference 1
+                        :type ("UnionFind" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [518 539]))                  
+                :type "void")
+                nil [480 942])
+            ("query" function
+               (:pointer 1
+                :parent "SignatureTable"
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [973 982])
+                    ("eq_class" variable
+                       (:reference 1
+                        :type ("UnionFind" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [983 1004]))                  
+                :type ("Term" type (:type "class") nil nil))
+                nil [944 1463])
+            ("getUnarySignature" function
+               (:parent "SignatureTable"
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1514 1523])
+                    ("eq_class" variable
+                       (:reference 1
+                        :type ("UnionFind" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1524 1545]))                  
+                :type ("UnarySignature" type (:type "class") nil nil))
+                nil [1465 1755])
+            ("getBinarySignature" function
+               (:parent "SignatureTable"
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1808 1817])
+                    ("eq_class" variable
+                       (:reference 1
+                        :type ("UnionFind" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1818 1839]))                  
+                :type ("BinarySignature" type (:type "class") nil nil))
+                nil [1757 2095])
+            ("<<" function
+               (:operator-flag t
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2125 2143])
+                    ("st" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("SignatureTable" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2144 2170]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [2097 2578]))          
+      :file "SignatureTable.cpp"
+      :pointmax 2579
+      :fsize 2578
+      :lastmodtime '(24098 55489 125914 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("ConvertReprToZ3.h" include nil nil [1 29])
+            ("Converter" function
+               (:constructor-flag t
+                :parent "Converter"
+                :arguments 
+                  ( ("c" variable
+                       (:reference 1
+                        :type ("z3::context" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [79 95])
+                    ("s" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::sort" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [96 115]))                  
+                :type ("Converter" type (:type "class") nil nil))
+                nil [58 141])
+            ("convert" function
+               (:parent "Converter"
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [171 180]))                  
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [143 738])
+            ("convert" function
+               (:parent "Converter"
+                :arguments 
+                  ( ("eq" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("EquationTerm" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [768 792]))                  
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [740 845])
+            ("convert" function
+               (:parent "Converter"
+                :arguments 
+                  ( ("eqs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("EquationTerm" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [875 913]))                  
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [847 1091])
+            ("convert" function
+               (:parent "Converter"
+                :arguments 
+                  ( ("eqs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("Equation" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1128 1162]))                  
+                :type ("z3::expr_vector" type (:type "class") nil nil))
+                nil [1093 1279])
+            ("convert" function
+               (:parent "Converter"
+                :arguments 
+                  ( ("hc" variable
+                       (:pointer 1
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1309 1325]))                  
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [1281 1823])
+            ("convert" function
+               (:parent "Converter"
+                :arguments 
+                  ( ("hcs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("HornClause" type (:pointer 1) nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1860 1897]))                  
+                :type ("z3::expr_vector" type (:type "class") nil nil))
+                nil [1825 2036])
+            ("makeConjunction" function
+               (:parent "Converter"
+                :arguments 
+                  ( ("v" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr_vector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2074 2100]))                  
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [2038 2317])
+            ("getAntecedent" function
+               (:parent "Converter"
+                :arguments 
+                  ( ("hc" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2353 2373]))                  
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [2319 2470])
+            ("getConsequent" function
+               (:parent "Converter"
+                :arguments 
+                  ( ("hc" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2506 2526]))                  
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [2472 2623])
+            ("extraSimplification" function
+               (:parent "Converter"
+                :arguments 
+                  ( ("formulas" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr_vector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2672 2705]))                  
+                :type ("z3::expr_vector" type (:type "class") nil nil))
+                nil [2625 4007])
+            ("removeUncommonTerms" function
+               (:parent "Converter"
+                :arguments 
+                  ( ("formulas" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr_vector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4056 4089]))                  
+                :type ("z3::expr_vector" type (:type "class") nil nil))
+                nil [4009 4395])
+            ("getSymbols" function
+               (:parent "Converter"
+                :arguments 
+                  ( ("formula" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4441 4466]))                  
+                :type ("std::set" type
+                     (:template-specifier 
+                        ( ("std::string" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [4397 4560])
+            ("auxiliarGetSymbols" function
+               (:parent "Converter"
+                :arguments 
+                  ( ("e" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4597 4616])
+                    ("symbols" variable
+                       (:reference 1
+                        :type ("std::set" type
+                             (:template-specifier 
+                                ( ("std::string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4617 4649]))                  
+                :type "void")
+                nil [4562 5021]))          
+      :file "ConvertReprToZ3.cpp"
+      :pointmax 5022
+      :fsize 5021
+      :lastmodtime '(24098 55489 101914 0)
+      :unmatched-syntax '((semantic-list 4649 . 5021) (semantic-list 4596 . 4649) (semantic-list 4466 . 4560) (semantic-list 4440 . 4466)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("HornClause.h" include nil nil [1 24])
+            ("HornClause" function
+               (:constructor-flag t
+                :parent "HornClause"
+                :arguments 
+                  ( ("cc" variable
+                       (:reference 1
+                        :type ("CongruenceClosure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [340 363])
+                    ("u" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [373 382])
+                    ("v" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [383 392])
+                    ("is_disequation" variable (:type "bool") (reparse-symbol arg-sub-list) [402 422]))                  
+                :type ("HornClause" type (:type "class") nil nil))
+                nil [317 2255])
+            ("HornClause" function
+               (:constructor-flag t
+                :parent "HornClause"
+                :arguments 
+                  ( ("cc" variable
+                       (:reference 1
+                        :type ("CongruenceClosure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2282 2305])
+                    ("antecedent" variable
+                       (:reference 1
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("EquationTerm" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2315 2354])
+                    ("consequent" variable
+                       (:reference 1
+                        :type ("EquationTerm" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2364 2390]))                  
+                :type ("HornClause" type (:type "class") nil nil))
+                nil [2259 2964])
+            ("HornClause" function
+               (:destructor-flag t
+                :parent "HornClause"
+                :type "void")
+                nil [2966 2994])
+            ("checkTriviality" function
+               (:parent "HornClause"
+                :arguments 
+                  ( ("uf" variable
+                       (:reference 1
+                        :type ("UnionFind" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3029 3044]))                  
+                :type "bool")
+                nil [2996 3136])
+            ("getAntecedentCommon" function
+               (:parent "HornClause"
+                :type "bool")
+                nil [3138 3210])
+            ("getConsequentCommon" function
+               (:parent "HornClause"
+                :type "bool")
+                nil [3211 3283])
+            ("getMaximalConsequent" function
+               (:parent "HornClause"
+                :type "bool")
+                nil [3285 3374])
+            ("getAntecedent" function
+               (:parent "HornClause"
+                :type ("std::vector" type
+                     (:template-specifier 
+                        ( ("EquationTerm" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [3376 3455])
+            ("getConsequent" function
+               (:parent "HornClause"
+                :type ("EquationTerm" type (:type "class") nil nil))
+                nil [3457 3523])
+            ("getLocalUF" function
+               (:parent "HornClause"
+                :type ("UnionFind" type (:type "class") nil nil))
+                nil [3525 3592])
+            ("orient" function
+               (:parent "HornClause"
+                :type "void")
+                nil [3759 4151])
+            ("normalize" function
+               (:parent "HornClause"
+                :arguments 
+                  ( ("cc" variable
+                       (:reference 1
+                        :type ("CongruenceClosure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4180 4203]))                  
+                :type "void")
+                nil [4153 4561])
+            ("compareEquations" function
+               (:parent "HornClause"
+                :arguments 
+                  ( ("eq1" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("EquationTerm" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4597 4622])
+                    ("eq2" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("EquationTerm" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4623 4648]))                  
+                :type "bool")
+                nil [4563 4783])
+            (">" function
+               (:operator-flag t
+                :arguments 
+                  ( ("hc1" variable
+                       (:reference 1
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5617 5634])
+                    ("hc2" variable
+                       (:reference 1
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5635 5652]))                  
+                :type "bool")
+                nil [5600 5949])
+            ("<" function
+               (:operator-flag t
+                :arguments 
+                  ( ("hc1" variable
+                       (:reference 1
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5968 5985])
+                    ("hc2" variable
+                       (:reference 1
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5986 6003]))                  
+                :type "bool")
+                nil [5951 6026])
+            ("<<" function
+               (:operator-flag t
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6056 6074])
+                    ("hc" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6075 6097]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [6028 6463]))          
+      :file "HornClause.cpp"
+      :pointmax 6464
+      :fsize 6463
+      :lastmodtime '(24140 34945 812465 548000)
+      :unmatched-syntax '((semantic-list 6003 . 6026) (semantic-list 5967 . 6003) (punctuation 5965 . 5966) (OPERATOR 5956 . 5964) (semantic-list 5652 . 5949) (semantic-list 5616 . 5652) (punctuation 5614 . 5615) (OPERATOR 5605 . 5613) (semantic-list 4648 . 4783) (semantic-list 4596 . 4648) (semantic-list 6003 . 6026) (semantic-list 5967 . 6003) (punctuation 5965 . 5966) (OPERATOR 5956 . 5964) (semantic-list 5652 . 5949) (semantic-list 5616 . 5652) (punctuation 5614 . 5615) (OPERATOR 5605 . 5613) (semantic-list 4648 . 4783) (semantic-list 4596 . 4648) (semantic-list 6003 . 6026) (semantic-list 5967 . 6003) (punctuation 5965 . 5966) (OPERATOR 5956 . 5964) (semantic-list 5652 . 5949) (semantic-list 5616 . 5652) (punctuation 5614 . 5615) (OPERATOR 5605 . 5613) (semantic-list 4648 . 4783) (semantic-list 4596 . 4648)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("HornClauses.h" include nil nil [1 25])
+            ("DEBUG_HORN_CLAUSES" variable (:constant-flag t) nil [34 52])
+            ("DEBUG_ADDINGHC" variable (:constant-flag t) nil [73 87])
+            ("DEBUG_MAKE_MATCHES" variable (:constant-flag t) nil [112 130])
+            ("DEBUG_CE" variable (:constant-flag t) nil [151 159])
+            ("DEBUG_COMBINATION_HELPER" variable (:constant-flag t) nil [190 214])
+            ("DEBUG_MC2CMC2A" variable (:constant-flag t) nil [229 243])
+            ("DEBUG_MC1CMC1A" variable (:constant-flag t) nil [268 282])
+            ("DEBUG_MC1CMC2A" variable (:constant-flag t) nil [307 321])
+            ("DEBUG_MC1CMC1A2" variable (:constant-flag t) nil [346 361])
+            ("HornClauses" function
+               (:constructor-flag t
+                :parent "HornClauses"
+                :arguments 
+                  ( ("original_closure" variable
+                       (:reference 1
+                        :type ("CongruenceClosure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [403 440])
+                    ("auxiliar_closure" variable
+                       (:reference 1
+                        :type ("CongruenceClosure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [445 482]))                  
+                :type ("HornClauses" type (:type "class") nil nil))
+                nil [378 551])
+            ("HornClauses" function
+               (:destructor-flag t
+                :parent "HornClauses"
+                :type "void")
+                nil [553 628])
+            ("addHornClause" function
+               (:parent "HornClauses"
+                :arguments 
+                  ( ("u" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [662 670])
+                    ("v" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [671 679])
+                    ("is_disequation" variable (:type "bool") (reparse-symbol arg-sub-list) [680 700]))                  
+                :type "void")
+                nil [630 814])
+            ("addHornClause" function
+               (:parent "HornClauses"
+                :arguments 
+                  ( ("antecedent" variable
+                       (:reference 1
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("EquationTerm" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [848 887])
+                    ("consequent" variable
+                       (:reference 1
+                        :type ("EquationTerm" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [888 914])
+                    ("is_disequation" variable (:type "bool") (reparse-symbol arg-sub-list) [915 935]))                  
+                :type "void")
+                nil [816 1051])
+            ("decideHornClause" function
+               (:parent "HornClauses"
+                :arguments 
+                  ( ("hc" variable
+                       (:pointer 1
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1088 1104])
+                    ("is_disequation" variable (:type "bool") (reparse-symbol arg-sub-list) [1105 1125]))                  
+                :type "void")
+                nil [1053 1630])
+            ("conditionalElimination" function
+               (:parent "HornClauses"
+                :type "void")
+                nil [1632 3365])
+            ("mc2ConsequentAndmc2Antecedent" function
+               (:parent "HornClauses"
+                :arguments 
+                  ( ("prev_combinations" variable
+                       (:reference 1
+                        :type ("SetOfUnsignedPairs" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3507 3546])
+                    ("change" variable
+                       (:reference 1
+                        :type "bool")
+                        (reparse-symbol arg-sub-list) [3547 3561]))                  
+                :type "void")
+                nil [3459 4445])
+            ("mc1ConsequentAndmc1Antecedent" function
+               (:parent "HornClauses"
+                :arguments 
+                  ( ("prev_combinations" variable
+                       (:reference 1
+                        :type ("SetOfUnsignedPairs" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4579 4618])
+                    ("change" variable
+                       (:reference 1
+                        :type "bool")
+                        (reparse-symbol arg-sub-list) [4619 4633]))                  
+                :type "void")
+                nil [4531 5585])
+            ("mc1ConsequentAndmc2Antecedent" function
+               (:parent "HornClauses"
+                :arguments 
+                  ( ("prev_combinations" variable
+                       (:reference 1
+                        :type ("SetOfUnsignedPairs" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5724 5763])
+                    ("change" variable
+                       (:reference 1
+                        :type "bool")
+                        (reparse-symbol arg-sub-list) [5764 5778]))                  
+                :type "void")
+                nil [5676 7018])
+            ("mc1ConsequentAndmc1Consequent" function
+               (:parent "HornClauses"
+                :arguments 
+                  ( ("prev_combinations" variable
+                       (:reference 1
+                        :type ("SetOfUnsignedPairs" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7149 7188])
+                    ("change" variable
+                       (:reference 1
+                        :type "bool")
+                        (reparse-symbol arg-sub-list) [7189 7203]))                  
+                :type "void")
+                nil [7101 8258])
+            ("simplifyHornClauses" function
+               (:parent "HornClauses"
+                :type "void")
+                nil [8416 9630])
+            ("makeMatches" function
+               (:parent "HornClauses"
+                :arguments 
+                  ( ("hc" variable
+                       (:pointer 1
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10015 10031])
+                    ("current_index" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [10032 10055]))                  
+                :type "void")
+                nil [9985 12516])
+            ("mergeType2_1AndType3" function
+               (:parent "HornClauses"
+                :arguments 
+                  ( ("h_left" variable
+                       (:pointer 1
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12557 12577])
+                    ("h_right" variable
+                       (:pointer 1
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12578 12599])
+                    ("to_remove" variable
+                       (:reference 1
+                        :type ("EquationTerm" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12600 12625]))                  
+                :type "void")
+                nil [12518 13173])
+            ("mergeType2_1AndType4" function
+               (:parent "HornClauses"
+                :arguments 
+                  ( ("h1" variable
+                       (:pointer 1
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13214 13230])
+                    ("h2" variable
+                       (:pointer 1
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13231 13247]))                  
+                :type "void")
+                nil [13175 13284])
+            ("mergeType2AndType2" function
+               (:parent "HornClauses"
+                :arguments 
+                  ( ("h_left" variable
+                       (:pointer 1
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13404 13424])
+                    ("h_right" variable
+                       (:pointer 1
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13425 13446])
+                    ("to_remove" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13447 13464]))                  
+                :type "void")
+                nil [13367 13873])
+            ("mergeType2AndType3" function
+               (:parent "HornClauses"
+                :arguments 
+                  ( ("h_left" variable
+                       (:pointer 1
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13912 13932])
+                    ("h_right" variable
+                       (:pointer 1
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13933 13954])
+                    ("to_remove" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13955 13972]))                  
+                :type "void")
+                nil [13875 15109])
+            ("mergeType2AndType4" function
+               (:parent "HornClauses"
+                :arguments 
+                  ( ("h1" variable
+                       (:pointer 1
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15148 15164])
+                    ("h2" variable
+                       (:pointer 1
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15165 15181]))                  
+                :type "void")
+                nil [15111 15216])
+            ("combinationHelper" function
+               (:parent "HornClauses"
+                :arguments 
+                  ( ("hc" variable
+                       (:pointer 1
+                        :type ("HornClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15254 15270]))                  
+                :type "void")
+                nil [15218 15852])
+            ("size" function
+               (:parent "HornClauses"
+                :type "unsigned int")
+                nil [15854 15915])
+            ("getHornClauses" function
+               (:parent "HornClauses"
+                :type ("std::vector" type
+                     (:template-specifier 
+                        ( ("HornClause" type (:pointer 1) nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [15917 16264])
+            ("getReducibleHornClauses" function
+               (:parent "HornClauses"
+                :type ("std::vector" type
+                     (:template-specifier 
+                        ( ("HornClause" type (:pointer 1) nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [16266 16539])
+            ("swap" function
+               (:template 
+                  ( ("A" type (:type "class") nil nil))                  
+                :type "void"
+                :arguments 
+                  ( ("a" variable
+                       (:reference 1
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("A" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [16585 16604])
+                    ("i" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [16605 16616])
+                    ("j" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [16617 16628]))                  
+                :parent "HornClauses")
+                nil [16541 16678])
+            ("printMatch1" function
+               (:parent "HornClauses"
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16720 16738])
+                    ("m1" variable
+                       (:reference 1
+                        :type ("Match1" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16739 16751]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [16680 16948])
+            ("printMatch2" function
+               (:parent "HornClauses"
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16990 17008])
+                    ("m2" variable
+                       (:reference 1
+                        :type ("Match2" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17009 17021]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [16950 17293])
+            ("<<" function
+               (:operator-flag t
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17323 17341])
+                    ("hcs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("HornClauses" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17342 17366]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [17295 17484]))          
+      :file "HornClauses.cpp"
+      :pointmax 17485
+      :fsize 17484
+      :lastmodtime '(24144 5602 627952 163000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("DEBUG_COMBINATION_HELPER" . ((symbol "false" 215 . 220)))
+          ("DEBUG_MC1CMC1A2" . ((symbol "false" 371 . 376)))
+          ("DEBUG_CE" . ((symbol "false" 176 . 181)))
+          ("DEBUG_HORN_CLAUSES" . ((symbol "false" 59 . 64)))
+          ("DEBUG_MAKE_MATCHES" . ((symbol "false" 137 . 142)))
+          ("DEBUG_MC2CMC2A" . ((symbol "false" 254 . 259)))
+          ("DEBUG_MC1CMC1A" . ((symbol "false" 293 . 298)))
+          ("DEBUG_ADDINGHC" . ((symbol "false" 98 . 103)))
+          ("DEBUG_MC1CMC2A" . ((symbol "false" 332 . 337)))
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("Signature.h" include nil nil [1 23])
+            ("UnarySignature" function
+               (:constructor-flag t
+                :parent "UnarySignature"
+                :arguments 
+                  ( ("name" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [56 81])
+                    ("first_signature" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [92 117]))                  
+                :type ("UnarySignature" type (:type "class") nil nil))
+                nil [25 168])
+            ("UnarySignature" function
+               (:destructor-flag t
+                :parent "UnarySignature"
+                :type "void")
+                nil [170 205])
+            ("==" function
+               (:methodconst-flag t
+                :operator-flag t
+                :parent "UnarySignature"
+                :arguments 
+                  ( ("x" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("UnarySignature" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [239 264]))                  
+                :type "bool")
+                nil [207 356])
+            ("<<" function
+               (:operator-flag t
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [386 404])
+                    ("x" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("UnarySignature" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [405 430]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [358 548])
+            ("()" function
+               (:methodconst-flag t
+                :operator-flag t
+                :parent "UnarySignature::Hash"
+                :arguments 
+                  ( ("x" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("UnarySignature" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [595 620]))                  
+                :type ("std::size_t" type (:type "class") nil nil))
+                nil [550 850])
+            ("BinarySignature" function
+               (:constructor-flag t
+                :parent "BinarySignature"
+                :arguments 
+                  ( ("name" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [885 910])
+                    ("first_signature" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [916 941])
+                    ("second_signature" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [942 968]))                  
+                :type ("BinarySignature" type (:type "class") nil nil))
+                nil [852 1055])
+            ("BinarySignature" function
+               (:destructor-flag t
+                :parent "BinarySignature"
+                :type "void")
+                nil [1057 1094])
+            ("==" function
+               (:methodconst-flag t
+                :operator-flag t
+                :parent "BinarySignature"
+                :arguments 
+                  ( ("x" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("BinarySignature" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1129 1155]))                  
+                :type "bool")
+                nil [1096 1298])
+            ("<<" function
+               (:operator-flag t
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1328 1346])
+                    ("x" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("BinarySignature" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1347 1373]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [1300 1546])
+            ("()" function
+               (:methodconst-flag t
+                :operator-flag t
+                :parent "BinarySignature::Hash"
+                :arguments 
+                  ( ("x" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("BinarySignature" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1594 1620]))                  
+                :type ("std::size_t" type (:type "class") nil nil))
+                nil [1548 1887]))          
+      :file "Signature.cpp"
+      :pointmax 1888
+      :fsize 1887
+      :lastmodtime '(24098 55489 125914 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("Node.h" include nil nil [1 18]))          
+      :file "Node.cpp"
+      :pointmax 19
+      :fsize 18
+      :lastmodtime '(24098 55489 125914 0)
+      :unmatched-syntax nil))
+  :file "!home!jose!Documents!GithubProjects!master-thesis!Software!Cpp!EUFInterpolants!src!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

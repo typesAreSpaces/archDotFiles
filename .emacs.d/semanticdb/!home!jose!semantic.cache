@@ -1,0 +1,157 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("sum" function
+               (:arguments 
+                  ( ("i" variable (:type "int") (reparse-symbol arg-sub-list) [30 36])
+                    ("j" variable (:type "int") (reparse-symbol arg-sub-list) [37 43])
+                    ("f" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable (:type "int") (reparse-symbol arg-sub-list) [52 56]))                          
+                        :type "int")
+                        nil nil))                  
+                :type "int")
+                nil [22 145])
+            ("id" function
+               (:arguments 
+                  ( ("i" variable (:type "int") (reparse-symbol arg-sub-list) [154 160]))                  
+                :type "int")
+                nil [147 175])
+            ("doubles" function
+               (:arguments 
+                  ( ("i" variable (:type "int") (reparse-symbol arg-sub-list) [189 195]))                  
+                :type "int")
+                nil [177 212])
+            ("main" function (:type "int") nil [214 293]))          
+      :file "func_pointer.cpp"
+      :pointmax 294
+      :fsize 293
+      :lastmodtime '(24163 63587 397026 362000)
+      :unmatched-syntax '((semantic-list 194 . 211) (semantic-list 187 . 194) (DOUBLE 181 . 187) (INT 177 . 180) (semantic-list 194 . 211) (semantic-list 187 . 194) (DOUBLE 181 . 187) (INT 177 . 180) (INT 177 . 180) (INT 177 . 180)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("unordered_map" include (:system-flag t) nil [21 45])
+            ("hash_combine" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type "void"
+                :arguments 
+                  ( ("seed" variable
+                       (:reference 1
+                        :type ("std::size_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [91 110])
+                    ("v" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("T" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [111 123])
+                    ("hasher" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::hash" type
+                             (:template-specifier 
+                                ( ("T" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [124 152]))                  
+                :typemodifiers ("inline"))
+                nil [47 215])
+            ("A" type
+               (:members 
+                  ( ("x" variable (:type "int") (reparse-symbol classsubparts) [232 241])
+                    ("y" variable (:type "int") (reparse-symbol classsubparts) [232 241])
+                    ("int_hasher" variable
+                       (:typemodifiers ("static")
+                        :type ("std::hash" type
+                             (:template-specifier 
+                                ( ("int" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [244 277])
+                    ("hash_table" variable
+                       (:typemodifiers ("static")
+                        :type ("std::unordered_map" type
+                             (:template-specifier 
+                                ( ("std::size_t" type nil nil nil)
+                                  ("A" type (:pointer 1) nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [280 334])
+                    ("public" label nil (reparse-symbol classsubparts) [338 345])
+                    ("A" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("x" variable (:type "int") (reparse-symbol arg-sub-list) [350 356])
+                            ("y" variable (:type "int") (reparse-symbol arg-sub-list) [357 363]))                          
+                        :type ("A" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [348 379])
+                    ("A" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [382 391])
+                    ("<<" function
+                       (:operator-flag t
+                        :typemodifiers ("friend")
+                        :arguments 
+                          ( ("os" variable
+                               (:reference 1
+                                :type ("std::ostream" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [429 447])
+                            ("a" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("A" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [448 460]))                          
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [394 509])
+                    ("haha" function (:type "void") (reparse-symbol classsubparts) [920 1001])
+                    ("new_A" function
+                       (:pointer 1
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("x" variable (:type "int") (reparse-symbol arg-sub-list) [1022 1028])
+                            ("y" variable (:type "int") (reparse-symbol arg-sub-list) [1029 1035]))                          
+                        :type ("A" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1005 1090])
+                    ("removePointers" function
+                       (:typemodifiers ("static")
+                        :type "void")
+                        (reparse-symbol classsubparts) [1094 1182]))                  
+                :type "class")
+                nil [217 1185])
+            ("A::int_hasher" variable (:type ("std::hash" type
+                 (:template-specifier 
+                    ( ("int" type nil nil nil))                    
+                  :type "class")
+                  nil nil)) nil [1188 1217])
+            ("A::hash_table" variable (:type ("std::unordered_map" type
+                 (:template-specifier 
+                    ( ("std::size_t" type nil nil nil)
+                      ("A" type (:pointer 1) nil nil))                    
+                  :type "class")
+                  nil nil)) nil [1218 1268])
+            ("main" function (:type "int") nil [1270 1766]))          
+      :file "hash_cons.cpp"
+      :pointmax 1767
+      :fsize 1766
+      :lastmodtime '(24186 21067 998428 430000)
+      :unmatched-syntax nil)
+
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags nil
+      :file "temp.cpp"
+      :pointmax 6
+      :unmatched-syntax '((WHILE 1 . 6))))
+  :file "!home!jose!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

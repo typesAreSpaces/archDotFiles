@@ -1,0 +1,452 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("_PURIFIER_" variable (:constant-flag t) nil [28 38])
+            ("iostream" include (:system-flag t) nil [40 59])
+            ("z3++.h" include (:system-flag t) nil [60 77])
+            ("string" include (:system-flag t) nil [78 95])
+            ("map" include (:system-flag t) nil [96 110])
+            ("vector" include (:system-flag t) nil [111 128])
+            ("Purifier" type
+               (:members 
+                  ( ("protected" label nil (reparse-symbol classsubparts) [202 212])
+                    ("ctx" variable (:type ("z3::context" type (:type "class") nil nil)) (reparse-symbol classsubparts) [215 233])
+                    ("formula" variable (:type ("z3::expr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [236 256])
+                    ("map_oct" variable (:type ("std::map" type
+                         (:template-specifier 
+                            ( ("unsigned int" type nil nil nil)
+                              ("unsigned int" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [262 299])
+                    ("map_euf" variable (:type ("std::map" type
+                         (:template-specifier 
+                            ( ("unsigned int" type nil nil nil)
+                              ("unsigned int" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [302 339])
+                    ("euf_component" variable (:type ("z3::expr_vector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [345 375])
+                    ("oct_component" variable (:type ("z3::expr_vector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [378 408])
+                    ("private" label nil (reparse-symbol classsubparts) [412 420])
+                    ("from" variable (:type ("z3::expr_vector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [425 446])
+                    ("to" variable (:type ("z3::expr_vector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [449 468])
+                    ("fresh_var_id" variable
+                       (:typemodifiers ("static")
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [471 500])
+                    ("purify" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("z3::expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [520 537]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [504 538])
+                    ("traverse" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("z3::expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [559 576]))                          
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [541 577])
+                    ("split" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("z3::expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [595 612]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [580 613])
+                    ("purifyOctagonTerm" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("z3::expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [643 660]))                          
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [616 661])
+                    ("purifyEUFTerm" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("z3::expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [687 704]))                          
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [664 705])
+                    ("public" label nil (reparse-symbol classsubparts) [709 716])
+                    ("Purifier" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("z3::expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [728 745]))                          
+                        :type ("Purifier" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [719 746])
+                    ("Purifier" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [749 761])
+                    ("addEufFormulasToSolver" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :type ("z3::solver" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [793 806]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [765 807])
+                    ("addOctFormulasToSolver" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :type ("z3::solver" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [838 851]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [810 852])
+                    ("inside" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("z3::expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [867 884]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [855 885])
+                    ("<<" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :typemodifiers ("friend")
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :type ("std::ostream" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [926 941])
+                            ("" variable
+                               (:reference 1
+                                :type ("Purifier" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [942 953]))                          
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [891 954]))                  
+                :type "class")
+                nil [185 957]))          
+      :file "Purifier.h"
+      :pointmax 966
+      :fsize 965
+      :lastmodtime '(24138 10856 124975 324000)
+      :unmatched-syntax '((semantic-list 866 . 877) (symbol 860 . 866) (VOID 855 . 859) (semantic-list 866 . 877) (symbol 860 . 866) (VOID 855 . 859) (semantic-list 866 . 875) (symbol 860 . 866) (VOID 855 . 859) (semantic-list 866 . 875) (symbol 860 . 866) (VOID 855 . 859) (semantic-list 866 . 872) (symbol 860 . 866) (punctuation 870 . 871) (punctuation 869 . 870) (VOID 855 . 859) (punctuation 870 . 871) (punctuation 869 . 870) (semantic-list 866 . 872) (symbol 860 . 866) (punctuation 870 . 871) (punctuation 869 . 870) (VOID 855 . 859) (punctuation 870 . 871) (punctuation 869 . 870))
+      :lexical-table 
+        '(("_PURIFIER_")
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("_THCOMB_" variable (:constant-flag t) nil [26 34])
+            ("Purifier.h" include nil nil [36 57])
+            ("ThCombInterpolator" type
+               (:members 
+                  ( ("ctx" variable (:type ("z3::context" type (:type "class") nil nil)) (reparse-symbol classsubparts) [88 106])
+                    ("part_a" variable (:type ("Purifier" type (:type "class") nil nil)) (reparse-symbol classsubparts) [109 130])
+                    ("part_b" variable (:type ("Purifier" type (:type "class") nil nil)) (reparse-symbol classsubparts) [133 154])
+                    ("euf_solver" variable (:type ("z3::solver" type (:type "class") nil nil)) (reparse-symbol classsubparts) [157 182])
+                    ("oct_solver" variable (:type ("z3::solver" type (:type "class") nil nil)) (reparse-symbol classsubparts) [185 210])
+                    ("partial_interpolants" variable (:type ("z3::expr_map" type (:type "class") nil nil)) (reparse-symbol classsubparts) [213 248])
+                    ("checkImpliedEqualities" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :type ("z3::expr_vector" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [280 298])
+                            ("" variable
+                               (:reference 1
+                                :type ("z3::solver" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [299 312]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [252 313])
+                    ("isProvable" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :type ("z3::solver" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [332 345])
+                            ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("z3::expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [346 363]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [316 364])
+                    ("addConjunction" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :type ("z3::solver" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [435 448])
+                            ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("z3::expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [449 466]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [415 467])
+                    ("partialInterpolantConvex" function
+                       (:prototype-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [514 550])
+                    ("partialInterpolantClauses" function
+                       (:prototype-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [553 590])
+                    ("partialInterpolantThLemmas" function
+                       (:prototype-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [593 631])
+                    ("partialInterpolantUnitResolution" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("z3::expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [761 778])
+                            ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("z3::expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [779 796]))                          
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [719 797])
+                    ("printf___" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("z3::expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [818 835]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [803 836])
+                    ("traverseProof1" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("z3::expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [859 876]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [839 877])
+                    ("traverseProof2" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("z3::expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [900 917])
+                            ("" variable
+                               (:reference 1
+                                :type ("z3::expr_vector" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [918 936]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [880 937])
+                    ("public" label nil (reparse-symbol classsubparts) [941 948])
+                    ("ThCombInterpolator" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :type ("z3::context" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [970 984])
+                            ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("z3::expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [985 1002])
+                            ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("z3::expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1003 1020]))                          
+                        :type ("ThCombInterpolator" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [951 1021])
+                    ("ThCombInterpolator" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1024 1046])
+                    ("getInterpolant" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1050 1072])
+                    ("<<" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :typemodifiers ("friend")
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :type ("std::ostream" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1113 1128])
+                            ("" variable
+                               (:reference 1
+                                :type ("ThCombInterpolator" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1129 1150]))                          
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1078 1151]))                  
+                :type "class")
+                nil [59 1154]))          
+      :file "ThCombInterpolator.h"
+      :pointmax 1163
+      :fsize 1162
+      :lastmodtime '(24138 53265 690323 9000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("_THCOMB_")
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("_RENAME_" variable (:constant-flag t) nil [26 34])
+            ("iostream" include (:system-flag t) nil [36 55])
+            ("string" include (:system-flag t) nil [56 73])
+            ("z3++.h" include (:system-flag t) nil [74 91])
+            ("set" include (:system-flag t) nil [92 106])
+            ("vector" include (:system-flag t) nil [107 124])
+            ("traversePartA" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [149 166])
+                    ("" variable
+                       (:reference 1
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("bool" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [167 187])
+                    ("" variable
+                       (:reference 1
+                        :type ("std::set" type
+                             (:template-specifier 
+                                ( ("std::string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [188 212]))                  
+                :type "void")
+                nil [126 213])
+            ("traversePartB" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [237 254])
+                    ("" variable
+                       (:reference 1
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("bool" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [255 275])
+                    ("" variable
+                       (:reference 1
+                        :type ("std::set" type
+                             (:template-specifier 
+                                ( ("std::string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [276 300])
+                    ("" variable
+                       (:reference 1
+                        :type ("std::set" type
+                             (:template-specifier 
+                                ( ("std::string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [301 325]))                  
+                :type "void")
+                nil [214 326])
+            ("reformulate" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [348 365])
+                    ("" variable
+                       (:reference 1
+                        :type ("std::set" type
+                             (:template-specifier 
+                                ( ("std::string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [366 390])
+                    ("" variable
+                       (:reference 1
+                        :type ("std::set" type
+                             (:template-specifier 
+                                ( ("std::string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [391 415]))                  
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [327 416])
+            ("rename" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable
+                       (:reference 1
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [433 444])
+                    ("" variable
+                       (:reference 1
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [445 456]))                  
+                :type "void")
+                nil [417 457]))          
+      :file "Rename.h"
+      :pointmax 466
+      :fsize 465
+      :lastmodtime '(24137 40006 166339 29000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("_RENAME_")
+          )
+))
+  :file "!home!jose!Documents!GithubProjects!master-thesis!Software!Cpp!ThCombination!include!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

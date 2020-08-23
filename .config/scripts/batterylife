@@ -1,0 +1,19 @@
+#!/bin/bash
+currentbatstate=$(cat ~/scripts/currentvars/batstate)
+SERVICE="batterylifeloop"
+
+if [ $currentbatstate = "hide" ]
+then
+    echo "show" > ~/scripts/currentvars/batstate
+    if pgrep -x "$SERVICE" >/dev/null
+    then
+        kill $(pgrep -x "$SERVICE")
+    fi
+    polybar-msg hook battery-time 1
+    
+elif [ $currentbatstate = "show" ]
+then
+    echo "hide" > ~/scripts/currentvars/batstate
+    ~/scripts/batterylifeloop &
+    exit
+fi

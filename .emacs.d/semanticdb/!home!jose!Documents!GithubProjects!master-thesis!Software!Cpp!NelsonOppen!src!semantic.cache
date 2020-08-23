@@ -1,0 +1,342 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("ThCombInterpolator.h" include nil nil [1 32])
+            ("string" include (:system-flag t) nil [33 50])
+            ("_DEBUG_" variable (:constant-flag t) nil [59 66])
+            ("check_implied_equalities" function
+               (:arguments 
+                  ( ("v" variable
+                       (:reference 1
+                        :type ("z3::expr_vector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [103 123])
+                    ("s" variable
+                       (:reference 1
+                        :type ("z3::solver" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [124 139]))                  
+                :type "void")
+                nil [73 761])
+            ("main" function (:type "int") nil [763 2182]))          
+      :file "main.cpp"
+      :pointmax 2183
+      :fsize 2182
+      :lastmodtime '(24102 1110 282412 822000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("_DEBUG_" . ((symbol "true" 67 . 71)))
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("Purifier.h" include nil nil [1 22])
+            ("_DEBUGPURIFIER_" variable (:constant-flag t) nil [31 46])
+            ("Purifier::fresh_var_id" variable
+               (:default-value "0"
+                :type "unsigned int")
+                nil [53 89])
+            ("Purifier" function
+               (:constructor-flag t
+                :parent "Purifier"
+                :arguments 
+                  ( ("e" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [110 129]))                  
+                :type ("Purifier" type (:type "class") nil nil))
+                nil [91 340])
+            ("Purifier" function
+               (:destructor-flag t
+                :parent "Purifier"
+                :type "void")
+                nil [342 366])
+            ("purify" function
+               (:parent "Purifier"
+                :arguments 
+                  ( ("e" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [390 409]))                  
+                :type "void")
+                nil [368 609])
+            ("traverse" function
+               (:parent "Purifier"
+                :arguments 
+                  ( ("e" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [639 658]))                  
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [611 1185])
+            ("purifyOctagonTerm" function
+               (:parent "Purifier"
+                :arguments 
+                  ( ("e" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1224 1243]))                  
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [1187 2426])
+            ("purifyEUFTerm" function
+               (:parent "Purifier"
+                :arguments 
+                  ( ("e" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2461 2480]))                  
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [2428 3868])
+            ("split" function
+               (:parent "Purifier"
+                :arguments 
+                  ( ("e" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3892 3911]))                  
+                :type "void")
+                nil [3871 4545])
+            ("purifyEUFEq" function
+               (:parent "Purifier"
+                :arguments 
+                  ( ("eq" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4578 4598]))                  
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [4547 4970])
+            ("purifyOctEq" function
+               (:parent "Purifier"
+                :arguments 
+                  ( ("eq" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5003 5023]))                  
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [4972 5398])
+            ("<<" function
+               (:operator-flag t
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5428 5446])
+                    ("p" variable
+                       (:reference 1
+                        :type ("Purifier" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5447 5460]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [5400 5787]))          
+      :file "Purifier.cpp"
+      :pointmax 5788
+      :fsize 5787
+      :lastmodtime '(24101 15566 342069 96000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("_DEBUGPURIFIER_" . ((symbol "true" 47 . 51)))
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("UtilsProof.h" include nil nil [1 24])
+            ("addConjunction" function
+               (:arguments 
+                  ( ("s" variable
+                       (:reference 1
+                        :type ("z3::solver" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [46 61])
+                    ("e" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [62 81]))                  
+                :type "void")
+                nil [26 348])
+            ("earlyExit" function
+               (:arguments 
+                  ( ("visited" variable
+                       (:reference 1
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("bool" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [365 393])
+                    ("e" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [394 413]))                  
+                :type "bool")
+                nil [350 579])
+            ("extractHypothesisFromProof" function
+               (:arguments 
+                  ( ("proof" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [613 636]))                  
+                :type "void")
+                nil [581 1195])
+            ("collectEqualitiesFromProof" function
+               (:arguments 
+                  ( ("proof" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1240 1263]))                  
+                :type ("z3::expr_vector" type (:type "class") nil nil))
+                nil [1197 1483])
+            ("collectEqualitiesFromProofAux" function
+               (:arguments 
+                  ( ("visited" variable
+                       (:reference 1
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("bool" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1520 1548])
+                    ("consequent_visited" variable
+                       (:reference 1
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("bool" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1556 1595])
+                    ("consequents" variable
+                       (:reference 1
+                        :type ("z3::expr_vector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1603 1633])
+                    ("proof" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1641 1664]))                  
+                :type "void")
+                nil [1485 3515]))          
+      :file "UtilsProof.cpp"
+      :pointmax 3516
+      :fsize 3515
+      :lastmodtime '(24098 55489 281913 0)
+      :unmatched-syntax '((semantic-list 1665 . 3515) (semantic-list 1519 . 1664) (semantic-list 1263 . 1483) (semantic-list 1239 . 1263) (semantic-list 636 . 1195) (semantic-list 612 . 636) (semantic-list 413 . 579) (semantic-list 364 . 413) (semantic-list 81 . 348) (semantic-list 45 . 81)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("ThCombInterpolator.h" include nil nil [1 32])
+            ("_DEBUGEXTPURIFIER_" variable (:constant-flag t) nil [41 59])
+            ("ThCombInterpolator" function
+               (:constructor-flag t
+                :parent "ThCombInterpolator"
+                :arguments 
+                  ( ("e" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [106 125]))                  
+                :type ("ThCombInterpolator" type (:type "class") nil nil))
+                nil [67 480])
+            ("ThCombInterpolator" function
+               (:destructor-flag t
+                :parent "ThCombInterpolator"
+                :type "void")
+                nil [482 526])
+            ("isProvable" function
+               (:parent "ThCombInterpolator"
+                :arguments 
+                  ( ("s" variable
+                       (:reference 1
+                        :type ("z3::solver" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [564 579])
+                    ("e" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [580 599]))                  
+                :type "bool")
+                nil [528 695])
+            ("addConjunction" function
+               (:parent "ThCombInterpolator"
+                :arguments 
+                  ( ("s" variable
+                       (:reference 1
+                        :type ("z3::solver" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [737 752])
+                    ("e" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [753 772]))                  
+                :type "void")
+                nil [697 1030])
+            ("earlyExit" function
+               (:parent "ThCombInterpolator"
+                :arguments 
+                  ( ("visited" variable
+                       (:reference 1
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("bool" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1067 1095])
+                    ("e" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1096 1115]))                  
+                :type "bool")
+                nil [1032 1275])
+            ("traverseProof" function
+               (:parent "ThCombInterpolator"
+                :arguments 
+                  ( ("proof" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1316 1339]))                  
+                :type "void")
+                nil [1277 4178])
+            ("collectEqualities" function
+               (:parent "ThCombInterpolator"
+                :type "void")
+                nil [4180 4626])
+            ("<<" function
+               (:operator-flag t
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4656 4674])
+                    ("p" variable
+                       (:reference 1
+                        :type ("ThCombInterpolator" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4675 4698]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [4628 5731]))          
+      :file "ThCombInterpolator.cpp"
+      :pointmax 5732
+      :fsize 5731
+      :lastmodtime '(24098 55489 273913 0)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("_DEBUGEXTPURIFIER_" . ((symbol "false" 60 . 65)))
+          )
+))
+  :file "!home!jose!Documents!GithubProjects!master-thesis!Software!Cpp!NelsonOppen!src!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

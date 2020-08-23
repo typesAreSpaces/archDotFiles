@@ -1,0 +1,627 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("SUBSTITUTION_H_" variable (:constant-flag t) nil [1101 1116])
+            ("ast/substitution/expr_offset_map.h" include nil nil [1118 1163])
+            ("ast/substitution/var_offset_map.h" include nil nil [1164 1208])
+            ("ast/ast_pp.h" include nil nil [1209 1232])
+            ("substitution" type
+               (:members 
+                  ( ("m_manager" variable (:type ("ast_manager" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1325 1363])
+                    ("m_subst" variable (:type ("var_offset_map" type
+                         (:template-specifier 
+                            ( ("expr_offset" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [1368 1404])
+                    ("var_offset" type
+                       (:typedef ("std::pair" type
+                             (:template-specifier 
+                                ( ("unsigned int" type nil nil nil)
+                                  ("unsigned int" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [1440 1489])
+                    ("m_vars" variable (:type ("svector" type
+                         (:template-specifier 
+                            ( ("var_offset" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [1494 1529])
+                    ("m_refs" variable (:type ("expr_ref_vector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1534 1569])
+                    ("m_scopes" variable (:type ("unsigned_vector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1574 1611])
+                    ("m_todo" variable (:type ("svector" type
+                         (:template-specifier 
+                            ( ("expr_offset" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [1658 1693])
+                    ("m_apply_cache" variable (:type ("expr_offset_map" type
+                         (:template-specifier 
+                            ( ("expr" type (:pointer 1) nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [1698 1740])
+                    ("m_new_exprs" variable (:type ("expr_ref_vector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1745 1785])
+                    ("color" type
+                       (:members 
+                          ( ("White" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1842 1848])
+                            ("Grey" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1849 1854])
+                            ("Black" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1855 1862]))                          
+                        :type "enum")
+                        (reparse-symbol classsubparts) [1829 1863])
+                    ("m_color" variable (:type ("expr_offset_map" type
+                         (:template-specifier 
+                            ( ("color" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [1868 1904])
+                    ("state" type
+                       (:members 
+                          ( ("CLEAN" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1986 1992])
+                            ("APPLY" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1993 1999])
+                            ("INSERT" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [2000 2008]))                          
+                        :type "enum")
+                        (reparse-symbol classsubparts) [1973 2009])
+                    ("m_state" variable (:type ("state" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2014 2050])
+                    ("apply_visit" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("n" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("expr_offset" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2154 2176])
+                            ("visited" variable
+                               (:reference 1
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [2177 2192]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2137 2193])
+                    ("get_color" function
+                       (:prototype-flag t
+                        :methodconst-flag t
+                        :arguments 
+                          ( ("p" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("expr_offset" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2216 2238]))                          
+                        :type ("color" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2200 2245])
+                    ("set_color" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("p" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("expr_offset" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2265 2287])
+                            ("c" variable (:type ("color" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2288 2296]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2250 2297])
+                    ("visit" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("p" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("expr_offset" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2318 2340])
+                            ("visited" variable
+                               (:reference 1
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [2341 2356]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2307 2357])
+                    ("visit_children" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("p" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("expr_offset" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2382 2404]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2362 2405])
+                    ("acyclic" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("p" variable (:type ("expr_offset" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2423 2437]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2410 2438])
+                    ("public" label nil (reparse-symbol classsubparts) [2440 2447])
+                    ("substitution" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("m" variable
+                               (:reference 1
+                                :type ("ast_manager" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2465 2481]))                          
+                        :type ("substitution" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2452 2482])
+                    ("get_manager" function
+                       (:methodconst-flag t
+                        :type ("ast_manager" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2487 2542])
+                    ("reserve" function
+                       (:arguments 
+                          ( ("num_offsets" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [2739 2760])
+                            ("num_vars" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [2761 2779]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2726 2823])
+                    ("reserve_offsets" function
+                       (:arguments 
+                          ( ("num_offsets" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [2849 2870]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2828 2912])
+                    ("reserve_vars" function
+                       (:arguments 
+                          ( ("num_vars" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [2935 2953]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2917 2989])
+                    ("reset" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [3143 3156])
+                    ("reset_cache" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [3214 3233])
+                    ("push_scope" function (:type "void") (reparse-symbol classsubparts) [3360 3416])
+                    ("pop_scope" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("num_scopes" variable
+                               (:default-value "1"
+                                :type "unsigned int")
+                                (reparse-symbol arg-sub-list) [3436 3459]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3421 3461])
+                    ("get_scope_lvl" function (:type "unsigned int") (reparse-symbol classsubparts) [3466 3518])
+                    ("top_scope_has_bindings" function
+                       (:methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [3523 3639])
+                    ("get_num_bindings" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [3644 3703])
+                    ("acyclic" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [3838 3853])
+                    ("insert" function
+                       (:arguments 
+                          ( ("v_idx" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [4069 4084])
+                            ("offset" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [4085 4101])
+                            ("t" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("expr_offset" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4102 4124]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4057 4467])
+                    ("insert" function
+                       (:arguments 
+                          ( ("v" variable
+                               (:pointer 1
+                                :type ("var" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4484 4492])
+                            ("offset" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [4493 4509])
+                            ("t" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("expr_offset" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4510 4532]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4472 4569])
+                    ("insert" function
+                       (:arguments 
+                          ( ("v" variable (:type ("expr_offset" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4586 4600])
+                            ("t" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("expr_offset" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4601 4623]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4574 4727])
+                    ("find" function
+                       (:methodconst-flag t
+                        :arguments 
+                          ( ("v_idx" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [4743 4758])
+                            ("offset" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [4759 4775])
+                            ("r" variable
+                               (:reference 1
+                                :type ("expr_offset" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4776 4792]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [4733 4841])
+                    ("find" function
+                       (:methodconst-flag t
+                        :arguments 
+                          ( ("v" variable
+                               (:pointer 1
+                                :type ("var" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4856 4864])
+                            ("offset" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [4865 4881])
+                            ("r" variable
+                               (:reference 1
+                                :type ("expr_offset" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4882 4898]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [4846 4946])
+                    ("find" function
+                       (:methodconst-flag t
+                        :arguments 
+                          ( ("v" variable (:type ("expr_offset" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4961 4975])
+                            ("r" variable
+                               (:reference 1
+                                :type ("expr_offset" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4976 4992]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [4951 5108])
+                    ("get_binding" function
+                       (:arguments 
+                          ( ("binding_num" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [5131 5152])
+                            ("var" variable
+                               (:reference 1
+                                :type ("var_offset" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5153 5169])
+                            ("r" variable
+                               (:reference 1
+                                :type ("expr_offset" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5170 5185]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5114 5284])
+                    ("contains" function
+                       (:arguments 
+                          ( ("v" variable
+                               (:pointer 1
+                                :type ("var" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5304 5312])
+                            ("offset" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [5313 5329]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [5290 5375])
+                    ("apply" function
+                       (:arguments 
+                          ( ("num_actual_offsets" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [5990 6018])
+                            ("deltas" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "unsigned int")
+                                (reparse-symbol arg-sub-list) [6019 6043])
+                            ("n" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("expr_offset" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6044 6066])
+                            ("result" variable
+                               (:reference 1
+                                :type ("expr_ref" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6067 6085]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5979 6197])
+                    ("apply" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("num_actual_offsets" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [6434 6462])
+                            ("deltas" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "unsigned int")
+                                (reparse-symbol arg-sub-list) [6463 6486])
+                            ("n" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("expr_offset" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6487 6509])
+                            ("s" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("expr_offset" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6510 6532])
+                            ("t" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("expr_offset" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6533 6555])
+                            ("result" variable
+                               (:reference 1
+                                :type ("expr_ref" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6556 6574]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6423 6575])
+                    ("apply" function
+                       (:arguments 
+                          ( ("n" variable
+                               (:pointer 1
+                                :type ("expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6592 6601])
+                            ("result" variable
+                               (:reference 1
+                                :type ("expr_ref" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6602 6620]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6581 6717])
+                    ("display" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("out" variable
+                               (:reference 1
+                                :type ("std::ostream" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6940 6959])
+                            ("num_actual_offsets" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [6960 6988])
+                            ("deltas" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "unsigned int")
+                                (reparse-symbol arg-sub-list) [6989 7013]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6927 7014])
+                    ("display" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("out" variable
+                               (:reference 1
+                                :type ("std::ostream" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7150 7169]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7137 7170])
+                    ("compare" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("t1" variable (:type ("expr_offset" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7337 7352])
+                            ("t2" variable (:type ("expr_offset" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7353 7368]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [7324 7369]))                  
+                :type "class")
+                nil [1300 7373]))          
+      :file "substitution.h"
+      :pointmax 7382
+      :fsize 7381
+      :lastmodtime '(23891 14902 896446 494000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SUBSTITUTION_H_")
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :file "expr_offset_map.h"
+      :fsize 2530
+      :lastmodtime '(23891 14902 896446 494000))
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("VAR_OFFSET_MAP_H_" variable (:constant-flag t) nil [264 281])
+            ("ast/ast.h" include nil nil [283 303])
+            ("util/vector.h" include nil nil [304 328])
+            ("var_offset_map" type
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type "class"
+                :members 
+                  ( ("protected" label nil (reparse-symbol classsubparts) [452 462])
+                    ("data" type
+                       (:members 
+                          ( ("m_data" variable (:type ("T" type (:type "class") nil nil)) (reparse-symbol classsubparts) [489 505])
+                            ("m_timestamp" variable (:type "unsigned int") (reparse-symbol classsubparts) [514 535])
+                            ("data" function
+                               (:constructor-flag t
+                                :type ("data" type (:type "struct") nil nil))
+                                (reparse-symbol classsubparts) [544 568]))                          
+                        :type "struct")
+                        (reparse-symbol classsubparts) [467 575])
+                    ("m_map" variable (:type ("svector" type
+                         (:template-specifier 
+                            ( ("data" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [585 615])
+                    ("m_num_offsets" variable (:type "unsigned int") (reparse-symbol classsubparts) [620 658])
+                    ("m_num_vars" variable (:type "unsigned int") (reparse-symbol classsubparts) [663 698])
+                    ("m_timestamp" variable (:type "unsigned int") (reparse-symbol classsubparts) [703 739])
+                    ("public" label nil (reparse-symbol classsubparts) [741 748])
+                    ("var_offset_map" function
+                       (:constructor-flag t
+                        :type ("var_offset_map" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [753 850])
+                    ("reset" function (:type "void") (reparse-symbol classsubparts) [856 1180])
+                    ("offsets_capacity" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [1186 1245])
+                    ("vars_capacity" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [1251 1304])
+                    ("reserve" function
+                       (:arguments 
+                          ( ("num_offsets" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [1323 1344])
+                            ("num_vars" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [1345 1363]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1310 1625])
+                    ("reserve_offsets" function
+                       (:arguments 
+                          ( ("num_offsets" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [1652 1673]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1631 1711])
+                    ("reserve_vars" function
+                       (:arguments 
+                          ( ("num_vars" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [1735 1753]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1717 1791])
+                    ("insert" function
+                       (:arguments 
+                          ( ("v_idx" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [1809 1824])
+                            ("offset" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [1825 1841])
+                            ("t" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("T" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1842 1854]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1797 2125])
+                    ("insert" function
+                       (:arguments 
+                          ( ("v" variable
+                               (:pointer 1
+                                :type ("var" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2143 2151])
+                            ("offset" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [2152 2168])
+                            ("t" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("T" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2169 2181]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2131 2218])
+                    ("find" function
+                       (:methodconst-flag t
+                        :arguments 
+                          ( ("v_idx" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [2238 2253])
+                            ("offset" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [2254 2270])
+                            ("r" variable
+                               (:reference 1
+                                :type ("T" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2271 2277]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2228 2633])
+                    ("find" function
+                       (:methodconst-flag t
+                        :arguments 
+                          ( ("v" variable
+                               (:pointer 1
+                                :type ("var" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2653 2661])
+                            ("offset" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [2662 2678])
+                            ("r" variable
+                               (:reference 1
+                                :type ("T" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2679 2685]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2643 2733])
+                    ("erase" function
+                       (:arguments 
+                          ( ("v_idx" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [2750 2765])
+                            ("offset" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [2766 2782]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2739 2957]))                  )
+                nil [408 2961]))          
+      :file "var_offset_map.h"
+      :pointmax 2994
+      :fsize 2993
+      :lastmodtime '(23891 14902 896446 494000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("VAR_OFFSET_MAP_H_")
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("MATCHER_H_" variable (:constant-flag t) nil [210 220])
+            ("ast/substitution/substitution.h" include nil nil [222 264])
+            ("util/hashtable.h" include nil nil [265 292])
+            ("matcher" type
+               (:members 
+                  ( ("expr_pair" type
+                       (:typedef ("std::pair" type
+                             (:template-specifier 
+                                ( ("expr" type (:pointer 1) nil nil)
+                                  ("expr" type (:pointer 1) nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [365 409])
+                    ("expr_pair_hash" type
+                       (:typedef ("pair_hash" type
+                             (:template-specifier 
+                                ( ("obj_ptr_hash" type (:template-specifier 
+                                    ( ("expr" type nil nil nil))                                    ) nil nil)
+                                  ("obj_ptr_hash" type (:template-specifier 
+                                    ( ("expr" type nil nil nil))                                    ) nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [414 488])
+                    ("cache" type
+                       (:typedef ("hashtable" type
+                             (:template-specifier 
+                                ( ("expr_pair" type nil nil nil)
+                                  ("expr_pair_hash" type nil nil nil)
+                                  ("default_eq" type (:template-specifier 
+                                    ( ("expr_pair" type nil nil nil))                                    ) nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [493 568])
+                    ("m_subst" variable
+                       (:pointer 1
+                        :type ("substitution" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [574 604])
+                    ("m_todo" variable (:type ("svector" type
+                         (:template-specifier 
+                            ( ("expr_pair" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [647 676])
+                    ("reset" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [682 695])
+                    ("public" label nil (reparse-symbol classsubparts) [697 704])
+                    ("matcher" function
+                       (:constructor-flag t
+                        :type ("matcher" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [709 721])
+                    ("()" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("e1" variable
+                               (:pointer 1
+                                :type ("expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1295 1305])
+                            ("e2" variable
+                               (:pointer 1
+                                :type ("expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1306 1316])
+                            ("s" variable
+                               (:reference 1
+                                :type ("substitution" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1317 1334]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1279 1335]))                  
+                :type "class")
+                nil [345 1338]))          
+      :file "matcher.h"
+      :pointmax 1365
+      :fsize 1364
+      :lastmodtime '(23891 14902 896446 494000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("MATCHER_H_")
+          )
+))
+  :file "!home!jose!Documents!GithubProjects!z3!src!ast!substitution!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

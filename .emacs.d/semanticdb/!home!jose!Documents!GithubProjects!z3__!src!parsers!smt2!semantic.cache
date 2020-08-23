@@ -1,0 +1,1494 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("util/stack.h" include nil nil [189 212])
+            ("ast/datatype_decl_plugin.h" include nil nil [213 250])
+            ("ast/bv_decl_plugin.h" include nil nil [251 282])
+            ("ast/arith_decl_plugin.h" include nil nil [283 317])
+            ("ast/seq_decl_plugin.h" include nil nil [318 350])
+            ("ast/ast_pp.h" include nil nil [351 374])
+            ("ast/well_sorted.h" include nil nil [375 403])
+            ("ast/rewriter/rewriter.h" include nil nil [404 438])
+            ("ast/rewriter/var_subst.h" include nil nil [439 474])
+            ("ast/has_free_vars.h" include nil nil [475 505])
+            ("ast/ast_smt2_pp.h" include nil nil [506 534])
+            ("parsers/smt2/smt2parser.h" include nil nil [535 571])
+            ("parsers/smt2/smt2scanner.h" include nil nil [572 609])
+            ("parsers/util/pattern_validation.h" include nil nil [610 654])
+            ("parsers/util/parser_params.hpp" include nil nil [655 696])
+            ("sstream" include (:system-flag t) nil [697 714])
+            ("smt2" type
+               (:members 
+                  ( ("parser_exception" type
+                       (:typedef ("cmd_exception" type (:type "class") nil nil)
+                        :type "typedef")
+                        (reparse-symbol namespacesubparts) [737 776])
+                    ("parser" type
+                       (:members 
+                          ( ("m_ctx" variable (:type ("cmd_context" type (:type "class") nil nil)) (reparse-symbol classsubparts) [805 832])
+                            ("m_params" variable (:type ("params_ref" type (:type "class") nil nil)) (reparse-symbol classsubparts) [841 871])
+                            ("m_scanner" variable (:type ("scanner" type (:type "class") nil nil)) (reparse-symbol classsubparts) [880 911])
+                            ("m_curr" variable (:type ("scanner::token" type (:type "class") nil nil)) (reparse-symbol classsubparts) [920 948])
+                            ("m_curr_cmd" variable
+                               (:pointer 1
+                                :type ("cmd" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [957 989])
+                            ("m_stack" variable (:type ("stack" type (:type "class") nil nil)) (reparse-symbol classsubparts) [998 1027])
+                            ("local" type
+                               (:members 
+                                  ( ("m_term" variable
+                                       (:pointer 1
+                                        :type ("expr" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [1063 1087])
+                                    ("m_level" variable (:type "unsigned int") (reparse-symbol classsubparts) [1100 1125])
+                                    ("local" function
+                                       (:constructor-flag t
+                                        :type ("local" type (:type "struct") nil nil))
+                                        (reparse-symbol classsubparts) [1138 1176])
+                                    ("local" function
+                                       (:constructor-flag t
+                                        :arguments 
+                                          ( ("t" variable
+                                               (:pointer 1
+                                                :type ("expr" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [1195 1204])
+                                            ("l" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [1205 1216]))                                          
+                                        :type ("local" type (:type "struct") nil nil))
+                                        (reparse-symbol classsubparts) [1189 1241]))                                  
+                                :type "struct")
+                                (reparse-symbol classsubparts) [1036 1252])
+                            ("m_env" variable (:type ("symbol_table" type
+                                 (:template-specifier 
+                                    ( ("local" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [1261 1288])
+                            ("m_num_bindings" variable (:type "unsigned int") (reparse-symbol classsubparts) [1297 1333])
+                            ("m_sort_id2param_idx" variable (:type ("dictionary" type
+                                 (:template-specifier 
+                                    ( ("int" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [1343 1384])
+                            ("m_dt_name2idx" variable (:type ("dictionary" type
+                                 (:template-specifier 
+                                    ( ("int" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [1393 1428])
+                            ("m_dt_name2arity" variable (:type ("dictionary" type
+                                 (:template-specifier 
+                                    ( ("unsigned int" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [1437 1474])
+                            ("m_dt_names" variable (:type ("svector" type
+                                 (:template-specifier 
+                                    ( ("symbol" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [1483 1515])
+                            ("m_psort_stack" variable (:type ("scoped_ptr" type
+                                 (:template-specifier 
+                                    ( ("psort_ref_vector" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [1525 1573])
+                            ("m_sort_stack" variable (:type ("scoped_ptr" type
+                                 (:template-specifier 
+                                    ( ("sort_ref_vector" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [1582 1629])
+                            ("m_expr_stack" variable (:type ("scoped_ptr" type
+                                 (:template-specifier 
+                                    ( ("expr_ref_vector" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [1638 1685])
+                            ("m_num_expr_frames" variable (:type "unsigned int") (reparse-symbol classsubparts) [1694 1746])
+                            ("m_pattern_stack" variable (:type ("scoped_ptr" type
+                                 (:template-specifier 
+                                    ( ("expr_ref_vector" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [1755 1805])
+                            ("m_nopattern_stack" variable (:type ("scoped_ptr" type
+                                 (:template-specifier 
+                                    ( ("expr_ref_vector" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [1814 1866])
+                            ("m_symbol_stack" variable (:type ("svector" type
+                                 (:template-specifier 
+                                    ( ("symbol" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [1875 1924])
+                            ("m_param_stack" variable (:type ("vector" type
+                                 (:template-specifier 
+                                    ( ("parameter" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [1933 1981])
+                            ("m_sexpr_stack" variable (:type ("scoped_ptr" type
+                                 (:template-specifier 
+                                    ( ("sexpr_ref_vector" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [1990 2038])
+                            ("m_bv_util" variable (:type ("scoped_ptr" type
+                                 (:template-specifier 
+                                    ( ("bv_util" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [2048 2092])
+                            ("m_arith_util" variable (:type ("scoped_ptr" type
+                                 (:template-specifier 
+                                    ( ("arith_util" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [2101 2148])
+                            ("m_datatype_util" variable (:type ("scoped_ptr" type
+                                 (:template-specifier 
+                                    ( ("datatype_util" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [2157 2207])
+                            ("m_seq_util" variable (:type ("scoped_ptr" type
+                                 (:template-specifier 
+                                    ( ("seq_util" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [2216 2261])
+                            ("m_pattern_validator" variable (:type ("scoped_ptr" type
+                                 (:template-specifier 
+                                    ( ("pattern_validator" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [2276 2330])
+                            ("m_var_shifter" variable (:type ("scoped_ptr" type
+                                 (:template-specifier 
+                                    ( ("var_shifter" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [2339 2387])
+                            ("m_let" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2397 2424])
+                            ("m_bang" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2433 2461])
+                            ("m_forall" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2470 2500])
+                            ("m_exists" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2509 2539])
+                            ("m_lambda" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2548 2578])
+                            ("m_as" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2587 2613])
+                            ("m_not" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2622 2649])
+                            ("m_root_obj" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2658 2690])
+                            ("m_named" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2700 2729])
+                            ("m_weight" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2738 2768])
+                            ("m_qid" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2777 2804])
+                            ("m_skid" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2813 2841])
+                            ("m_ex_act" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2850 2880])
+                            ("m_pattern" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2889 2920])
+                            ("m_nopattern" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2929 2962])
+                            ("m_lblneg" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2971 3001])
+                            ("m_lblpos" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3010 3040])
+                            ("m_assert" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3050 3080])
+                            ("m_check_sat" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3089 3122])
+                            ("m_define_fun" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3131 3165])
+                            ("m_define_const" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3174 3210])
+                            ("m_model_add" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3219 3252])
+                            ("m_model_del" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3261 3294])
+                            ("m_declare_fun" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3303 3338])
+                            ("m_declare_const" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3347 3384])
+                            ("m_define_sort" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3393 3428])
+                            ("m_declare_sort" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3437 3473])
+                            ("m_declare_datatypes" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3482 3523])
+                            ("m_declare_datatype" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3532 3572])
+                            ("m_par" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3581 3608])
+                            ("m_push" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3617 3645])
+                            ("m_pop" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3654 3681])
+                            ("m_get_value" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3690 3723])
+                            ("m_reset" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3732 3761])
+                            ("m_check_sat_assuming" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3770 3812])
+                            ("m_define_fun_rec" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3821 3859])
+                            ("m_define_funs_rec" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3868 3907])
+                            ("m_match" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3916 3945])
+                            ("m_case" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3954 3982])
+                            ("m_underscore" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3991 4025])
+                            ("named_expr" type
+                               (:typedef ("std::pair" type
+                                     (:template-specifier 
+                                        ( ("symbol" type nil nil nil)
+                                          ("expr" type (:pointer 1) nil nil))                                        
+                                      :type "class")
+                                      nil nil)
+                                :type "typedef")
+                                (reparse-symbol classsubparts) [4035 4079])
+                            ("m_last_named_expr" variable (:type ("named_expr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4088 4127])
+                            ("m" function
+                               (:methodconst-flag t
+                                :type ("ast_manager" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [4137 4182])
+                            ("pm" function
+                               (:methodconst-flag t
+                                :type ("pdecl_manager" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [4191 4240])
+                            ("sm" function
+                               (:methodconst-flag t
+                                :type ("sexpr_manager" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [4249 4298])
+                            ("m_ignore_user_patterns" variable (:type "bool") (reparse-symbol classsubparts) [4308 4336])
+                            ("m_ignore_bad_patterns" variable (:type "bool") (reparse-symbol classsubparts) [4345 4372])
+                            ("m_display_error_for_vs" variable (:type "bool") (reparse-symbol classsubparts) [4381 4409])
+                            ("ignore_user_patterns" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [4419 4487])
+                            ("ignore_bad_patterns" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [4496 4563])
+                            ("use_vs_format" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [4572 4640])
+                            ("psort_frame" type
+                               (:members 
+                                  ( ("m_decl" variable
+                                       (:pointer 1
+                                        :type ("psort_decl" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [4683 4707])
+                                    ("m_spos" variable (:type "unsigned int") (reparse-symbol classsubparts) [4720 4744])
+                                    ("psort_frame" function
+                                       (:constructor-flag t
+                                        :arguments 
+                                          ( ("p" variable
+                                               (:reference 1
+                                                :type ("parser" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [4798 4809])
+                                            ("d" variable
+                                               (:pointer 1
+                                                :type ("psort_decl" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [4810 4825])
+                                            ("spos" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [4826 4840]))                                          
+                                        :type ("psort_frame" type (:type "struct") nil nil))
+                                        (reparse-symbol classsubparts) [4786 4897]))                                  
+                                :type "struct")
+                                (reparse-symbol classsubparts) [4650 4908])
+                            ("sort_frame" type
+                               (:typedef ("psort_frame" type (:type "class") nil nil)
+                                :type "typedef")
+                                (reparse-symbol classsubparts) [4918 4949])
+                            ("expr_frame_kind" type
+                               (:members 
+                                  ( ("EF_APP" variable
+                                       (:constant-flag t
+                                        :type "int")
+                                        (reparse-symbol enumsubparts) [4982 4989])
+                                    ("EF_LET" variable
+                                       (:constant-flag t
+                                        :type "int")
+                                        (reparse-symbol enumsubparts) [4990 4997])
+                                    ("EF_LET_DECL" variable
+                                       (:constant-flag t
+                                        :type "int")
+                                        (reparse-symbol enumsubparts) [4998 5010])
+                                    ("EF_MATCH" variable
+                                       (:constant-flag t
+                                        :type "int")
+                                        (reparse-symbol enumsubparts) [5011 5020])
+                                    ("EF_QUANT" variable
+                                       (:constant-flag t
+                                        :type "int")
+                                        (reparse-symbol enumsubparts) [5021 5030])
+                                    ("EF_ATTR_EXPR" variable
+                                       (:constant-flag t
+                                        :type "int")
+                                        (reparse-symbol enumsubparts) [5031 5044])
+                                    ("EF_PATTERN" variable
+                                       (:constant-flag t
+                                        :type "int")
+                                        (reparse-symbol enumsubparts) [5045 5057]))                                  
+                                :type "enum")
+                                (reparse-symbol classsubparts) [4959 5058])
+                            ("expr_frame" type
+                               (:members 
+                                  ( ("m_kind" variable (:type ("expr_frame_kind" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5100 5123])
+                                    ("expr_frame" function
+                                       (:constructor-flag t
+                                        :arguments 
+                                          ( ("k" variable (:type ("expr_frame_kind" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5147 5165]))                                          
+                                        :type ("expr_frame" type (:type "struct") nil nil))
+                                        (reparse-symbol classsubparts) [5136 5178]))                                  
+                                :type "struct")
+                                (reparse-symbol classsubparts) [5068 5189])
+                            ("app_frame" type
+                               (:superclasses 
+                                  ( ("expr_frame" type
+                                       (:protection "public"
+                                        :type "class")
+                                        nil nil))                                  
+                                :members 
+                                  ( ("m_f" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5250 5263])
+                                    ("m_expr_spos" variable (:type "unsigned int") (reparse-symbol classsubparts) [5276 5297])
+                                    ("m_param_spos" variable (:type "unsigned int") (reparse-symbol classsubparts) [5310 5332])
+                                    ("m_as_sort" variable (:type "bool") (reparse-symbol classsubparts) [5345 5364])
+                                    ("app_frame" function
+                                       (:constructor-flag t
+                                        :arguments 
+                                          ( ("f" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("symbol" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [5387 5404])
+                                            ("expr_spos" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [5405 5424])
+                                            ("param_spos" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [5425 5445])
+                                            ("as_sort" variable (:type "bool") (reparse-symbol arg-sub-list) [5446 5459]))                                          
+                                        :type ("app_frame" type (:type "struct") nil nil))
+                                        (reparse-symbol classsubparts) [5377 5640]))                                  
+                                :type "struct")
+                                (reparse-symbol classsubparts) [5199 5651])
+                            ("quant_frame" type
+                               (:superclasses 
+                                  ( ("expr_frame" type
+                                       (:protection "public"
+                                        :type "class")
+                                        nil nil))                                  
+                                :members 
+                                  ( ("m_kind" variable (:type ("quantifier_kind" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5714 5737])
+                                    ("m_qid" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5750 5765])
+                                    ("m_skid" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5778 5794])
+                                    ("m_weight" variable (:type "unsigned int") (reparse-symbol classsubparts) [5807 5825])
+                                    ("m_pat_spos" variable (:type "unsigned int") (reparse-symbol classsubparts) [5838 5858])
+                                    ("m_nopat_spos" variable (:type "unsigned int") (reparse-symbol classsubparts) [5871 5893])
+                                    ("m_sym_spos" variable (:type "unsigned int") (reparse-symbol classsubparts) [5906 5926])
+                                    ("m_sort_spos" variable (:type "unsigned int") (reparse-symbol classsubparts) [5939 5960])
+                                    ("m_expr_spos" variable (:type "unsigned int") (reparse-symbol classsubparts) [5973 5994])
+                                    ("quant_frame" function
+                                       (:constructor-flag t
+                                        :arguments 
+                                          ( ("k" variable (:type ("quantifier_kind" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6019 6037])
+                                            ("pat_spos" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [6038 6056])
+                                            ("nopat_spos" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [6057 6077])
+                                            ("sym_spos" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [6078 6096])
+                                            ("sort_spos" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [6097 6116])
+                                            ("expr_spos" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [6117 6136]))                                          
+                                        :type ("quant_frame" type (:type "struct") nil nil))
+                                        (reparse-symbol classsubparts) [6007 6367]))                                  
+                                :type "struct")
+                                (reparse-symbol classsubparts) [5661 6378])
+                            ("match_frame" type
+                               (:superclasses 
+                                  ( ("expr_frame" type
+                                       (:protection "public"
+                                        :type "class")
+                                        nil nil))                                  
+                                :members 
+                                  ( ("match_frame" function
+                                       (:constructor-flag t
+                                        :type ("match_frame" type (:type "struct") nil nil))
+                                        (reparse-symbol classsubparts) [6441 6478]))                                  
+                                :type "struct")
+                                (reparse-symbol classsubparts) [6388 6489])
+                            ("let_frame" type
+                               (:superclasses 
+                                  ( ("expr_frame" type
+                                       (:protection "public"
+                                        :type "class")
+                                        nil nil))                                  
+                                :members 
+                                  ( ("m_in_decls" variable (:type "bool") (reparse-symbol classsubparts) [6550 6570])
+                                    ("m_sym_spos" variable (:type "unsigned int") (reparse-symbol classsubparts) [6583 6603])
+                                    ("m_expr_spos" variable (:type "unsigned int") (reparse-symbol classsubparts) [6616 6637])
+                                    ("let_frame" function
+                                       (:constructor-flag t
+                                        :arguments 
+                                          ( ("sym_spos" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [6660 6678])
+                                            ("expr_spos" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [6679 6698]))                                          
+                                        :type ("let_frame" type (:type "struct") nil nil))
+                                        (reparse-symbol classsubparts) [6650 6784]))                                  
+                                :type "struct")
+                                (reparse-symbol classsubparts) [6499 6795])
+                            ("let_decl_frame" type
+                               (:superclasses 
+                                  ( ("expr_frame" type
+                                       (:protection "public"
+                                        :type "class")
+                                        nil nil))                                  
+                                :members 
+                                  ( ("let_decl_frame" function
+                                       (:constructor-flag t
+                                        :type ("let_decl_frame" type (:type "struct") nil nil))
+                                        (reparse-symbol classsubparts) [6861 6904]))                                  
+                                :type "struct")
+                                (reparse-symbol classsubparts) [6805 6915])
+                            ("attr_expr_frame" type
+                               (:superclasses 
+                                  ( ("expr_frame" type
+                                       (:protection "public"
+                                        :type "class")
+                                        nil nil))                                  
+                                :members 
+                                  ( ("m_prev" variable
+                                       (:pointer 1
+                                        :type ("expr_frame" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [6982 7002])
+                                    ("m_sym_spos" variable (:type "unsigned int") (reparse-symbol classsubparts) [7015 7039])
+                                    ("m_expr_spos" variable (:type "unsigned int") (reparse-symbol classsubparts) [7052 7077])
+                                    ("m_last_symbol" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7090 7117])
+                                    ("attr_expr_frame" function
+                                       (:constructor-flag t
+                                        :arguments 
+                                          ( ("prev" variable
+                                               (:pointer 1
+                                                :type ("expr_frame" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [7146 7164])
+                                            ("sym_spos" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [7165 7183])
+                                            ("expr_spos" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [7184 7203]))                                          
+                                        :type ("attr_expr_frame" type (:type "struct") nil nil))
+                                        (reparse-symbol classsubparts) [7130 7356]))                                  
+                                :type "struct")
+                                (reparse-symbol classsubparts) [6925 7367])
+                            ("pattern_frame" type
+                               (:superclasses 
+                                  ( ("expr_frame" type
+                                       (:protection "public"
+                                        :type "class")
+                                        nil nil))                                  
+                                :members 
+                                  ( ("m_expr_spos" variable (:type "unsigned int") (reparse-symbol classsubparts) [7432 7456])
+                                    ("pattern_frame" function
+                                       (:constructor-flag t
+                                        :arguments 
+                                          ( ("expr_spos" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [7483 7502]))                                          
+                                        :type ("pattern_frame" type (:type "struct") nil nil))
+                                        (reparse-symbol classsubparts) [7469 7598]))                                  
+                                :type "struct")
+                                (reparse-symbol classsubparts) [7377 7609])
+                            ("sexpr_frame" type
+                               (:members 
+                                  ( ("m_spos" variable (:type "unsigned int") (reparse-symbol classsubparts) [7652 7676])
+                                    ("sexpr_frame" function
+                                       (:constructor-flag t
+                                        :arguments 
+                                          ( ("spos" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [7730 7744]))                                          
+                                        :type ("sexpr_frame" type (:type "struct") nil nil))
+                                        (reparse-symbol classsubparts) [7718 7790]))                                  
+                                :type "struct")
+                                (reparse-symbol classsubparts) [7619 7801])
+                            ("reset_stack" function (:type "void") (reparse-symbol classsubparts) [7811 7870])
+                            ("psort_stack" function (:type ("psort_ref_vector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7880 8078])
+                            ("sort_stack" function (:type ("sort_ref_vector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [8088 8279])
+                            ("expr_stack" function (:type ("expr_ref_vector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [8289 8480])
+                            ("size" function
+                               (:template 
+                                  ( ("T" type (:type "class") nil nil))                                  
+                                :type "unsigned int"
+                                :arguments 
+                                  ( ("v" variable
+                                       (:reference 1
+                                        :type ("scoped_ptr" type
+                                             (:template-specifier 
+                                                ( ("T" type nil nil nil))                                                
+                                              :type "class")
+                                              nil nil))
+                                        (reparse-symbol arg-sub-list) [8540 8558]))                                  
+                                :typemodifiers ("static"))
+                                (reparse-symbol classsubparts) [8490 8625])
+                            ("shrink" function
+                               (:template 
+                                  ( ("T" type (:type "class") nil nil))                                  
+                                :type "void"
+                                :arguments 
+                                  ( ("v" variable
+                                       (:reference 1
+                                        :type ("scoped_ptr" type
+                                             (:template-specifier 
+                                                ( ("T" type nil nil nil))                                                
+                                              :type "class")
+                                              nil nil))
+                                        (reparse-symbol arg-sub-list) [8683 8701])
+                                    ("old_sz" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [8702 8718]))                                  
+                                :typemodifiers ("static"))
+                                (reparse-symbol classsubparts) [8635 8888])
+                            ("pattern_stack" function (:type ("expr_ref_vector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [8898 9101])
+                            ("nopattern_stack" function (:type ("expr_ref_vector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9111 9322])
+                            ("symbol_stack" function (:type ("svector" type
+                                 (:template-specifier 
+                                    ( ("symbol" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [9332 9411])
+                            ("sexpr_stack" function (:type ("sexpr_ref_vector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9421 9619])
+                            ("autil" function (:type ("arith_util" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9629 9805])
+                            ("dtutil" function (:type ("datatype_util" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9815 10007])
+                            ("sutil" function (:type ("seq_util" type (:type "class") nil nil)) (reparse-symbol classsubparts) [10017 10183])
+                            ("butil" function (:type ("bv_util" type (:type "class") nil nil)) (reparse-symbol classsubparts) [10193 10354])
+                            ("pat_validator" function (:type ("pattern_validator" type (:type "class") nil nil)) (reparse-symbol classsubparts) [10364 10599])
+                            ("shifter" function (:type ("var_shifter" type (:type "class") nil nil)) (reparse-symbol classsubparts) [10609 10792])
+                            ("m_cache_end" variable (:type "unsigned int") (reparse-symbol classsubparts) [10802 10834])
+                            ("m_cached_strings" variable (:type ("std::vector" type
+                                 (:template-specifier 
+                                    ( ("std::string" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [10843 10885])
+                            ("m_num_open_paren" variable (:type "int") (reparse-symbol classsubparts) [10895 10916])
+                            ("scan_core" function (:type "void") (reparse-symbol classsubparts) [10926 11048])
+                            ("scan" function (:type "void") (reparse-symbol classsubparts) [11058 11309])
+                            ("next" function (:type "void") (reparse-symbol classsubparts) [11319 11412])
+                            ("curr" function
+                               (:methodconst-flag t
+                                :type ("scanner::token" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [11422 11468])
+                            ("sync_after_error" function (:type "bool") (reparse-symbol classsubparts) [11568 13130])
+                            ("check_next" function
+                               (:arguments 
+                                  ( ("t" variable (:type ("scanner::token" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13156 13173])
+                                    ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [13174 13191]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [13140 13427])
+                            ("curr_id" function
+                               (:methodconst-flag t
+                                :type ("symbol" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [13437 13498])
+                            ("curr_numeral" function
+                               (:methodconst-flag t
+                                :type ("rational" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [13507 13571])
+                            ("curr_unsigned" function (:type "unsigned int") (reparse-symbol classsubparts) [13580 13854])
+                            ("curr_is_identifier" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [13865 13940])
+                            ("curr_is_keyword" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [13949 14022])
+                            ("curr_is_string" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [14031 14102])
+                            ("curr_is_lparen" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [14111 14180])
+                            ("curr_is_rparen" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [14189 14259])
+                            ("curr_is_int" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [14268 14333])
+                            ("curr_is_float" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [14342 14411])
+                            ("curr_id_is_underscore" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [14421 14524])
+                            ("curr_id_is_as" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [14533 14620])
+                            ("curr_id_is_reserved" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [14629 14716])
+                            ("curr_id_is_match" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [14725 14818])
+                            ("curr_id_is_case" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [14827 14887])
+                            ("curr_id_is_forall" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [14896 14991])
+                            ("curr_id_is_exists" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [15000 15095])
+                            ("curr_id_is_lambda" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [15104 15199])
+                            ("curr_id_is_bang" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [15208 15299])
+                            ("curr_id_is_let" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [15308 15397])
+                            ("curr_id_is_root_obj" function
+                               (:methodconst-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [15406 15505])
+                            ("check_lparen" function
+                               (:arguments 
+                                  ( ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [15532 15549]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [15514 15605])
+                            ("check_lparen_next" function
+                               (:arguments 
+                                  ( ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [15637 15654]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [15614 15696])
+                            ("check_rparen_next" function
+                               (:arguments 
+                                  ( ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [15728 15745]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [15705 15788])
+                            ("check_rparen" function
+                               (:arguments 
+                                  ( ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [15815 15832]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [15797 15888])
+                            ("check_id_next" function
+                               (:arguments 
+                                  ( ("id" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("symbol" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [15916 15934])
+                                    ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [15935 15952]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [15897 16087])
+                            ("check_underscore_next" function
+                               (:arguments 
+                                  ( ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [16131 16148]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [16104 16186])
+                            ("check_as_next" function
+                               (:arguments 
+                                  ( ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [16214 16231]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [16195 16261])
+                            ("check_identifier" function
+                               (:arguments 
+                                  ( ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [16292 16309]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [16270 16369])
+                            ("check_nonreserved_identifier" function
+                               (:arguments 
+                                  ( ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [16412 16429]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [16378 16514])
+                            ("check_keyword" function
+                               (:arguments 
+                                  ( ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [16542 16559]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [16523 16616])
+                            ("check_string" function
+                               (:arguments 
+                                  ( ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [16643 16660]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [16625 16716])
+                            ("check_int" function
+                               (:arguments 
+                                  ( ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [16740 16757]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [16725 16810])
+                            ("check_int_or_float" function
+                               (:arguments 
+                                  ( ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [16843 16860]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [16819 16933])
+                            ("check_float" function
+                               (:arguments 
+                                  ( ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [16959 16976]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [16942 17031])
+                            ("check_identifier_next" function
+                               (:arguments 
+                                  ( ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [17069 17086]))                                  
+                                :type ("symbol" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [17040 17153])
+                            ("m_current_file" variable
+                               (:pointer 1
+                                :type "char")
+                                (reparse-symbol classsubparts) [17164 17192])
+                            ("set_current_file" function
+                               (:arguments 
+                                  ( ("s" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [17223 17238]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [17201 17262])
+                            ("error" function
+                               (:arguments 
+                                  ( ("line" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [17283 17297])
+                                    ("pos" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [17298 17311])
+                                    ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [17312 17329]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [17272 18223])
+                            ("error" function
+                               (:arguments 
+                                  ( ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [18244 18261]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [18233 18340])
+                            ("error_wo_pos" function
+                               (:arguments 
+                                  ( ("msg" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [18368 18385]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [18350 18753])
+                            ("unknown_sort" function
+                               (:arguments 
+                                  ( ("id" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [18781 18791])
+                                    ("context" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :default-value "\"\""
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [18792 18816]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [18763 19033])
+                            ("consume_sexpr" function (:type "void") (reparse-symbol classsubparts) [19043 20173])
+                            ("parse_sexpr" function (:type "void") (reparse-symbol classsubparts) [20183 22945])
+                            ("parse_sort_name" function
+                               (:pointer 1
+                                :arguments 
+                                  ( ("context" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :default-value "\"\""
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [22978 23002]))                                  
+                                :type ("sort" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [22955 23552])
+                            ("parse_psort_name" function
+                               (:pointer 1
+                                :arguments 
+                                  ( ("ignore_unknown_sort" variable
+                                       (:default-value "false"
+                                        :type "bool")
+                                        (reparse-symbol arg-sub-list) [23587 23619]))                                  
+                                :type ("psort" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [23562 24506])
+                            ("parse_indexed_sort" function
+                               (:pointer 1
+                                :type ("sort" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [24516 25355])
+                            ("push_psort_app_frame" function (:type "void") (reparse-symbol classsubparts) [25365 25806])
+                            ("pop_psort_app_frame" function (:type "void") (reparse-symbol classsubparts) [25816 26718])
+                            ("parse_psort" function
+                               (:arguments 
+                                  ( ("ignore_unknown_sort" variable
+                                       (:default-value "false"
+                                        :type "bool")
+                                        (reparse-symbol arg-sub-list) [26745 26777]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [26728 27991])
+                            ("push_sort_app_frame" function (:type "void") (reparse-symbol classsubparts) [28001 28390])
+                            ("pop_sort_app_frame" function (:type "void") (reparse-symbol classsubparts) [28400 29363])
+                            ("parse_sort" function
+                               (:arguments 
+                                  ( ("context" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [29389 29409]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [29373 30669])
+                            ("parse_sorts" function
+                               (:arguments 
+                                  ( ("context" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [30700 30720]))                                  
+                                :type "unsigned int")
+                                (reparse-symbol classsubparts) [30679 30957])
+                            ("parse_symbols" function (:type "unsigned int") (reparse-symbol classsubparts) [30967 31355])
+                            ("parse_ptype" function (:type ("ptype" type (:type "class") nil nil)) (reparse-symbol classsubparts) [31365 32028])
+                            ("parse_accessor_decls" function
+                               (:arguments 
+                                  ( ("a_decls" variable
+                                       (:reference 1
+                                        :type ("paccessor_decl_ref_buffer" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [32104 32140]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [32078 32945])
+                            ("parse_constructor_decls" function
+                               (:arguments 
+                                  ( ("ct_decls" variable
+                                       (:reference 1
+                                        :type ("pconstructor_decl_ref_buffer" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [33029 33069]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [33000 34602])
+                            ("parse_declare_datatypes" function (:type "void") (reparse-symbol classsubparts) [34620 38364])
+                            ("parse_declare_datatype" function (:type "void") (reparse-symbol classsubparts) [38426 39422])
+                            ("parse_datatype_dec" function
+                               (:arguments 
+                                  ( ("dt_name" variable
+                                       (:pointer 1
+                                        :type ("symbol" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [39550 39566])
+                                    ("ct_decls" variable
+                                       (:reference 1
+                                        :type ("pconstructor_decl_ref_buffer" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [39567 39607]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [39526 40508])
+                            ("check_missing" function
+                               (:arguments 
+                                  ( ("d" variable
+                                       (:pointer 1
+                                        :type ("pdatatype_decl" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [40537 40555])
+                                    ("line" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [40556 40570])
+                                    ("pos" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [40571 40584]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [40518 40917])
+                            ("check_duplicate" function
+                               (:arguments 
+                                  ( ("d" variable
+                                       (:pointer 1
+                                        :type ("pdatatype_decl" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [40948 40966])
+                                    ("line" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [40967 40981])
+                                    ("pos" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [40982 40995]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [40927 41360])
+                            ("name_expr" function
+                               (:arguments 
+                                  ( ("n" variable
+                                       (:pointer 1
+                                        :type ("expr" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [41385 41394])
+                                    ("s" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("symbol" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [41395 41412]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [41370 41801])
+                            ("in_quant_ctx" function
+                               (:arguments 
+                                  ( ("fr" variable
+                                       (:pointer 1
+                                        :type ("attr_expr_frame" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [41829 41850]))                                  
+                                :type "bool")
+                                (reparse-symbol classsubparts) [41811 41955])
+                            ("check_in_quant_ctx" function
+                               (:arguments 
+                                  ( ("fr" variable
+                                       (:pointer 1
+                                        :type ("attr_expr_frame" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [41989 42010]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [41965 42152])
+                            ("process_last_symbol" function
+                               (:arguments 
+                                  ( ("fr" variable
+                                       (:pointer 1
+                                        :type ("attr_expr_frame" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [42187 42208]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [42162 43134])
+                            ("store_qid" function
+                               (:arguments 
+                                  ( ("fr" variable
+                                       (:pointer 1
+                                        :type ("attr_expr_frame" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [43159 43180])
+                                    ("qid" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("symbol" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [43181 43200]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [43144 43315])
+                            ("store_skid" function
+                               (:arguments 
+                                  ( ("fr" variable
+                                       (:pointer 1
+                                        :type ("attr_expr_frame" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [43341 43362])
+                                    ("skid" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("symbol" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [43363 43383]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [43325 43500])
+                            ("store_weight" function
+                               (:arguments 
+                                  ( ("fr" variable
+                                       (:pointer 1
+                                        :type ("attr_expr_frame" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [43528 43549])
+                                    ("w" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [43550 43561]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [43510 43677])
+                            ("pe_state" type
+                               (:members 
+                                  ( ("PES_EXPR" variable
+                                       (:constant-flag t
+                                        :type "int")
+                                        (reparse-symbol enumsubparts) [43749 43758])
+                                    ("PES_DECL" variable
+                                       (:constant-flag t
+                                        :type "int")
+                                        (reparse-symbol enumsubparts) [43792 43801])
+                                    ("PES_PATTERN" variable
+                                       (:constant-flag t
+                                        :type "int")
+                                        (reparse-symbol enumsubparts) [43842 43854])
+                                    ("PES_CONTINUE" variable
+                                       (:constant-flag t
+                                        :type "int")
+                                        (reparse-symbol enumsubparts) [43867 43889]))                                  
+                                :type "enum")
+                                (reparse-symbol classsubparts) [43721 43890])
+                            ("consume_attributes" function
+                               (:arguments 
+                                  ( ("fr" variable
+                                       (:pointer 1
+                                        :type ("attr_expr_frame" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [43928 43949]))                                  
+                                :type ("pe_state" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [43900 47438])
+                            ("parse_expr_state" function (:type ("pe_state" type (:type "class") nil nil)) (reparse-symbol classsubparts) [47448 47953])
+                            ("parse_numeral" function
+                               (:arguments 
+                                  ( ("is_int" variable (:type "bool") (reparse-symbol arg-sub-list) [47982 47994]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [47963 48372])
+                            ("parse_bv_numeral" function (:type "void") (reparse-symbol classsubparts) [48382 48692])
+                            ("parse_string_const" function (:type "void") (reparse-symbol classsubparts) [48702 49005])
+                            ("push_pattern_frame" function (:type "void") (reparse-symbol classsubparts) [49015 51331])
+                            ("push_let_decl_frame" function (:type "void") (reparse-symbol classsubparts) [51341 51739])
+                            ("parse_sorted_vars" function (:type "unsigned int") (reparse-symbol classsubparts) [51749 53576])
+                            ("push_let_frame" function (:type "void") (reparse-symbol classsubparts) [53586 53883])
+                            ("push_bang_frame" function
+                               (:arguments 
+                                  ( ("curr" variable
+                                       (:pointer 1
+                                        :type ("expr_frame" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [53914 53932]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [53893 54270])
+                            ("push_quant_frame" function
+                               (:arguments 
+                                  ( ("k" variable (:type ("quantifier_kind" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [54302 54320]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [54280 55136])
+                            ("push_match_frame" function (:type "void") (reparse-symbol classsubparts) [55410 57742])
+                            ("pop_match_frame" function
+                               (:arguments 
+                                  ( ("fr" variable
+                                       (:pointer 1
+                                        :type ("match_frame" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [57773 57789]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [57752 57870])
+                            ("compile_patterns" function
+                               (:arguments 
+                                  ( ("t" variable
+                                       (:pointer 1
+                                        :type ("expr" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [57906 57914])
+                                    ("patterns" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("expr_ref_vector" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [57915 57947])
+                                    ("cases" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("expr_ref_vector" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [57948 57977]))                                  
+                                :type ("expr_ref" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [57880 59147])
+                            ("check_patterns" function
+                               (:arguments 
+                                  ( ("patterns" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("expr_ref_vector" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [59177 59209])
+                                    ("s" variable
+                                       (:pointer 1
+                                        :type ("sort" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [59210 59218]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [59157 59966])
+                            ("bind_match" function
+                               (:arguments 
+                                  ( ("t" variable
+                                       (:pointer 1
+                                        :type ("expr" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [60090 60098])
+                                    ("pattern" variable
+                                       (:pointer 1
+                                        :type ("expr" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [60099 60113])
+                                    ("subst" variable
+                                       (:reference 1
+                                        :type ("expr_ref_vector" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [60114 60137]))                                  
+                                :type ("expr_ref" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [60070 61186])
+                            ("parse_match_pattern" function
+                               (:arguments 
+                                  ( ("srt" variable
+                                       (:pointer 1
+                                        :type ("sort" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [61352 61363]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [61327 64002])
+                            ("parse_indexed_identifier_core" function (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [64012 65394])
+                            ("parse_indexed_identifier" function (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol classsubparts) [65404 65731])
+                            ("parse_qualified_identifier_core" function
+                               (:arguments 
+                                  ( ("has_as" variable
+                                       (:reference 1
+                                        :type "bool")
+                                        (reparse-symbol arg-sub-list) [65977 65991]))                                  
+                                :type ("symbol" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [65938 66610])
+                            ("parse_qualified_identifier" function
+                               (:arguments 
+                                  ( ("has_as" variable
+                                       (:reference 1
+                                        :type "bool")
+                                        (reparse-symbol arg-sub-list) [66889 66903]))                                  
+                                :type ("symbol" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [66855 67464])
+                            ("unknown_var_const_name" function
+                               (:arguments 
+                                  ( ("id" variable (:type ("symbol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [67502 67512]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [67474 67672])
+                            ("m_last_bv_numeral" variable (:type ("rational" type (:type "class") nil nil)) (reparse-symbol classsubparts) [67682 67709])
+                            ("is_bv_decimal" function
+                               (:arguments 
+                                  ( ("s" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [67801 67816]))                                  
+                                :type "bool")
+                                (reparse-symbol classsubparts) [67782 68281])
+                            ("is_bv_binary" function
+                               (:arguments 
+                                  ( ("s" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [68351 68366]))                                  
+                                :type "bool")
+                                (reparse-symbol classsubparts) [68333 68912])
+                            ("is_bv_hex" function
+                               (:arguments 
+                                  ( ("s" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [68987 69002]))                                  
+                                :type "bool")
+                                (reparse-symbol classsubparts) [68972 69996])
+                            ("is_bv_num" function
+                               (:arguments 
+                                  ( ("n" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("symbol" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [70214 70231]))                                  
+                                :type "bool")
+                                (reparse-symbol classsubparts) [70199 70671])
+                            ("push_local" function
+                               (:arguments 
+                                  ( ("l" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("local" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [70697 70713]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [70681 71111])
+                            ("parse_expr_name" function (:type "void") (reparse-symbol classsubparts) [71165 71563])
+                            ("check_qualifier" function
+                               (:arguments 
+                                  ( ("t" variable
+                                       (:pointer 1
+                                        :type ("expr" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [71744 71753])
+                                    ("has_as" variable (:type "bool") (reparse-symbol arg-sub-list) [71754 71766]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [71723 72040])
+                            ("parse_qualified_name" function (:type "void") (reparse-symbol classsubparts) [72225 74041])
+                            ("parse_root_obj" function (:type "void") (reparse-symbol classsubparts) [74051 74868])
+                            ("push_app_frame" function (:type "void") (reparse-symbol classsubparts) [74878 75345])
+                            ("push_expr_frame" function
+                               (:arguments 
+                                  ( ("curr" variable
+                                       (:pointer 1
+                                        :type ("expr_frame" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [75376 75394]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [75355 76897])
+                            ("pop_app_frame" function
+                               (:arguments 
+                                  ( ("fr" variable
+                                       (:pointer 1
+                                        :type ("app_frame" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [76926 76941]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [76907 78839])
+                            ("pop_let_frame" function
+                               (:arguments 
+                                  ( ("fr" variable
+                                       (:pointer 1
+                                        :type ("let_frame" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [78868 78883]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [78849 80744])
+                            ("pop_quant_frame" function
+                               (:arguments 
+                                  ( ("fr" variable
+                                       (:pointer 1
+                                        :type ("quant_frame" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [80775 80792]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [80754 84427])
+                            ("pop_attr_expr_frame" function
+                               (:arguments 
+                                  ( ("fr" variable
+                                       (:pointer 1
+                                        :type ("attr_expr_frame" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [84462 84483]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [84437 84867])
+                            ("pop_pattern_frame" function
+                               (:arguments 
+                                  ( ("fr" variable
+                                       (:pointer 1
+                                        :type ("pattern_frame" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [84900 84919]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [84877 85669])
+                            ("pop_expr_frame" function (:type "void") (reparse-symbol classsubparts) [85679 86846])
+                            ("parse_expr" function (:type "void") (reparse-symbol classsubparts) [86856 89480])
+                            ("parse_exprs" function (:type "unsigned int") (reparse-symbol classsubparts) [89490 89772])
+                            ("parse_sort_decl_params" function (:type "void") (reparse-symbol classsubparts) [89782 90256])
+                            ("parse_sort_decl_or_params" function (:type "bool") (reparse-symbol classsubparts) [90266 91853])
+                            ("parse_declare_sort" function (:type "void") (reparse-symbol classsubparts) [91863 92905])
+                            ("parse_define_sort" function (:type "void") (reparse-symbol classsubparts) [92915 93725])
+                            ("parse_define" function
+                               (:arguments 
+                                  ( ("is_fun" variable (:type "bool") (reparse-symbol arg-sub-list) [93753 93765]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [93735 95287])
+                            ("parse_define_fun" function (:type "void") (reparse-symbol classsubparts) [95297 95364])
+                            ("parse_model_add" function (:type "void") (reparse-symbol classsubparts) [95374 95441])
+                            ("parse_model_del" function (:type "void") (reparse-symbol classsubparts) [95451 95747])
+                            ("parse_define_fun_rec" function (:type "void") (reparse-symbol classsubparts) [95757 96369])
+                            ("parse_define_funs_rec" function (:type "void") (reparse-symbol classsubparts) [96379 97111])
+                            ("parse_rec_fun_decls" function
+                               (:arguments 
+                                  ( ("decls" variable
+                                       (:reference 1
+                                        :type ("func_decl_ref_vector" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [97146 97174])
+                                    ("bindings" variable
+                                       (:reference 1
+                                        :type ("vector" type
+                                             (:template-specifier 
+                                                ( ("expr_ref_vector" type nil nil nil))                                                
+                                              :type "class")
+                                              nil nil))
+                                        (reparse-symbol arg-sub-list) [97175 97209])
+                                    ("ids" variable
+                                       (:reference 1
+                                        :type ("vector" type
+                                             (:template-specifier 
+                                                ( ("svector" type (:template-specifier 
+                                                    ( ("symbol" type nil nil nil))                                                    ) nil nil))                                                
+                                              :type "class")
+                                              nil nil))
+                                        (reparse-symbol arg-sub-list) [97210 97240]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [97121 97936])
+                            ("parse_rec_fun_decl" function
+                               (:arguments 
+                                  ( ("f" variable
+                                       (:reference 1
+                                        :type ("func_decl_ref" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [97985 98002])
+                                    ("bindings" variable
+                                       (:reference 1
+                                        :type ("expr_ref_vector" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [98003 98029])
+                                    ("ids" variable
+                                       (:reference 1
+                                        :type ("svector" type
+                                             (:template-specifier 
+                                                ( ("symbol" type nil nil nil))                                                
+                                              :type "class")
+                                              nil nil))
+                                        (reparse-symbol arg-sub-list) [98030 98051]))                                  
+                                :type ("recfun::promise_def" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [97946 99114])
+                            ("parse_rec_fun_bodies" function
+                               (:arguments 
+                                  ( ("decls" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("func_decl_ref_vector" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [99150 99184])
+                                    ("bindings" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("vector" type
+                                             (:template-specifier 
+                                                ( ("expr_ref_vector" type nil nil nil))                                                
+                                              :type "class")
+                                              nil nil))
+                                        (reparse-symbol arg-sub-list) [99185 99225])
+                                    ("ids" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("vector" type
+                                             (:template-specifier 
+                                                ( ("svector" type (:template-specifier 
+                                                    ( ("symbol" type nil nil nil))                                                    ) nil nil))                                                
+                                              :type "class")
+                                              nil nil))
+                                        (reparse-symbol arg-sub-list) [99226 99262]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [99124 99834])
+                            ("parse_rec_fun_body" function
+                               (:arguments 
+                                  ( ("f" variable
+                                       (:pointer 1
+                                        :type ("func_decl" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [99868 99881])
+                                    ("bindings" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("expr_ref_vector" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [99882 99914])
+                                    ("ids" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("svector" type
+                                             (:template-specifier 
+                                                ( ("symbol" type nil nil nil))                                                
+                                              :type "class")
+                                              nil nil))
+                                        (reparse-symbol arg-sub-list) [99915 99942]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [99844 101066])
+                            ("parse_define_const" function (:type "void") (reparse-symbol classsubparts) [101077 101906])
+                            ("parse_declare_fun" function (:type "void") (reparse-symbol classsubparts) [101916 102748])
+                            ("parse_declare_const" function (:type "void") (reparse-symbol classsubparts) [102758 103605])
+                            ("parse_opt_unsigned" function
+                               (:arguments 
+                                  ( ("def" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [103643 103656]))                                  
+                                :type "unsigned int")
+                                (reparse-symbol classsubparts) [103615 104289])
+                            ("parse_push" function (:type "void") (reparse-symbol classsubparts) [104299 104631])
+                            ("parse_pop" function (:type "void") (reparse-symbol classsubparts) [104641 105091])
+                            ("m_assert_expr" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [105101 105127])
+                            ("parse_assert" function (:type "void") (reparse-symbol classsubparts) [105137 106569])
+                            ("parse_assumptions" function (:type "void") (reparse-symbol classsubparts) [106579 106863])
+                            ("parse_check_sat" function (:type "void") (reparse-symbol classsubparts) [106873 107244])
+                            ("parse_check_sat_assuming" function (:type "void") (reparse-symbol classsubparts) [107254 107811])
+                            ("parse_get_value" function (:type "void") (reparse-symbol classsubparts) [107821 110389])
+                            ("parse_reset" function (:type "void") (reparse-symbol classsubparts) [110399 110703])
+                            ("parse_option_value" function (:type "void") (reparse-symbol classsubparts) [110713 111427])
+                            ("parse_func_decl_ref" function
+                               (:pointer 1
+                                :type ("func_decl" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [111606 113709])
+                            ("parse_func_decl_refs" function
+                               (:arguments 
+                                  ( ("flist" variable
+                                       (:reference 1
+                                        :type ("ptr_buffer" type
+                                             (:template-specifier 
+                                                ( ("func_decl" type nil nil nil))                                                
+                                              :type "class")
+                                              nil nil))
+                                        (reparse-symbol arg-sub-list) [113745 113775]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [113719 114013])
+                            ("parse_next_cmd_arg" function (:type "void") (reparse-symbol classsubparts) [114023 118191])
+                            ("parse_unknown_cmd" function (:type "void") (reparse-symbol classsubparts) [118201 118544])
+                            ("parse_ext_cmd" function
+                               (:arguments 
+                                  ( ("line" variable (:type "int") (reparse-symbol arg-sub-list) [118573 118582])
+                                    ("pos" variable (:type "int") (reparse-symbol arg-sub-list) [118583 118591]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [118554 120304])
+                            ("parse_cmd" function (:type "void") (reparse-symbol classsubparts) [120314 122763])
+                            ("public" label nil (reparse-symbol classsubparts) [122769 122776])
+                            ("parser" function
+                               (:constructor-flag t
+                                :arguments 
+                                  ( ("ctx" variable
+                                       (:reference 1
+                                        :type ("cmd_context" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [122792 122810])
+                                    ("is" variable
+                                       (:reference 1
+                                        :type ("std::istream" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [122811 122829])
+                                    ("interactive" variable (:type "bool") (reparse-symbol arg-sub-list) [122830 122847])
+                                    ("p" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("params_ref" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [122848 122869])
+                                    ("filename" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :default-value "nullptr"
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [122870 122899]))                                  
+                                :type ("parser" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [122785 124824])
+                            ("parser" function
+                               (:destructor-flag t
+                                :type "void")
+                                (reparse-symbol classsubparts) [124834 124882])
+                            ("updt_params" function (:type "void") (reparse-symbol classsubparts) [124892 125152])
+                            ("reset" function (:type "void") (reparse-symbol classsubparts) [125162 125920])
+                            ("parse_sexpr_ref" function (:type ("sexpr_ref" type (:type "class") nil nil)) (reparse-symbol classsubparts) [125930 126393])
+                            ("()" function
+                               (:operator-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [126403 128835]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [782 128842]))                  
+                :type "namespace")
+                nil [716 128844])
+            ("parse_smt2_commands" function
+               (:arguments 
+                  ( ("ctx" variable
+                       (:reference 1
+                        :type ("cmd_context" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [128872 128890])
+                    ("is" variable
+                       (:reference 1
+                        :type ("std::istream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [128891 128909])
+                    ("interactive" variable (:type "bool") (reparse-symbol arg-sub-list) [128910 128927])
+                    ("ps" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("params_ref" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [128928 128950])
+                    ("filename" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [128951 128973]))                  
+                :type "bool")
+                nil [128847 129049])
+            ("parse_sexpr" function
+               (:arguments 
+                  ( ("ctx" variable
+                       (:reference 1
+                        :type ("cmd_context" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [129073 129090])
+                    ("is" variable
+                       (:reference 1
+                        :type ("std::istream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [129091 129108])
+                    ("ps" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("params_ref" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [129109 129130])
+                    ("filename" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [129131 129152]))                  
+                :type ("sexpr_ref" type (:type "class") nil nil))
+                nil [129051 129243]))          
+      :file "smt2parser.cpp"
+      :pointmax 129246
+      :fsize 129245
+      :lastmodtime '(24101 11787 126475 463000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :file "smt2parser.h"
+      :fsize 545
+      :lastmodtime '(24101 11787 126475 463000))
+    (semanticdb-table "semanticdb-table"
+      :file "smt2scanner.h"
+      :fsize 2990
+      :lastmodtime '(24101 11787 126475 463000)))
+  :file "!home!jose!Documents!GithubProjects!z3__!src!parsers!smt2!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

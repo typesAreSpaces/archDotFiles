@@ -1,0 +1,581 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("CCTERM_H_" variable (:constant-flag t) nil [27 36])
+            ("string" include (:system-flag t) nil [38 55])
+            ("list" include (:system-flag t) nil [56 71])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [73 93])
+            ("Term.h" include nil nil [95 112])
+            ("Symbol.h" include nil nil [113 132])
+            ("Signature.h" include nil nil [133 155])
+            ("NoEqClassException.h" include nil nil [156 187])
+            ("CCTerm" type
+               (:prototype t
+                :type "class")
+                nil [190 203])
+            ("EqClass" type
+               (:typedef ("CCTerm" type (:type "class") nil nil)
+                :pointer 1
+                :type "typedef")
+                nil [204 228])
+            ("PredList" type
+               (:typedef ("list" type
+                     (:template-specifier 
+                        ( ("CCTerm" type (:pointer 1) nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [230 261])
+            ("Signature" type
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type "class"
+                :prototype t)
+                nil [264 298])
+            ("CCTerm" type
+               (:superclasses 
+                  ( ("Term" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [332 339])
+                    ("CCTerm" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("symbol" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("Symbol" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [348 369])
+                            ("args" variable
+                               (:pointer 2
+                                :type ("CCTerm" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [370 384])
+                            ("merge" variable
+                               (:pointer 1
+                                :type ("CCTerm" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [384 398]))                          
+                        :type ("CCTerm" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [341 399])
+                    ("CCTerm" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("symbol" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("Symbol" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [700 721])
+                            ("args" variable
+                               (:pointer 2
+                                :type ("CCTerm" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [722 736]))                          
+                        :type ("CCTerm" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [693 737])
+                    ("CCTerm" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [739 757])
+                    ("getEqClass" function
+                       (:prototype-flag t
+                        :type ("EqClass" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [763 785])
+                    ("unionWith" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("t" variable
+                               (:pointer 1
+                                :type ("CCTerm" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [891 901]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [876 902])
+                    ("getSignature" function
+                       (:prototype-flag t
+                        :methodconst-flag t
+                        :pointer 1
+                        :type ("Signature" type
+                             (:template-specifier 
+                                ( ("EqClass" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [959 1000])
+                    ("getPredList" function
+                       (:prototype-flag t
+                        :methodconst-flag t
+                        :pointer 1
+                        :type ("PredList" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1250 1280])
+                    ("[]" function
+                       (:prototype-flag t
+                        :methodconst-flag t
+                        :operator-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("index" variable (:type "int") (reparse-symbol arg-sub-list) [1364 1374]))                          
+                        :type ("CCTerm" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1345 1381])
+                    ("isEqClass" function
+                       (:prototype-flag t
+                        :methodconst-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1385 1408])
+                    ("getAuxMember" function
+                       (:prototype-flag t
+                        :methodconst-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1412 1437])
+                    ("setAuxMember" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("aux" variable (:type "int") (reparse-symbol arg-sub-list) [1459 1467]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1441 1468])
+                    ("unionEqClass" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("eq" variable (:type ("EqClass" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1718 1729]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1700 1730])
+                    ("private" label nil (reparse-symbol classsubparts) [1733 1741])
+                    ("predList" variable
+                       (:pointer 1
+                        :type ("PredList" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1900 1919])
+                    ("equivClass" variable
+                       (:pointer 1
+                        :type ("CCTerm" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2032 2051])
+                    ("auxMember" variable (:type "int") (reparse-symbol classsubparts) [2055 2069]))                  
+                :type "class")
+                nil [301 2118])
+            ("isEqClass" function
+               (:methodconst-flag t
+                :parent "CCTerm"
+                :typemodifiers ("inline")
+                :type "bool")
+                nil [2279 2348])
+            ("getAuxMember" function
+               (:methodconst-flag t
+                :parent "CCTerm"
+                :typemodifiers ("inline")
+                :type "int")
+                nil [2350 2412])
+            ("setAuxMember" function
+               (:parent "CCTerm"
+                :typemodifiers ("inline")
+                :arguments 
+                  ( ("aux" variable (:type "int") (reparse-symbol arg-sub-list) [2448 2456]))                  
+                :type "void")
+                nil [2415 2484])
+            ("[]" function
+               (:methodconst-flag t
+                :operator-flag t
+                :pointer 1
+                :parent "CCTerm"
+                :typemodifiers ("inline")
+                :arguments 
+                  ( ("index" variable (:type "int") (reparse-symbol arg-sub-list) [2520 2530]))                  
+                :type ("CCTerm" type (:type "class") nil nil))
+                nil [2486 2570])
+            ("getPredList" function
+               (:methodconst-flag t
+                :pointer 1
+                :parent "CCTerm"
+                :typemodifiers ("inline")
+                :type ("PredList" type (:type "class") nil nil))
+                nil [2572 2638])
+            ("getEqClass" function
+               (:parent "CCTerm"
+                :typemodifiers ("inline")
+                :type ("EqClass" type (:type "class") nil nil))
+                nil [2640 2769])
+            ("unionEqClass" function
+               (:parent "CCTerm"
+                :typemodifiers ("inline")
+                :arguments 
+                  ( ("eq" variable (:type ("EqClass" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2805 2816]))                  
+                :type "void")
+                nil [2772 3167])
+            ("unionWith" function
+               (:parent "CCTerm"
+                :typemodifiers ("inline")
+                :arguments 
+                  ( ("t" variable
+                       (:pointer 1
+                        :type ("CCTerm" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3200 3210]))                  
+                :type "void")
+                nil [3170 3260]))          
+      :file "CCTerm.h"
+      :pointmax 3282
+      :fsize 3281
+      :lastmodtime '(18273 17599 0 0)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("CCTERM_H_")
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("TERM_H_" variable (:constant-flag t) nil [25 32])
+            ("Symbol.h" include nil nil [34 53])
+            ("string" include (:system-flag t) nil [55 72])
+            ("list" include (:system-flag t) nil [73 88])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [90 110])
+            ("Term" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [227 234])
+                    ("Term" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("symbol" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("Symbol" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [533 554])
+                            ("args" variable
+                               (:pointer 2
+                                :type ("Term" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [555 567]))                          
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [528 568])
+                    ("Term" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("symbol" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("Symbol" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [734 755])
+                            ("args" variable
+                               (:pointer 2
+                                :type ("Term" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [756 768])
+                            ("merge" variable
+                               (:pointer 1
+                                :type ("Term" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [768 780]))                          
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [729 781])
+                    ("Term" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [783 799])
+                    ("toString" function
+                       (:prototype-flag t
+                        :methodconst-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [882 906])
+                    ("getSymbol" function
+                       (:prototype-flag t
+                        :methodconst-flag t
+                        :pointer 1
+                        :type ("Symbol" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [965 997])
+                    ("getArgs" function
+                       (:prototype-flag t
+                        :methodconst-flag t
+                        :pointer 2
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1095 1123])
+                    ("[]" function
+                       (:prototype-flag t
+                        :methodconst-flag t
+                        :operator-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("index" variable (:type "int") (reparse-symbol arg-sub-list) [1258 1268]))                          
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1241 1275])
+                    ("size" function
+                       (:prototype-flag t
+                        :methodconst-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1324 1341])
+                    ("protected" label nil (reparse-symbol classsubparts) [1346 1356])
+                    ("symbol" variable
+                       (:pointer 1
+                        :type ("Symbol" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1414 1440])
+                    ("args" variable
+                       (:pointer 2
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1504 1521]))                  
+                :type "class")
+                nil [211 1524])
+            ("size" function
+               (:methodconst-flag t
+                :parent "Term"
+                :typemodifiers ("inline")
+                :type "int")
+                nil [1600 1723])
+            ("[]" function
+               (:methodconst-flag t
+                :operator-flag t
+                :pointer 1
+                :parent "Term"
+                :typemodifiers ("inline")
+                :arguments 
+                  ( ("index" variable (:type "int") (reparse-symbol arg-sub-list) [1755 1765]))                  
+                :type ("Term" type (:type "class") nil nil))
+                nil [1725 1796])
+            ("getSymbol" function
+               (:methodconst-flag t
+                :pointer 1
+                :parent "Term"
+                :typemodifiers ("inline")
+                :type ("Symbol" type (:type "class") nil nil))
+                nil [1798 1862])
+            ("getArgs" function
+               (:methodconst-flag t
+                :pointer 2
+                :parent "Term"
+                :typemodifiers ("inline")
+                :type ("Term" type (:type "class") nil nil))
+                nil [1865 1923]))          
+      :file "Term.h"
+      :pointmax 1945
+      :fsize 1944
+      :lastmodtime '(18261 24658 0 0)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("TERM_H_")
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :file "Symbol.h"
+      :fsize 2142
+      :lastmodtime '(18199 42010 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "Signature.h"
+      :fsize 4054
+      :lastmodtime '(18199 42010 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "NoEqClassException.h"
+      :fsize 349
+      :lastmodtime '(18199 42010 0 0))
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("Theory.h" include nil nil [1 20])
+            ("Theory" function
+               (:constructor-flag t
+                :parent "Theory"
+                :type ("Theory" type (:type "class") nil nil))
+                nil [22 42])
+            ("Theory" function
+               (:destructor-flag t
+                :parent "Theory"
+                :type "void")
+                nil [44 84])
+            ("printSignatureTable" function
+               (:methodconst-flag t
+                :parent "Theory"
+                :type ("string" type (:type "class") nil nil))
+                nil [86 340])
+            ("buildClosure" function
+               (:parent "Theory"
+                :type "void")
+                nil [342 857])
+            ("traverse" function
+               (:parent "Theory"
+                :arguments 
+                  ( ("t" variable
+                       (:pointer 1
+                        :type ("CCTerm" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [881 891])
+                    ("combine" variable
+                       (:reference 1
+                        :type ("Combine" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [891 908]))                  
+                :type "void")
+                nil [859 1140])
+            ("parse" function
+               (:pointer 1
+                :parent "Theory"
+                :arguments 
+                  ( ("input" variable
+                       (:reference 1
+                        :type ("istream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1165 1180]))                  
+                :type ("Theory" type (:type "class") nil nil))
+                nil [1143 1747])
+            ("copySigTab" function
+               (:methodconst-flag t
+                :pointer 1
+                :parent "Theory"
+                :type ("SigTab" type (:type "class") nil nil))
+                nil [1749 1823]))          
+      :file "Theory.cpp"
+      :pointmax 1824
+      :fsize 1823
+      :lastmodtime '(18261 36638 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags nil
+      :file "Theory.h"
+      :pointmax 4260
+      :fsize 4259
+      :lastmodtime '(18273 19798 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("Term.h" include nil nil [1 18])
+            ("iostream.h" include (:system-flag t) nil [19 40])
+            ("Term" function
+               (:constructor-flag t
+                :parent "Term"
+                :arguments 
+                  ( ("symbol" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Symbol" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [53 74])
+                    ("args" variable
+                       (:pointer 2
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [75 87]))                  
+                :type ("Term" type (:type "class") nil nil))
+                nil [42 119])
+            ("Term" function
+               (:constructor-flag t
+                :parent "Term"
+                :arguments 
+                  ( ("symbol" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Symbol" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [132 153])
+                    ("args" variable
+                       (:pointer 2
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [154 166])
+                    ("merge" variable
+                       (:pointer 1
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [166 178]))                  
+                :type ("Term" type (:type "class") nil nil))
+                nil [121 210])
+            ("Term" function
+               (:destructor-flag t
+                :parent "Term"
+                :type "void")
+                nil [212 291])
+            ("toString" function
+               (:methodconst-flag t
+                :parent "Term"
+                :type ("string" type (:type "class") nil nil))
+                nil [293 539]))          
+      :file "Term.cpp"
+      :pointmax 540
+      :fsize 539
+      :lastmodtime '(18261 24675 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("CCTerm.h" include nil nil [1 20])
+            ("CCTerm" function
+               (:constructor-flag t
+                :parent "CCTerm"
+                :arguments 
+                  ( ("symbol" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Symbol" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [37 58])
+                    ("args" variable
+                       (:pointer 2
+                        :type ("CCTerm" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [59 73])
+                    ("merge" variable
+                       (:pointer 1
+                        :type ("CCTerm" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [73 87]))                  
+                :type ("CCTerm" type (:type "class") nil nil))
+                nil [22 359])
+            ("CCTerm" function
+               (:constructor-flag t
+                :parent "CCTerm"
+                :arguments 
+                  ( ("symbol" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Symbol" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [376 397])
+                    ("args" variable
+                       (:pointer 2
+                        :type ("CCTerm" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [398 412]))                  
+                :type ("CCTerm" type (:type "class") nil nil))
+                nil [361 542])
+            ("CCTerm" function
+               (:destructor-flag t
+                :parent "CCTerm"
+                :type "void")
+                nil [544 632])
+            ("getSignature" function
+               (:methodconst-flag t
+                :pointer 1
+                :parent "CCTerm"
+                :type ("Signature" type
+                     (:template-specifier 
+                        ( ("EqClass" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [634 850]))          
+      :file "CCTerm.cpp"
+      :pointmax 851
+      :fsize 850
+      :lastmodtime '(18244 14543 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("Theory.h" include nil nil [1 20])
+            ("fstream" include (:system-flag t) nil [21 39])
+            ("time.h" include (:system-flag t) nil [40 57])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [59 79])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [91 100])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [101 114]))                  
+                :type "int")
+                nil [82 2051]))          
+      :file "graphcc.cpp"
+      :pointmax 2052
+      :fsize 2051
+      :lastmodtime '(18244 20564 0 0)
+      :unmatched-syntax nil))
+  :file "!home!jose!Downloads!project!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

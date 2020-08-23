@@ -1,0 +1,102 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("stdafx.h" include nil nil [1 20])
+            ("stdlib.h" include (:system-flag t) nil [21 40])
+            ("stdio.h" include (:system-flag t) nil [41 59])
+            ("math.h" include (:system-flag t) nil [60 77])
+            ("optimization.h" include nil nil [78 103])
+            ("alglib" using (:type ("alglib" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [159 182])
+            ("nlcfunc1_jac" function
+               (:arguments 
+                  ( ("x" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("real_1d_array" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [203 226])
+                    ("fi" variable
+                       (:reference 1
+                        :type ("real_1d_array" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [227 245])
+                    ("jac" variable
+                       (:reference 1
+                        :type ("real_2d_array" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [246 265])
+                    ("ptr" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [266 276]))                  
+                :type "void")
+                nil [184 574])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [585 594])
+                    ("argv" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [595 607]))                  
+                :type "int")
+                nil [576 6065]))          
+      :file "a.cpp"
+      :pointmax 6066
+      :fsize 6065
+      :lastmodtime '(24036 52986 374505 340000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("stdafx.h" include nil nil [1 20])
+            ("stdlib.h" include (:system-flag t) nil [21 40])
+            ("stdio.h" include (:system-flag t) nil [41 59])
+            ("math.h" include (:system-flag t) nil [60 77])
+            ("optimization.h" include nil nil [78 103])
+            ("alglib" using (:type ("alglib" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [105 128])
+            ("nlcfunc1_jac" function
+               (:arguments 
+                  ( ("x" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("real_1d_array" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [148 171])
+                    ("fi" variable
+                       (:reference 1
+                        :type ("real_1d_array" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [172 190])
+                    ("jac" variable
+                       (:reference 1
+                        :type ("real_2d_array" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [191 210])
+                    ("ptr" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [211 221]))                  
+                :type "void")
+                nil [129 547])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [558 567])
+                    ("argv" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [568 580]))                  
+                :type "int")
+                nil [549 6778]))          
+      :file "inequalities.cpp"
+      :pointmax 6779
+      :fsize 6778
+      :lastmodtime '(24036 55404 2933 745000)
+      :unmatched-syntax nil))
+  :file "!home!jose!Documents!Apps!alglibc++!tests!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

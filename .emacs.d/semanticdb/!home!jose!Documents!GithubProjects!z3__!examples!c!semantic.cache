@@ -1,0 +1,330 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("stdio.h" include (:system-flag t) nil [55 72])
+            ("stdlib.h" include (:system-flag t) nil [73 91])
+            ("stdarg.h" include (:system-flag t) nil [92 110])
+            ("memory.h" include (:system-flag t) nil [111 129])
+            ("setjmp.h" include (:system-flag t) nil [130 148])
+            ("z3.h" include (:system-flag t) nil [149 163])
+            ("LOG_Z3_CALLS" variable (:constant-flag t) nil [173 185])
+            ("LOG_MSG" variable (:constant-flag t) nil [215 222])
+            ("exitf" function
+               (:arguments 
+                  ( ("message" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [448 468]))                  
+                :type "void")
+                nil [437 524])
+            ("unreachable" function (:type "void") nil [581 646])
+            ("error_handler" function
+               (:arguments 
+                  ( ("c" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [708 721])
+                    ("e" variable (:type ("Z3_error_code" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [722 738]))                  
+                :type "void")
+                nil [689 811])
+            ("g_catch_buffer" variable
+               (:typemodifiers ("static")
+                :type ("jmp_buf" type (:type "class") nil nil))
+                nil [813 843])
+            ("throw_z3_error" function
+               (:arguments 
+                  ( ("c" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [984 997])
+                    ("e" variable (:type ("Z3_error_code" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [998 1014]))                  
+                :type "void")
+                nil [964 1050])
+            ("nothrow_z3_error" function
+               (:arguments 
+                  ( ("c" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1163 1176])
+                    ("e" variable (:type ("Z3_error_code" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1177 1193]))                  
+                :type "void")
+                nil [1141 1210])
+            ("mk_context_custom" function
+               (:arguments 
+                  ( ("cfg" variable (:type ("Z3_config" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1450 1464])
+                    ("err" variable (:type ("Z3_error_handler" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1465 1486]))                  
+                :type ("Z3_context" type (:type "class") nil nil))
+                nil [1421 1640])
+            ("mk_solver" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1662 1677]))                  
+                :type ("Z3_solver" type (:type "class") nil nil))
+                nil [1642 1757])
+            ("del_solver" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1775 1790])
+                    ("s" variable (:type ("Z3_solver" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1791 1803]))                  
+                :type "void")
+                nil [1759 1836])
+            ("mk_context" function (:type ("Z3_context" type (:type "class") nil nil)) nil [1988 2170])
+            ("mk_proof_context" function (:type ("Z3_context" type (:type "class") nil nil)) nil [2360 2585])
+            ("mk_var" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2667 2682])
+                    ("name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2683 2701])
+                    ("ty" variable (:type ("Z3_sort" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2702 2713]))                  
+                :type ("Z3_ast" type (:type "class") nil nil))
+                nil [2653 2806])
+            ("mk_bool_var" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2892 2907])
+                    ("name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2908 2926]))                  
+                :type ("Z3_ast" type (:type "class") nil nil))
+                nil [2873 3003])
+            ("mk_int_var" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3089 3104])
+                    ("name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3105 3123]))                  
+                :type ("Z3_ast" type (:type "class") nil nil))
+                nil [3071 3199])
+            ("mk_int" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3272 3287])
+                    ("v" variable (:type "int") (reparse-symbol arg-sub-list) [3288 3294]))                  
+                :type ("Z3_ast" type (:type "class") nil nil))
+                nil [3258 3370])
+            ("mk_real_var" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3453 3468])
+                    ("name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3469 3487]))                  
+                :type ("Z3_ast" type (:type "class") nil nil))
+                nil [3434 3564])
+            ("mk_unary_app" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3658 3673])
+                    ("f" variable (:type ("Z3_func_decl" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3674 3689])
+                    ("x" variable (:type ("Z3_ast" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3690 3699]))                  
+                :type ("Z3_ast" type (:type "class") nil nil))
+                nil [3638 3768])
+            ("mk_binary_app" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3866 3881])
+                    ("f" variable (:type ("Z3_func_decl" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3882 3897])
+                    ("x" variable (:type ("Z3_ast" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3898 3907])
+                    ("y" variable (:type ("Z3_ast" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3908 3917]))                  
+                :type ("Z3_ast" type (:type "class") nil nil))
+                nil [3845 3989])
+            ("check" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4176 4191])
+                    ("s" variable (:type ("Z3_solver" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4192 4204])
+                    ("expected_result" variable (:type ("Z3_lbool" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4205 4230]))                  
+                :type "void")
+                nil [4165 4904])
+            ("prove" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5245 5260])
+                    ("s" variable (:type ("Z3_solver" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5261 5273])
+                    ("f" variable (:type ("Z3_ast" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5274 5283])
+                    ("is_valid" variable (:type "bool") (reparse-symbol arg-sub-list) [5284 5298]))                  
+                :type "void")
+                nil [5234 6635])
+            ("assert_inj_axiom" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6944 6959])
+                    ("s" variable (:type ("Z3_solver" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6960 6972])
+                    ("f" variable (:type ("Z3_func_decl" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6973 6988])
+                    ("i" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [6989 7000]))                  
+                :type "void")
+                nil [6922 9339])
+            ("assert_comm_axiom" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9503 9518])
+                    ("s" variable (:type ("Z3_solver" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9519 9531])
+                    ("f" variable (:type ("Z3_func_decl" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9532 9547]))                  
+                :type "void")
+                nil [9480 10535])
+            ("mk_tuple_update" function
+               (:arguments 
+                  ( ("c" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10966 10979])
+                    ("t" variable (:type ("Z3_ast" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10980 10989])
+                    ("i" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [10990 11001])
+                    ("new_val" variable (:type ("Z3_ast" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11002 11017]))                  
+                :type ("Z3_ast" type (:type "class") nil nil))
+                nil [10943 12046])
+            ("display_symbol" function
+               (:arguments 
+                  ( ("c" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12130 12143])
+                    ("out" variable
+                       (:pointer 1
+                        :type ("FILE" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12144 12155])
+                    ("s" variable (:type ("Z3_symbol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12156 12168]))                  
+                :type "void")
+                nil [12110 12445])
+            ("display_sort" function
+               (:arguments 
+                  ( ("c" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12506 12519])
+                    ("out" variable
+                       (:pointer 1
+                        :type ("FILE" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12520 12531])
+                    ("ty" variable (:type ("Z3_sort" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12532 12543]))                  
+                :type "void")
+                nil [12488 14053])
+            ("display_ast" function
+               (:arguments 
+                  ( ("c" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [14185 14198])
+                    ("out" variable
+                       (:pointer 1
+                        :type ("FILE" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14199 14210])
+                    ("v" variable (:type ("Z3_ast" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [14211 14220]))                  
+                :type "void")
+                nil [14168 15194])
+            ("display_function_interpretations" function
+               (:arguments 
+                  ( ("c" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15299 15312])
+                    ("out" variable
+                       (:pointer 1
+                        :type ("FILE" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15313 15324])
+                    ("m" variable (:type ("Z3_model" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15325 15336]))                  
+                :type "void")
+                nil [15261 17077])
+            ("display_model" function
+               (:arguments 
+                  ( ("c" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17144 17157])
+                    ("out" variable
+                       (:pointer 1
+                        :type ("FILE" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17158 17169])
+                    ("m" variable (:type ("Z3_model" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17170 17181]))                  
+                :type "void")
+                nil [17125 17807])
+            ("check2" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17913 17928])
+                    ("s" variable (:type ("Z3_solver" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17929 17941])
+                    ("expected_result" variable (:type ("Z3_lbool" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17942 17967]))                  
+                :type "void")
+                nil [17901 18656])
+            ("display_version" function (:type "void") nil [18718 18906])
+            ("simple_example" function (:type "void") nil [19031 19225])
+            ("demorgan" function (:type "void") nil [19362 21173])
+            ("find_model_example1" function (:type "void") nil [21227 21723])
+            ("find_model_example2" function (:type "void") nil [21847 22897])
+            ("prove_example1" function (:type "void") nil [23096 24608])
+            ("prove_example2" function (:type "void") nil [24838 26863])
+            ("push_pop_example1" function (:type "void") nil [27023 28983])
+            ("quantifier_example1" function (:type "void") nil [29130 31558])
+            ("array_example1" function (:type "void") nil [31754 33472])
+            ("array_example2" function (:type "void") nil [33684 34670])
+            ("array_example3" function (:type "void") nil [34744 35649])
+            ("tuple_example1" function (:type "void") nil [35746 40214])
+            ("bitvector_example1" function (:type "void") nil [40342 41194])
+            ("bitvector_example2" function (:type "void") nil [41258 42182])
+            ("eval_example1" function (:type "void") nil [42234 43552])
+            ("two_contexts_example1" function (:type "void") nil [43623 44211])
+            ("error_code_example1" function (:type "void") nil [44313 45488])
+            ("error_code_example2" function (:type "void") nil [45552 46382])
+            ("parser_example2" function (:type "void") nil [46459 47772])
+            ("parser_example3" function (:type "void") nil [47848 49002])
+            ("parser_example5" function (:type "void") nil [49095 50110])
+            ("numeral_example" function (:type "void") nil [50227 51111])
+            ("ite_example" function (:type "void") nil [51166 51562])
+            ("enum_example" function (:type "void") nil [51614 53604])
+            ("list_example" function (:type "void") nil [53647 56003])
+            ("tree_example" function (:type "void") nil [56053 58794])
+            ("forest_example" function (:type "void") nil [58921 63307])
+            ("binary_tree_example" function (:type "void") nil [63469 67316])
+            ("unsat_core_and_proof_example" function (:type "void") nil [67448 69883])
+            ("MAX_RETRACTABLE_ASSERTIONS" variable (:constant-flag t) nil [69894 69920])
+            ("Z3_ext_context_struct" type
+               (:typedef ("" type
+                     (:members 
+                        ( ("m_context" variable (:type ("Z3_context" type (:type "class") nil nil)) (reparse-symbol classsubparts) [70112 70133])
+                          ("m_solver" variable (:type ("Z3_solver" type (:type "class") nil nil)) (reparse-symbol classsubparts) [70138 70158])
+                          ("m_answer_literals" variable
+                             (:dereference 1
+                              :type ("Z3_ast" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [70330 70387])
+                          ("m_retracted" variable
+                             (:dereference 1
+                              :type "bool")
+                              (reparse-symbol classsubparts) [70392 70443])
+                          ("m_num_answer_literals" variable (:type "unsigned int") (reparse-symbol classsubparts) [70488 70521]))                        
+                      :type "struct")
+                      nil nil)
+                :type "typedef")
+                nil [70091 70546])
+            ("Z3_ext_context" type
+               (:typedef ("Z3_ext_context_struct" type (:type "class") nil nil)
+                :pointer 1
+                :type "typedef")
+                nil [70548 70595])
+            ("mk_ext_context" function (:type ("Z3_ext_context" type (:type "class") nil nil)) nil [70690 70973])
+            ("del_ext_context" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_ext_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [71055 71074]))                  
+                :type "void")
+                nil [71034 71176])
+            ("assert_retractable_cnstr" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_ext_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [71333 71352])
+                    ("c" variable (:type ("Z3_ast" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [71353 71362]))                  
+                :type "unsigned int")
+                nil [71299 72070])
+            ("retract_cnstr" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_ext_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [72172 72191])
+                    ("id" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [72192 72204]))                  
+                :type "void")
+                nil [72153 72332])
+            ("reassert_cnstr" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_ext_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [72425 72444])
+                    ("id" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [72445 72457]))                  
+                :type "void")
+                nil [72405 72586])
+            ("ext_check" function
+               (:arguments 
+                  ( ("ctx" variable (:type ("Z3_ext_context" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [72726 72745]))                  
+                :type ("Z3_lbool" type (:type "class") nil nil))
+                nil [72707 74460])
+            ("incremental_example1" function (:type "void") nil [74613 76182])
+            ("reference_counter_example" function (:type "void") nil [76293 77870])
+            ("smt2parser_example" function (:type "void") nil [77926 78398])
+            ("substitute_example" function (:type "void") nil [78510 79717])
+            ("substitute_vars_example" function (:type "void") nil [79853 81020])
+            ("fpa_example" function (:type "void") nil [81102 84513])
+            ("mk_model_example" function (:type "void") nil [84588 91709])
+            ("is_common_example" function (:type "void") nil [91778 92780])
+            ("main" function (:type "int") nil [92782 93787]))          
+      :file "test_capi.c"
+      :pointmax 93788
+      :fsize 93787
+      :lastmodtime '(24135 12564 415087 157000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("LOG_MSG" (spp-arg-list ("msg") 222 . 227) . ((symbol "Z3_append_log" 228 . 241) (semantic-list "(msg)" 241 . 246)))
+          ("LOG_Z3_CALLS")
+          ("MAX_RETRACTABLE_ASSERTIONS" . ((number "1024" 69921 . 69925)))
+          )
+))
+  :file "!home!jose!Documents!GithubProjects!z3__!examples!c!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

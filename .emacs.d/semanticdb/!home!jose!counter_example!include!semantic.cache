@@ -1,0 +1,100 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("_NTH_PROBLEMS_" variable (:constant-flag t) nil [32 46])
+            ("iostream" include (:system-flag t) nil [48 67])
+            ("set" include (:system-flag t) nil [68 82])
+            ("fstream" include (:system-flag t) nil [83 101])
+            ("string" include (:system-flag t) nil [102 119])
+            ("vector" include (:system-flag t) nil [120 137])
+            ("cstdlib" include (:system-flag t) nil [138 156])
+            ("NthProblems" type
+               (:members 
+                  ( ("size" variable (:type "unsigned int") (reparse-symbol classsubparts) [179 212])
+                    ("monomial_order" variable
+                       (:constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [215 258])
+                    ("vars" variable
+                       (:constant-flag t
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("char" type (:pointer 1) nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [261 294])
+                    ("inside_ideal" function
+                       (:prototype-flag t
+                        :methodconst-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :type ("std::ostream" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [328 343]))                          
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [300 350])
+                    ("nth_problem_sum_products" function
+                       (:prototype-flag t
+                        :methodconst-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :type ("std::ostream" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [393 408]))                          
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [353 415])
+                    ("public" label nil (reparse-symbol classsubparts) [419 426])
+                    ("NthProblems" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("vars" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("char" type (:pointer 1) nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [441 474])
+                            ("monomial_order" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [482 517]))                          
+                        :type ("NthProblems" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [429 600])
+                    ("<<" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :typemodifiers ("friend")
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :type ("std::ostream" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [639 654])
+                            ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("NthProblems" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [655 675]))                          
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [604 676]))                  
+                :type "class")
+                nil [158 679]))          
+      :file "n_root_problems.h"
+      :pointmax 688
+      :fsize 687
+      :lastmodtime '(24129 52909 948846 59000)
+      :unmatched-syntax '((punctuation 600 . 601) (punctuation 600 . 601))
+      :lexical-table 
+        '(("_NTH_PROBLEMS_")
+          )
+))
+  :file "!home!jose!counter_example!include!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,56 @@
+! special
+*.foreground:   #c5c8c6
+*.background:   #111112
+*.cursorColor:  #c5c8c6
+
+! black
+*.color0:       #1a1b1b
+*.color8:       #33373d
+
+! red
+*.color1:       #a13f3f
+*.color9:       #eb3b3b
+
+! green
+*.color2:       #78a637
+*.color10:      #5cbb2c
+
+! yellow
+*.color3:       #e7833d
+*.color11:      #f8ff03
+
+! blue
+*.color4:       #337ebb
+*.color12:      #2888da
+
+! magenta
+*.color5:       #a109d3
+*.color13:      #d60bc9
+
+! cyan
+*.color6:       #29b8a5
+*.color14:      #2bf2d7
+
+! white
+*.color7:       #899199
+*.color15:      #dbdfdc
+
+!URxvt.intensityStyles:  false
+URxvt.scrollBar:        false
+!URxvt.font:            xft:monospace:size=15
+URxvt.font:             xft:Inconsolata Nerd Font Mono:size=15,xft:Font Awesome 5 Free:size=15,xft:Source Han Sans JP Light:size=15,xft:Symbola:size=15
+
+
+!URxvt*transparent:     true
+!URxvt*shading:         30
+!URxvt*tint:            #3D3D3D
+URxvt*depth: 32
+URxvt*background:       [50]#1D1D1D
+
+URxvt.internalBorder:  10
+
+
+urxvt.perl-ext-common: default,resize-font
+URxvt.keysym.C-j:     resize-font:smaller
+URxvt.keysym.C-k:      resize-font:bigger
+URxvt.keysym.C-=:     resize-font:reset

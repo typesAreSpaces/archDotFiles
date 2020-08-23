@@ -1,0 +1,16 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode js-mode
+      :tags nil
+      :file "tsconfig.json"
+      :pointmax 683
+      :fsize 682
+      :lastmodtime '(24098 55476 857993 0)
+      :unmatched-syntax nil))
+  :file "!home!jose!Documents!GithubProjects!BosqueLanguage!ref_impl!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

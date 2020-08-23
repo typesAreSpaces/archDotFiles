@@ -1,0 +1,15 @@
+[$Version]
+update_info=gwenview.upd:SideBar_StatusBar_Rename,gwenview.upd:ImageView_AlphaBackgroundMode_Update,gwenview.upd:DeleteThumbnailSetting_Rename
+
+[MainWindow]
+Height 1600=480
+State=AAAA/wAAAAD9AAAAAAAAAvwAAAGcAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+Width 2560=764
+
+[Recent Files]
+File1[$e]=$HOME/.config/Pictures/Wallpapers/Landscapes_cherry_blossoms_ai_enhanced_3.jpg
+Name1[$e]=Landscapes_cherry_blossoms_ai_enhanced_3.jpg
+
+[SideBar]
+SideBarSplitterSizes=242,519

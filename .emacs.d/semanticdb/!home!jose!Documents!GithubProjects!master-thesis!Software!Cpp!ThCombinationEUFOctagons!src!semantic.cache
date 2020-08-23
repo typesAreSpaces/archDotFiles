@@ -1,0 +1,68 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("Purifier.h" include nil nil [21 42])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [53 62])
+                    ("argv" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [63 76]))                  
+                :type "int")
+                nil [44 98]))          
+      :file "main.cpp"
+      :pointmax 99
+      :fsize 98
+      :lastmodtime '(24023 43771 699703 744000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("Purifier.h" include nil nil [1 22])
+            ("Purifier" function
+               (:constructor-flag t
+                :parent "Purifier"
+                :arguments 
+                  ( ("e" variable
+                       (:reference 1
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [43 56])
+                    ("symbols_to_elim" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("std::string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [57 106]))                  
+                :type ("Purifier" type (:type "class") nil nil))
+                nil [24 138])
+            ("Purifier" function
+               (:destructor-flag t
+                :parent "Purifier"
+                :type "void")
+                nil [140 164])
+            ("getEUFFormula" function
+               (:parent "Purifier"
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [166 231])
+            ("getOctagonFormula" function
+               (:parent "Purifier"
+                :type ("z3::expr" type (:type "class") nil nil))
+                nil [233 306]))          
+      :file "Purifier.cpp"
+      :pointmax 307
+      :fsize 306
+      :lastmodtime '(24023 44308 735194 342000)
+      :unmatched-syntax '((symbol 159 . 162) (punctuation 158 . 159) (punctuation 157 . 158) (symbol 149 . 157) (symbol 144 . 148) (punctuation 143 . 144) (punctuation 142 . 143) (symbol 140 . 142) (symbol 159 . 162) (punctuation 158 . 159) (punctuation 157 . 158) (symbol 149 . 157) (symbol 144 . 148) (punctuation 143 . 144) (punctuation 142 . 143) (symbol 140 . 142) (symbol 159 . 161) (punctuation 158 . 159) (punctuation 157 . 158) (symbol 149 . 157) (symbol 144 . 148) (punctuation 143 . 144) (punctuation 142 . 143) (symbol 140 . 142) (punctuation 158 . 159) (punctuation 157 . 158) (symbol 149 . 157) (symbol 144 . 148) (punctuation 143 . 144) (punctuation 142 . 143) (symbol 140 . 142) (symbol 144 . 148) (punctuation 143 . 144) (punctuation 142 . 143) (symbol 140 . 142) (symbol 144 . 148) (punctuation 143 . 144) (punctuation 142 . 143) (symbol 140 . 142) (symbol 144 . 146) (punctuation 143 . 144) (punctuation 142 . 143) (symbol 140 . 142) (symbol 144 . 146) (punctuation 143 . 144) (punctuation 142 . 143) (symbol 140 . 142) (symbol 144 . 148) (punctuation 143 . 144) (punctuation 142 . 143) (symbol 140 . 142) (symbol 144 . 148) (punctuation 143 . 144) (punctuation 142 . 143) (symbol 140 . 142) (symbol 144 . 148) (punctuation 143 . 144) (punctuation 142 . 143) (symbol 140 . 142) (symbol 144 . 148) (punctuation 143 . 144) (punctuation 142 . 143) (symbol 140 . 142) (symbol 144 . 145) (punctuation 143 . 144) (punctuation 142 . 143) (symbol 140 . 142) (punctuation 143 . 144) (punctuation 142 . 143) (symbol 140 . 142) (punctuation 123 . 124) (punctuation 122 . 123) (symbol 114 . 122) (semantic-list 42 . 88) (symbol 34 . 42) (punctuation 33 . 34) (punctuation 32 . 33) (symbol 24 . 32) (semantic-list 42 . 70) (symbol 34 . 42) (punctuation 33 . 34) (punctuation 32 . 33) (symbol 24 . 32) (semantic-list 42 . 69) (symbol 34 . 42) (punctuation 67 . 68) (punctuation 66 . 67) (punctuation 33 . 34) (punctuation 32 . 33) (symbol 24 . 32) (punctuation 67 . 68) (punctuation 66 . 67) (semantic-list 42 . 49) (symbol 34 . 42) (punctuation 33 . 34) (punctuation 32 . 33) (symbol 24 . 32) (semantic-list 42 . 48) (symbol 34 . 42) (punctuation 46 . 47) (punctuation 45 . 46) (punctuation 33 . 34) (punctuation 32 . 33) (symbol 24 . 32) (punctuation 46 . 47) (punctuation 45 . 46) (symbol 34 . 35) (punctuation 33 . 34) (punctuation 32 . 33) (symbol 24 . 32) (punctuation 33 . 34) (punctuation 32 . 33) (symbol 24 . 32))))
+  :file "!home!jose!Documents!GithubProjects!master-thesis!Software!Cpp!ThCombinationEUFOctagons!src!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

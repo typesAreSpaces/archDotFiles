@@ -1,0 +1,67 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("_PURIFIER_" variable (:constant-flag t) nil [28 38])
+            ("DEBUG_PUR" variable (:constant-flag t) nil [47 56])
+            ("vector" include (:system-flag t) nil [63 80])
+            ("string" include (:system-flag t) nil [81 98])
+            ("z3++.h" include (:system-flag t) nil [99 116])
+            ("Purifier" type
+               (:members 
+                  ( ("private" label nil (reparse-symbol classsubparts) [134 142])
+                    ("euf_formula" variable (:type ("z3::expr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [145 166])
+                    ("octagon_formula" variable (:type ("z3::expr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [169 194])
+                    ("public" label nil (reparse-symbol classsubparts) [195 202])
+                    ("Purifier" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("z3::expr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [214 231])
+                            ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [232 265]))                          
+                        :type ("Purifier" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [205 266])
+                    ("Purifier" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [269 281])
+                    ("getEUFFormula" function
+                       (:prototype-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [284 309])
+                    ("getOctagonFormula" function
+                       (:prototype-flag t
+                        :type ("z3::expr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [312 341]))                  
+                :type "class")
+                nil [118 344]))          
+      :file "Purifier.h"
+      :pointmax 345
+      :fsize 344
+      :lastmodtime '(24023 44300 643255 892000)
+      :unmatched-syntax '((symbol 170 . 174) (punctuation 169 . 170) (punctuation 168 . 169) (symbol 166 . 168) (symbol 170 . 174) (punctuation 169 . 170) (punctuation 168 . 169) (symbol 166 . 168) (symbol 170 . 174) (punctuation 169 . 170) (punctuation 168 . 169) (symbol 166 . 168) (symbol 170 . 174) (punctuation 169 . 170) (punctuation 168 . 169) (symbol 166 . 168) (symbol 170 . 174) (punctuation 169 . 170) (punctuation 168 . 169) (symbol 166 . 168) (punctuation 169 . 170) (punctuation 168 . 169) (symbol 166 . 168) (punctuation 169 . 170) (punctuation 168 . 169) (symbol 166 . 168) (punctuation 169 . 170) (punctuation 168 . 169) (symbol 166 . 168))
+      :lexical-table 
+        '(("_PURIFIER_")
+          ("DEBUG_PUR" . ((symbol "true" 57 . 61)))
+          )
+))
+  :file "!home!jose!Documents!GithubProjects!master-thesis!Software!Cpp!ThCombinationEUFOctagons!include!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")
