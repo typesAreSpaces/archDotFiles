@@ -30,16 +30,16 @@ background_opacity: 0.7
 
 font:
   normal:
-    family: "monospace"
+    family: "Inconsolata"
     style: Regular
   bold:
-    family: "monospace"
+    family: "Inconsolata"
     style: Bold
   italic:
-    family: "monospace"
+    family: "Inconsolata"
     style: Italic
   bold_italic:
-    family: "monospace"
+    family: "Inconsolata"
     style: Bold Italic
 
   # Point size
@@ -49,8 +49,8 @@ font:
     x: -1
     y: -1
   glyph_offset:
-    x: 1
-    y: 1
+    x: 2
+    y: 2
 
 window:
   padding:
