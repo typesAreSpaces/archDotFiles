@@ -4,7 +4,7 @@
 # Dot files setup
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 echo ".cfg" >> .gitignore
-git clone --bare git@github.com:typesAreSpaces/cfg.git $HOME/.cfg
+git clone --bare git@github.com:typesAreSpaces/archDotFiles.git $HOME/.cfg
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 mkdir -p .config-backup && \
   config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
