@@ -54,10 +54,10 @@ alias smtinterpol="java -jar $HOME/Documents/Apps/smtinterpol.jar"
 # scripts
 dotfilesChanges() { config status | grep "modified" | grep -v "opam" }
 se() { du -a $HOME/* | awk '{ gsub (" ", "\\ ", $0); $1 = ""; print $0; }' | fzf | xargs -r xdg-open; }
-updateManjaroPackages() { sudo pacman -Qqen > .manjaro_packages }
-updateUbuntuPackages() { sudo apt list --installed | awk '{ if(NR>1) print }' > .ubuntu_packages }
-installManjaroPackages() { sudo pacman -S --needed - < .manjaro_packages }
-installUbuntuPackages() { awk -F/ '{ print $1 }' .ubuntu_packages | xargs -r -- sudo apt install }
+
+updateArchPackages() { sudo pacman -Qqen > .arch_packages }
+installArchPackages() { sudo pacman -S --needed - < .arch_packages }
+
 installZ3() { pushd "/home/jose/Documents/GithubProjects/z3/build" && sudo make install && popd; }
 installMyZ3() { pushd "/home/jose/Documents/GithubProjects/z3__/build" && sudo make install && popd; }
 installZ3InterpPlus() { pushd "/home/jose/Documents/GithubProjects/z3-interp-plus/build" && sudo make install && popd; }
