@@ -64,3 +64,6 @@ installZ3InterpPlus() { pushd "/home/jose/Documents/GithubProjects/z3-interp-plu
 
 # OPAM configuration
 #. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# opam configuration
+#test -r /home/jose/.opam/opam-init/init.zsh && . /home/jose/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

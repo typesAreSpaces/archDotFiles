@@ -1,19 +1,19 @@
 [ExtractDialog]
-DirHistory[$e]=$HOME/Downloads/
+DirHistory[$e]=$HOME/Downloads/polybar/,$HOME/Downloads/
 
 [KFileDialog Settings]
-Recent Files[$e]=file:$HOME,file:$HOME
-Recent URLs[$e]=file:$HOME/Downloads/
+Recent Files[$e]=file:$HOME
+Recent URLs[$e]=file:$HOME/Downloads/polybar/
 detailViewIconSize=0
 
 [MainWindow]
 Height 1600=1514
-State=AAAA/wAAAAD9AAAAAAAAAzYAAAWvAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+State=AAAA/wAAAAD9AAAAAAAAAoAAAAGcAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
 StatusBar=Disabled
 ToolBarsMovable=Disabled
 Width 2560=822
-splitterSizes=545,273
+splitterSizes=426,213
 
 [Recent Files]
-File1[$e]=$HOME/Downloads/mathsat-5.6.3-linux-x86_64.tar.gz
-Name1[$e]=mathsat-5.6.3-linux-x86_64.tar.gz
+File1[$e]=$HOME/Downloads/polybar-3.4.3.tar
+Name1[$e]=polybar-3.4.3.tar

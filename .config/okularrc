@@ -1,0 +1,12 @@
+[Desktop Entry]
+FullScreen=false
+
+[MainWindow]
+State=AAAA/wAAAAD9AAAAAAAAAoAAAAGcAAAABAAAAAQAAAAIAAAACPwAAAACAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAAAAAAAgAAAAEAAAAiAGEAbgBuAG8AdABhAHQAaQBvAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+
+[Recent Files]
+File1[$e]=$HOME/Documents/GithubProjects/master-thesis/Papers for MS Thesis/Proof Reconstruction/2007_Book_ComputerAidedSystemsTheoryEURO.pdf
+File2[$e]=$HOME/Documents/GithubProjects/master-thesis/Write Ups/thesis/main.pdf
+Name1[$e]=2007_Book_ComputerAidedSystemsTheoryEURO.pdf
+Name2[$e]=main.pdf
