@@ -5,6 +5,7 @@ plugins=(git)
 export PATH="/usr/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.opam/system/bin:$PATH"
+export PATH="$HOME/.opam/4.07.0/bin:$PATH"
 export PATH="$HOME/Documents/GithubProjects/cool-retro-term:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/maple2020/bin:$PATH"
@@ -55,6 +56,9 @@ alias smtinterpol="java -jar $HOME/Documents/Apps/smtinterpol.jar"
 dotfilesChanges() { config status | grep "modified" | grep -v "opam" }
 se() { du -a $HOME/* | awk '{ gsub (" ", "\\ ", $0); $1 = ""; print $0; }' | fzf | xargs -r xdg-open; }
 
+pwdclip() { pwd | xclip }
+cdclip() { cd $(xclip -o) }
+
 updateArchPackages() { sudo pacman -Qqen > .arch_packages }
 installArchPackages() { sudo pacman -S --needed - < .arch_packages }
 
@@ -66,4 +70,7 @@ installZ3InterpPlus() { pushd "/home/jose/Documents/GithubProjects/z3-interp-plu
 #. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 # opam configuration
+#test -r /home/jose/.opam/opam-init/init.zsh && . /home/jose/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+ #opam configuration
 #test -r /home/jose/.opam/opam-init/init.zsh && . /home/jose/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
