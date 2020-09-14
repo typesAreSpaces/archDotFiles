@@ -175,7 +175,7 @@ set $color_border_focused =
 
 # window colors
 # class                 border  bground text    indicator child_border
-client.focused          #EF5350 #6272A4 #F8F8F2 #EF5350   #EF5350
+client.focused          #bfbebe #6272A4 #F8F8F2 #bfbebe   #bfbebe 
 client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
 client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
 client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
