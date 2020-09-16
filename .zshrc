@@ -29,7 +29,7 @@ alias second_home="cd /media/jose/4486d9bd-d3c3-4b92-9842-d38226a22c20$HOME"
 
 alias semester="cd $HOME/Documents/Current-Semester/PhD\ in\ Computer\ Science\ UNM/Semester\ 3"
 
-alias masterThesis="cd $HOME/Documents/GithubProjects/master-thesis/Software/Cpp/ThCombination"
+alias masterThesis="cd $HOME/Documents/GithubProjects/master-thesis/Software/Cpp/EUFInterpolant"
 alias masterThesisPaperProject="cd $HOME/Documents/GithubProjects/master-thesis/Write\ Ups/paper_project"
 alias thesis="cd /home/jose/Documents/GithubProjects/master-thesis/Write\ Ups/thesis"
 
@@ -56,7 +56,7 @@ alias smtinterpol="java -jar $HOME/Documents/Apps/smtinterpol.jar"
 dotfilesChanges() { config status | grep "modified" | grep -v "opam" }
 se() { du -a $HOME/* | awk '{ gsub (" ", "\\ ", $0); $1 = ""; print $0; }' | fzf | xargs -r xdg-open; }
 
-pwdclip() { pwd | xclip }
+pwdclip() { pwd | awk '{gsub( " ","\\ " ); print}' | xclip -selection c }
 cdclip() { cd $(xclip -o) }
 
 updateArchPackages() { sudo pacman -Qqen > .arch_packages }

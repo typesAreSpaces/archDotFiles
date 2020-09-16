@@ -28,18 +28,32 @@ colors:
 
 background_opacity: 0.7
 
+#font:
+  #normal:
+    #family: "Monoid"
+    #style: Regular
+  #bold:
+    #family: "Monoid"
+    #style: Bold
+  #italic:
+    #family: "Monoid"
+    #style: Italic
+  #bold_italic:
+    #family: "Monoid"
+    #style: Bold Italic
+
 font:
   normal:
-    family: "Monoid"
+    family: "InputMono"
     style: Regular
   bold:
-    family: "Monoid"
+    family: "InputMono"
     style: Bold
   italic:
-    family: "Monoid"
+    family: "InputMono"
     style: Italic
   bold_italic:
-    family: "Monoid"
+    family: "InputMono"
     style: Bold Italic
 
   # Point size

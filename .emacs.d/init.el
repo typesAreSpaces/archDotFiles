@@ -34,6 +34,6 @@
 (evil-mode t)
 
 ;; Open .v files with Proof General's Coq mode
-(load "~/.emacs.d/lisp/PG/generic/proof-site")
+;;(load "~/.emacs.d/lisp/PG/generic/proof-site")
 ;; Let Proof General find coqtop
-(setq coq-prog-name "/usr/bin/coqtop") 
+;;(setq coq-prog-name "/usr/bin/coqtop") 
