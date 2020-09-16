@@ -6,7 +6,7 @@ AutoUseMultimediaKeys=true
 ConfigVersion=3
 DefaultCardOnStart=
 MasterMixer=PulseAudio::Playback_Devices:1
-MasterMixerDevice=alsa_output.pci-0000_00_1b.0.analog-stereo
+MasterMixerDevice=alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1
 Menubar=true
 MixerIgnoreExpression=Modem
 Position=0,0
@@ -26,10 +26,16 @@ Split=false
 [View.PulseAudio.Capture_Devices.1.default.PulseAudio::Capture_Devices:1.alsa_input.pci-0000_00_1f.3.analog-stereo]
 Split=false
 
+[View.PulseAudio.Capture_Devices.1.default.PulseAudio::Capture_Devices:1.alsa_input.usb-046d_HD_Pro_Webcam_C920_73BB615F-02.analog-stereo]
+Split=false
+
 [View.PulseAudio.Playback_Devices.1.default.PulseAudio::Playback_Devices:1.alsa_output.pci-0000_00_1b.0.analog-stereo]
 Split=false
 
 [View.PulseAudio.Playback_Devices.1.default.PulseAudio::Playback_Devices:1.alsa_output.pci-0000_00_1f.3.analog-stereo]
+Split=false
+
+[View.PulseAudio.Playback_Devices.1.default.PulseAudio::Playback_Devices:1.alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1]
 Split=false
 
 [View.PulseAudio.Playback_Streams.1.default.PulseAudio::Playback_Streams:1.restore:sink-input-by-media-role:event]

@@ -1,7 +1,9 @@
-[Default Applications]
-x-scheme-handler/mailto=userapp-Thunderbird-TPH9P0.desktop
-message/rfc822=userapp-Thunderbird-TPH9P0.desktop
-
 [Added Associations]
-x-scheme-handler/mailto=userapp-Thunderbird-2D6CP0.desktop;userapp-Thunderbird-TPH9P0.desktop;
-message/rfc822=userapp-Thunderbird-2D6CP0.desktop;userapp-Thunderbird-TPH9P0.desktop;
+application/pdf=org.gnome.Evince.desktop;okularApplication_pdf.desktop;firefox.desktop;
+message/rfc822=userapp-Thunderbird-2D6CP0.desktop;userapp-Thunderbird-TPH9P0.desktop;userapp-Thunderbird-00HNQ0.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-2D6CP0.desktop;userapp-Thunderbird-TPH9P0.desktop;userapp-Thunderbird-00HNQ0.desktop;
+
+[Default Applications]
+application/pdf=org.gnome.Evince.desktop;
+message/rfc822=userapp-Thunderbird-00HNQ0.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-00HNQ0.desktop

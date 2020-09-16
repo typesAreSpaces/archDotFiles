@@ -150,3 +150,4 @@ knownItems=org.kde.plasma.volume,org.kde.ktp-contactlist,org.kde.plasma.bluetoot
 
 [ScreenMapping]
 itemsOnDisabledScreens=
+screenMapping=desktop:/Polya Enumeration Theorem.pdf,0,desktop:/The K-moment problem for compact semi-algebraic sets.pdf,0,desktop:/New Resolution-Based QBF Calculi and Their Proof Complexity.pdf,0,desktop:/cmake_example,0,desktop:/A Tour of CVC4.pdf,0,desktop:/Positive polynomials on semi-algebraic sets.pdf,0,desktop:/Polyas Theory of Counting.pdf,0,desktop:/Generalization of Anhyankars Lemma to Henselian Valued Fields.pdf,0,desktop:/CAV-05-part1.pdf,0,desktop:/The Moment Problem.pdf,0,desktop:/kapur,0,desktop:/A Generalization of Shostaks Method for Combining Decision Procedures.pdf,0,desktop:/A new bound for Polyas Theorem with applications to polynomials positive on polyhedra.pdf,0,desktop:/A Baer-Krull theorem for quasi-ordered groups.pdf,0,desktop:/The secret lives of polynomial identities.pdf,0,desktop:/CAV-05-part2.pdf,0
