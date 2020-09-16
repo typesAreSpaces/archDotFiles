@@ -224,16 +224,17 @@ assign [class="Thunderbird"] $workspace3
 for_window [class="Spotify"] move to workspace $workspace4, workspace --no-auto-back-and-forth $workspace4
 assign [class="Evince"] $workspace5
 
-for_window [class=".*"] border pixel 3
-set $gap_size 10
+for_window [class=".*"] border pixel 2
+set $gap_size 15
+set $gap_size_2 5
 gaps inner $gap_size
 gaps outer $gap_size
 gaps horizontal $gap_size
 gaps vertical $gap_size
-gaps top $gap_size
-gaps left $gap_size
-gaps bottom $gap_size
-gaps right $gap_size
+gaps top $gap_size_2
+gaps left $gap_size_2
+gaps bottom $gap_size_2
+gaps right $gap_size_2
 
 # move focused workspace between monitors
 bindsym $mod+Ctrl+greater move workspace to output right
