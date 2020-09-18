@@ -26,6 +26,7 @@ bspwm
 cantor
 cervisia
 cmake
+code
 cups
 dialog
 discover
@@ -56,6 +57,7 @@ grub
 gwenview
 htop
 i3-gaps
+inotify-tools
 intel-ucode
 juk
 k3b
@@ -207,6 +209,7 @@ neofetch
 neovim
 network-manager-applet
 networkmanager
+nitrogen
 npm
 nvidia
 nvidia-utils
@@ -239,6 +242,7 @@ powerdevil
 poxml
 print-manager
 pulseaudio-bluetooth
+python-pip
 python-pyalsa
 python-pynvim
 reflector
@@ -250,6 +254,8 @@ sddm
 sddm-kcm
 signon-kwallet-extension
 spectacle
+spotifyd
+stack
 step
 sudo
 svgpart
@@ -280,6 +286,7 @@ ufw
 umbrello
 user-manager
 vim
+wget
 which
 wireless_tools
 wpa_supplicant
