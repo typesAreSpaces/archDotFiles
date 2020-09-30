@@ -5,19 +5,19 @@ update_info=ksmserver_update_loginMode_value.upd:ksmserver_update_loginMode_valu
 count=0
 
 [Session: saved at previous logout]
-clientId1=10d5d59b6f000160004443500000006020002
+clientId1=10d5d59b6f000160045170800000006080003
 clientId2=10d5d59b6f000159993499900000005600004
 clientId3=10d5d59b6f000159993499900000005600005
-clientId4=10d5d59b6f000160004443600000006020006
+clientId4=10d5d59b6f000160045170800000006080006
 count=4
-discardCommand2[$e]=rm,$HOME/.config/session/kmix_10d5d59b6f000159993499900000005600004_1600044444_226038
+discardCommand2[$e]=rm,$HOME/.config/session/kmix_10d5d59b6f000159993499900000005600004_1600452024_611747
 program1=/usr/lib/DiscoverNotifier
 program2=/usr/bin/kmix
 program3=/usr/bin/korgac
 program4=pulseaudio
-restartCommand1=/usr/lib/DiscoverNotifier,-session,10d5d59b6f000160004443500000006020002_1600044444_225986
-restartCommand2=/usr/bin/kmix,-session,10d5d59b6f000159993499900000005600004_1600044444_226038
-restartCommand3=/usr/bin/korgac,-session,10d5d59b6f000159993499900000005600005_1600044444_226037
+restartCommand1=/usr/lib/DiscoverNotifier,-session,10d5d59b6f000160045170800000006080003_1600452024_611690
+restartCommand2=/usr/bin/kmix,-session,10d5d59b6f000159993499900000005600004_1600452024_611747
+restartCommand3=/usr/bin/korgac,-session,10d5d59b6f000159993499900000005600005_1600452024_611806
 restartCommand4=
 restartStyleHint1=0
 restartStyleHint2=0

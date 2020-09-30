@@ -1,19 +1,25 @@
 [ExtractDialog]
-DirHistory[$e]=$HOME/Downloads/polybar/,$HOME/Downloads/
+DirHistory[$e]=$HOME/Downloads/,$HOME/Downloads/polybar/
 
 [KFileDialog Settings]
 Recent Files[$e]=file:$HOME
-Recent URLs[$e]=file:$HOME/Downloads/polybar/
+Recent URLs[$e]=file:$HOME/Downloads/
 detailViewIconSize=0
 
 [MainWindow]
+DP-0 Height 2160=2078
+DP-0 Width 3840=1250
+DP-0 XPosition=2569
+DP-0 YPosition=61
 Height 1600=1514
-State=AAAA/wAAAAD9AAAAAAAAAoAAAAGcAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+State=AAAA/wAAAAD9AAAAAAAABOIAAAfnAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
 StatusBar=Disabled
 ToolBarsMovable=Disabled
 Width 2560=822
-splitterSizes=426,213
+splitterSizes=831,415
 
 [Recent Files]
-File1[$e]=$HOME/Downloads/polybar-3.4.3.tar
-Name1[$e]=polybar-3.4.3.tar
+File1[$e]=$HOME/Downloads/skypeforlinux-64.rpm
+File2[$e]=$HOME/Downloads/Roboto.zip
+Name1[$e]=skypeforlinux-64.rpm
+Name2[$e]=Roboto.zip

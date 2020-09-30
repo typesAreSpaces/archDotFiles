@@ -30,34 +30,34 @@ background_opacity: 0.7
 
 font:
   normal:
-    #family: "InputMono"
+    family: "InputMono"
     #family: "Monoid"
-    family: "Inconsolata"
+    #family: "Inconsolata"
     style: Regular
   bold:
-    #family: "InputMono"
+    family: "InputMono"
     #family: "Monoid"
-    family: "Inconsolata"
+    #family: "Inconsolata"
     style: Bold
   italic:
-    #family: "InputMono"
+    family: "InputMono"
     #family: "Monoid"
-    family: "Inconsolata"
+    #family: "Inconsolata"
     style: Italic
   bold_italic:
-    #family: "InputMono"
+    family: "InputMono"
     #family: "Monoid"
-    family: "Incosolata"
+    #family: "Incosolata"
     style: Bold Italic
 
   # Point size
   size: 16.0
 
   offset:
-    x: 1
-    #x: -1
-    y: 1
-    #y: -1
+    x: -1
+    y: -1
+    #x: 1
+    #y: 1
   glyph_offset:
     x: 2
     y: 2

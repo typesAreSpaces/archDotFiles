@@ -21,15 +21,12 @@ alias gitDiscardChanges="git stash save --keep-index --include-untracked"
 
 alias findCPPETAGS="find . -type f -iname \"*.[chS]p*\" | xargs etags -a"
 
-alias gg="npm run-script verifier"
-alias tt="npm run-script optimizer"
-
 # directory aliases
 alias second_home="cd /media/jose/4486d9bd-d3c3-4b92-9842-d38226a22c20$HOME"
 
 alias semester="cd $HOME/Documents/Current-Semester/PhD\ in\ Computer\ Science\ UNM/Semester\ 3"
 
-alias masterThesis="cd $HOME/Documents/GithubProjects/master-thesis/Software/Cpp/ThCombination"
+alias masterThesis="cd $HOME/Documents/GithubProjects/master-thesis/Software/Cpp/EUFInterpolant"
 alias masterThesisPaperProject="cd $HOME/Documents/GithubProjects/master-thesis/Write\ Ups/paper_project"
 alias thesis="cd /home/jose/Documents/GithubProjects/master-thesis/Write\ Ups/thesis"
 
@@ -51,6 +48,8 @@ alias utop="rlwrap ocaml"
 alias v="vim"
 alias nv="nvim"
 alias smtinterpol="java -jar $HOME/Documents/Apps/smtinterpol.jar"
+alias gg="npm run-script verifier"
+alias tt="npm run-script optimizer"
 
 # scripts
 dotfilesChanges() { config status | grep "modified" | grep -v "opam" }

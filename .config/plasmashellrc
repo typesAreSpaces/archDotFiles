@@ -1,3 +1,6 @@
+[PlasmaRunnerManager]
+LaunchCounts=2 services_applications:Alacritty.desktop,1 services_applications:firefox.desktop
+
 [PlasmaTransientsConfig]
 PreloadWeight=42
 

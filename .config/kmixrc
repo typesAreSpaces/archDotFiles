@@ -4,7 +4,7 @@ update_info=disable_kmix.upd:PlasmaVolume_DisableKMixAutostart
 [Global]
 AutoUseMultimediaKeys=true
 ConfigVersion=3
-DefaultCardOnStart=
+DefaultCardOnStart=PulseAudio.Playback_Devices.1.default
 MasterMixer=PulseAudio::Playback_Devices:1
 MasterMixerDevice=alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1
 Menubar=true
@@ -15,6 +15,7 @@ Soundmenu.Mixers=
 Visible=false
 
 [Profiles]
+ALSA::HD_Pro_Webcam_C920:1=
 PulseAudio::Capture_Devices:1=PulseAudio.Capture_Devices.1.default
 PulseAudio::Capture_Streams:1=PulseAudio.Capture_Streams.1.default
 PulseAudio::Playback_Devices:1=PulseAudio.Playback_Devices.1.default
