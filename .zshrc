@@ -26,7 +26,7 @@ alias second_home="cd /media/jose/4486d9bd-d3c3-4b92-9842-d38226a22c20$HOME"
 
 alias semester="cd $HOME/Documents/Current-Semester/PhD\ in\ Computer\ Science\ UNM/Semester\ 3"
 
-alias masterThesis="cd $HOME/Documents/GithubProjects/master-thesis/Software/Cpp/EUFInterpolant"
+alias masterThesis="cd $HOME/Documents/GithubProjects/master-thesis/Software/Cpp/OctagonsInterpolant"
 alias masterThesisPaperProject="cd $HOME/Documents/GithubProjects/master-thesis/Write\ Ups/paper_project"
 alias thesis="cd /home/jose/Documents/GithubProjects/master-thesis/Write\ Ups/thesis"
 

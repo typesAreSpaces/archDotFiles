@@ -209,7 +209,7 @@ exec --no-startup-id source $HOME/.xsessionrc
 
 bindsym $mod+space exec rofi -show run -theme slate -hide-scrollbar -width 1440 -lines 4 -font "Fira Code 28" -padding 400 -separator-style none
 
-bindsym $mod+Shift+F12 exec shutdown -h now
+bindsym $mod+Shift+p exec shutdown -h now
 bindsym $mod+Shift+F11 exec halt --reboot
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
