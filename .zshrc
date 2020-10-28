@@ -11,6 +11,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/maple2020/bin:$PATH"
 export PATH="$HOME/Documents/Apps:$PATH"
 export PATH="$HOME/Documents/Apps/LADR-2009-11A/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH" 
 
 [ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -29,6 +30,8 @@ alias semester="cd $HOME/Documents/Current-Semester/PhD\ in\ Computer\ Science\ 
 alias masterThesis="cd $HOME/Documents/GithubProjects/master-thesis/Software/Cpp/OctagonsInterpolant"
 alias masterThesisPaperProject="cd $HOME/Documents/GithubProjects/master-thesis/Write\ Ups/paper_project"
 alias thesis="cd /home/jose/Documents/GithubProjects/master-thesis/Write\ Ups/thesis"
+alias paper_for_thesis="cd /home/jose/Documents/GithubProjects/master-thesis/Papers\ for\ MS\ Thesis"
+alias presentation="cd /home/jose/colloquium_talk/master_thesis_defense_presentation"
 
 alias z3_dir="cd $HOME/Documents/GithubProjects/z3"
 alias my_z3_dir="cd $HOME/Documents/GithubProjects/z3__"

@@ -40,6 +40,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'neovimhaskell/haskell-vim'
+Plug 'rhysd/vim-grammarous'
 
 call plug#end()
 
