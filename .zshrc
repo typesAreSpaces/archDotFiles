@@ -25,19 +25,15 @@ alias findCPPETAGS="find . -type f -iname \"*.[chS]p*\" | xargs etags -a"
 # directory aliases
 alias second_home="cd /media/jose/4486d9bd-d3c3-4b92-9842-d38226a22c20$HOME"
 
-alias semester="cd $HOME/Documents/Current-Semester/PhD\ in\ Computer\ Science\ UNM/Semester\ 3"
-
-alias masterThesis="cd $HOME/Documents/GithubProjects/master-thesis/Software/Cpp/OctagonsInterpolant"
-alias masterThesisPaperProject="cd $HOME/Documents/GithubProjects/master-thesis/Write\ Ups/paper_project"
-alias thesis="cd /home/jose/Documents/GithubProjects/master-thesis/Write\ Ups/thesis"
-alias paper_for_thesis="cd /home/jose/Documents/GithubProjects/master-thesis/Papers\ for\ MS\ Thesis"
-alias presentation="cd /home/jose/colloquium_talk/master_thesis_defense_presentation"
+alias thesis="cd /home/jose/Documents/GithubProjects/phd-thesis/Documents/Write\ Ups/thesis"
+alias papers_for_thesis="cd /home/jose/Documents/GithubProjects/phd-thesis/Documents/Papers"
 
 alias z3_dir="cd $HOME/Documents/GithubProjects/z3"
 alias my_z3_dir="cd $HOME/Documents/GithubProjects/z3__"
 
 alias bosqueProject="cd $HOME/Documents/GithubProjects/BosqueLanguage/impl"
 alias bosquePaper="cd $HOME/Documents/GithubProjects/BosqueLanguage/Technical\ Reports/Automatic\ verification\ for\ the\ Bosque\ Programming\ Language"
+
 alias profKapur="cd $HOME/Documents/GithubProjects/Extended-Groebner-Basis"
 alias basisConversion="cd $HOME/Documents/GithubProjects/Basis-Conversion"
 

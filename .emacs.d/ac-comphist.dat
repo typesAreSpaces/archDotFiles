@@ -1,2 +1,88 @@
-((("std" .
-   [1 0 0])))
+(((":custom" .
+   [1 0 0 0 0 0 0])
+  ("dracula-theme" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("show-paren-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  (":map" .
+   [3 0 0 0])
+  (":bind" .
+   [1 0 0 0 0])
+  (":diminish" .
+   [0 0 0 0 0 1 0 0 0])
+  ("package-refresh-contents" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("package-archives" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("load-theme" .
+   [2 0 0 0 0 0 0 1 0 0])
+  ("tool-bar" .
+   [1 0 0 0 0 0 0 0])
+  ("package-install" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("use-package" .
+   [5 0 0 0 1 1 0 0 0 0 3])
+  ("package-installed-p" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1])
+  ("unless" .
+   [3 0 0 0 0 0])
+  ("package-archive" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("Package" .
+   [0 0 0 0 0 1 1])
+  ("package" .
+   [1 0 0 0 0 0 1])
+  ("require" .
+   [3 0 0 0 0 0 0])
+  (":" .
+   [2])
+  ("std" .
+   [1 0 0])
+  ("setq" .
+   [8 0 0 0])
+  ("inhibit-quit" .
+   [0 0 0 1 0 0 0 0 0 0 0 0])
+  ("inhibit-startup-message" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1])
+  ("scroll-bar-mode" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("tool-bar-mode" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("tooltip-mode" .
+   [1 0 0 0 0 0 0 0 0 0 0 1])
+  ("set-fringe-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("menu-bar-mode" .
+   [1 0 0 0 0 0 0 0 0 0 0 1 0])
+  ("visible-bell" .
+   [0 0 0 0 0 0 0 0 0 0 0 2])
+  ("set-face-attribute" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("default" .
+   [2 0 0 0 0 0 0])
+  (":font" .
+   [3 0 0 0 0])
+  ("nil" .
+   [2 0 0])
+  (":height" .
+   [2 0 0 0 0 0 0])
+  ("menu-bar" .
+   [1 0 0 0 0 0 0 0])
+  ("ivy-previous-line" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("ivy-switch-buffer-map" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("ivy-reverse-i-search-map" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  (":config" .
+   [2 0 0 0 0 0 0])
+  ("swiper" .
+   [1 0 0 0 0 0])
+  (":ensure" .
+   [2 0 0 0 0 0 0])
+  (":init" .
+   [1 0 0 0 0])
+  ("doom-modeline" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("doom-modeline-height" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])))
