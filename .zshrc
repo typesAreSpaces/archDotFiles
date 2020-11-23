@@ -13,6 +13,8 @@ export PATH="$HOME/Documents/Apps:$PATH"
 export PATH="$HOME/Documents/Apps/LADR-2009-11A/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH" 
 
+export MSAT_DIR="$HOME/Documents/Apps/mathsat-5.6.5-linux-x86_64"
+
 [ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -25,8 +27,11 @@ alias findCPPETAGS="find . -type f -iname \"*.[chS]p*\" | xargs etags -a"
 # directory aliases
 alias second_home="cd /media/jose/4486d9bd-d3c3-4b92-9842-d38226a22c20$HOME"
 
+alias master_thesis="cd /home/jose/Documents/GithubProjects/master-thesis/Software/Cpp/EUFInterpolant"
+alias master_thesis_paper="cd /home/jose/Documents/GithubProjects/master-thesis/Write\ Ups/thesis"
 alias thesis="cd /home/jose/Documents/GithubProjects/phd-thesis/Documents/Write\ Ups/thesis"
 alias papers_for_thesis="cd /home/jose/Documents/GithubProjects/phd-thesis/Documents/Papers"
+alias reports="cd Documents/GithubProjects/phd-thesis/Documents/Write\ Ups/weekly_reports"
 
 alias z3_dir="cd $HOME/Documents/GithubProjects/z3"
 alias my_z3_dir="cd $HOME/Documents/GithubProjects/z3__"
