@@ -58,6 +58,7 @@ alias tt="npm run-script optimizer"
 # scripts
 dotfilesChanges() { config status | grep "modified" | grep -v "opam" }
 se() { du -a $HOME/* | awk '{ gsub (" ", "\\ ", $0); $1 = ""; print $0; }' | fzf | xargs -r xdg-open; }
+getSinkSource() { pacmd list-sinks | grep "index" | grep -o "[0-9]*" }
 
 pwdclip() { pwd | awk '{gsub( " ","\\ " ); print}' | xclip -selection c }
 cdclip() { cd $(xclip -o) }
