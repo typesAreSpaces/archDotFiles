@@ -9,7 +9,7 @@ feh --bg-scale $HOME/Pictures/red_wallpaper.jpeg &
 $HOME/.config/polybar/launch.sh &
 
 #bspc monitor <monitor-name> -d 1 2 3 4 5 6 7 8 9 10
-bspc monitor DP-0 -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 10
 
 bspc config border_width         2
 bspc config window_gap          12
