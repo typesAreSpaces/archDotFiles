@@ -92,6 +92,8 @@ highlight Normal ctermbg=none
 "highlight NonText ctermbg=none
 
 let g:coc_enabled=0
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
 
 autocmd BufNew,BufEnter * execute "silent! CocDisable"
 autocmd BufLeave * execute "silent! CocDisable"
