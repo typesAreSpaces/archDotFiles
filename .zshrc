@@ -31,7 +31,7 @@ alias master_thesis="cd /home/jose/Documents/GithubProjects/master-thesis/Softwa
 alias master_thesis_paper="cd /home/jose/Documents/GithubProjects/master-thesis/Write\ Ups/thesis"
 alias thesis="cd /home/jose/Documents/GithubProjects/phd-thesis/Documents/Write\ Ups/thesis"
 alias papers_for_thesis="cd /home/jose/Documents/GithubProjects/phd-thesis/Documents/Papers"
-alias reports="cd Documents/GithubProjects/phd-thesis/Documents/Write\ Ups/weekly_reports"
+alias reports="cd /home/jose/Documents/GithubProjects/phd-thesis/Documents/Write\ Ups/weekly_reports"
 
 alias z3_dir="cd $HOME/Documents/GithubProjects/z3"
 alias my_z3_dir="cd $HOME/Documents/GithubProjects/z3__"
