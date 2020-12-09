@@ -61,7 +61,7 @@ se() { du -a $HOME/* | awk '{ gsub (" ", "\\ ", $0); $1 = ""; print $0; }' | fzf
 getSinkSource() { pacmd list-sinks | grep "index" | grep -o "[0-9]*" }
 
 pwdclip() { pwd | awk '{gsub( " ","\\ " ); print}' | xclip -selection c }
-cdclip() { cd $(xclip -o) }
+cdclip() { $(xclip -o) }
 
 updateArchPackages() { sudo pacman -Qqen > .arch_packages }
 installArchPackages() { sudo pacman -S --needed - < .arch_packages }

@@ -226,6 +226,7 @@ opam
 os-prober
 oxygen
 packagekit-qt5
+pacman-contrib
 palapeli
 papirus-icon-theme
 parley
@@ -253,7 +254,10 @@ print-manager
 pulseaudio-bluetooth
 python-pip
 python-pyalsa
+python-pydot
 python-pynvim
+python2
+python2-setuptools
 reflector
 rlwrap
 rocs
@@ -297,6 +301,7 @@ texlive-pstricks
 texlive-publishers
 texlive-science
 thunderbird
+tk
 transmission-cli
 transmission-gtk
 tree

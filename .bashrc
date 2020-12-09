@@ -13,3 +13,7 @@ export EDITOR=nvim
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
+
+function getSinkSource { 
+  pacmd list-sinks | grep "index" | grep -o "[0-9]*" 
+}
