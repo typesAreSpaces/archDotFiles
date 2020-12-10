@@ -1,22 +1,18 @@
 #!/bin/bash
 
-sudo pacman -S zsh
-/bin/zsh
+sudo pacman -S zsh git vim
 
 # ------------------------------------------------------------------------
 # Dot files setup
 echo ".cfg" >> .gitignore
-git clone --bare git@github.com:typesAreSpaces/archDotFiles.git $HOME/.cfg
+git clone --bare https://github.com/typesAreSpaces/archDotFiles.git $HOME/.cfg
 mkdir -p .config-backup && \
   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
   xargs -I{} mv {} .config-backup/{}
 /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout
 /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --local status.showUntrackedFiles no
-source .zshrc
 # ------------------------------------------------------------------------
 # Vim setup
-## Install Vim
-sudo pacman -S vim
 ## Download vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -26,6 +22,6 @@ mkdir -p ~/.vim/undodir
 vim +PlugInstall +qa
 # ------------------------------------------------------------------------
 # Installing my usual stuff
-installArchPackages()
+sudo pacman -S --needed - < .arch_packages 
 # ------------------------------------------------------------------------
 chsh -s /bin/zsh
