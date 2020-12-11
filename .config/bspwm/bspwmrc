@@ -4,7 +4,7 @@
 xmodmap $HOME/.Xmodmap
 source $HOME/.xsessionrc
 sxhkd &
-#picom &
+picom &
 feh --bg-scale $HOME/Pictures/red_wallpaper.jpeg &
 $HOME/.config/polybar/launch.sh &
 
