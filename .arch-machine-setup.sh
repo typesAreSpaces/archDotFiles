@@ -1,7 +1,8 @@
 #!/bin/bash
 
+# ------------------------------------------------------------------------
+# Extra programs
 sudo pacman -S zsh git vim
-
 # ------------------------------------------------------------------------
 # Dot files setup
 echo ".cfg" >> .gitignore
@@ -24,4 +25,7 @@ vim +PlugInstall +qa
 # Installing my usual stuff
 sudo pacman -S --needed - < .arch_packages 
 # ------------------------------------------------------------------------
+mkdir -p ~/Documents/GithubProjects/polybar
+git clone https://aur.archlinux.org/polybar.git ~/Documents/GithubProjects/polybar
+cd ~/Documents/GithubProjects/polybar && makepkg -si
 chsh -s /bin/zsh

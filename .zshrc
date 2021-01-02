@@ -12,6 +12,7 @@ export PATH="$HOME/maple2020/bin:$PATH"
 export PATH="$HOME/Documents/Apps:$PATH"
 export PATH="$HOME/Documents/Apps/LADR-2009-11A/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH" 
+export PATH="$HOME/Documents/GithubProjects/macaulay2/src/M2/M2/usr-dist/x86_64-Linux-ArchLinux/bin:$PATH"
 
 export MSAT_DIR="$HOME/Documents/Apps/mathsat-5.6.5-linux-x86_64"
 
@@ -36,13 +37,16 @@ alias reports="cd /home/jose/Documents/GithubProjects/phd-thesis/Documents/Write
 alias z3_dir="cd $HOME/Documents/GithubProjects/z3"
 alias my_z3_dir="cd $HOME/Documents/GithubProjects/z3__"
 
-alias bosqueProject="cd $HOME/Documents/GithubProjects/BosqueLanguage/impl"
-alias bosquePaper="cd $HOME/Documents/GithubProjects/BosqueLanguage/Technical\ Reports/Automatic\ verification\ for\ the\ Bosque\ Programming\ Language"
+bosque_dir="$HOME/Documents/GithubProjects/BosqueLanguage"
+alias bosqueProject="cd $bosque_dir/impl"
+alias bosquePaper="cd $bosque_dir/Technical\ Reports/Automatic\ verification\ for\ the\ Bosque\ Programming\ Language"
 
 alias profKapur="cd $HOME/Documents/GithubProjects/Extended-Groebner-Basis"
 alias basisConversion="cd $HOME/Documents/GithubProjects/Basis-Conversion"
 
 alias axd="cd $HOME/Documents/GithubProjects/AXDInterpolator"
+
+alias gitProjects="cd $HOME/Documents/GithubProjects"
 
 # program aliases
 alias open="xdg-open"
@@ -69,6 +73,21 @@ installArchPackages() { sudo pacman -S --needed - < .arch_packages }
 installZ3() { pushd "/home/jose/Documents/GithubProjects/z3/build" && sudo make install && popd; }
 installMyZ3() { pushd "/home/jose/Documents/GithubProjects/z3__/build" && sudo make install && popd; }
 installZ3InterpPlus() { pushd "/home/jose/Documents/GithubProjects/z3-interp-plus/build" && sudo make install && popd; }
+
+bosqueVerifier(){
+  tsc -p $bosque_dir/impl/tsconfig.json;
+  node $bosque_dir/impl/bin/verifier/typescript_files/run_verifier.js $1
+}
+
+bosqueOptimizer(){
+  tsc -p $bosque_dir/impl/tsconfig.json;
+  node $bosque_dir/impl/bin/optimizer/run_optimizer.js $1
+}
+
+bosqueSymTest(){
+  npm run-script build;
+  node $bosque_dir/impl/bin/runtimes/symtest/symtest.js $1 -v -o here.smt2
+}
 
 # OPAM configuration
 #. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
