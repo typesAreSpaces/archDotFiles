@@ -47,6 +47,7 @@ alias basisConversion="cd $HOME/Documents/GithubProjects/Basis-Conversion"
 alias axd="cd $HOME/Documents/GithubProjects/AXDInterpolator"
 
 alias gitProjects="cd $HOME/Documents/GithubProjects"
+alias edit_syms="nv $HOME/texmf/tex/latex/local/symbols.sty"
 
 # program aliases
 alias open="xdg-open"
