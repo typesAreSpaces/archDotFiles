@@ -47,7 +47,6 @@ alias basisConversion="cd $HOME/Documents/GithubProjects/Basis-Conversion"
 alias axd="cd $HOME/Documents/GithubProjects/AXDInterpolator"
 
 alias gitProjects="cd $HOME/Documents/GithubProjects"
-alias edit_syms="nv $HOME/texmf/tex/latex/local/symbols.sty"
 
 # program aliases
 alias open="xdg-open"
@@ -88,6 +87,15 @@ bosqueOptimizer(){
 bosqueSymTest(){
   npm run-script build;
   node $bosque_dir/impl/bin/runtimes/symtest/symtest.js $1 -v -o here.smt2
+}
+
+edit_syms(){
+  pushd $HOME/texmf/tex/latex/local;
+  nv symbols.sty;
+  git add symbols.sty;
+  git commit -m "Minor changes."; 
+  git push;
+  popd;
 }
 
 # OPAM configuration
