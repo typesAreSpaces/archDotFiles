@@ -86,7 +86,11 @@ bosqueOptimizer(){
 
 bosqueSymTest(){
   npm run-script build;
-  node $bosque_dir/impl/bin/runtimes/symtest/symtest.js $1 -v -o here.smt2
+  if [ $# -eq 1 ]; then
+    node $bosque_dir/impl/bin/runtimes/symtest/symtest.js $1 -v;
+  else
+    node $bosque_dir/impl/bin/runtimes/symtest/symtest.js $1 -v -o $2;
+  fi
 }
 
 edit_syms(){
