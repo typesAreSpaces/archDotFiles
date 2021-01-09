@@ -144,6 +144,6 @@ echo "Available options:
 -cyan		-deep-orange		-deep-purple		-green
 -grey		-indigo			-light-blue		-light-green
 -lime		-orange			-pink			-purple
--red		-teal			-yellow     -grubvox-light
--grubvox-dark -nord   -nightly -solarized-dark"
+-red		-teal			-yellow     -gruvbox-light
+-gruvbox-dark -nord   -nightly -solarized-dark"
 fi
