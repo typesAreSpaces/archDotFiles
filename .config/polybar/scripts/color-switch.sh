@@ -5,7 +5,7 @@
 
 SDIR="$HOME/.config/polybar/scripts"
 
-MENU="$(rofi -sep "|" -dmenu -i -p 'Select' -location 3 -columns 1 -xoffset -28 -yoffset 80 -width 12 -hide-scrollbar -line-padding 4 -padding 20 -lines 10 <<< "> amber|> blue|> blue-grey|> brown|> cyan|> deep-orange|> deep-purple|> green|> grey|> indigo|> lime|> orange|> pink|> purple|> red|> teal|> yellow")"
+MENU="$(rofi -sep "|" -dmenu -i -p 'Select' -location 3 -columns 1 -xoffset -28 -yoffset 80 -width 12 -hide-scrollbar -line-padding 4 -padding 20 -lines 10 <<< "> amber|> blue|> blue-grey|> brown|> cyan|> deep-orange|> deep-purple|> green|> grey|> indigo|> lime|> orange|> pink|> purple|> red|> teal|> yellow |> grubvox-light|> grubvox-dark|> nord|> nightly|> solarized-dark")"
             case "$MENU" in
 				## Colors
 				*amber) $SDIR/colors.sh -amber ;;
@@ -25,4 +25,9 @@ MENU="$(rofi -sep "|" -dmenu -i -p 'Select' -location 3 -columns 1 -xoffset -28 
 				*red) $SDIR/colors.sh -red ;;
 				*teal) $SDIR/colors.sh -teal ;;
 				*yellow) $SDIR/colors.sh -yellow ;;
+				*grubvox-light) $SDIR/colors.sh -grubvox-light;;
+				*grubvox-dark) $SDIR/colors.sh -grubvox-dark;;
+				*nord) $SDIR/colors.sh -nord;;
+				*nightly) $SDIR/colors.sh -nightly;;
+				*solarized-dark) $SDIR/colors.sh -solarized-dark;;
             esac
