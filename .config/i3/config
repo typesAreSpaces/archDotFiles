@@ -95,19 +95,19 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-#set $workspace1 "1:Terminal "
-#set $workspace2 "2:Browser  " 
-#set $workspace3 "3:Mail "
-#set $workspace4 "4:Music "
-#set $workspace5 "5:PDF "
-#set $workspace6 "6:Another Browser " 
+set $workspace1 "1:Terminal "
+set $workspace2 "2:Browser  " 
+set $workspace3 "3:Mail "
+set $workspace4 "4:Music "
+set $workspace5 "5:PDF "
+set $workspace6 "6:Another Browser " 
 
-set $workspace1 "1:Terminal"
-set $workspace2 "2:Browser" 
-set $workspace3 "3:Mail"
-set $workspace4 "4:Music"
-set $workspace5 "5:PDF"
-set $workspace6 "6:Another Browser" 
+#set $workspace1 "1:Terminal"
+#set $workspace2 "2:Browser" 
+#set $workspace3 "3:Mail"
+#set $workspace4 "4:Music"
+#set $workspace5 "5:PDF"
+#set $workspace6 "6:Another Browser" 
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -226,7 +226,7 @@ for_window [class="Spotify"] move to workspace $workspace4, workspace --no-auto-
 assign [class="Evince"] $workspace5
 
 for_window [class=".*"] border pixel 2
-set $gap_size 15
+set $gap_size 20
 set $gap_size_2 5
 gaps inner $gap_size
 gaps outer $gap_size
