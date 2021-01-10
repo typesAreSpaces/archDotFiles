@@ -19,6 +19,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'mhinz/vim-startify'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim' 
 Plug 'jremmen/vim-ripgrep'
@@ -69,7 +70,8 @@ nnoremap <leader>p li<space><esc>p
 
 nnoremap <CR> :<C-u>FZF<CR>
 
-colorscheme dracula 
+colorscheme dracula
+let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
 
 if executable('rg')
