@@ -144,6 +144,13 @@ sed -i -e 's/bg = .*/bg = #1d1f21/g' $PDIR/config.ini
 # Restarting polybar
 $LAUNCH &
 
+elif  [[ $1 = "-tomorrow-night-bright" ]]; then
+# Replacing colors
+sed -i -e 's/bg = .*/bg = #000000/g' $PDIR/config.ini
+# Restarting polybar
+$LAUNCH &
+
+
 else
 echo "Available options:
 -amber		-blue			-blue-grey		-brown
@@ -152,5 +159,5 @@ echo "Available options:
 -lime		-orange			-pink			-purple
 -red		-teal			-yellow     -gruvbox-light
 -gruvbox-dark -nord   -nightly -solarized-dark
--tomorrow-night"
+-tomorrow-night -tomorrow-night-bright "
 fi
