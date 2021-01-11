@@ -2,7 +2,7 @@
 
 # ------------------------------------------------------------------------
 # Extra programs
-sudo pacman -S zsh git vim
+sudo pacman -S zsh git vim curl
 # ------------------------------------------------------------------------
 # Dot files setup
 echo ".cfg" >> .gitignore

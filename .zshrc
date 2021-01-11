@@ -17,7 +17,8 @@ export PATH="$HOME/maple2020/bin:$PATH"
 export PATH="$APPS_DIR:$PATH"
 export PATH="$APPS_DIR/LADR-2009-11A/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH" 
-export PATH="$GITHUB_PROJECTS_DIR/macaulay2/src/M2/M2/usr-dist/x86_64-Linux-ArchLinux/bin:$PATH"
+export PATH="$HOME/local/bin:$PATH"
+export PATH="$APPS_DIR/csdp6.2.0linuxx86_64/bin:$PATH";
 
 export MSAT_DIR="$APPS_DIR/mathsat-5.6.5-linux-x86_64"
 
@@ -125,5 +126,5 @@ edit_syms(){
 # opam configuration
 #test -r /home/jose/.opam/opam-init/init.zsh && . /home/jose/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
- #opam configuration
+#opam configuration
 #test -r /home/jose/.opam/opam-init/init.zsh && . /home/jose/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
