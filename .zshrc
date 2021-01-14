@@ -5,7 +5,7 @@ plugins=(git)
 APPS_DIR="$HOME/Documents/Apps"
 GITHUB_PROJECTS_DIR="$HOME/Documents/GithubProjects"
 BOSQUE_DIR="$GITHUB_PROJECTS_DIR/BosqueLanguage"
-MASTER_THESIS_DIR="$GITHUB_PROJECTS_DIR/master_thesis"
+MASTER_THESIS_DIR="$GITHUB_PROJECTS_DIR/master-thesis"
 PHD_THESIS_DIR="$GITHUB_PROJECTS_DIR/phd-thesis"
 
 export PATH="/usr/bin:$PATH"
