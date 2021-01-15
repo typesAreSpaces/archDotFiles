@@ -95,7 +95,6 @@ installZ3InterpPlus(){
 bosqueproject(){
   Z3_VER=$(z3 --version);
   RESULT=$(echo $Z3_VER | awk '{ print $3; print "4.7.1"; }' | sort -rV | head -1);
-  echo $RESULT
   if [ "$RESULT" = "4.7.1" ]; then
     installZ3;
   fi
