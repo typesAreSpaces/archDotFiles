@@ -43,13 +43,10 @@ alias reports="cd $PHD_THESIS_DIR/Documents/Write\ Ups/weekly_reports"
 alias z3_dir="cd $GITHUB_PROJECTS_DIR/z3"
 alias my_z3_dir="cd $GITHUB_PROJECTS_DIR/z3__"
 
-alias bosqueProject="cd $BOSQUE_DIR/impl"
 alias bosquePaper="cd $BOSQUE_DIR/Technical\ Reports/Automatic\ verification\ for\ the\ Bosque\ Programming\ Language"
 
 alias profKapur="cd $GITHUB_PROJECTS_DIR/Extended-Groebner-Basis"
 alias basisConversion="cd $GITHUB_PROJECTS_DIR/Basis-Conversion"
-
-alias axd="cd $GITHUB_PROJECTS_DIR/AXDInterpolator"
 
 alias gitProjects="cd $GITHUB_PROJECTS_DIR"
 
@@ -95,6 +92,15 @@ installZ3InterpPlus(){
   popd; 
 }
 
+bosqueproject(){
+  Z3_VER=$(z3 --version);
+  RESULT=$(echo $Z3_VER | awk '{ print $3; print "4.7.1"; }' | sort -rV | head -1);
+  echo $RESULT
+  if [ "$RESULT" = "4.7.1" ]; then
+    installZ3;
+  fi
+  cd $BOSQUE_DIR/impl;
+}
 bosqueVerifier(){
   tsc -p $BOSQUE_DIR/impl/tsconfig.json;
   node $BOSQUE_DIR/impl/bin/verifier/typescript_files/run_verifier.js $1
@@ -110,6 +116,14 @@ bosqueSymTest(){
   else
     node $BOSQUE_DIR/impl/bin/runtimes/symtest/symtest.js $1 -v -o $2;
   fi
+}
+
+axdproject(){
+  Z3_VER=$(z3 --version | awk '{ print $3; }');
+  if [ "$Z3_VER" != "4.7.1" ]; then
+    installZ3InterpPlus;
+  fi
+  cd $GITHUB_PROJECTS_DIR/AXDInterpolator
 }
 
 edit_syms(){
