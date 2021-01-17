@@ -1,96 +1,83 @@
 colors:
-  # Default colors
   primary:
-    background: '0x0A0E14'
-    foreground: '0xB3B1AD'
-
-    # Normal colors
+    background: '#1d1f21'
+    foreground: '#c5c8c6'
   normal:
-    black: '0x01060E'
-    red: '0xEA6C73'
-    green: '0x91B362'
-    yellow: '0xF9AF4F'
-    blue: '0x53BDFA'
-    magenta: '0xFAE994'
-    cyan: '0x90E1C6'
-    white: '0xC7C7C7'
-
-    # Bright colors
+    black: '#1d1f21'
+    red: '#cc6666'
+    green: '#b5bd68'
+    yellow: '#e6c547'
+    blue: '#81a2be'
+    magenta: '#b294bb'
+    cyan: '#70c0ba'
+    white: '#373b41'
   bright:
-    black: '0x686868'
-    red: '0xF07178'
-    green: '0xC2D94C'
-    yellow: '0xFFB454'
-    blue: '0x59C2FF'
-    magenta: '0xFFEE99'
-    cyan: '0x95E6CB'
-    white: '0xFFFFFF'
-
+    black: '#666666'
+    red: '#ff3334'
+    green: '#9ec400'
+    yellow: '#f0c674'
+    blue: '#81a2be'
+    magenta: '#b77ee0'
+    cyan: '#54ced6'
+    white: '#282a2e'
+  cursor:
+    text: '#1d1f21'
+    cursor: '#ffffff'
 background_opacity: 0.7
-
 font:
   normal:
-    family: "InputMono"
-    #family: "Monoid"
-    #family: "Inconsolata"
+    family: InputMono
     style: Regular
   bold:
-    family: "InputMono"
-    #family: "Monoid"
-    #family: "Inconsolata"
+    family: InputMono
     style: Bold
   italic:
-    family: "InputMono"
-    #family: "Monoid"
-    #family: "Inconsolata"
+    family: InputMono
     style: Italic
   bold_italic:
-    family: "InputMono"
-    #family: "Monoid"
-    #family: "Incosolata"
+    family: InputMono
     style: Bold Italic
-
-  # Point size
-  size: 14.0
-
+  size: 14
   offset:
     x: -1
-    y: -1
-    #x: 1
-    #y: 1
+    'y': -1
   glyph_offset:
     x: 2
-    y: 2
-
+    'y': 2
 window:
   padding:
     x: 15
-    y: 15
-
+    'y': 15
 scrolling:
-  # Maximum number of lines in the scrollback buffer.
-  # Specifying '0' will disable scrolling.
   history: 10000
-
-  # Number of lines the viewport will move for every line scrolled when
-  # scrollback is enabled (history > 0).
   multiplier: 10
-
-# If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
-
 selection:
   semantic_escape_chars: ',│`|:"'' ()[]{}<>'
   save_to_clipboard: true
-
 live_config_reload: true
-
 key_bindings:
-  - { key: Equals,   mods: Control, action: IncreaseFontSize }
-  - { key: Minus,    mods: Control, action: DecreaseFontSize }
-  - { key: PageUp,   mods: Shift,   action: ScrollPageUp   }
-  - { key: PageDown, mods: Shift,   action: ScrollPageDown }
-  - { key: End,      mods: Shift,   action: ScrollToBottom }
-  - { key: Home,     mods: Shift,   action: ScrollToTop    }
-  - { key: Up,       mods: Shift,   action: ScrollLineUp   }
-  - { key: Down,     mods: Shift,   action: ScrollLineDown }
+  - key: Equals
+    mods: Control
+    action: IncreaseFontSize
+  - key: Minus
+    mods: Control
+    action: DecreaseFontSize
+  - key: PageUp
+    mods: Shift
+    action: ScrollPageUp
+  - key: PageDown
+    mods: Shift
+    action: ScrollPageDown
+  - key: End
+    mods: Shift
+    action: ScrollToBottom
+  - key: Home
+    mods: Shift
+    action: ScrollToTop
+  - key: Up
+    mods: Shift
+    action: ScrollLineUp
+  - key: Down
+    mods: Shift
+    action: ScrollLineDown

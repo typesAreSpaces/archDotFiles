@@ -108,11 +108,56 @@ sed -i -e 's/bg = .*/bg = #C8AD35/g' $PDIR/config.ini
 # Restarting polybar
 $LAUNCH &
 
+elif  [[ $1 = "-gruvbox-light" ]]; then
+# Replacing colors
+sed -i -e 's/bg = .*/bg = #fbf1c7/g' $PDIR/config.ini
+# Restarting polybar
+$LAUNCH &
+
+elif  [[ $1 = "-gruvbox-dark" ]]; then
+# Replacing colors
+sed -i -e 's/bg = .*/bg = #282828/g' $PDIR/config.ini
+# Restarting polybar
+$LAUNCH &
+
+elif  [[ $1 = "-nord" ]]; then
+# Replacing colors
+sed -i -e 's/bg = .*/bg = #2E3440/g' $PDIR/config.ini
+# Restarting polybar
+$LAUNCH &
+
+elif  [[ $1 = "-nightly" ]]; then
+# Replacing colors
+sed -i -e 's/bg = .*/bg = #011627/g' $PDIR/config.ini
+# Restarting polybar
+$LAUNCH &
+
+elif  [[ $1 = "-solarized-dark" ]]; then
+# Replacing colors
+sed -i -e 's/bg = .*/bg = #002b36/g' $PDIR/config.ini
+# Restarting polybar
+$LAUNCH &
+
+elif  [[ $1 = "-tomorrow-night" ]]; then
+# Replacing colors
+sed -i -e 's/bg = .*/bg = #1d1f21/g' $PDIR/config.ini
+# Restarting polybar
+$LAUNCH &
+
+elif  [[ $1 = "-tomorrow-night-bright" ]]; then
+# Replacing colors
+sed -i -e 's/bg = .*/bg = #000000/g' $PDIR/config.ini
+# Restarting polybar
+$LAUNCH &
+
+
 else
 echo "Available options:
 -amber		-blue			-blue-grey		-brown
 -cyan		-deep-orange		-deep-purple		-green
 -grey		-indigo			-light-blue		-light-green
 -lime		-orange			-pink			-purple
--red		-teal			-yellow"
+-red		-teal			-yellow     -gruvbox-light
+-gruvbox-dark -nord   -nightly -solarized-dark
+-tomorrow-night -tomorrow-night-bright "
 fi
