@@ -57,16 +57,18 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :bblast<CR>
 
-nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
-nnoremap <Leader>l :ls<CR>
-nnoremap <silent> <Leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
+nnoremap <leader>l :ls<CR>
+nnoremap <silent> <leader>gr :YcmCompleter GoToReferences<CR>
 
-nnoremap <silent> <Leader>u :exe "resize -5" <CR>
-nnoremap <silent> <Leader>i :exe "resize +5" <CR>
-nnoremap <silent> <Leader>y :exe "vertical resize +5"<CR>
-nnoremap <silent> <Leader>o :exe "vertical resize -5"<CR>
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gf :diffget //2<CR>
+nmap <leader>gs :G<CR>
 
-nnoremap <leader>p li<space><esc>p
+nnoremap <silent> <leader>u :exe "resize -5" <CR>
+nnoremap <silent> <leader>i :exe "resize +5" <CR>
+nnoremap <silent> <leader>y :exe "vertical resize +5"<CR>
+nnoremap <silent> <leader>o :exe "vertical resize -5"<CR>
 
 nnoremap <CR> :<C-u>FZF<CR>
 
