@@ -53,7 +53,7 @@ alias ocaml="rlwrap ocaml"
 alias wolfram="rlwrap wolfram"
 alias v="vim"
 alias nv="nvim"
-alias smtinterpol="java -jar $APPS_DIR/smtinterpol.jar"
+alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
 
 # Scripts
 se(){ du -a $HOME/* | awk '{ gsub (" ", "\\ ", $0); $1 = ""; print $0; }' | fzf | xargs -r xdg-open; }
