@@ -5,7 +5,7 @@ xmodmap $HOME/.Xmodmap
 source $HOME/.xsessionrc
 sxhkd &
 picom &
-feh --bg-scale $HOME/Pictures/feels_like_summer.png &
+feh --bg-scale $HOME/Pictures/aesthetics.png  &
 $HOME/.config/polybar/launch.sh &
 
 # Monitor setup
