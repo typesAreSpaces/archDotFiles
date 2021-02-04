@@ -203,7 +203,7 @@ exec --no-startup-id xmodmap $HOME/.Xmodmap
 exec --no-startup-id source $HOME/.xsessionrc
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always caffeine &
-exec_always feh --bg-scale $HOME/Pictures/iron_lady.jpg
+exec_always feh --bg-scale $HOME/Pictures/aesthetics.png
 
 bindsym $mod+space exec rofi -show run -theme slate -hide-scrollbar -width 1440 -lines 4 -font "Fira Code 28" -padding 400 -separator-style none
 
