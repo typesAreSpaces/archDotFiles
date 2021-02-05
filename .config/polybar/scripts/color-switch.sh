@@ -5,7 +5,7 @@
 
 SDIR="$HOME/.config/polybar/scripts"
 
-MENU="$(rofi -sep "|" -dmenu -i -p 'Select' -location 3 -columns 1 -xoffset -28 -yoffset 80 -width 12 -hide-scrollbar -line-padding 4 -padding 20 -lines 10 <<< "> amber|> blue|> blue-grey|> brown|> cyan|> deep-orange|> deep-purple|> green|> grey|> indigo|> lime|> orange|> pink|> purple|> red|> teal|> yellow |> gruvbox-light|> gruvbox-dark|> nord|> nightly|> solarized-dark |> tomorrow-night |>  tomorrow-night-bright")"
+MENU="$(rofi -sep "|" -dmenu -i -p 'Select' -location 3 -columns 1 -xoffset -28 -yoffset 80 -width 12 -hide-scrollbar -line-padding 4 -padding 20 -lines 10 <<< "> amber|> blue|> blue-grey|> brown|> cyan|> deep-orange|> deep-purple|> green|> grey|> indigo|> lime|> orange|> pink|> purple|> red|> teal|> yellow |> gruvbox-light|> gruvbox-dark|> nord|> nightly|> solarized-dark |> tomorrow-night |>  tomorrow-night-bright |> dracula")"
             case "$MENU" in
 				## Colors
 				*amber) $SDIR/colors.sh -amber ;;
@@ -32,4 +32,5 @@ MENU="$(rofi -sep "|" -dmenu -i -p 'Select' -location 3 -columns 1 -xoffset -28 
 				*solarized-dark) $SDIR/colors.sh -solarized-dark;;
 				*tomorrow-night) $SDIR/colors.sh -tomorrow-night;;
 				*tomorrow-night-bright) $SDIR/colors.sh -tomorrow-night-bright;;
+				*dracula) $SDIR/colors.sh -dracula;;
             esac
