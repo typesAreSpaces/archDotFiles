@@ -23,6 +23,10 @@ alt + Escape
 alt + shift + p
   shutdown -h 0
 
+# lockscreen
+alt + shift + x
+  betterlockscreen -l dim
+
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
