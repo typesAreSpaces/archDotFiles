@@ -1,0 +1,50 @@
+# IMAP settings
+set folder = "imaps://jabelcastellanosjoo@unm.edu@outlook.office365.com:993"
+set imap_user = "jabelcastellanosjoo@unm.edu"
+set imap_pass = `pass school_email`
+set timeout = 10
+set mail_check = 5
+set from = "jabelcastellanosjoo@unm.edu"
+set realname = "Jose Abel Castellanos Joo"
+
+# SMTP settings
+set smtp_url = "smtp://jabelcastellanosjoo@unm.edu@smtp.office365.com:587"
+set smtp_pass = `pass school_email`
+set ssl_starttls=yes
+set ssl_force_tls=yes
+
+# Mailboxes
+set spoolfile = "+INBOX"
+set record = "+Sent"
+set trash = "+Trash"
+set postponed = "+Drafts"
+mailboxes =INBOX =Sent =Trash =Drafts
+
+# Mail editor
+set editor = "/usr/bin/nvim"
+
+# Cache
+set header_cache = ~/.cache/mutt
+set message_cachedir = ~/.cache/mutt
+set certificate_file = ~/.config/mutt/certificates
+
+# Authenticators
+set imap_authenticators = "gssapi"
+set smtp_authenticators = "login"
+
+# Display Sidebar
+set sidebar_width = 20
+set sidebar_visible = yes
+
+# Binders
+bind index,pager \CP sidebar-prev           # Ctrl-p Previous Folder
+bind index,pager \CN sidebar-next           # Ctrl-n Next Folder
+bind index,pager \CI sidebar-open           # Ctrl-i Open Folder
+bind index,pager \CB sidebar-toggle-visible # Ctrl-b Toggle Sidebar
+
+# Themes
+source colors.muttrc
+set date_format="!%a, %b %d, %Y at %I:%M:%S%p %Z"
+set sort=threads
+set sort_browser=date
+set sort_aux=reverse-last-date-received
