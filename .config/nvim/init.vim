@@ -4,6 +4,7 @@ source ~/.vimrc
 
 "color dracula
 color gruvbox
+"color serenade
 
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>

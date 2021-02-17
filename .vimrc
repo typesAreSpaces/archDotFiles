@@ -21,6 +21,7 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
+Plug 'b4skyx/serenade'
 Plug 'dracula/vim' 
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
@@ -72,7 +73,8 @@ nnoremap <silent> <leader>o :exe "vertical resize -5"<CR>
 
 nnoremap <CR> :<C-u>FZF<CR>
 
-colorscheme dracula
+"colorscheme dracula
+colorscheme serenade
 let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
 
