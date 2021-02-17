@@ -41,6 +41,9 @@ bind index,pager \CP sidebar-prev           # Ctrl-p Previous Folder
 bind index,pager \CN sidebar-next           # Ctrl-n Next Folder
 bind index,pager \CI sidebar-open           # Ctrl-i Open Folder
 bind index,pager \CB sidebar-toggle-visible # Ctrl-b Toggle Sidebar
+bind index,pager g   noop
+bind index gg        first-entry
+bind index G         last-entry
 
 # Themes
 source colors.muttrc
