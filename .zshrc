@@ -38,7 +38,7 @@ alias master_thesis_paper="cd $MASTER_THESIS_DIR/Write\ Ups/thesis"
 alias thesis="cd $PHD_THESIS_DIR/Documents/Write\ Ups/thesis"
 alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
 alias reports="cd $PHD_THESIS_DIR/Documents/Write\ Ups/weekly_reports"
-alias math_logic="cd $PHD_THESIS_DIR/Documents/Courses/Math\ 439"
+alias math_logic="cd $PHD_THESIS_DIR/Courses/Math\ 439"
 
 alias bosque_paper="cd $BOSQUE_DIR/Technical\ Reports/Automatic\ verification\ for\ the\ Bosque\ Programming\ Language"
 
