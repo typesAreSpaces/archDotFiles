@@ -1,32 +1,13 @@
-# IMAP settings
-set folder = "imaps://jabelcastellanosjoo@unm.edu@outlook.office365.com:993"
-set imap_user = "jabelcastellanosjoo@unm.edu"
-set imap_pass = `pass school_email`
-set timeout = 10
-set mail_check = 5
-set from = "jabelcastellanosjoo@unm.edu"
-set realname = "Jose Abel Castellanos Joo"
+# Accounts
+folder-hook 'jabelcastellanosjoo' 'source ~/.config/mutt/accounts/unm/jabelcastellanosjoo'
+folder-hook 'jcastellanos34' 'source ~/.config/mutt/accounts/gmail/jcastellanos34'
 
-# SMTP settings
-set smtp_url = "smtp://jabelcastellanosjoo@unm.edu@smtp.office365.com:587"
-set smtp_pass = `pass school_email`
-set ssl_starttls=yes
-set ssl_force_tls=yes
-
-# Mailboxes
-set spoolfile = "+INBOX"
-set record = "+Sent"
-set trash = "+Trash"
-set postponed = "+Drafts"
-mailboxes =INBOX =Sent =Trash =Drafts
+# Default account
+source ~/.config/mutt/accounts/unm/jabelcastellanosjoo
+#source ~/.config/mutt/accounts/gmail/jcastellanos34
 
 # Mail editor
 set editor = "/usr/bin/nvim"
-
-# Cache
-set header_cache = ~/.cache/mutt
-set message_cachedir = ~/.cache/mutt
-set certificate_file = ~/.config/mutt/certificates
 
 # Authenticators
 set imap_authenticators = "gssapi"
