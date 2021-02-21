@@ -3,7 +3,8 @@ let &packpath = &runtimepath
 source ~/.vimrc
 
 "color dracula
-color gruvbox
+"color gruvbox
+color tokyonight
 "color serenade
 
 if has('nvim')
