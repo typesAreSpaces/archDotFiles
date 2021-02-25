@@ -129,6 +129,10 @@ axdProject(){
   cd $GITHUB_PROJECTS_DIR/AXDInterpolator
 }
 
+eufProject(){
+  cd $GITHUB_PROJECTS_DIR/EUFInterpolator
+}
+
 editSyms(){
   pushd $HOME/texmf/tex/latex/local;
   nv symbols.sty;
@@ -136,6 +140,18 @@ editSyms(){
   git commit -m "Minor changes."; 
   git push;
   popd;
+}
+
+morningSetupi3(){
+  alacritty-theme-switch --select gruvbox_dark.yml
+  ~/.config/polybar/scripts/colors.sh -gruvbox-dark
+  sed -i "s|\$HOME/Pictures/.*.jpg|\$HOME/Pictures/iron_lady.jpg|g" ~/.config/i3/config
+}
+
+nightSetupi3(){
+  alacritty-theme-switch --select tokyo-night.yml
+  ~/.config/polybar/scripts/colors.sh -tomorrow-night
+  sed -i "s|\$HOME/Pictures/.*.jpg|\$HOME/Pictures/tokio_night.jpg|g" ~/.config/i3/config
 }
 
 # OPAM configuration
