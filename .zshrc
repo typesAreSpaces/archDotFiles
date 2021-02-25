@@ -146,12 +146,14 @@ morningSetupi3(){
   alacritty-theme-switch --select gruvbox_dark.yml
   ~/.config/polybar/scripts/colors.sh -gruvbox-dark
   sed -i "s|\$HOME/Pictures/.*.jpg|\$HOME/Pictures/iron_lady.jpg|g" ~/.config/i3/config
+  sed -i "s|color.*|color gruvbox|g" ~/.config/nvim/init.vim
 }
 
 nightSetupi3(){
   alacritty-theme-switch --select tokyo-night.yml
   ~/.config/polybar/scripts/colors.sh -tomorrow-night
   sed -i "s|\$HOME/Pictures/.*.jpg|\$HOME/Pictures/tokio_night.jpg|g" ~/.config/i3/config
+  sed -i "s|color.*|color tokyonight|g" ~/.config/nvim/init.vim
 }
 
 # OPAM configuration
