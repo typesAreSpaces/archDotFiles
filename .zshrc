@@ -142,14 +142,21 @@ editSyms(){
   popd;
 }
 
-morningSetupi3(){
+gruvboxThemei3(){
   alacritty-theme-switch --select gruvbox_dark.yml
   ~/.config/polybar/scripts/colors.sh -gruvbox-dark
   sed -i "s|\$HOME/Pictures/.*.jpg|\$HOME/Pictures/Wallpapers/iron_lady.jpg|g" ~/.config/i3/config
   sed -i "s|color.*|color gruvbox|g" ~/.config/nvim/init.vim
 }
 
-nightSetupi3(){
+nordThemei3(){
+  alacritty-theme-switch --select nord.yml
+  ~/.config/polybar/scripts/colors.sh -nord
+  sed -i "s|\$HOME/Pictures/.*.jpg|\$HOME/Pictures/Wallpapers/minimal_mountains.png|g" ~/.config/i3/config
+  sed -i "s|color.*|color nord|g" ~/.config/nvim/init.vim
+}
+
+tokyo_nightThemei3(){
   alacritty-theme-switch --select tokyo-night.yml
   ~/.config/polybar/scripts/colors.sh -tomorrow-night
   sed -i "s|\$HOME/Pictures/.*.jpg|\$HOME/Pictures/Wallpapers/tokyo_night_2.jpg|g" ~/.config/i3/config

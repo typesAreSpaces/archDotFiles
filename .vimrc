@@ -22,6 +22,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'b4skyx/serenade'
 Plug 'dracula/vim' 
 Plug 'jremmen/vim-ripgrep'
