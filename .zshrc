@@ -129,6 +129,10 @@ editSyms(){
   popd;
 }
 
+eufProject(){
+  cd $GITHUB_PROJECTS_DIR/EUFInterpolator
+}
+
 # OPAM configuration
 #. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
