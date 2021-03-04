@@ -201,6 +201,7 @@ client.background       #F8F8F2
 exec --no-startup-id picom
 exec --no-startup-id xmodmap $HOME/.Xmodmap
 exec --no-startup-id source $HOME/.xsessionrc
+exec --no-startup-id xset s off -dpms 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always caffeine &
 exec_always feh --bg-scale $HOME/Pictures/Wallpapers/minimal_mountains.png

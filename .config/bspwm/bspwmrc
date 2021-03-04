@@ -6,6 +6,7 @@ source $HOME/.xsessionrc
 sxhkd &
 picom &
 caffeine &
+xset s off -dpms &
 feh --bg-scale $HOME/Pictures/Wallpapers/red_wallpaper.jpeg &
 $HOME/.config/polybar/launch.sh &
 

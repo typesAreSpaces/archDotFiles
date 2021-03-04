@@ -56,6 +56,9 @@ alias v="vim"
 alias nv="nvim"
 alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
 
+# Docker Aliases
+alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it seahorn/seahorn-llvm5"
+
 # Scripts
 #
 quickConfigUpdate(){
