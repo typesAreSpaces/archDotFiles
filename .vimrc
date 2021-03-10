@@ -19,7 +19,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'mhinz/vim-startify'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'b4skyx/serenade'
 Plug 'dracula/vim' 
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
@@ -56,20 +60,24 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :bblast<CR>
 
-nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
-nnoremap <Leader>l :ls<CR>
-nnoremap <silent> <Leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
+nnoremap <leader>l :ls<CR>
+nnoremap <silent> <leader>gr :YcmCompleter GoToReferences<CR>
 
-nnoremap <silent> <Leader>u :exe "resize -5" <CR>
-nnoremap <silent> <Leader>i :exe "resize +5" <CR>
-nnoremap <silent> <Leader>y :exe "vertical resize +5"<CR>
-nnoremap <silent> <Leader>o :exe "vertical resize -5"<CR>
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gf :diffget //2<CR>
+nmap <leader>gs :G<CR>
 
-nnoremap <leader>p li<space><esc>p
+nnoremap <silent> <leader>u :exe "resize -5" <CR>
+nnoremap <silent> <leader>i :exe "resize +5" <CR>
+nnoremap <silent> <leader>y :exe "vertical resize +5"<CR>
+nnoremap <silent> <leader>o :exe "vertical resize -5"<CR>
 
 nnoremap <CR> :<C-u>FZF<CR>
 
-colorscheme dracula 
+"colorscheme dracula
+colorscheme serenade
+let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
 
 if executable('rg')
@@ -92,6 +100,8 @@ highlight Normal ctermbg=none
 "highlight NonText ctermbg=none
 
 let g:coc_enabled=0
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
 
 autocmd BufNew,BufEnter * execute "silent! CocDisable"
 autocmd BufLeave * execute "silent! CocDisable"

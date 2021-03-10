@@ -5,7 +5,7 @@ xmodmap $HOME/.Xmodmap
 source $HOME/.xsessionrc
 sxhkd &
 picom &
-feh --bg-scale $HOME/Pictures/aesthetics.png  &
+feh --bg-scale $HOME/Pictures/Wallpapers/minimal_mountains.png
 $HOME/.config/polybar/launch.sh &
 
 # Monitor setup
@@ -24,4 +24,6 @@ bspc rule -a firefox desktop='^2'
 bspc rule -a Thunderbird desktop='^3'
 bspc rule -a Evince desktop='^5'
 bspc rule -a Screenkey manage=off
+bspc rule -a 'VirtualBox Manager' desktop='^9'
+bspc rule -a 'VirtualBox Machine' desktop='^10'
 
