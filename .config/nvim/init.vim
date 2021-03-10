@@ -2,7 +2,7 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
 
-color nord
+color gruvbox
 
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>

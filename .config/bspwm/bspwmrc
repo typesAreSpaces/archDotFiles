@@ -5,7 +5,7 @@ xmodmap $HOME/.Xmodmap
 source $HOME/.xsessionrc
 sxhkd &
 picom &
-feh --bg-scale $HOME/Pictures/Wallpapers/minimal_mountains.png
+feh --bg-scale $HOME/Pictures/Wallpapers/iron_lady.jpg
 $HOME/.config/polybar/launch.sh &
 
 # Monitor setup
