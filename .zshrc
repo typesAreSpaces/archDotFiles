@@ -69,7 +69,7 @@ quickConfigRestore(){
   config status | grep "modified:" | sed 's/modified:/git --git-dir=$HOME\/.cfg --work-tree=$HOME restore/g' | zsh;
 }
 
-se(){ du -a $HOME/* | awk '{ gsub (" ", "\\ ", $0); $1 = ""; print $0; }' | fzf | xargs -r xdg-open; }
+se(){ du -a $(pwd) | awk '{ gsub (" ", "\\ ", $0); $1 = ""; print $0; }' | fzf | xargs -r xdg-open; }
 getSinkSource(){ pacmd list-sinks | grep "index" | grep -o "[0-9]*" }
 
 pwdclip(){ pwd | awk '{gsub( " ","\\ " ); print}' | xclip -selection c }
