@@ -125,6 +125,10 @@ super + alt + {h,j,k,l}
 super + alt + shift + {h,j,k,l}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
+# smart move
+ctrl + shift + {h,j,k,l}
+  ~/.local/scripts/bspwm_smart_move {west,south,north,east}
+
 # move a floating window
 alt + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
