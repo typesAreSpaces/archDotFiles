@@ -137,6 +137,11 @@ eufProject(){
   cd $GITHUB_PROJECTS_DIR/EUFInterpolator
 }
 
+myZ3(){
+  cd $GITHUB_PROJECTS_DIR/z3-interp-plus
+}
+
+
 editSyms(){
   pushd $HOME/texmf/tex/latex/local;
   nv symbols.sty;
