@@ -133,6 +133,10 @@ axdProject(){
   cd $GITHUB_PROJECTS_DIR/AXDInterpolator
 }
 
+ultimate_atomizer(){
+  $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default/UAutomizer-linux/Ultimate.py --spec $1 --architecture $2 $3 --file $4
+}
+
 eufProject(){
   cd $GITHUB_PROJECTS_DIR/EUFInterpolator
 }
@@ -140,7 +144,6 @@ eufProject(){
 myZ3(){
   cd $GITHUB_PROJECTS_DIR/z3-interp-plus
 }
-
 
 editSyms(){
   pushd $HOME/texmf/tex/latex/local;
