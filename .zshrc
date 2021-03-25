@@ -132,6 +132,9 @@ axdProject(){
   #fi
   cd $GITHUB_PROJECTS_DIR/AXDInterpolator
 }
+ultimateProject(){
+  cd $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default/UAutomizer-linux
+}
 
 ultimate_atomizer(){
   $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default/UAutomizer-linux/Ultimate.py --spec $1 --architecture $2 $3 --file $4
