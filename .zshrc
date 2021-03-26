@@ -2,7 +2,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="simple"
 plugins=(git)
 
-export APPS_DIR="$HOME/Documents/Apps"
+export APPS_DIR="$HOME/Documents/Applications"
 export GITHUB_PROJECTS_DIR="$HOME/Documents/GithubProjects"
 export BOSQUE_DIR="$GITHUB_PROJECTS_DIR/BosqueLanguage"
 export MASTER_THESIS_DIR="$GITHUB_PROJECTS_DIR/master-thesis"
@@ -15,12 +15,6 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.opam/system/bin:$PATH"
 export PATH="$HOME/.opam/4.07.0/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/maple2020/bin:$PATH"
-export PATH="$APPS_DIR:$PATH"
-export PATH="$APPS_DIR/LADR-2009-11A/bin:$PATH"
-export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH" 
-export PATH="$APPS_DIR/Matlab/bin:$PATH"
-export PATH="$APPS_DIR/csdp6.2.0linuxx86_64/bin:$PATH";
 
 [ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
@@ -54,7 +48,7 @@ alias ocaml="rlwrap ocaml"
 alias wolfram="rlwrap wolfram"
 alias v="vim"
 alias nv="nvim"
-alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
+alias smtinterpol="java -jar $APPS_DIR/smtinterpol/smtinterpol-2.5-663-gf15aa217.jar"
 
 # Docker Aliases
 alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it seahorn/seahorn-llvm5"
