@@ -132,9 +132,24 @@ axdProject(){
   #fi
   cd $GITHUB_PROJECTS_DIR/AXDInterpolator
 }
+ultimateProject(){
+  cd $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default/UAutomizer-linux
+}
+runUltimateAutomizer(){
+  $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default/UAutomizer-linux/Ultimate.py --spec $1 --architecture $2 $3 --file $4
+}
+buildUltimateAutomizer() { 
+  pushd $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default
+  ./makeFresh.sh
+  popd
+}
 
 eufProject(){
   cd $GITHUB_PROJECTS_DIR/EUFInterpolator
+}
+
+myZ3(){
+  cd $GITHUB_PROJECTS_DIR/z3-interp-plus
 }
 
 editSyms(){
