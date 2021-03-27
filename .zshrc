@@ -133,7 +133,9 @@ runUltimateAutomizer(){
   $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default/UAutomizer-linux/Ultimate.py --spec $1 --architecture $2 $3 --file $4
 }
 buildUltimateAutomizer() { 
-  $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default/makeFresh.sh
+  pushd $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default
+  ./makeFresh.sh
+  popd
 }
 
 eufProject(){
