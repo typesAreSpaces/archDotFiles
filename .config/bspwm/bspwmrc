@@ -7,7 +7,7 @@ sxhkd &
 picom &
 caffeine &
 xset s off -dpms &
-MONITOR1=DP-0
+MONITOR1=HDMI-0
 if xrandr -q | grep -q "^DP-[1-9] connected*"; then
   $HOME/.screenlayout/dual_screen.sh;
   MONITOR2=DP-1
