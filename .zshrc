@@ -1,4 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
+export HISTIGNORE='*sudo -S*'
 ZSH_THEME="simple"
 plugins=(git)
 
@@ -138,8 +139,7 @@ ultimateProject(){
 runUltimateAutomizer(){
   # Example
   # runUltimateAutomizer $GITHUB_PROJECTS_DIR/AXDInterpolator/tests/sv-benchmarks/c/properties/no-overflow.prp 32bit simple $GITHUB_PROJECTS_DIR/AXDInterpolator/tests/sv-benchmarks/c/termination-crafted/Collatz.c
-
-  $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default/UAutomizer-linux/Ultimate.py --spec $1 --architecture $2 $3 --file $4
+  $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default/UAutomizer-linux/Ultimate.py --spec $1 --architecture $2 precise --file $3
 }
 buildUltimateAutomizer() { 
   pushd $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default
