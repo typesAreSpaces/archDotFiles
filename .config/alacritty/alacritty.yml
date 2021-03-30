@@ -39,15 +39,15 @@ font:
     style: Bold Italic
   size: 14
   offset:
-    x: -1
-    'y': -1
+    x: 0
+    y: 0
   glyph_offset:
-    x: 2
-    'y': 2
+    x: 0
+    y: 0
 window:
   padding:
     x: 15
-    'y': 15
+    y: 15
 scrolling:
   history: 10000
   multiplier: 10
