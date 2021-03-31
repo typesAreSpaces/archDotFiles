@@ -33,7 +33,7 @@ alias sshVB="ssh -p 2222 jose@127.0.0.1"
 alias find_cpp_etags="find . -type f -iname \"*.[chS]p*\" | xargs etags -a"
 
 # Directory Aliases
-alias second_home="cd /media/jose/4486d9bd-d3c3-4b92-9842-d38226a22c20$HOME"
+alias second_home="cd /media"
 
 alias master_thesis="cd $MASTER_THESIS_DIR/Software/Cpp/EUFInterpolant"
 alias master_thesis_paper="cd $MASTER_THESIS_DIR/Write\ Ups/thesis"
