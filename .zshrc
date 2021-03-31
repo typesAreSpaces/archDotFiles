@@ -126,6 +126,9 @@ bosqueSymTest(){
   fi
 }
 
+sv-comp-files(){ 
+  cd $GITHUB_PROJECTS_DIR/AXDInterpolator/tests/sv-benchmarks
+}
 axdProject(){
   #Z3_VER=$(z3 --version | awk '{ print $3; }');
   #if [ "$Z3_VER" != "4.7.1" ]; then
