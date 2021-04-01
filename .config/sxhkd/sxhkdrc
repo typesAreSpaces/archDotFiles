@@ -129,6 +129,10 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+# smart move
+ctrl + shift + {h,j,k,l}
+  ~/.local/scripts/bspwm_smart_move {west,south,north,east}
+
 XF86AudioRaiseVolume 
   pactl set-sink-volume $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") +10%
 
