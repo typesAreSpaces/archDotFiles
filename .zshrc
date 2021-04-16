@@ -126,10 +126,10 @@ bosqueSymTest(){
 }
 
 axdProject(){
-  Z3_VER=$(z3 --version | awk '{ print $3; }');
-  if [ "$Z3_VER" != "4.7.1" ]; then
-    installZ3InterpPlus;
-  fi
+  #Z3_VER=$(z3 --version | awk '{ print $3; }');
+  #if [ "$Z3_VER" != "4.7.1" ]; then
+    #installZ3InterpPlus;
+  #fi
   cd $GITHUB_PROJECTS_DIR/AXDInterpolator
 }
 

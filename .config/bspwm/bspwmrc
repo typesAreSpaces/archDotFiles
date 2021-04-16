@@ -21,7 +21,7 @@ else
   bspc rule -a Thunderbird desktop='^8'
 fi
 
-feh --bg-scale $HOME/Pictures/Wallpapers/minimal_mountains.png
+feh --bg-scale $HOME/Pictures/Wallpapers/iron_lady.jpg
 $HOME/.config/polybar/launch.sh &
 
 bspc config border_width         2
