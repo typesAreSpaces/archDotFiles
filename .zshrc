@@ -136,6 +136,9 @@ axdProject(){
   #fi
   cd $GITHUB_PROJECTS_DIR/AXDInterpolator
 }
+smtSubmission(){
+  cd $GITHUB_PROJECTS_DIR/SMT-2021
+}
 ultimateProject(){
   cd $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default/UAutomizer-linux
 }
