@@ -4,7 +4,7 @@
 xmodmap $HOME/.Xmodmap
 source $HOME/.xsessionrc
 sxhkd &
-picom &
+picom --experimental-backends &
 caffeine &
 xset s off -dpms &
 MONITOR1=DP-0
