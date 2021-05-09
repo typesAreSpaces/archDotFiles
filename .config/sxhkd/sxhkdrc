@@ -9,8 +9,8 @@ alt + Return
 
 # program launcher
 alt + @space
-	rofi -show run -theme slate -hide-scrollbar -width 1440 -lines 4 -font "Fira Code 28" -padding 400 -separator-style none
-
+  rofi -show drun -display-drun "" -theme ~/.config/rofi/kai.rasi
+	#rofi -show run -theme slate -hide-scrollbar -width 1440 -lines 4 -font "Fira Code 28" -padding 400 -separator-style none
 # make sxhkd reload its configuration files:
 alt + Escape
 	pkill -USR1 -x sxhkd
