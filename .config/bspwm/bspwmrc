@@ -4,7 +4,7 @@
 xmodmap $HOME/.Xmodmap
 source $HOME/.xsessionrc
 sxhkd &
-picom &
+picom --experimental-backends &
 xset s off -dpms &
 
 MONITOR=eDP1
