@@ -45,6 +45,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'rhysd/vim-grammarous'
+Plug 'iamcco/markdown-preview.nvim'
 
 call plug#end()
 

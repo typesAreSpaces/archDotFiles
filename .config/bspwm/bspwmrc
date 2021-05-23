@@ -26,6 +26,7 @@ bspc rule -a firefox desktop='^2'
 bspc rule -a Thunderbird desktop='^3'
 
 feh --bg-scale $HOME/Pictures/Wallpapers/iron_lady.jpg
+#feh --bg-scale $HOME/Pictures/Ilulissat_Icefjord_Greenland.jpg
 $HOME/.config/polybar/launch.sh &
 
 bspc config border_width         2

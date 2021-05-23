@@ -61,7 +61,41 @@ alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
 alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it seahorn/seahorn-llvm5"
 
 # Scripts
-#
+
+backup(){
+  if [ -f $1 ]; then
+    SHARED_LOCAL_DIR=$(echo $(dirname $(readlink -f $1)) | cut -b 7-)
+    if [ ! -d /media/$SHARED_LOCAL_DIR ]; then
+      mkdir -p /media/$SHARED_LOCAL_DIR
+    fi
+    mv $1 /media/$SHARED_LOCAL_DIR/$1
+  fi
+  if [ -d $1 ]; then
+    SHARED_LOCAL_DIR=$(echo $(dirname $(realpath $1)) | cut -b 7-)
+    if [ ! -d /media/$SHARED_LOCAL_DIR ]; then
+      mkdir -p /media/$SHARED_LOCAL_DIR
+    fi
+    mv $1 /media/$SHARED_LOCAL_DIR
+  fi
+}
+
+restore(){
+  if [ -f $1 ]; then
+    SHARED_LOCAL_DIR=$(echo $(dirname $(readlink -f $1)) | cut -b 8-)
+    if [ ! -d /home/$SHARED_LOCAL_DIR ]; then
+      mkdir -p /home/$SHARED_LOCAL_DIR
+    fi
+    mv $1 /home/$SHARED_LOCAL_DIR/$1
+  fi
+  if [ -d $1 ]; then
+    SHARED_LOCAL_DIR=$(echo $(dirname $(realpath $1)) | cut -b 8-)
+    if [ ! -d /home/$SHARED_LOCAL_DIR ]; then
+      mkdir -p /home/$SHARED_LOCAL_DIR
+    fi
+    mv $1 /home/$SHARED_LOCAL_DIR
+  fi
+}
+
 quickConfigUpdate(){
   config status | grep "modified:" | sed 's/modified:/git --git-dir=$HOME\/.cfg --work-tree=$HOME add/g' | zsh;
   config status | grep "new file:" | sed 's/new file:/git --git-dir=$HOME\/.cfg --work-tree=$HOME add/g' | zsh;
@@ -127,12 +161,12 @@ bosqueSymTest(){
 }
 
 sv-comp-files(){ 
-  cd $GITHUB_PROJECTS_DIR/AXDInterpolator/tests/sv-benchmarks
+cd $GITHUB_PROJECTS_DIR/AXDInterpolator/tests/sv-benchmarks
 }
 axdProject(){
   #Z3_VER=$(z3 --version | awk '{ print $3; }');
   #if [ "$Z3_VER" != "4.7.1" ]; then
-    #installZ3InterpPlus;
+  #installZ3InterpPlus;
   #fi
   cd $GITHUB_PROJECTS_DIR/AXDInterpolator
 }
