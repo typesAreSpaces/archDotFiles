@@ -108,7 +108,6 @@ set nu rnu
 set smartcase
 set noswapfile
 set nobackup
-set undodir=~/.vim/undodir
 set undofile
 set incsearch 
 
