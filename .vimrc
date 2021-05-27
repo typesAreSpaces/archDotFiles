@@ -1,107 +1,103 @@
-syntax on
-
-set tabstop=2 softtabstop=2
-set shiftwidth=2
-set expandtab
-set smartindent
-set nu
-set smartcase
-set noswapfile
-set nobackup
-set undodir=~/.vim/undodir
-set undofile
-set incsearch
-
-highlight ColorColumn ctermbg=0 guibg=lightgrey
-
+"# Plugins
 call plug#begin('~/.vim/plugged')
-
+"IDE Experience
 Plug 'mhinz/vim-startify'
-Plug 'ycm-core/YouCompleteMe'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mbbill/undotree'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'rhysd/vim-grammarous'
+Plug 'iamcco/markdown-preview.nvim'
+Plug 'preservim/nerdtree'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'preservim/nerdcommenter'
+Plug 'godlygeek/tabular'
+
+"## Themes
 Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'b4skyx/serenade'
 Plug 'dracula/vim' 
-Plug 'jremmen/vim-ripgrep'
-Plug 'tpope/vim-fugitive'
-Plug 'leafgarland/typescript-vim'
-Plug 'vim-utils/vim-man'
-Plug 'lyuts/vim-rtags'
-Plug 'git@github.com:kien/ctrlp.vim.git'
-Plug 'mbbill/undotree'
-Plug 'bohlender/vim-smt2' 
-Plug 'vim-latex/vim-latex'
-Plug 'FStarLang/VimFStar', {'for': 'fstar'}
-Plug 'itchyny/lightline.vim'
-Plug 'preservim/nerdtree'
-Plug 'preservim/nerdcommenter'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'neovimhaskell/haskell-vim'
-Plug 'rhysd/vim-grammarous'
 
+"## Ricing
+Plug 'itchyny/lightline.vim'
+
+"## Syntax
+Plug 'bohlender/vim-smt2' 
+Plug 'plasticboy/vim-markdown'
 call plug#end()
 
+"# Vim settings
 let mapleader=" "
 
+"## Navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nnoremap <silent> [b :bprevious<CR>
-nnoremap <silent> ]b :bnext<CR>
-nnoremap <silent> [B :bfirst<CR>
-nnoremap <silent> ]B :bblast<CR>
-
-nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
-nnoremap <leader>l :ls<CR>
-nnoremap <silent> <leader>gr :YcmCompleter GoToReferences<CR>
-
-nmap <leader>gj :diffget //3<CR>
-nmap <leader>gf :diffget //2<CR>
-nmap <leader>gs :G<CR>
-
+"## Windows
 nnoremap <silent> <leader>u :exe "resize -5" <CR>
 nnoremap <silent> <leader>i :exe "resize +5" <CR>
 nnoremap <silent> <leader>y :exe "vertical resize +5"<CR>
 nnoremap <silent> <leader>o :exe "vertical resize -5"<CR>
 
-nnoremap <CR> :<C-u>FZF<CR>
+"## Buffers
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :bblast<CR>
 
-"colorscheme dracula
-colorscheme serenade
-let base16colorspace=256  " Access colors present in 256 colorspace
-set background=dark
+"# FZF binders
+nnoremap <CR> :FZF<CR>
 
-if executable('rg')
-  let g:rg_derive_root='true'
-end
+"# NerdToggle binders
+nnoremap <C-n> :NERDTreeToggle<CR>
 
+"# SMT settings:
 let g:smt2_solver_command="z3 -smt2"
 let g:smt2_solver_version_switch="4.8.8"
 
+"# Lightline settings:
 set laststatus=2
-nnoremap <C-n> :NERDTreeToggle<CR>
+set noshowmode
+if !has('gui_running')
+  set t_Co=256
+endif
+let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 
+"# Customization
+let base16colorspace=256  
+set background=dark
+
+"colorscheme dracula
+colorscheme serenade
+
+syntax on
 set timeoutlen=1000 ttimeoutlen=0
 set clipboard=unnamedplus
-
 set number relativenumber
+set tabstop=2 softtabstop=2
+set shiftwidth=2
+set expandtab
+set smartindent
 set nu rnu
+set smartcase
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch 
 
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 highlight Normal ctermbg=none
-"highlight NonText ctermbg=none
-
-let g:coc_enabled=0
-let g:ycm_server_keep_logfiles = 1
-let g:ycm_server_log_level = 'debug'
-
-autocmd BufNew,BufEnter * execute "silent! CocDisable"
-autocmd BufLeave * execute "silent! CocDisable"
+highlight NonText ctermbg=none
