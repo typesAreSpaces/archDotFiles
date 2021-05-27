@@ -1,8 +1,6 @@
 "# Plugins
 call plug#begin('~/.vim/plugged')
 "IDE Experience
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
 Plug 'mhinz/vim-startify'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -77,7 +75,7 @@ let g:lightline = {
       \ },
       \ }
 
-"# Customization:
+"# Customization
 let base16colorspace=256  
 set background=dark
 

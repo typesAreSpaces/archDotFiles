@@ -1,6 +1,8 @@
-export ZSH="$HOME/.oh-my-zsh"
-export HISTIGNORE='*sudo -S*'
+# ZSHRC file
 export TERM=xterm-256color
+export HISTIGNORE='*sudo -S*'
+export ZSH="$HOME/.oh-my-zsh"
+
 ZSH_THEME="simple"
 plugins=(git)
 
@@ -24,13 +26,13 @@ export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export PATH="$APPS_DIR/Matlab/bin:$PATH"
 export PATH="$APPS_DIR/csdp6.2.0linuxx86_64/bin:$PATH";
 
+# Init
 [ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
-[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+[ -f $HOME/.fzf.zsh ]    && source $HOME/.fzf.zsh
 
 # General Aliases
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias git_discard_dhanges="git stash save --keep-index --include-untracked"
-alias sshVB="ssh -p 2222 jose@127.0.0.1"
 alias find_cpp_etags="find . -type f -iname \"*.[chS]p*\" | xargs etags -a"
 
 # Directory Aliases
@@ -41,11 +43,6 @@ alias master_thesis_paper="cd $MASTER_THESIS_DIR/Write\ Ups/thesis"
 alias thesis="cd $PHD_THESIS_DIR/Documents/Write\ Ups/thesis"
 alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
 alias reports="cd $PHD_THESIS_DIR/Documents/Write\ Ups/weekly_reports"
-
-alias bosque_paper="cd $BOSQUE_DIR/Technical\ Reports/Automatic\ verification\ for\ the\ Bosque\ Programming\ Language"
-
-alias prof_kapur="cd $GITHUB_PROJECTS_DIR/Extended-Groebner-Basis"
-alias basis_conversion="cd $GITHUB_PROJECTS_DIR/Basis-Conversion"
 
 # Program Aliases
 alias open="xdg-open"
@@ -60,8 +57,8 @@ alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
 # Docker Aliases
 alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it seahorn/seahorn-llvm5"
 
-# Scripts
-
+# Local Scripts
+## Transport files and directories between SSD and HDD
 backup(){
   if [ -f $1 ]; then
     SHARED_LOCAL_DIR=$(echo $(dirname $(readlink -f $1)) | cut -b 7-)
@@ -78,7 +75,6 @@ backup(){
     mv $1 /media/$SHARED_LOCAL_DIR
   fi
 }
-
 restore(){
   if [ -f $1 ]; then
     SHARED_LOCAL_DIR=$(echo $(dirname $(readlink -f $1)) | cut -b 8-)
@@ -96,6 +92,7 @@ restore(){
   fi
 }
 
+## Quick script for local dot files
 quickConfigUpdate(){
   config status | grep "modified:" | sed 's/modified:/git --git-dir=$HOME\/.cfg --work-tree=$HOME add/g' | zsh;
   config status | grep "new file:" | sed 's/new file:/git --git-dir=$HOME\/.cfg --work-tree=$HOME add/g' | zsh;
@@ -104,15 +101,27 @@ quickConfigRestore(){
   config status | grep "modified:" | sed 's/modified:/git --git-dir=$HOME\/.cfg --work-tree=$HOME restore/g' | zsh;
 }
 
-se(){ du -a $(pwd) | awk '{ gsub (" ", "\\ ", $0); $1 = ""; print $0; }' | fzf | xargs -r xdg-open; }
-getSinkSource(){ pacmd list-sinks | grep "index" | grep -o "[0-9]*" }
+## Scripts for system management
+se(){ 
+  du -a $(pwd) | awk '{ gsub (" ", "\\ ", $0); $1 = ""; print $0; }' | fzf | xargs -r xdg-open; 
+}
+getSinkSource(){ 
+  pacmd list-sinks | grep "index" | grep -o "[0-9]*" 
+}
+pwdclip(){ 
+  pwd | awk '{gsub( " ","\\ " ); print}' | xclip -selection c 
+}
+cdclip(){ 
+  $(xclip -o) 
+}
+updateArchPackages(){ 
+  sudo pacman -Qqen > .arch_packages 
+}
+installArchPackages(){ 
+  sudo pacman -S --needed - < .arch_packages 
+}
 
-pwdclip(){ pwd | awk '{gsub( " ","\\ " ); print}' | xclip -selection c }
-cdclip(){ $(xclip -o) }
-
-updateArchPackages(){ sudo pacman -Qqen > .arch_packages }
-installArchPackages(){ sudo pacman -S --needed - < .arch_packages }
-
+## Scripts to install different versions of Z3
 installZ3(){ 
   pushd "$GITHUB_PROJECTS_DIR/z3"; 
   python ./scripts/mk_make.py
@@ -135,6 +144,7 @@ installZ3InterpPlus(){
   popd; 
 }
 
+## Bosque project related scripts
 bosqueProject(){
   Z3_VER=$(z3 --version);
   RESULT=$(echo $Z3_VER | awk '{ print $3; print "4.7.1"; }' | sort -rV | head -1);
@@ -160,22 +170,7 @@ bosqueSymTest(){
   fi
 }
 
-sv-comp-files(){ 
-cd $GITHUB_PROJECTS_DIR/AXDInterpolator/tests/sv-benchmarks
-}
-axdProject(){
-  #Z3_VER=$(z3 --version | awk '{ print $3; }');
-  #if [ "$Z3_VER" != "4.7.1" ]; then
-  #installZ3InterpPlus;
-  #fi
-  cd $GITHUB_PROJECTS_DIR/AXDInterpolator
-}
-smtSubmission(){
-  cd $GITHUB_PROJECTS_DIR/SMT-2021
-}
-ultimateProject(){
-  cd $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default/UAutomizer-linux
-}
+## Ultimate project related scripts
 runUltimateAutomizer(){
   # Example
   # runUltimateAutomizer $GITHUB_PROJECTS_DIR/AXDInterpolator/tests/sv-benchmarks/c/properties/no-overflow.prp 32bit simple $GITHUB_PROJECTS_DIR/AXDInterpolator/tests/sv-benchmarks/c/termination-crafted/Collatz.c
@@ -187,14 +182,7 @@ buildUltimateAutomizer() {
   popd
 }
 
-eufProject(){
-  cd $GITHUB_PROJECTS_DIR/EUFInterpolator
-}
-
-myZ3(){
-  cd $GITHUB_PROJECTS_DIR/z3-interp-plus
-}
-
+## Edit personal latex symbols: symbols.sty
 editSyms(){
   pushd $HOME/texmf/tex/latex/local;
   nv symbols.sty;
@@ -204,6 +192,7 @@ editSyms(){
   popd;
 }
 
+## Scripts to customize system
 gruvboxThemei3(){
   alacritty-theme-switch --select gruvbox_dark.yml
   ~/.config/polybar/scripts/colors.sh -gruvbox-dark
