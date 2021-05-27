@@ -124,6 +124,9 @@ let g:gruvbox_invert_selection='0'
 
 "# Autocompleting configuration
 set completeopt=menuone,noinsert,noselect
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 "# LSP Config
