@@ -15,6 +15,7 @@ Plug 'preservim/nerdtree'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'preservim/nerdcommenter'
 Plug 'godlygeek/tabular'
+Plug 'tpope/vim-eunuch'
 
 "## Themes
 Plug 'chriskempson/base16-vim'
