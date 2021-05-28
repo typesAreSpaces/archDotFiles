@@ -120,6 +120,9 @@ updateArchPackages(){
 installArchPackages(){ 
   sudo pacman -S --needed - < .arch_packages 
 }
+changeVolume(){
+  pactl set-sink-volume $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") $1
+}
 
 ## Scripts to install different versions of Z3
 installZ3(){ 
