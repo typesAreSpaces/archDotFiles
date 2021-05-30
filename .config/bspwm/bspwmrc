@@ -6,6 +6,7 @@ source $HOME/.xsessionrc
 sxhkd &
 picom --experimental-backends &
 caffeine &
+/home/jose/.local/bin/bspswallow &
 xset s off -dpms &
 MONITOR1=DP-0
 #if xrandr -q | grep -q "^DP-[1-9] connected*"; then
@@ -39,4 +40,3 @@ bspc rule -a Evince desktop='^5'
 bspc rule -a 'VirtualBox Manager' desktop='^9'
 bspc rule -a 'VirtualBox Machine' desktop='^10'
 bspc rule -a Screenkey manage=off
-

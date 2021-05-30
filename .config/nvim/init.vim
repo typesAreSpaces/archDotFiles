@@ -9,13 +9,16 @@ Plug 'hrsh7th/nvim-compe'
 Plug 'mhinz/vim-startify'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'rhysd/vim-grammarous'
-Plug 'iamcco/markdown-preview.nvim'
 Plug 'preservim/nerdtree'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'preservim/nerdcommenter'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-eunuch'
+
+"## Neovim apps 
+Plug 'iamcco/markdown-preview.nvim'
+Plug 'rhysd/vim-grammarous'
+Plug 'sotte/presenting.vim'
 
 "## Themes
 Plug 'chriskempson/base16-vim'
@@ -175,7 +178,7 @@ local custom_on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', 'gK', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
