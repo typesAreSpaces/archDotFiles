@@ -16,6 +16,8 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-eunuch'
 Plug 'junegunn/limelight.vim'
 Plug 'kabouzeid/nvim-lspinstall'
+Plug 'puremourning/vimspector'
+Plug 'szw/vim-maximizer'
 
 "## Neovim apps 
 Plug 'iamcco/markdown-preview.nvim'

@@ -10,6 +10,8 @@ Plug 'preservim/nerdtree'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'preservim/nerdcommenter'
 Plug 'godlygeek/tabular'
+Plug 'puremourning/vimspector'
+Plug 'szw/vim-maximizer'
 
 "## Themes
 Plug 'chriskempson/base16-vim'
