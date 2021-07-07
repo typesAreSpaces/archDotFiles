@@ -57,14 +57,14 @@ font:
   size: 16
   offset:
     x: 0
-    'y': 0
+    y: 0
   glyph_offset:
     x: 0
-    'y': 0
+    y: 0
 window:
   padding:
     x: 10
-    'y': 10
+    y: 10
 scrolling:
   history: 10000
   multiplier: 10
