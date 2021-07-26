@@ -2,7 +2,6 @@
 # wm independent hotkeys
 #
 
-
 # terminal emulator
 alt + Return
 	alacritty
@@ -11,6 +10,7 @@ alt + Return
 alt + @space
   rofi -show drun -display-drun "" -theme ~/.config/rofi/kai.rasi
 	#rofi -show run -theme slate -hide-scrollbar -width 1440 -lines 4 -font "Fira Code 28" -padding 400 -separator-style none
+
 # make sxhkd reload its configuration files:
 alt + Escape
 	pkill -USR1 -x sxhkd
@@ -142,11 +142,11 @@ XF86AudioLowerVolume
 XF86AudioMute
   pactl set-sink-mute $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") toggle
 
-ctrl + v + Up
+ctrl + Up
   pactl set-sink-volume $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") +10%
 
-ctrl + v + Down
+ctrl + Down
   pactl set-sink-volume $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") -10%
 
-ctrl + v + m
+ctrl + m
   pactl set-sink-mute $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") toggle

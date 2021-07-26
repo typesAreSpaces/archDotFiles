@@ -8,23 +8,16 @@ picom --experimental-backends &
 caffeine &
 /home/jose/.local/bin/bspswallow &
 xset s off -dpms &
-MONITOR1=DP-0
-if xrandr -q | grep -q "^DP-[1-9] connected*"; then
-  $HOME/.screenlayout/dual_screen.sh;
-  MONITOR2=HDMI-0
-  bspc monitor $MONITOR1 -d 1 2 3 4 5
-  bspc monitor $MONITOR2 -d 1 2 3 4 5 
-  bspc rule -a firefox desktop='^2'
-  bspc rule -a Thunderbird desktop='^3'
-else
-  bspc monitor $MONITOR1 -d 1 2 3 4 5 6 7 8 9 10
-  bspc rule -a firefox desktop='^2'
-  bspc rule -a Thunderbird desktop='^3'
-fi
 
-#bspc monitor $MONITOR1 -d 1 2 3 4 5 6 7 8 9 10
-#bspc rule -a firefox desktop='^2'
-#bspc rule -a Thunderbird desktop='^3'
+MONITOR1=DP-0
+
+# Configuration 1
+bspc monitor $MONITOR1 -d 1 2 3 4 5 6 7 8 9 10
+# Configuration 2
+#MONITOR2=HDMI-0
+#$HOME/.screenlayout/dual_screen.sh;
+#bspc monitor $MONITOR1 -d 1 2 3 4 5
+#bspc monitor $MONITOR2 -d 6 7 8 9 10
 
 feh --bg-scale $HOME/Pictures/Wallpapers/iron_lady.jpg
 $HOME/.config/polybar/launch.sh &
@@ -36,6 +29,8 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
+bspc rule -a firefox desktop='^2'
+bspc rule -a Thunderbird desktop='^3'
 bspc rule -a Evince desktop='^5'
 bspc rule -a 'VirtualBox Manager' desktop='^9'
 bspc rule -a 'VirtualBox Machine' desktop='^10'

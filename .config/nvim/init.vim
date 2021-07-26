@@ -167,8 +167,14 @@ endif
 
 "# Customization
 let base16colorspace=256  
+let g:gruvbox_contrast_dark = 'hard'
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+let g:gruvbox_invert_selection='0'
+colorscheme gruvbox
 set background=dark
-color gruvbox
 
 syntax on
 set timeoutlen=1000 ttimeoutlen=0
@@ -189,12 +195,6 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 
-let g:gruvbokx_constrast_dark = 'hard'
-if exists('+termguicolor gruvbox')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
-let g:gruvbox_invert_selection='0'
 
 "# Autocompleting configuration
 set completeopt=menuone,noinsert,noselect
