@@ -191,10 +191,14 @@ set nobackup
 set undofile
 set incsearch 
 
+augroup custom_term
+	autocmd!
+	autocmd TermOpen * setlocal nonumber norelativenumber bufhidden=hide
+augroup END
+
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
-
 
 "# Autocompleting configuration
 set completeopt=menuone,noinsert,noselect
