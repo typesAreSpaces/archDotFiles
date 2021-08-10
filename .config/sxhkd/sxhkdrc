@@ -141,3 +141,6 @@ XF86AudioLowerVolume
 
 XF86AudioMute
   pactl set-sink-mute $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") toggle
+
+ctrl + {Up,Down}
+  pactl set-sink-volume $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") {+10%,-10%}

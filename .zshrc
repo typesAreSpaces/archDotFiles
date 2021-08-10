@@ -16,6 +16,7 @@ export WALLPAPERS_DIR="\$HOME/Pictures/Wallpapers"
 
 export PATH="/usr/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/scripts:$PATH"
 export PATH="$HOME/.opam/system/bin:$PATH"
 export PATH="$HOME/.opam/4.07.0/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
