@@ -179,12 +179,12 @@ set background=dark
 syntax on
 set timeoutlen=1000 ttimeoutlen=0
 set clipboard=unnamedplus
-set number relativenumber
+"set number relativenumber
 set tabstop=2 softtabstop=2
 set shiftwidth=2
 set expandtab
 set smartindent
-set nu rnu
+"set nu rnu
 set smartcase
 set noswapfile
 set nobackup
