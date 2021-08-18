@@ -71,6 +71,9 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 let g:smt2_solver_command="z3 -smt2"
 let g:smt2_solver_version_switch="4.8.8"
 
+"# Use local dir for each file
+autocmd BufEnter * silent! lcd %:p:h
+
 "# Lightline settings:
 set laststatus=2
 set noshowmode

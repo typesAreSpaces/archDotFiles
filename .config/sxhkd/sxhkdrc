@@ -5,6 +5,7 @@
 # terminal emulator
 alt + Return
 	alacritty
+	#pokemon-colorscripts -r alacritty
 
 # program launcher
 alt + @space
