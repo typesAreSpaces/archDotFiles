@@ -1,7 +1,3 @@
-"# Vim references
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath = &runtimepath
-
 call plug#begin('~/.vim/plugged')
 "IDE Experience
 Plug 'neovim/nvim-lspconfig'
@@ -91,7 +87,7 @@ let g:lightline = {
           \ },
           \ }
 
-"work in progress
+"Work in progress
 ""# Limelight configuration
 
 "" Color name (:help cterm-colors) or ANSI code
@@ -169,6 +165,19 @@ if has('nvim')
 endif
 
 "# Customization
+syntax on
+set timeoutlen=1000 ttimeoutlen=0
+set clipboard=unnamedplus
+set tabstop=2 softtabstop=2
+set shiftwidth=2
+set expandtab
+set smartindent
+set smartcase
+set noswapfile
+set nobackup
+set undofile
+set incsearch 
+
 let base16colorspace=256  
 let g:gruvbox_contrast_dark = 'hard'
 if exists('+termguicolors')
@@ -177,31 +186,14 @@ if exists('+termguicolors')
 endif
 let g:gruvbox_invert_selection='0'
 colorscheme gruvbox
-set background=dark
-
-syntax on
-set timeoutlen=1000 ttimeoutlen=0
-set clipboard=unnamedplus
-"set number relativenumber
-set tabstop=2 softtabstop=2
-set shiftwidth=2
-set expandtab
-set smartindent
-"set nu rnu
-set smartcase
-set noswapfile
-set nobackup
-set undofile
-set incsearch 
+set termguicolors
+set guifont=FiraCode\ NF:h30
+highlight Normal cterm=NONE ctermbg=none gui=NONE guibg=NONE
 
 augroup custom_term
 	autocmd!
 	autocmd TermOpen * setlocal nonumber norelativenumber bufhidden=hide
 augroup END
-
-highlight ColorColumn ctermbg=0 guibg=lightgrey
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
 
 "# Autocompleting configuration
 set completeopt=menuone,noinsert,noselect
