@@ -14,6 +14,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
+Plug 'sirver/ultisnips'
 
 "## Neovim apps 
 Plug 'iamcco/markdown-preview.nvim'
@@ -63,6 +64,11 @@ nnoremap <CR> :FZF<CR>
 
 "# NerdToggle binders
 nnoremap <C-n> :NERDTreeToggle<CR>
+
+"# Snippets using ultisnips
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 "# SMT settings:
 let g:smt2_solver_command="z3 -smt2"
@@ -179,6 +185,8 @@ set noswapfile
 set nobackup
 set undofile
 set incsearch 
+set number relativenumber
+set nu rnu
 
 let base16colorspace=256  
 let g:gruvbox_contrast_dark = 'hard'
