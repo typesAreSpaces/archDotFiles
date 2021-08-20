@@ -61,6 +61,10 @@ alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
 alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it seahorn/seahorn-llvm5"
 
 # Local Scripts
+## ImageGoNord script
+imageGoNord(){
+  python $GITHUB_PROJECTS_DIR/ImageGoNord/src/cli.py --img=$1 -o=$2
+}
 ## Transport files and directories between SSD and HDD
 backup(){
   if [ -f $1 ]; then
