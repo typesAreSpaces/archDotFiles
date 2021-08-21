@@ -19,8 +19,21 @@ else:
 `$2
 endsnippet
 
-snippet in "Intro Knowledge"
-\\intro{${1}}
+snippet 'intro(\w+[,\w+[\s\w]*]*)' "Intro Knowledge" r
+`!p
+stringify = []
+kldb_file='/home/jose/Documents/GithubProjects/phd-thesis/Documents/Write-Ups/personal_notes/kldb.tex'
+add_knowledge_cmd='/home/jose/.local/scripts/add-knowledge '
+count = 0
+for x in match.group(1).split(","): 
+  if(count == 0):
+    first_arg = x
+	count += 1
+	stringify.append("\'" + x + "\'")
+command = 'if ! grep ' + kldb_file + ' -e \'index=' + first_arg + '}\'; then ' + add_knowledge_cmd + ' '.join(stringify) + '; fi'
+os.system(command)
+snip.rv = '\\intro{' + first_arg + '}'
+`$0
 endsnippet
 
 snippet kl "Use Knowledge"
@@ -93,4 +106,21 @@ snip.rv = orient`}
 snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
 `$0
 \end{array}
+endsnippet
+
+snippet 'hmm(\w+[,\w+[\s\w]*]*)' "hmm" r
+`!p
+stringify = []
+kldb_file='/home/jose/Documents/GithubProjects/phd-thesis/Documents/Write-Ups/personal_notes/kldb.tex'
+add_knowledge_cmd='/home/jose/.local/scripts/add-knowledge '
+count = 0
+for x in match.group(1).split(","): 
+  if(count == 0):
+    first_arg = x
+	count += 1
+	stringify.append("\'" + x + "\'")
+command = 'if ! grep ' + kldb_file + ' -e \'index=' + first_arg + '}\'; then ' + add_knowledge_cmd + ' '.join(stringify) + '; fi'
+os.system(command)
+snip.rv = 'done ' + command
+`$0
 endsnippet
