@@ -66,7 +66,7 @@ nnoremap <CR> :FZF<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 "# Snippets using ultisnips
-let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsExpandTrigger = '<c-e>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
@@ -215,7 +215,7 @@ augroup END
 "# Autocompleting configuration
 set completeopt=menuone,noinsert,noselect
 " Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <silent><expr> <Tab>   pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
