@@ -1,7 +1,3 @@
-"# Vim references
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath = &runtimepath
-
 call plug#begin('~/.vim/plugged')
 "IDE Experience
 Plug 'neovim/nvim-lspconfig'
@@ -18,6 +14,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
+Plug 'sirver/ultisnips'
 
 "## Neovim apps 
 Plug 'iamcco/markdown-preview.nvim'
@@ -66,6 +63,11 @@ nnoremap <CR> :FZF<CR>
 
 "# NerdToggle binders
 nnoremap <C-n> :NERDTreeToggle<CR>
+
+"# Snippets using ultisnips
+let g:UltiSnipsExpandTrigger = '<c-e>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 "# SMT settings:
 let g:smt2_solver_command="z3 -smt2"
@@ -232,14 +234,15 @@ let g:compe.source.vsnip = v:true
 let g:compe.source.ultisnips = v:true
 
 "# LSP Install config
-"lua << EOF
-"require'lspinstall'.setup() -- important
+lua << EOF
+require'lspinstall'.setup() -- important
 
-"local servers = require'lspinstall'.installed_servers()
-"for _, server in pairs(servers) do
-"  require'lspconfig'[server].setup{}
-"end
-"EOF
+local servers = require'lspinstall'.installed_servers()
+for _, server in pairs(servers) do
+  print(server)
+  require'lspconfig'[server].setup{}
+end
+EOF
 
 "# LSP config
 lua << EOF
@@ -279,7 +282,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'clangd', 'tsserver', 'hls' }
+local servers = { 'pyright', 'clangd' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup({ 
   on_attach = custom_on_attach 
