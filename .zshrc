@@ -41,10 +41,11 @@ alias sshLocalUbuntuVM="ssh -p 2222 jose@127.0.0.1"
 alias second_home="cd /media"
 
 alias master_thesis="cd $MASTER_THESIS_DIR/Software/Cpp/EUFInterpolant"
-alias master_thesis_paper="cd $MASTER_THESIS_DIR/Write\ Ups/thesis"
-alias thesis="cd $PHD_THESIS_DIR/Documents/Write\ Ups/thesis"
+alias master_thesis_paper="cd $MASTER_THESIS_DIR/Write-Ups/thesis"
+alias thesis="cd $PHD_THESIS_DIR/Documents/Write-Ups/thesis"
 alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
-alias reports="cd $PHD_THESIS_DIR/Documents/Write\ Ups/weekly_reports"
+alias reports="cd $PHD_THESIS_DIR/Documents/Write-Ups/weekly_reports"
+alias personal_notes="cd $PHD_THESIS_DIR/Documents/Write-Ups/personal_notes"
 
 # Program Aliases
 alias open="xdg-open"
