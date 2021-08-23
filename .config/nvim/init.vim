@@ -69,6 +69,7 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 let g:UltiSnipsExpandTrigger = '<c-e>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:tex_flavor = "latex"
 
 "# SMT settings:
 let g:smt2_solver_command="z3 -smt2"
