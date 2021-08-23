@@ -71,6 +71,8 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 let g:UltiSnipsExpandTrigger = '<c-e>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+"# Latex setup
 let g:Tex_DefaultTargetFormat='pdf'
 let g:vimtex_view_enabled=1
 let g:vimtex_view_automatic=1
@@ -79,6 +81,7 @@ let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 let g:vimtex_view_general_options_latexmk = '--unique'
 let g:vimtex_compiler_progname = 'nvr'
 let g:tex_flavor = "latex"
+nnoremap <silent><leader>v :VimtexView<CR>
 
 "# SMT settings:
 let g:smt2_solver_command="z3 -smt2"
