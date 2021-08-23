@@ -1,0 +1,12 @@
+[$Version]
+update_info=okular.upd:annotation-toolbar,okular.upd:builtin-annotations
+
+[Core General]
+ExternalEditor=Custom
+ExternalEditorCommand=nvr --remote-silent +%l "%f"
+
+[Main View]
+ShowLeftPanel=false
+
+[Reviews]
+QuickAnnotationTools=<tool id="1" type="highlight" default="true" name="Yellow Highlighter"><engine type="TextSelector" color="#ffff00"><annotation type="Highlight" color="#ffffff00"/></engine><shortcut>1</shortcut></tool>,<tool id="2" type="highlight" default="true" name="Green Highlighter"><engine type="TextSelector" color="#00ff00"><annotation type="Highlight" color="#ff00ff00"/></engine><shortcut>2</shortcut></tool>,<tool id="3" type="underline"><engine type="TextSelector" color="#ff0000"><annotation type="Underline" color="#ffff0000"/></engine><shortcut>3</shortcut></tool>,<tool id="4" type="typewriter" default="true" name="Insert Text"><engine block="true" type="PickPoint"><annotation textColor="#000000" type="Typewriter" width="0" color="#00ffffff"/></engine><shortcut>4</shortcut></tool>,<tool id="5" type="note-inline"><engine block="true" type="PickPoint" hoverIcon="tool-note-inline" color="#ffff00"><annotation textColor="#ff000000" type="FreeText" color="#ffffff00"/></engine><shortcut>5</shortcut></tool>,<tool id="6" type="note-linked"><engine type="PickPoint" hoverIcon="tool-note" color="#ffff00"><annotation icon="Note" type="Text" color="#ffffff00"/></engine><shortcut>6</shortcut></tool>
