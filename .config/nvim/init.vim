@@ -15,6 +15,8 @@ Plug 'kabouzeid/nvim-lspinstall'
 Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
 Plug 'sirver/ultisnips'
+Plug 'lervag/vimtex'
+Plug 'mhinz/neovim-remote'
 
 "## Neovim apps 
 Plug 'iamcco/markdown-preview.nvim'
@@ -69,6 +71,13 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 let g:UltiSnipsExpandTrigger = '<c-e>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:Tex_DefaultTargetFormat='pdf'
+let g:vimtex_view_enabled=1
+let g:vimtex_view_automatic=1
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+let g:vimtex_view_general_options_latexmk = '--unique'
+let g:vimtex_compiler_progname = 'nvr'
 let g:tex_flavor = "latex"
 
 "# SMT settings:
