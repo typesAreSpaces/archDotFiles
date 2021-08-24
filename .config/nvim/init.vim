@@ -1,7 +1,3 @@
-"# Vim references
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath = &runtimepath
-
 call plug#begin('~/.vim/plugged')
 "IDE Experience
 Plug 'neovim/nvim-lspconfig'
@@ -16,6 +12,9 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'preservim/nerdcommenter'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-eunuch'
+Plug 'sirver/ultisnips'
+Plug 'lervag/vimtex'
+Plug 'mhinz/neovim-remote'
 
 "## Themes
 Plug 'chriskempson/base16-vim'
@@ -60,6 +59,23 @@ nnoremap <CR> :FZF<CR>
 "# NerdToggle binders
 nnoremap <C-n> :NERDTreeToggle<CR>
 
+"# Snippets using ultisnips
+let g:UltiSnipsExpandTrigger = '<c-e>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+"# Latex setup
+let g:Tex_DefaultTargetFormat='pdf'
+let g:vimtex_view_enabled=1
+let g:vimtex_view_automatic=1
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+let g:vimtex_view_general_options_latexmk = '--unique'
+let g:vimtex_compiler_progname = 'nvr'
+let g:tex_flavor = "latex"
+nnoremap <silent><leader>v :VimtexView<CR>
+autocmd BufWritePost *.tex :VimtexView
+
 "# SMT settings:
 let g:smt2_solver_command="z3 -smt2"
 let g:smt2_solver_version_switch="4.8.8"
@@ -70,16 +86,16 @@ set noshowmode
 if !has('gui_running')
   set t_Co=256
 endif
-let g:lightline = {
-      \ 'colorscheme': 'seoul256',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
+"let g:lightline = {
+      "\ 'color nord
+      "\ 'active': {
+      "\   'left': [ [ 'mode', 'paste' ],
+      "\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      "\ },
+      "\ 'component_function': {
+      "\   'gitbranch': 'FugitiveHead'
+      "\ },
+      "\ }
 
 "# Neovim binders
 if has('nvim')
@@ -93,9 +109,9 @@ if has('nvim')
 endif
 
 "# Customization
-let base16colorspace=256  
+let base16colorspace=256
 set background=dark
-color gruvbox
+color nord
 
 syntax on
 set timeoutlen=1000 ttimeoutlen=0
@@ -117,10 +133,10 @@ highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 
 let g:gruvbokx_constrast_dark = 'hard'
-if exists('+termguicolor gruvbox')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
+"if exists('+termguicolor nord
+  "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  "let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"endif
 let g:gruvbox_invert_selection='0'
 
 "# Autocompleting configuration
