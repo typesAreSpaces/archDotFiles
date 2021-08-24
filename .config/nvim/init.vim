@@ -1,5 +1,5 @@
 call plug#begin('~/.vim/plugged')
-"IDE Experience
+"# IDE Experience
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'mhinz/vim-startify'
@@ -18,12 +18,12 @@ Plug 'sirver/ultisnips'
 Plug 'lervag/vimtex'
 Plug 'mhinz/neovim-remote'
 
-"## Neovim apps 
+"# Neovim apps 
 Plug 'iamcco/markdown-preview.nvim'
 Plug 'rhysd/vim-grammarous'
 Plug 'sotte/presenting.vim'
 
-"## Themes
+"# Themes
 Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
 Plug 'ghifarit53/tokyonight-vim'
@@ -32,18 +32,18 @@ Plug 'b4skyx/serenade'
 Plug 'dracula/vim' 
 Plug 'EdenEast/nightfox.nvim'
 
-"## Ricing
+"# Ricing
 Plug 'itchyny/lightline.vim'
 
-"## Syntax
+"# Syntax
 Plug 'bohlender/vim-smt2' 
 Plug 'plasticboy/vim-markdown'
 call plug#end()
 
 "# Vim settings
-let mapleader=" "
 
 "## Navigation
+let mapleader=" "
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -61,18 +61,18 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :bblast<CR>
 
-"# FZF binders
+"## FZF binders
 nnoremap <CR> :FZF<CR>
 
-"# NerdToggle binders
+"## NerdToggle binders
 nnoremap <C-n> :NERDTreeToggle<CR>
 
-"# Snippets using ultisnips
+"## Snippets using ultisnips
 let g:UltiSnipsExpandTrigger = '<c-e>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
-"# Latex setup
+"## Latex setup
 let g:Tex_DefaultTargetFormat='pdf'
 let g:vimtex_view_enabled=1
 let g:vimtex_view_automatic=1
@@ -84,14 +84,14 @@ let g:tex_flavor = "latex"
 nnoremap <silent><leader>v :VimtexView<CR>
 autocmd BufWritePost *.tex :VimtexView
 
-"# SMT settings:
+"## SMT settings:
 let g:smt2_solver_command="z3 -smt2"
 let g:smt2_solver_version_switch="4.8.8"
 
-"# Use local dir for each file
+"## Use local dir for each file
 autocmd BufEnter * silent! lcd %:p:h
 
-"# Lightline settings:
+"## Lightline settings:
 set laststatus=2
 set noshowmode
 if !has('gui_running')
@@ -174,7 +174,7 @@ let g:lightline = {
 ""-----------------------------------------------------------------------------}}}
 "command! -nargs=*  SetLimeLightIndent call SetLimeLightIndent(<args>)
 
-"# Neovim binders
+"#l# Neovim binders
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
   tnoremap <C-v><Esc> <Esc> 
@@ -185,7 +185,7 @@ if has('nvim')
   highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 endif
 
-"# Customization
+"## Customization
 syntax on
 set mouse=a
 set timeoutlen=1000 ttimeoutlen=0
@@ -226,14 +226,14 @@ augroup custom_term
 	autocmd TermOpen * setlocal nonumber norelativenumber bufhidden=hide
 augroup END
 
-"# Autocompleting configuration
+"## Autocompleting configuration
 set completeopt=menuone,noinsert,noselect
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <silent><expr> <Tab>   pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
-"# Compe configuration
+"## Compe configuration
 let g:compe = {}
 let g:compe.enabled = v:true
 let g:compe.autocomplete = v:true
@@ -257,7 +257,7 @@ let g:compe.source.nvim_lua = v:true
 let g:compe.source.vsnip = v:true
 let g:compe.source.ultisnips = v:true
 
-"# LSP Install config
+"## LSP Install config
 lua << EOF
 require'lspinstall'.setup() -- important
 
@@ -267,7 +267,7 @@ for _, server in pairs(servers) do
 end
 EOF
 
-"# LSP config
+"## LSP config
 lua << EOF
 local nvim_lsp = require('lspconfig')
 
@@ -313,7 +313,7 @@ for _, lsp in ipairs(servers) do
 end
 EOF
 
-"# LSP config
+"## LSP config
 lua << EOF
 local nvim_lsp = require('lspconfig')
 
