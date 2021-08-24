@@ -82,6 +82,7 @@ let g:vimtex_view_general_options_latexmk = '--unique'
 let g:vimtex_compiler_progname = 'nvr'
 let g:tex_flavor = "latex"
 nnoremap <silent><leader>v :VimtexView<CR>
+autocmd BufWritePost *.tex :VimtexView
 
 "# SMT settings:
 let g:smt2_solver_command="z3 -smt2"
