@@ -15,6 +15,10 @@ Plug 'kabouzeid/nvim-lspinstall'
 Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
 Plug 'sirver/ultisnips'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'lervag/vimtex'
+Plug 'mhinz/neovim-remote'
 
 "## Neovim apps 
 Plug 'iamcco/markdown-preview.nvim'
@@ -61,6 +65,12 @@ nnoremap <silent> ]B :bblast<CR>
 "# FZF binders
 nnoremap <CR> :FZF<CR>
 
+"# Telescope utilities 
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 "# NerdToggle binders
 nnoremap <C-n> :NERDTreeToggle<CR>
 
@@ -68,6 +78,17 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 let g:UltiSnipsExpandTrigger = '<c-e>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+"# Latex setup
+let g:Tex_DefaultTargetFormat='pdf'
+let g:vimtex_view_enabled=1
+let g:vimtex_view_automatic=1
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+let g:vimtex_view_general_options_latexmk = '--unique'
+let g:vimtex_compiler_progname = 'nvr'
+let g:tex_flavor = "latex"
+autocmd BufWritePost *.tex :VimtexView
 
 "# SMT settings:
 let g:smt2_solver_command="z3 -smt2"

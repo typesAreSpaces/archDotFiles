@@ -4,6 +4,33 @@ snippet ... "ldots" iA
 \\dots
 endsnippet
 
+priority 100
+snippet _<= "Less than or Equal to" iA
+\\leq
+endsnippet
+
+priority 100
+snippet _>= "Greather than or Equal to" iA
+\\geq
+endsnippet
+
+priority 100
+snippet ... "ldots" iA
+\\dots
+endsnippet
+
+snippet OO "Infinity" iA
+\\infty
+endsnippet
+
+snippet _sos "Sums of squares" iA
+\\sum$1^2$0
+endsnippet
+
+snippet _( "Parenthesis" iA
+($1)$0
+endsnippet
+
 snippet _NN "Natural Numbers" iA
 \\mathbb{N}$0
 endsnippet
@@ -36,11 +63,11 @@ snippet _lim "Limit" iA
 \\lim_{$1 \to $2} $3$0
 endsnippet
 
-snippet _conj "Big Conjunction" iA
+snippet _Conj "Big Conjunction" iA
 \\bigcap_{$1}^{$2}{$3}$0
 endsnippet
 
-snippet _disj "Big Disjunction" iA
+snippet _Disj "Big Disjunction" iA
 \\bigcup_{$1}^{$2}{$3}$0
 endsnippet
 
@@ -74,10 +101,6 @@ endsnippet
 
 snippet _=> "Big Arrow" iA
 \\Rightarrow
-endsnippet
-
-snippet _=> "Big Left Arrow" iA
-\\Leftarrow
 endsnippet
 
 snippet _join "Join" iA
@@ -151,6 +174,10 @@ snippet _mspec "m-Spec" iA
 \\m-Spec{$1}$0
 endsnippet
 
+snippet _gal "Gal" iA
+\\Gal{$1}$0
+endsnippet
+
 snippet '_prime(\d+)' "LaTeX array" riA
 $1^{`!p
 primes = ""
@@ -172,6 +199,30 @@ snippet _env "General Environment" iA
 \begin{$1}
 	$0
 \end{$1}
+endsnippet
+
+snippet _thm "Theorem Environment" iA
+\begin{theorem}
+	$0
+\end{theorem}
+endsnippet
+
+snippet _lemma "Lemma Environment" iA
+\begin{lemma}
+	$0
+\end{lemma}
+endsnippet
+
+snippet _def "Definition Environment" iA
+\begin{definition}
+	$0
+\end{definition}
+endsnippet
+
+snippet _cor "Corollary Environment" iA
+\begin{corollary}
+	$0
+\end{corollary}
 endsnippet
 
 snippet _eq "Equation Environment" iA

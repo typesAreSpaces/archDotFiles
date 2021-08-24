@@ -2,6 +2,7 @@
 export TERM=xterm-256color
 export HISTIGNORE='*sudo -S*'
 export ZSH="$HOME/.oh-my-zsh"
+export NVIM_LISTEN_ADDRESS='/tmp/nvimsocket nvim'
 
 ZSH_THEME="simple"
 plugins=(git)
