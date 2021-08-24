@@ -49,6 +49,16 @@
 \newcommand{\QQ}[0]{\mathbb{Q}}
 \newcommand{\RR}[0]{\mathbb{R}}
 \newcommand{\CC}[0]{\mathbb{C}}
+\newcommand{\Iff}[0]{\text{if and only if }}
+\newcommand{\sos}[1]{\sum#1^2}
+\newcommand{\sumile}[3]{\sum_{#1}^{#2}#3}
+\newcommand{\norm}[1]{\langle #1 \rangle}
+\newcommand{\infi}[0]{\infty}
+\newcommand{\iarrow}[0]{\xhookrightarrow}
+\newcommand{\sarrow}[0]{\twoheadrightarrow}
+\newcommand{\ideal}[1]{\mathfrak{#1}}
+\newcommand{\field}[1]{\mathscr{#1}}
+\newcommand{\ring}[1]{\mathcal{#1}}
 \newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
 \newcommand{\polyring}[2]{#1[X_1, \dots, X_#2]}
 \newcommand{\extcong}[3]{#1 \cong #2 \text{ } #3}
@@ -58,6 +68,7 @@
 \newcommand{\grob}[0]{Gr\"obner}
 
 \newcommand{\imp}[0]{\rightarrow}
+\newcommand{\Imp}[0]{\Rightarrow}
 \newcommand{\dimp}[0]{\leftrightarrow}
 \newcommand{\join}[3]{#1 \downarrow_{#3} #2}
 \newcommand{\rrule}[1]{\rightarrow_{#1}}
@@ -71,6 +82,7 @@
 
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\set}{\{}{\}}
 
 \newcommand{\separationline}[0]{0.75}
 
@@ -80,3 +92,9 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{definition}{Definition}[section]
 \newtheorem{example}{Example}[definition]
+
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\mspec}{m-Spec}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Irr}{Irr}
