@@ -336,7 +336,6 @@ snippet _template "Basic template" iA
 \usepackage[english]{babel}
 \usepackage{amsmath, amssymb}
 
-
 % figure support
 \usepackage{import}
 \usepackage{xifthen}
@@ -349,8 +348,15 @@ snippet _template "Basic template" iA
 }
 
 \pdfsuppresswarningpagegroup=1
+\title{$1}
+\author{$2}
+\date{\today}
 
 \begin{document}
-	$0
+
+\maketitle
+
+$0
+
 \end{document}
 endsnippet

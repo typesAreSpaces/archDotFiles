@@ -75,14 +75,20 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 "## Latex setup
 let g:Tex_DefaultTargetFormat='pdf'
 let g:vimtex_view_enabled=1
-let g:vimtex_view_automatic=1
+let g:vimtex_view_automatic=0
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 let g:vimtex_view_general_options_latexmk = '--unique'
 let g:vimtex_compiler_progname = 'nvr'
 let g:tex_flavor = "latex"
-nnoremap <silent><leader>v :VimtexView<CR>
 autocmd BufWritePost *.tex :VimtexView
+"function! FocusWindow()
+  "call system('xdotool windowfocus ' . winnr('$'))
+"endfunction
+"augroup vimrc
+  "autocmd!
+  "autocmd User VimtexEventView call FocusWindow()
+"augroup END
 
 "## SMT settings:
 let g:smt2_solver_command="z3 -smt2"
