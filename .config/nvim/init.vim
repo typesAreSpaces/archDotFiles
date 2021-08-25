@@ -42,6 +42,9 @@ call plug#end()
 
 "# Vim settings
 
+"## Terminal
+nnoremap <C-t> :terminal<CR>
+
 "## Navigation
 let mapleader=" "
 nnoremap <C-J> <C-W><C-J>
