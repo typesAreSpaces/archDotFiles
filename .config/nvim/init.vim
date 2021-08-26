@@ -2,6 +2,8 @@ call plug#begin('~/.vim/plugged')
 "# IDE Experience
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'hrsh7th/nvim-compe'
 Plug 'mhinz/vim-startify'
 Plug 'mbbill/undotree'
@@ -58,6 +60,12 @@ nnoremap <silent> <leader>u :exe "resize -5" <CR>
 nnoremap <silent> <leader>i :exe "resize +5" <CR>
 nnoremap <silent> <leader>y :exe "vertical resize +5"<CR>
 nnoremap <silent> <leader>o :exe "vertical resize -5"<CR>
+
+"## Telescope bindings
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 "## Buffers
 nnoremap <silent> [b :bprevious<CR>
