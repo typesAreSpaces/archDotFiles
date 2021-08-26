@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 "# IDE Experience
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
 Plug 'hrsh7th/nvim-compe'
 Plug 'mhinz/vim-startify'
 Plug 'mbbill/undotree'
@@ -366,4 +367,17 @@ for _, lsp in ipairs(servers) do
   on_attach = custom_on_attach 
   })
 end
+EOF
+
+"## Nvim-treesitter config
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  ignore_install = {},
+  highlight = {
+    enable = true, 
+    disable = {},
+    additional_vim_regex_highlighting = false,
+  },
+}
 EOF
