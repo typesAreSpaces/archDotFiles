@@ -14,11 +14,6 @@ snippet _>= "Greather than or Equal to" iA
 \\geq
 endsnippet
 
-priority 100
-snippet ... "ldots" iA
-\\dots
-endsnippet
-
 snippet OO "Infinity" iA
 \\infty
 endsnippet
@@ -29,6 +24,14 @@ endsnippet
 
 snippet _( "Parenthesis" iA
 ($1)$0
+endsnippet
+
+snippet _sse "Subseteq" iA
+$1 \\subseteq $2$0	
+endsnippet
+
+snippet _sss "Subseteq" iA
+$1 \\subset $2$0	
 endsnippet
 
 snippet _NN "Natural Numbers" iA
@@ -175,7 +178,7 @@ snippet _mspec "m-Spec" iA
 endsnippet
 
 snippet _gal "Gal" iA
-\\Gal{$1}$0
+\\Gal($1)$0
 endsnippet
 
 snippet '_prime(\d+)' "LaTeX array" riA
@@ -281,7 +284,11 @@ snip.rv = '\\intro{' + first_arg + '}'
 endsnippet
 
 snippet _kl "Use Knowledge" iA
-\\kl{${1}}$0
+\\kl{$1}$0
+endsnippet
+
+snippet _Kl "Use Knowledge" iA
+\\kl[$2]{$1}$0
 endsnippet
 
 global !p
@@ -341,7 +348,6 @@ snippet _template "Basic template" iA
 \usepackage[english]{babel}
 \usepackage{amsmath, amssymb}
 
-
 % figure support
 \usepackage{import}
 \usepackage{xifthen}
@@ -354,8 +360,15 @@ snippet _template "Basic template" iA
 }
 
 \pdfsuppresswarningpagegroup=1
+\title{$1}
+\author{$2}
+\date{\today}
 
 \begin{document}
-	$0
+
+\maketitle
+
+$0
+
 \end{document}
 endsnippet

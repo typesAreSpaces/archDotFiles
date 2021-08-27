@@ -1,6 +1,9 @@
 call plug#begin('~/.vim/plugged')
-"IDE Experience
+"# IDE Experience
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'hrsh7th/nvim-compe'
 Plug 'mhinz/vim-startify'
 Plug 'mbbill/undotree'
@@ -8,35 +11,31 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'preservim/nerdtree'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'preservim/nerdcommenter'
-Plug 'godlygeek/tabular'
-Plug 'tpope/vim-eunuch'
 Plug 'junegunn/limelight.vim'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'puremourning/vimspector'
-Plug 'szw/vim-maximizer'
 Plug 'sirver/ultisnips'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 Plug 'lervag/vimtex'
 Plug 'mhinz/neovim-remote'
 
-"## Neovim apps 
+"# Neovim apps 
 Plug 'iamcco/markdown-preview.nvim'
 Plug 'rhysd/vim-grammarous'
 Plug 'sotte/presenting.vim'
 
-"## Themes
+"# Themes
 Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'b4skyx/serenade'
 Plug 'dracula/vim' 
+Plug 'EdenEast/nightfox.nvim'
 
-"## Ricing
+"# Ricing
 Plug 'itchyny/lightline.vim'
 
-"## Syntax
+"# Syntax
 Plug 'bohlender/vim-smt2' 
 Plug 'plasticboy/vim-markdown'
 call plug#end()
@@ -355,4 +354,17 @@ for _, lsp in ipairs(servers) do
   on_attach = custom_on_attach 
   })
 end
+EOF
+
+"## Nvim-treesitter config
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  ignore_install = {},
+  highlight = {
+    enable = true, 
+    disable = {},
+    additional_vim_regex_highlighting = false,
+  },
+}
 EOF
