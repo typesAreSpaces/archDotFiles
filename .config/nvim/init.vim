@@ -17,6 +17,7 @@ Plug 'puremourning/vimspector'
 Plug 'sirver/ultisnips'
 Plug 'lervag/vimtex'
 Plug 'mhinz/neovim-remote'
+Plug 'sainnhe/gruvbox-material'
 
 "# Neovim apps 
 Plug 'iamcco/markdown-preview.nvim'
@@ -195,8 +196,14 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 let g:gruvbox_invert_selection='0'
-colorscheme gruvbox
+
+"if has('termguicolors')
+  "set termguicolors
+"endif
 set background=dark
+
+let g:gruvbox_material_background = 'hard'
+colorscheme gruvbox-material
 
 syntax on
 set timeoutlen=1000 ttimeoutlen=0
@@ -214,8 +221,8 @@ set undofile
 set incsearch 
 
 augroup custom_term
-	autocmd!
-	autocmd TermOpen * setlocal nonumber norelativenumber bufhidden=hide
+  autocmd!
+  autocmd TermOpen * setlocal nonumber norelativenumber bufhidden=hide
 augroup END
 
 highlight ColorColumn ctermbg=0 guibg=lightgrey
@@ -359,12 +366,12 @@ EOF
 "## Nvim-treesitter config
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
-  ignore_install = {},
-  highlight = {
-    enable = true, 
-    disable = {},
-    additional_vim_regex_highlighting = false,
-  },
+ensure_installed = "maintained",
+ignore_install = {},
+highlight = {
+enable = true, 
+disable = {},
+additional_vim_regex_highlighting = false,
+},
 }
 EOF
