@@ -5,12 +5,12 @@ snippet ... "ldots" iA
 endsnippet
 
 priority 100
-snippet _<= "Less than or Equal to" iA
+snippet \<= "Less than or Equal to" iA
 \\leq
 endsnippet
 
 priority 100
-snippet _>= "Greather than or Equal to" iA
+snippet \>= "Greather than or Equal to" iA
 \\geq
 endsnippet
 
@@ -18,123 +18,123 @@ snippet OO "Infinity" iA
 \\infty
 endsnippet
 
-snippet _sos "Sums of squares" iA
+snippet \sos "Sums of squares" iA
 \\sum$1^2$0
 endsnippet
 
-snippet _( "Parenthesis" iA
+snippet \( "Parenthesis" iA
 ($1)$0
 endsnippet
 
-snippet _sse "Subseteq" iA
+snippet \sse "Subseteq" iA
 $1 \\subseteq $2$0	
 endsnippet
 
-snippet _sss "Subseteq" iA
+snippet \sss "Subseteq" iA
 $1 \\subset $2$0	
 endsnippet
 
-snippet _NN "Natural Numbers" iA
+snippet \NN "Natural Numbers" iA
 \\mathbb{N}$0
 endsnippet
 
-snippet _ZZ "Integer Numbers" iA
+snippet \ZZ "Integer Numbers" iA
 \\mathbb{Z}$0
 endsnippet
 
-snippet _QQ "Rational Numbers" iA
+snippet \QQ "Rational Numbers" iA
 \\mathbb{Q}$0
 endsnippet
 
-snippet _RR "Real Numbers" iA
+snippet \RR "Real Numbers" iA
 \\mathbb{R}$0
 endsnippet
 
-snippet _CC "Complex Numbers" iA
+snippet \CC "Complex Numbers" iA
 \\mathbb{C}$0
 endsnippet
 
-snippet _sum "Sum" iA
+snippet \sum "Sum" iA
 \\sum_{$1}^{$2}{$3}$0
 endsnippet
 
-snippet _prod "Product" iA
+snippet \prod "Product" iA
 \\sum_{$1}^{$2}{$3}$0
 endsnippet
 
-snippet _lim "Limit" iA
+snippet \lim "Limit" iA
 \\lim_{$1 \to $2} $3$0
 endsnippet
 
-snippet _Conj "Big Conjunction" iA
+snippet \Conj "Big Conjunction" iA
 \\bigcap_{$1}^{$2}{$3}$0
 endsnippet
 
-snippet _Disj "Big Disjunction" iA
+snippet \Disj "Big Disjunction" iA
 \\bigcup_{$1}^{$2}{$3}$0
 endsnippet
 
-snippet _AA "Universal Quantifier" iA
+snippet \AA "Universal Quantifier" iA
 \\qall{$1}{$2}$0
 endsnippet
 
-snippet _EE "Existential Quantifier" iA
+snippet \EE "Existential Quantifier" iA
 \\qex{$1}{$2}$0
 endsnippet
 
-snippet _norm "Norm" iA
+snippet \norm "Norm" iA
 \\langle $1 \\rangle$0
 endsnippet
 
-snippet _-> "Arrow" iA
+snippet \-> "Arrow" iA
 \\rightarrow
 endsnippet
 
-snippet _<- "Left arrow" iA
+snippet \<- "Left arrow" iA
 \\leftarrow
 endsnippet
 
-snippet _i-> "Injective Arrow" iA
+snippet \i-> "Injective Arrow" iA
 \\xhookrightarrow
 endsnippet
 
-snippet _s-> "Surjective Arrow" iA
+snippet \s-> "Surjective Arrow" iA
 \\twoheadrightarrow
 endsnippet
 
-snippet _=> "Big Arrow" iA
+snippet \=> "Big Arrow" iA
 \\Rightarrow
 endsnippet
 
-snippet _join "Join" iA
+snippet \join "Join" iA
 $1 \\downarrow_{$3} $2$0
 endsnippet
 
-snippet _rrule "Right rule" iA
+snippet \rrule "Right rule" iA
 $2 \rightarrow_{$1} $3$0
 endsnippet
 
-snippet _lrule "Left rule" iA
+snippet \lrule "Left rule" iA
 $2 \leftarrow_{$1} $3$0
 endsnippet
 
-snippet _ideal "Ideal" iA
+snippet \ideal "Ideal" iA
 \\mathfrak{$1}$0
 endsnippet
 
-snippet _field "Field" iA
+snippet \field "Field" iA
 \\mathscr{$1}$0
 endsnippet
 
-snippet _ring "Ring" iA
+snippet \ring "Ring" iA
 \\mathcal{$1}$0
 endsnippet
 
-snippet _bar "Overbar" iA
+snippet \bar "Overbar" iA
 \mkern 1.5mu\overline{\mkern-1.5mu$1\mkern-1.5mu}\mkern 1.5mu$0
 endsnippet
 
-snippet '_polyring(\w+),(\w+)' "Polyring" riA
+snippet '\polyring(\w+),(\w+)' "Polyring" riA
 $1`!p
 varSymbol = match.group(1)
 arity= match.group(2)
@@ -142,46 +142,46 @@ result = '[' + varSymbol + '_1, \\dots, ' + varSymbol + '_{' + arity + '}]'
 snip.rv = result`$0
 endsnippet
 
-snippet _bigO "Big-O notation" iA
+snippet \bigO "Big-O notation" iA
 \\mathcal{O}($1)$0
 endsnippet
 
-snippet _// "Fraction" iA
+snippet \// "Fraction" iA
 \\frac{$1}{$2}$0
 endsnippet
 
-snippet _grob "Groebner" iA
+snippet \grob "Groebner" iA
 Gr\"obner$0
 endsnippet
 
-snippet _piecefun "Big function" iA
+snippet \piecefun "Big function" iA
 \begin{cases}
 $1 & $2 \\\\
 $3 & $4 \\\\
 \end{cases}$0
 endsnippet
 
-snippet _index "Index" iA
+snippet \index "Index" iA
 [$1 : $2]$0
 endsnippet
 
-snippet _aut "Aut" iA
+snippet \aut "Aut" iA
 \\Aut_{$1}{$2}$0
 endsnippet
 
-snippet _spec "Spec" iA
+snippet \spec "Spec" iA
 \\spec{$1}$0
 endsnippet
 
-snippet _mspec "m-Spec" iA
+snippet \mspec "m-Spec" iA
 \\m-Spec{$1}$0
 endsnippet
 
-snippet _gal "Gal" iA
+snippet \gal "Gal" iA
 \\Gal($1)$0
 endsnippet
 
-snippet '_prime(\d+)' "LaTeX array" riA
+snippet '\prime(\d+)' "LaTeX array" riA
 $1^{`!p
 primes = ""
 for _ in range(0, int(match.group(1))): primes += "\prime"
@@ -189,7 +189,7 @@ snip.rv = primes`}$0
 endsnippet	
 
 # Latex-related
-snippet _mk "Inline Math" iA
+snippet \mk "Inline Math" iA
 $${1}$`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
     snip.rv = ' '
@@ -198,55 +198,55 @@ else:
 `$2
 endsnippet
 
-snippet _env "General Environment" iA
+snippet \env "General Environment" iA
 \begin{$1}
 	$0
 \end{$1}
 endsnippet
 
-snippet _thm "Theorem Environment" iA
+snippet \thm "Theorem Environment" iA
 \begin{theorem}
 	$0
 \end{theorem}
 endsnippet
 
-snippet _lemma "Lemma Environment" iA
+snippet \lemma "Lemma Environment" iA
 \begin{lemma}
 	$0
 \end{lemma}
 endsnippet
 
-snippet _def "Definition Environment" iA
+snippet \def "Definition Environment" iA
 \begin{definition}
 	$0
 \end{definition}
 endsnippet
 
-snippet _cor "Corollary Environment" iA
+snippet \cor "Corollary Environment" iA
 \begin{corollary}
 	$0
 \end{corollary}
 endsnippet
 
-snippet _eq "Equation Environment" iA
+snippet \eq "Equation Environment" iA
 \begin{equation*}
 	$0
 \end{equation*}
 endsnippet
  
-snippet _enum "Enumerate Environment" bA
+snippet \enum "Enumerate Environment" bA
 \begin{enumerate}
 	\item $0
 \end{enumerate}
 endsnippet
 
-snippet _item "Itemize Environment" bA
+snippet \item "Itemize Environment" bA
 \begin{itemize}
 	\item $0
 \end{itemize}
 endsnippet
 
-snippet _table "Table environment" iA
+snippet \table "Table environment" iA
 \begin{table}[${1:htpb}]
 	\centering
 	\caption{${2:caption}}
@@ -257,7 +257,7 @@ snippet _table "Table environment" iA
 \end{table}
 endsnippet
 
-snippet _fig "Figure environment" iA
+snippet \fig "Figure environment" iA
 \begin{figure}[${1:htpb}]
 	\centering
 	${2:\includegraphics[width=0.8\textwidth]{$3}}
@@ -266,7 +266,7 @@ snippet _fig "Figure environment" iA
 \end{figure}
 endsnippet
 
-snippet '_intro(\w+[,\w+[\s\w]*]*)  ' "Intro Knowledge" riA
+snippet '\intro(\w+[,\w+[\s\w]*]*)  ' "Intro Knowledge" riA
 `!p
 stringify = []
 kldb_file='/home/jose/Documents/GithubProjects/phd-thesis/Documents/Write-Ups/personal_notes/kldb.tex'
@@ -283,11 +283,11 @@ snip.rv = '\\intro{' + first_arg + '}'
 `$0
 endsnippet
 
-snippet _kl "Use Knowledge" iA
+snippet \kl "Use Knowledge" iA
 \\kl{$1}$0
 endsnippet
 
-snippet _Kl "Use Knowledge" iA
+snippet \Kl "Use Knowledge" iA
 \\kl[$2]{$1}$0
 endsnippet
 
@@ -339,7 +339,7 @@ snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
 \end{array}
 endsnippet
 
-snippet _template "Basic template" iA
+snippet \template "Basic template" iA
 \documentclass[a4paper]{article}
 
 \usepackage[utf8]{inputenc}
