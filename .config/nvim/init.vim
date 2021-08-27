@@ -27,7 +27,7 @@ Plug 'sotte/presenting.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
 Plug 'ghifarit53/tokyonight-vim'
-Plug 'arcticicestudio/nord-vim'
+Plug 'shaunsingh/nord.nvim'
 Plug 'b4skyx/serenade'
 Plug 'dracula/vim' 
 Plug 'EdenEast/nightfox.nvim'
@@ -224,14 +224,15 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 let g:gruvbox_invert_selection='0'
-let g:nightfox_style = "nordfox"
-let g:nightfox_transparent = "true"
-let g:nightfox_italic_comments = "true"
-let g:nightfox_italic_functions = "true"
-let g:nightfox_italic_keywords = "true"
-let g:nightfox_italic_strings = "true"
-let g:nightfox_italic_variables = "true"
-colorscheme nightfox
+"let g:nightfox_style = "nordfox"
+"let g:nightfox_transparent = "true"
+"let g:nightfox_italic_comments = "true"
+"let g:nightfox_italic_functions = "true"
+"let g:nightfox_italic_keywords = "true"
+"let g:nightfox_italic_strings = "true"
+"let g:nightfox_italic_variables = "true"
+"colorscheme nightfox
+colorscheme nord
 set termguicolors
 set guifont=FiraCode\ NF:h30
 highlight Normal cterm=NONE ctermbg=none gui=NONE guibg=NONE
