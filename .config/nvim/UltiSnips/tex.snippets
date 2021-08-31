@@ -4,6 +4,19 @@ snippet ... "ldots" iA
 \\dots$0
 endsnippet
 
+snippet ;abs "Absolute value" iA
+|$1|$0
+endsnippet
+
+snippet ;inv "Inverse" iA
+$1^{-1}$0
+endsnippet
+
+priority 100
+snippet ;!= "Disequality" iA
+\\neq$0
+endsnippet
+
 priority 100
 snippet ;<= "Less than or Equal to" iA
 \\leq$0
@@ -24,6 +37,22 @@ endsnippet
 
 snippet ;( "Parenthesis" iA
 ($1)$0
+endsnippet
+
+snippet ;[ "Squared Parenthesis" iA
+[$1]$0
+endsnippet
+
+snippet ;< "Angled Parenthesis" iA
+<$1>$0
+endsnippet
+
+snippet ;{ "Braces" iA
+{$1}$0
+endsnippet
+
+snippet wrt "with respect to" iA
+with respect to $0
 endsnippet
 
 snippet ;sse "Subseteq" iA
@@ -59,7 +88,7 @@ snippet ;sum "Sum" iA
 endsnippet
 
 snippet ;prod "Product" iA
-\\sum_{$1}^{$2}{$3}$0
+\\prod_{$1}^{$2}{$3}$0
 endsnippet
 
 snippet ;lim "Limit" iA
