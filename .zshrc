@@ -113,6 +113,13 @@ quickConfigRestore(){
   config status | grep "modified:" | sed 's/modified:/git --git-dir=$HOME\/.cfg --work-tree=$HOME restore/g' | zsh;
 }
 
+## Git scripts
+quickGitPush(){
+  git add .;
+  git commit -m $1;
+  git push
+}
+
 ## Scripts for system management
 se(){ 
   du -a $(pwd) | awk '{ gsub (" ", "\\ ", $0); $1 = ""; print $0; }' | fzf | xargs -r xdg-open; 
