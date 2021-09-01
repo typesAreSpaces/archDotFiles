@@ -52,6 +52,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
 
 "## Windows
 nnoremap <silent> <leader>u :exe "resize -5" <CR>
@@ -92,13 +94,6 @@ let g:vimtex_view_general_options_latexmk = '--unique'
 let g:vimtex_compiler_progname = 'nvr'
 let g:tex_flavor = "latex"
 autocmd BufWritePost *.tex :VimtexView
-"function! FocusWindow()
-  "call system('xdotool windowfocus ' . winnr('$'))
-"endfunction
-"augroup vimrc
-  "autocmd!
-  "autocmd User VimtexEventView call FocusWindow()
-"augroup END
 
 "## Fugitive settings:
 nmap <leader>gs :G<CR>
@@ -108,9 +103,6 @@ nmap <leader>gf :diffget //2<CR>
 "## SMT settings:
 let g:smt2_solver_command="z3 -smt2"
 let g:smt2_solver_version_switch="4.8.8"
-
-"## Use local dir for each file
-autocmd BufEnter * silent! lcd %:p:h
 
 "## Lightline settings:
 set laststatus=2
