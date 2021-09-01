@@ -17,6 +17,7 @@ Plug 'puremourning/vimspector'
 Plug 'sirver/ultisnips'
 Plug 'lervag/vimtex'
 Plug 'mhinz/neovim-remote'
+Plug 'tpope/vim-fugitive'
 
 "# Neovim apps 
 Plug 'iamcco/markdown-preview.nvim'
@@ -98,6 +99,11 @@ autocmd BufWritePost *.tex :VimtexView
   "autocmd!
   "autocmd User VimtexEventView call FocusWindow()
 "augroup END
+
+"## Fugitive settings:
+nmap <leader>gs :G<CR>
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gf :diffget //2<CR>
 
 "## SMT settings:
 let g:smt2_solver_command="z3 -smt2"
