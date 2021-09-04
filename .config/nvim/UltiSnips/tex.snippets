@@ -331,7 +331,7 @@ add_glossary_cmd='/home/jose/.local/scripts/add-glossary '
 args, first_arg = stringify_args(match)
 command = 'if ! grep ' + idxdb_file + ' -e \'newglossaryentry{' + first_arg + '}\'; then ' + add_glossary_cmd + args + '; fi'
 os.system(command)
-snip.rv = ''
+snip.rv = '\\gls{' + first_arg + '}'
 `$0
 endsnippet
 
