@@ -1,2 +1,2 @@
-xinput set-prop "bcm5974" 316 1
-xinput set-prop "bcm5974" 308 1
+xinput set-prop "bcm5974" "libinput Tapping Enabled" 1
+xinput set-prop "bcm5974" "libinput Natural Scrolling Enabled" 1
