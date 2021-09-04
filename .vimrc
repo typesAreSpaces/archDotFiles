@@ -97,7 +97,3 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch 
-
-highlight ColorColumn ctermbg=0 guibg=lightgrey
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
