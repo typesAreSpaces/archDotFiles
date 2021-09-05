@@ -18,8 +18,9 @@ fi
 feh --bg-scale $HOME/Pictures/Wallpapers/iron_lady.jpg
 $HOME/.config/polybar/launch.sh &
 
-bspc config border_width 2
+bspc config border_width 2.5
 bspc config window_gap   20
+bspc config focused_border_color "#427b58"
 
 bspc config split_ratio        0.52
 bspc config borderless_monocle true
