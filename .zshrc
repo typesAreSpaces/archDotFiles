@@ -74,6 +74,10 @@ quickConfigRestore(){
   config status | grep "modified:" | sed 's/modified:/git --git-dir=$HOME\/.cfg --work-tree=$HOME restore/g' | zsh;
 }
 
+setBrightness(){
+  brightnessctl --device='smc::kbd_backlight' set $1
+}
+
 se(){ du -a $HOME/* | awk '{ gsub (" ", "\\ ", $0); $1 = ""; print $0; }' | fzf | xargs -r xdg-open; }
 getSinkSource(){ pacmd list-sinks | grep "index" | grep -o "[0-9]*" }
 
