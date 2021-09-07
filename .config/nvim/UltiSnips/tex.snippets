@@ -56,11 +56,11 @@ with respect to $0
 endsnippet
 
 snippet ;sse "Subseteq" iA
-$1 \\subseteq $2$0	
+\\subseteq $0	
 endsnippet
 
 snippet ;sss "Subseteq" iA
-$1 \\subset $2$0	
+\\subset $0	
 endsnippet
 
 snippet ;NN "Natural Numbers" iA
@@ -175,6 +175,10 @@ snippet 'bigO "Big-O notation" iA
 \\mathcal{O}($1)$0
 endsnippet
 
+snippet ;\\ "Backslash" iA
+\\textbackslash $0
+endsnippet
+
 snippet ;// "Fraction" iA
 \\frac{$1}{$2}$0
 endsnippet
@@ -258,7 +262,7 @@ snippet ;eq "Equation Environment" iA
 \end{equation*}
 endsnippet
 
-snippet ;no "Notation Environment" iA
+snippet ;notation "Notation Environment" iA
 \begin{notation}
 	$0
 \end{notation}
@@ -396,18 +400,6 @@ snippet ;template "Basic template" iA
 \usepackage[english]{babel}
 \usepackage{amsmath, amssymb}
 
-% figure support
-\usepackage{import}
-\usepackage{xifthen}
-\pdfminorversion=7
-\usepackage{pdfpages}
-\usepackage{transparent}
-\newcommand{\incfig}[1]{%
-	\def\svgwidth{\columnwidth}
-	\import{./figures/}{#1.pdf_tex}
-}
-
-\pdfsuppresswarningpagegroup=1
 \title{$1}
 \author{$2}
 \date{\today}
@@ -415,6 +407,10 @@ snippet ;template "Basic template" iA
 \begin{document}
 
 \maketitle
+
+\begin{abstract}
+$3
+\end{abstract}
 
 $0
 
