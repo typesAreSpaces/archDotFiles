@@ -54,17 +54,17 @@ font:
   bold_italic:
     family: InputMono
     style: Bold Italic
-  size: 16
+  size: 14
   offset:
     x: 0
-    'y': 0
+    y: 0
   glyph_offset:
     x: 0
-    'y': 0
+    y: 0
 window:
   padding:
     x: 10
-    'y': 10
+    y: 10
 scrolling:
   history: 10000
   multiplier: 10
