@@ -4,7 +4,7 @@
 xmodmap $HOME/.Xmodmap
 source $HOME/.xsessionrc
 sxhkd &
-picom --experimental-backends &
+#picom --experimental-backends &
 xset s off -dpms &
 MONITOR1=eDP1
 if xrandr -q | grep -q "^DP[0-9] connected*"; then
@@ -20,7 +20,7 @@ $HOME/.config/polybar/launch.sh &
 
 bspc config border_width 2.5
 bspc config window_gap   20
-bspc config focused_border_color "#427b58"
+bspc config focused_border_color "#458588"
 
 bspc config split_ratio        0.52
 bspc config borderless_monocle true
