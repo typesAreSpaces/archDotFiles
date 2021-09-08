@@ -4,6 +4,10 @@ snippet ... "ldots" iA
 \\dots$0
 endsnippet
 
+snippet ;emptys "Empty Set" iA
+\\emptyset$0
+endsnippet
+
 snippet ;abs "Absolute value" iA
 |$1|$0
 endsnippet
@@ -56,11 +60,11 @@ with respect to $0
 endsnippet
 
 snippet ;sse "Subseteq" iA
-\\subseteq $0
+\\subseteq$0	
 endsnippet
 
 snippet ;sss "Subseteq" iA
-\\subset $0
+\\subset$0	
 endsnippet
 
 snippet ;NN "Natural Numbers" iA
@@ -176,7 +180,7 @@ snippet 'bigO "Big-O notation" iA
 endsnippet
 
 snippet ;\\ "Backslash" iA
-\\textbackslash $0
+\\textbackslash$0
 endsnippet
 
 snippet ;// "Fraction" iA
@@ -401,18 +405,6 @@ snippet ;template "Basic template" iA
 \usepackage[english]{babel}
 \usepackage{amsmath, amssymb}
 
-% figure support
-\usepackage{import}
-\usepackage{xifthen}
-\pdfminorversion=7
-\usepackage{pdfpages}
-\usepackage{transparent}
-\newcommand{\incfig}[1]{%
-	\def\svgwidth{\columnwidth}
-	\import{./figures/}{#1}
-}
-
-\pdfsuppresswarningpagegroup=1
 \title{$1}
 \author{$2}
 \date{\today}
@@ -420,6 +412,10 @@ snippet ;template "Basic template" iA
 \begin{document}
 
 \maketitle
+
+\begin{abstract}
+$3
+\end{abstract}
 
 $0
 
