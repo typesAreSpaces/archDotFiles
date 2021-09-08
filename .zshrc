@@ -75,8 +75,12 @@ quickConfigRestore(){
   config status | grep "modified:" | sed 's/modified:/git --git-dir=$HOME\/.cfg --work-tree=$HOME restore/g' | zsh;
 }
 
-setBrightness(){
+setKeyboardBrightness(){
   brightnessctl --device='smc::kbd_backlight' set $1
+}
+
+updateMirrorList(){
+  sudo reflector --latest 20 --protocol https --sort age --save /etc/pacman.d/mirrorlist
 }
 
 se(){ du -a $HOME/* | awk '{ gsub (" ", "\\ ", $0); $1 = ""; print $0; }' | fzf | xargs -r xdg-open; }
