@@ -17,7 +17,6 @@ Plug 'puremourning/vimspector'
 Plug 'sirver/ultisnips'
 Plug 'lervag/vimtex'
 Plug 'mhinz/neovim-remote'
-Plug 'sainnhe/gruvbox-material'
 
 "# Neovim apps 
 Plug 'iamcco/markdown-preview.nvim'
@@ -27,6 +26,7 @@ Plug 'sotte/presenting.vim'
 "# Themes
 Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'b4skyx/serenade'
