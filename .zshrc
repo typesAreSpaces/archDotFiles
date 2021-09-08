@@ -105,8 +105,15 @@ quickConfigRestore(){
   config status | grep "modified:" | sed 's/modified:/git --git-dir=$HOME\/.cfg --work-tree=$HOME restore/g' | zsh;
 }
 
-setBrightness(){
-  brightnessctl --device='dell::kbd_backlight' set $1
+setScreenBrightness(){
+  xrandr --output DP-0 --brightness $1
+}
+setKeyboardBrightness(){
+  brightnessctl --device='smc::kbd_backlight' set $1
+}
+
+updateMirrorList(){
+  sudo reflector --latest 20 --protocol https --sort age --save /etc/pacman.d/mirrorlist
 }
 
 ## Scripts for system management
