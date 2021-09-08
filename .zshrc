@@ -109,7 +109,7 @@ setScreenBrightness(){
   xrandr --output DP-0 --brightness $1
 }
 setKeyboardBrightness(){
-  brightnessctl --device='smc::kbd_backlight' set $1
+  brightnessctl --device='dell::kbd_backlight' set $1
 }
 
 updateMirrorList(){
