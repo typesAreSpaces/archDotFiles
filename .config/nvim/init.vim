@@ -231,7 +231,7 @@ let g:gruvbox_invert_selection='0'
 "colorscheme nightfox
 colorscheme tokyonight
 set termguicolors
-set guifont=FiraCode\ NF:h30
+set guifont=InputMono\ NF:h30
 "highlight Normal cterm=NONE ctermbg=none gui=NONE guibg=NONE
 
 augroup custom_term
