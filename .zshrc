@@ -64,13 +64,18 @@ alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it sea
 
 # Local Scripts
 ## Brightness script
-setBrightness(){
+setScreenBrightness(){
   xrandr --output DP-0 --brightness $1
 }
 ## ImageGoNord script
 imageGoNord(){
   python $GITHUB_PROJECTS_DIR/ImageGoNord/src/cli.py --img=$1 -o=$2
 }
+
+updateMirrorList(){
+  sudo reflector --latest 20 --protocol https --sort age --save /etc/pacman.d/mirrorlist
+}
+
 ## Transport files and directories between SSD and HDD
 backup(){
   if [ -f $1 ]; then
@@ -250,9 +255,7 @@ tokyo_nightThemebspwm(){
   alacritty-theme-switch --select tokyo-night.yml
   ~/.config/polybar/scripts/colors.sh -tomorrow-night
   sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/tokyo_night_2.jpg|g" ~/.config/bspwm/bspwmrc
-  sed -i "s|color.*|color tokyonight|g" ~/.config/nvim/init.vim
-}
-
+  sed -i "s|color.*|color tokyonight|g" ~/.config/nvim/init.vim }
 # OPAM configuration
 #. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 

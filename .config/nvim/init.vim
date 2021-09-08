@@ -27,7 +27,7 @@ Plug 'sotte/presenting.vim'
 "# Themes
 Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
-Plug 'ghifarit53/tokyonight-vim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'shaunsingh/nord.nvim'
 Plug 'b4skyx/serenade'
 Plug 'dracula/vim' 
@@ -53,7 +53,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
-
 
 "## Windows
 nnoremap <silent> <leader>u :exe "resize -5" <CR>
@@ -111,7 +110,7 @@ if !has('gui_running')
   set t_Co=256
 endif
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
+      \ 'colorscheme': 'tokyonight',
       \ 'active': {
         \   'left': [ [ 'mode', 'paste' ],
         \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -230,7 +229,7 @@ let g:gruvbox_invert_selection='0'
 "let g:nightfox_italic_strings = "true"
 "let g:nightfox_italic_variables = "true"
 "colorscheme nightfox
-colorscheme nord
+colorscheme tokyonight
 set termguicolors
 set guifont=FiraCode\ NF:h30
 "highlight Normal cterm=NONE ctermbg=none gui=NONE guibg=NONE
