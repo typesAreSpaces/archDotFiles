@@ -75,6 +75,9 @@ quickConfigRestore(){
   config status | grep "modified:" | sed 's/modified:/git --git-dir=$HOME\/.cfg --work-tree=$HOME restore/g' | zsh;
 }
 
+setScreenBrightness(){
+  xrandr --output DP-0 --brightness $1
+}
 setKeyboardBrightness(){
   brightnessctl --device='smc::kbd_backlight' set $1
 }
