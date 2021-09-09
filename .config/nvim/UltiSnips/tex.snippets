@@ -4,6 +4,14 @@ snippet ... "ldots" iA
 \\dots$0
 endsnippet
 
+snippet ;emptys "Empty Set" iA
+\\emptyset$0
+endsnippet
+
+snippet ;iff "If and only if" iA
+if and only if$0
+endsnippet
+
 snippet ;abs "Absolute value" iA
 |$1|$0
 endsnippet
@@ -51,16 +59,16 @@ snippet ;{ "Braces" iA
 {$1}$0
 endsnippet
 
-snippet wrt "with respect to" iA
-with respect to $0
+snippet ;wrt "with respect to" iA
+with respect to$0
 endsnippet
 
 snippet ;sse "Subseteq" iA
-$1 \\subseteq $2$0	
+\\subseteq$0	
 endsnippet
 
 snippet ;sss "Subseteq" iA
-$1 \\subset $2$0	
+\\subset$0	
 endsnippet
 
 snippet ;NN "Natural Numbers" iA
@@ -175,6 +183,10 @@ snippet 'bigO "Big-O notation" iA
 \\mathcal{O}($1)$0
 endsnippet
 
+snippet ;\\ "Backslash" iA
+\\textbackslash$0
+endsnippet
+
 snippet ;// "Fraction" iA
 \\frac{$1}{$2}$0
 endsnippet
@@ -246,6 +258,12 @@ snippet ;def "Definition Environment" iA
 \end{definition}
 endsnippet
 
+snippet ;remark "Remark Environment" iA
+\begin{remark}
+	$0
+\end{remark}
+endsnippet
+
 snippet ;cor "Corollary Environment" iA
 \begin{corollary}
 	$0
@@ -258,10 +276,11 @@ snippet ;eq "Equation Environment" iA
 \end{equation*}
 endsnippet
 
-snippet ;no "Notation Environment" iA
+snippet ;notation "Notation Environment" iA
 \begin{notation}
 	$0
 \end{notation}
+endsnippet
 
 snippet ;enum "Enumerate Environment" bA
 \begin{enumerate}
@@ -331,7 +350,7 @@ add_glossary_cmd='/home/jose/.local/scripts/add-glossary '
 args, first_arg = stringify_args(match)
 command = 'if ! grep ' + idxdb_file + ' -e \'newglossaryentry{' + first_arg + '}\'; then ' + add_glossary_cmd + args + '; fi'
 os.system(command)
-snip.rv = '\\gls{' + first_arg + '}'
+snip.rv = '\\glsadd{' + first_arg + '}'
 `$0
 endsnippet
 
@@ -396,18 +415,6 @@ snippet ;template "Basic template" iA
 \usepackage[english]{babel}
 \usepackage{amsmath, amssymb}
 
-% figure support
-\usepackage{import}
-\usepackage{xifthen}
-\pdfminorversion=7
-\usepackage{pdfpages}
-\usepackage{transparent}
-\newcommand{\incfig}[1]{%
-	\def\svgwidth{\columnwidth}
-	\import{./figures/}{#1}
-}
-
-\pdfsuppresswarningpagegroup=1
 \title{$1}
 \author{$2}
 \date{\today}
@@ -415,6 +422,10 @@ snippet ;template "Basic template" iA
 \begin{document}
 
 \maketitle
+
+\begin{abstract}
+$3
+\end{abstract}
 
 $0
 
