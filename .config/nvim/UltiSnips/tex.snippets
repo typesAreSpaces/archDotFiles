@@ -8,6 +8,10 @@ snippet ;emptys "Empty Set" iA
 \\emptyset$0
 endsnippet
 
+snippet ;iff "If and only if" iA
+if and only if$0
+endsnippet
+
 snippet ;abs "Absolute value" iA
 |$1|$0
 endsnippet
@@ -55,8 +59,8 @@ snippet ;{ "Braces" iA
 {$1}$0
 endsnippet
 
-snippet wrt "with respect to" iA
-with respect to $0
+snippet ;wrt "with respect to" iA
+with respect to$0
 endsnippet
 
 snippet ;sse "Subseteq" iA
@@ -254,6 +258,12 @@ snippet ;def "Definition Environment" iA
 \end{definition}
 endsnippet
 
+snippet ;remark "Remark Environment" iA
+\begin{remark}
+	$0
+\end{remark}
+endsnippet
+
 snippet ;cor "Corollary Environment" iA
 \begin{corollary}
 	$0
@@ -340,7 +350,7 @@ add_glossary_cmd='/home/jose/.local/scripts/add-glossary '
 args, first_arg = stringify_args(match)
 command = 'if ! grep ' + idxdb_file + ' -e \'newglossaryentry{' + first_arg + '}\'; then ' + add_glossary_cmd + args + '; fi'
 os.system(command)
-snip.rv = '\\gls{' + first_arg + '}'
+snip.rv = '\\glsadd{' + first_arg + '}'
 `$0
 endsnippet
 
