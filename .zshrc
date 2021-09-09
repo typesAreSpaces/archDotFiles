@@ -51,8 +51,6 @@ alias personal_notes="cd $PHD_THESIS_DIR/Documents/Write-Ups/personal_notes"
 
 # Program Aliases
 alias open="xdg-open"
-alias emacs="emacs -nw"
-alias emacs26="emacs26 -nw"
 alias ocaml="rlwrap ocaml"
 alias wolfram="rlwrap wolfram"
 alias v="vim"
