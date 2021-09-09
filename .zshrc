@@ -13,7 +13,7 @@ export BOSQUE_DIR="$GITHUB_PROJECTS_DIR/BosqueLanguage"
 export MASTER_THESIS_DIR="$GITHUB_PROJECTS_DIR/master-thesis"
 export PHD_THESIS_DIR="$GITHUB_PROJECTS_DIR/phd-thesis"
 export MSAT_DIR="$APPS_DIR/mathsat-5.6.5-linux-x86_64"
-export WALLPAPERS_DIR="\$HOME/Pictures/Wallpapers"
+export WALLPAPERS_DIR="$HOME/Pictures/Wallpapers"
 
 export PATH="/usr/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
