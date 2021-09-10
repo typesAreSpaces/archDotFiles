@@ -403,14 +403,14 @@ endglobal
 
 post_jump "create_matrix_placeholders(snip)"
 snippet ';matrix(\d+),(\d+)' "LaTeX matrix" br
-\begin{array}{`!p
+\begin{pmatrix}{`!p
 orient = ""
 for _ in range(0, int(match.group(1))): orient += "l"
 snip.rv = orient`}
 `!p
 snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
 `$0
-\end{array}
+\end{pmatrix}
 endsnippet
 
 snippet ;template "Basic template" iA
