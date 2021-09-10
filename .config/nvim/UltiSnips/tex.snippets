@@ -402,12 +402,39 @@ def create_matrix(cols, rows, sep, start, end):
 endglobal
 
 post_jump "create_matrix_placeholders(snip)"
-snippet ';matrix(\d+),(\d+)' "LaTeX matrix" br
+snippet ';pmatrix(\d+),(\d+)' "LaTeX pmatrix" br
 \begin{pmatrix}
 `!p
 snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
 `$0
 \end{pmatrix}
+endsnippet
+
+post_jump "create_matrix_placeholders(snip)"
+snippet ';bmatrix(\d+),(\d+)' "LaTeX bmatrix" br
+\begin{bmatrix}
+`!p
+snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
+`$0
+\end{bmatrix}
+endsnippet
+
+post_jump "create_matrix_placeholders(snip)"
+snippet ';Bmatrix(\d+),(\d+)' "LaTeX Bmatrix" br
+\begin{Bmatrix}
+`!p
+snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
+`$0
+\end{Bmatrix}
+endsnippet
+
+post_jump "create_matrix_placeholders(snip)"
+snippet ';det(\d+),(\d+)' "LaTeX vmatrix" br
+\begin{vmatrix}
+`!p
+snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
+`$0
+\end{vmatrix}
 endsnippet
 
 snippet ;template "Basic template" iA
