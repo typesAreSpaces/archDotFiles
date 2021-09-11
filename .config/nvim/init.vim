@@ -44,7 +44,7 @@ call plug#end()
 "# Vim settings
 
 "## Terminal
-nnoremap <C-t> :terminal<CR>
+nnoremap <C-t> <cmd>terminal<CR>
 
 "## Navigation
 let mapleader=" "
@@ -52,13 +52,13 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <leader>cd <cmd>cd %:p:h<CR><cmd>pwd<CR>
 
 "## Windows
-nnoremap <silent> <leader>u :exe "resize -5" <CR>
-nnoremap <silent> <leader>i :exe "resize +5" <CR>
-nnoremap <silent> <leader>y :exe "vertical resize +5"<CR>
-nnoremap <silent> <leader>o :exe "vertical resize -5"<CR>
+nnoremap <silent> <leader>u <cmd>exe "resize -5" <CR>
+nnoremap <silent> <leader>i <cmd>exe "resize +5" <CR>
+nnoremap <silent> <leader>y <cmd>exe "vertical resize +5"<CR>
+nnoremap <silent> <leader>o <cmd>exe "vertical resize -5"<CR>
 
 "## Telescope bindings
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -67,16 +67,16 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 "## Buffers
-nnoremap <silent> [b :bprevious<CR>
-nnoremap <silent> ]b :bnext<CR>
-nnoremap <silent> [B :bfirst<CR>
-nnoremap <silent> ]B :bblast<CR>
+nnoremap <silent> [b <cmd>bprevious<CR>
+nnoremap <silent> ]b <cmd>bnext<CR>
+nnoremap <silent> [B <cmd>bfirst<CR>
+nnoremap <silent> ]B <cmd>bblast<CR>
 
 "## FZF binders
-nnoremap <CR> :FZF<CR>
+nnoremap <CR> <cmd>FZF<CR>
 
 "## NerdToggle binders
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-n> <cmd>NERDTreeToggle<CR>
 
 "## Snippets using ultisnips
 let g:UltiSnipsExpandTrigger = '<c-e>'
@@ -95,9 +95,9 @@ let g:tex_flavor = "latex"
 autocmd BufWritePost *.tex :VimtexView
 
 "## Fugitive settings:
-nmap <leader>gs :G<CR>
-nmap <leader>gj :diffget //3<CR>
-nmap <leader>gf :diffget //2<CR>
+nmap <leader>gs <cmd>G<CR>
+nmap <leader>gj <cmd>diffget //3<CR>
+nmap <leader>gf <cmd>diffget //2<CR>
 
 "## SMT settings:
 let g:smt2_solver_command="z3 -smt2"
