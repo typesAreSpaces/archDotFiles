@@ -233,37 +233,37 @@ gruvboxThemei3(){
   alacritty-theme-switch --select gruvbox_dark.yml
   ~/.config/polybar/scripts/colors.sh -gruvbox-dark
   sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/iron_lady.jpg|g" ~/.config/i3/config
-  sed -i "s|color.*|color gruvbox|g" ~/.config/nvim/init.vim
+  sed -i "s|^color.*|color gruvbox|g" ~/.config/nvim/init.vim
 }
 nordThemei3(){
   alacritty-theme-switch --select nord.yml
   ~/.config/polybar/scripts/colors.sh -nord
   sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/minimal_mountains.png|g" ~/.config/i3/config
-  sed -i "s|color.*|color nord|g" ~/.config/nvim/init.vim
+  sed -i "s|^color.*|color nord|g" ~/.config/nvim/init.vim
 }
 tokyo_nightThemei3(){
   alacritty-theme-switch --select tokyo-night.yml
   ~/.config/polybar/scripts/colors.sh -tomorrow-night
   sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/tokyo_night_2.jpg|g" ~/.config/i3/config
-  sed -i "s|color.*|color tokyonight|g" ~/.config/nvim/init.vim
+  sed -i "s|^color.*|color tokyonight|g" ~/.config/nvim/init.vim
 }
 gruvboxThemebspwm(){
   alacritty-theme-switch --select gruvbox_dark.yml
   ~/.config/polybar/scripts/colors.sh -gruvbox-dark
   sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/iron_lady.jpg|g" ~/.config/bspwm/bspwmrc
-  sed -i "s|color.*|color gruvbox|g" ~/.config/nvim/init.vim
+  sed -i "s|^color.*|color gruvbox|g" ~/.config/nvim/init.vim
 }
 nordThemebspwm(){
   alacritty-theme-switch --select nord.yml
   ~/.config/polybar/scripts/colors.sh -nord
   sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/minimal_mountains.png|g" ~/.config/bspwm/bspwmrc
-  sed -i "s|color.*|color nord|g" ~/.config/nvim/init.vim
+  sed -i "s|^color.*|color nord|g" ~/.config/nvim/init.vim
 }
 tokyo_nightThemebspwm(){
   alacritty-theme-switch --select tokyo-night.yml
   ~/.config/polybar/scripts/colors.sh -tomorrow-night
   sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/tokyo_night_2.jpg|g" ~/.config/bspwm/bspwmrc
-  sed -i "s|color.*|color tokyonight|g" ~/.config/nvim/init.vim }
+  sed -i "s|^color.*|color tokyonight|g" ~/.config/nvim/init.vim }
 # OPAM configuration
 #. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 

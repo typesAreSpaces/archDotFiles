@@ -5,13 +5,11 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'hrsh7th/nvim-compe'
-Plug 'mhinz/vim-startify'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'preservim/nerdtree'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'preservim/nerdcommenter'
-Plug 'junegunn/limelight.vim'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'puremourning/vimspector'
 Plug 'sirver/ultisnips'
@@ -34,6 +32,7 @@ Plug 'dracula/vim'
 Plug 'EdenEast/nightfox.nvim'
 
 "# Ricing
+Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 
 "# Syntax
@@ -83,7 +82,7 @@ let g:UltiSnipsExpandTrigger = '<c-e>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
-"## Latex setup
+"## Vimtex setup
 let g:Tex_DefaultTargetFormat='pdf'
 let g:vimtex_view_enabled=1
 let g:vimtex_view_automatic=0
@@ -120,72 +119,6 @@ let g:lightline = {
           \ },
           \ }
 
-"Work in progress
-""# Limelight configuration
-
-"" Color name (:help cterm-colors) or ANSI code
-"let g:limelight_conceal_ctermfg = 'gray'
-"let g:limelight_conceal_ctermfg = 240
-
-"" Color name (:help gui-colors) or RGB color
-"let g:limelight_conceal_guifg = 'DarkGray'
-"let g:limelight_conceal_guifg = '#777777'
-
-"" Default: 0.5
-"let g:limelight_default_coefficient = 0.7
-
-"" Number of preceding/following paragraphs to include (default: 0)
-"let g:limelight_paragraph_span = 1
-
-"" Beginning/end of paragraph
-""   When there's no empty line between the paragraphs
-""   and each paragraph starts with indentation
-"let g:limelight_bop = '^\s'
-"let g:limelight_eop = '\ze\n^\s'
-
-"" Highlighting priority (default: 10)
-""   Set it to -1 not to overrule hlsearch
-"let g:limelight_priority = -1
-
-""--------------------------------------------------------------------------------
-""MAPPINGS{{{
-""--------------------------------------------------------------------------------
-"" limelight works on ranges. Declare limelight to bein on content of current line
-"nnoremap <space>lb :let g:limelight_bop='^'.getline('.').'$'<cr>
-"" limelight works on ranges. Declare limelight to end on contents of current line
-"nnoremap <space>le :let g:limelight_eop='^'.getline('.').'$'<cr>
-""decrement
-"nnoremap <space>ld :call SetLimeLightIndent(g:limelightindent - 4)<cr>
-""increment
-"nnoremap <space>li :call SetLimeLightIndent(g:limelightindent + 4)<cr>
-""reset indent to default 4
-"nnoremap <space>lr :call SetLimeLightIndent(4)<cr>
-"" set limelight toggle
-"noremap <space>ls :call SetLimeLightIndent(8) 
-"nnoremap <space>lt :Limelight!!<cr>
-
-""-----------------------------------------------------------------------------}}}
-""FUNCTIONS{{{
-""--------------------------------------------------------------------------------
-"let g:limelightindent=4
-"function! LimeLightExtremeties()
-"let limelight_start_stop='^\s\{0,'.g:limelightindent.'\}\S'
-"let g:limelight_eop=limelight_start_stop
-"let g:limelight_bop=limelight_start_stop
-"Limelight!!
-"Limelight!!
-"echo 'limelightindent = '.g:limelightindent
-"endfunction
-"function! SetLimeLightIndent(count)
-"let g:limelightindent = a:count
-"if(g:limelightindent < 0)
-"g:limelightindent = 0
-"endif
-"call LimeLightExtremeties()
-"endfunction
-""-----------------------------------------------------------------------------}}}
-"command! -nargs=*  SetLimeLightIndent call SetLimeLightIndent(<args>)
-
 "#l# Neovim binders
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
@@ -214,14 +147,14 @@ set incsearch
 set number relativenumber
 set nu rnu
 
-let base16colorspace=256  
+let base16colorspace=256
 let g:gruvbox_contrast_dark = 'hard'
-if exists('+termguicolors')
+if exists('+termguicolors') 
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 let g:gruvbox_invert_selection='0'
-colorscheme tokyonight
+color tokyonight
 set termguicolors
 set guifont=InputMono\ NF:h30
 "highlight Normal cterm=NONE ctermbg=none gui=NONE guibg=NONE
