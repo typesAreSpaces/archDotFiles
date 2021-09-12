@@ -32,6 +32,8 @@ bspc config gapless_monocle      true
 bspc rule -a firefox desktop='^2'
 bspc rule -a Thunderbird desktop='^3'
 bspc rule -a Evince desktop='^5'
+bspc rule -a Screenkey manage=off
+bspc rule -a Zathura state=tiled 
+bspc rule -a Emacs state=tiled 
 bspc rule -a 'VirtualBox Manager' desktop='^9'
 bspc rule -a 'VirtualBox Machine' desktop='^10'
-bspc rule -a Screenkey manage=off
