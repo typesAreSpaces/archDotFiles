@@ -13,7 +13,7 @@ export BOSQUE_DIR="$GITHUB_PROJECTS_DIR/BosqueLanguage"
 export MASTER_THESIS_DIR="$GITHUB_PROJECTS_DIR/master-thesis"
 export PHD_THESIS_DIR="$GITHUB_PROJECTS_DIR/phd-thesis"
 export MSAT_DIR="$APPS_DIR/mathsat-5.6.5-linux-x86_64"
-export WALLPAPERS_DIR="$HOME/Pictures/Wallpapers"
+export WALLPAPERS_DIR="~/Pictures/Wallpapers"
 
 export PATH="/usr/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
@@ -251,7 +251,7 @@ gruvboxThemebspwm(){
   alacritty-theme-switch --select gruvbox_dark.yml
   ~/.config/polybar/scripts/colors.sh -gruvbox-dark
   sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/iron_lady.jpg|g" ~/.config/bspwm/bspwmrc
-  sed -i "s|^color.*|color gruvbox|g" ~/.config/nvim/init.vim
+  sed -i "s|^color.*|color gruvbox-material|g" ~/.config/nvim/init.vim
 }
 nordThemebspwm(){
   alacritty-theme-switch --select nord.yml
@@ -262,7 +262,8 @@ nordThemebspwm(){
 tokyo_nightThemebspwm(){
   alacritty-theme-switch --select tokyo-night.yml
   ~/.config/polybar/scripts/colors.sh -tomorrow-night
-  sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/tokyo_night_2.jpg|g" ~/.config/bspwm/bspwmrc
+  #sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/tokyo_night_2.jpg|g" ~/.config/bspwm/bspwmrc
+  sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/city_night_city_coast_179489_3840x2160.jpg|g" ~/.config/bspwm/bspwmrc
   sed -i "s|^color.*|color tokyonight|g" ~/.config/nvim/init.vim 
 }
 # OPAM configuration

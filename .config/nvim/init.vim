@@ -24,7 +24,7 @@ Plug 'sotte/presenting.vim'
 
 "# Themes
 Plug 'chriskempson/base16-vim'
-Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'shaunsingh/nord.nvim'
 Plug 'b4skyx/serenade'
