@@ -86,9 +86,15 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:Tex_DefaultTargetFormat='pdf'
 let g:vimtex_view_enabled=1
 let g:vimtex_view_automatic=0
-let g:vimtex_view_general_viewer = 'okular'
-let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
-let g:vimtex_view_general_options_latexmk = '--unique'
+" Using okular
+"let g:vimtex_view_general_viewer = 'okular'
+"let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+"let g:vimtex_view_general_options_latexmk = '--unique'
+" Using zathura
+let g:vimtex_view_method='zathura'
+let g:vimtex_view_zathura=1
+let g:vimtex_view_automatic_xwin=1
+let g:vimtex_view_forward_search_on_start=1
 let g:vimtex_compiler_progname = 'nvr'
 let g:tex_flavor = "latex"
 autocmd BufWritePost *.tex :VimtexView

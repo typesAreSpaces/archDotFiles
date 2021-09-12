@@ -3,7 +3,7 @@ update_info=okular.upd:annotation-toolbar,okular.upd:builtin-annotations
 
 [Core General]
 ExternalEditor=Custom
-ExternalEditorCommand=nvr --remote-silent +%l "%f"
+ExternalEditorCommand=nvr --remote-silent %f -c %l
 
 [Main View]
 ShowLeftPanel=false
