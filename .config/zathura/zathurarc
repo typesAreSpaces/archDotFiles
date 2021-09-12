@@ -1,7 +1,5 @@
 set dbus-service true
 set synctex true
-set synctex-editor-command 'nvr --remote-silent %f -c %l'
-#set synctex-editor-command 'nvr --remote +%{line} %{input}'
 
 # Gruvbox Theme
 # -------------
@@ -48,9 +46,6 @@ map K zoom in
 map J zoom out
 map i recolor
 map p print
-#map <C-Button1> exec 'touch /home/jose/a.txt'
-#map <C-Button1> exec 'nvr --remote +%{line} %{input}'
-#map <C-Button1> feedkeys ":exec zathura_backward_search.sh"
 
 # Nord Theme
 # ----------

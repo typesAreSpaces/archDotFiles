@@ -54,7 +54,7 @@ alias open="xdg-open"
 alias ocaml="rlwrap ocaml"
 alias wolfram="rlwrap wolfram"
 alias v="vim"
-alias nv="nvim"
+alias nv="nvim --listen localhost:12345"
 alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
 
 # Docker Aliases
