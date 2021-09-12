@@ -124,6 +124,16 @@ quickGitPush(){
   git push
 }
 
+fromVimToEmacsBindings(){
+  xmodmap ~/.Xmodmap
+  xmodmap ~/.XmodmapEmacs
+}
+
+fromEmacsToVimBindings(){
+  xmodmap ~/.XmodmapEmacs
+  xmodmap ~/.Xmodmap
+}
+
 ## Scripts for system management
 se(){ 
   du -a $(pwd) | awk '{ gsub (" ", "\\ ", $0); $1 = ""; print $0; }' | fzf | xargs -r xdg-open; 
