@@ -251,20 +251,29 @@ gruvboxThemebspwm(){
   alacritty-theme-switch --select gruvbox_dark.yml
   ~/.config/polybar/scripts/colors.sh -gruvbox-dark
   sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/iron_lady.jpg|g" ~/.config/bspwm/bspwmrc
+  sed -i "s|.*focused_border_color.*|bspc config focused_border_color \"#689d6a\"|g" ~/.config/bspwm/bspwmrc
+  sed -i "s|colorscheme'.*|colorscheme': 'seoul256',|g" ~/.config/nvim/init.vim
   sed -i "s|^color.*|color gruvbox-material|g" ~/.config/nvim/init.vim
+  sed -i "s|^border-color.*|border-color = #689d6a|g" ~/.config/polybar/config.ini
 }
 nordThemebspwm(){
   alacritty-theme-switch --select nord.yml
   ~/.config/polybar/scripts/colors.sh -nord
   sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/minimal_mountains.png|g" ~/.config/bspwm/bspwmrc
+  sed -i "s|.*focused_border_color.*|bspc config focused_border_color \"#88C0D0\"|g" ~/.config/bspwm/bspwmrc
+  sed -i "s|colorscheme'.*|colorscheme': 'nord',|g" ~/.config/nvim/init.vim
   sed -i "s|^color.*|color nord|g" ~/.config/nvim/init.vim
+  sed -i "s|^border-color.*|border-color = #88C0D0|g" ~/.config/polybar/config.ini
 }
 tokyo_nightThemebspwm(){
   alacritty-theme-switch --select tokyo-night.yml
   ~/.config/polybar/scripts/colors.sh -tomorrow-night
   #sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/tokyo_night_2.jpg|g" ~/.config/bspwm/bspwmrc
   sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/city_night_city_coast_179489_3840x2160.jpg|g" ~/.config/bspwm/bspwmrc
+  sed -i "s|.*focused_border_color.*|bspc config focused_border_color \"#7aa2f7\"|g" ~/.config/bspwm/bspwmrc
+  sed -i "s|colorscheme'.*|colorscheme': 'tokyonight',|g" ~/.config/nvim/init.vim
   sed -i "s|^color.*|color tokyonight|g" ~/.config/nvim/init.vim 
+  sed -i "s|^border-color.*|border-color = #7aa2f7|g" ~/.config/polybar/config.ini
 }
 # OPAM configuration
 #. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

@@ -109,7 +109,7 @@ if !has('gui_running')
   set t_Co=256
 endif
 let g:lightline = {
-      \ 'colorscheme': 'tokyonight',
+      \ 'colorscheme': 'seoul256',
       \ 'active': {
         \   'left': [ [ 'mode', 'paste' ],
         \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -154,7 +154,7 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 let g:gruvbox_invert_selection='0'
-color tokyonight
+color gruvbox-material
 set termguicolors
 set guifont=InputMono\ NF:h30
 "highlight Normal cterm=NONE ctermbg=none gui=NONE guibg=NONE
