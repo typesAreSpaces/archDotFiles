@@ -59,7 +59,8 @@ alias emacs26="emacs26 -nw"
 alias ocaml="rlwrap ocaml"
 alias wolfram="rlwrap wolfram"
 alias v="vim"
-alias nv="nvim"
+alias nv="nvim --listen localhost:12345"
+alias z="zathura"
 alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
 
 # Docker Aliases
@@ -74,6 +75,23 @@ quickConfigUpdate(){
 quickConfigRestore(){
   config status | grep "modified:" | sed 's/modified:/git --git-dir=$HOME\/.cfg --work-tree=$HOME restore/g' | zsh;
 }
+
+quickGitPush(){
+  git add .;
+  git commit -m $1;
+  git push
+}
+
+fromVimToEmacsBindings(){
+  xmodmap ~/.Xmodmap
+  xmodmap ~/.XmodmapEmacs
+}
+
+fromEmacsToVimBindings(){
+  xmodmap ~/.XmodmapEmacs
+  xmodmap ~/.Xmodmap
+}
+
 
 setScreenBrightness(){
   xrandr --output DP-0 --brightness $1
@@ -163,43 +181,53 @@ editSyms(){
   popd;
 }
 
+## Scripts to customize system
 gruvboxThemei3(){
   alacritty-theme-switch --select gruvbox_dark.yml
   ~/.config/polybar/scripts/colors.sh -gruvbox-dark
   sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/iron_lady.jpg|g" ~/.config/i3/config
-  sed -i "s|color.*|color gruvbox|g" ~/.config/nvim/init.vim
+  sed -i "s|^color.*|color gruvbox|g" ~/.config/nvim/init.vim
 }
 nordThemei3(){
   alacritty-theme-switch --select nord.yml
   ~/.config/polybar/scripts/colors.sh -nord
   sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/minimal_mountains.png|g" ~/.config/i3/config
-  sed -i "s|color.*|color nord|g" ~/.config/nvim/init.vim
+  sed -i "s|^color.*|color nord|g" ~/.config/nvim/init.vim
 }
 tokyo_nightThemei3(){
   alacritty-theme-switch --select tokyo-night.yml
   ~/.config/polybar/scripts/colors.sh -tomorrow-night
   sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/tokyo_night_2.jpg|g" ~/.config/i3/config
-  sed -i "s|color.*|color tokyonight|g" ~/.config/nvim/init.vim
+  sed -i "s|^color.*|color tokyonight|g" ~/.config/nvim/init.vim
 }
 gruvboxThemebspwm(){
   alacritty-theme-switch --select gruvbox_dark.yml
   ~/.config/polybar/scripts/colors.sh -gruvbox-dark
   sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/iron_lady.jpg|g" ~/.config/bspwm/bspwmrc
-  sed -i "s|color.*|color gruvbox|g" ~/.config/nvim/init.vim
+  sed -i "s|.*focused_border_color.*|bspc config focused_border_color \"#689d6a\"|g" ~/.config/bspwm/bspwmrc
+  sed -i "s|colorscheme'.*|colorscheme': 'seoul256',|g" ~/.config/nvim/init.vim
+  sed -i "s|^color.*|color gruvbox-material|g" ~/.config/nvim/init.vim
+  sed -i "s|^border-color.*|border-color = #689d6a|g" ~/.config/polybar/config.ini
 }
 nordThemebspwm(){
   alacritty-theme-switch --select nord.yml
   ~/.config/polybar/scripts/colors.sh -nord
   sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/minimal_mountains.png|g" ~/.config/bspwm/bspwmrc
-  sed -i "s|color.*|color nord|g" ~/.config/nvim/init.vim
+  sed -i "s|.*focused_border_color.*|bspc config focused_border_color \"#88C0D0\"|g" ~/.config/bspwm/bspwmrc
+  sed -i "s|colorscheme'.*|colorscheme': 'nord',|g" ~/.config/nvim/init.vim
+  sed -i "s|^color.*|color nord|g" ~/.config/nvim/init.vim
+  sed -i "s|^border-color.*|border-color = #88C0D0|g" ~/.config/polybar/config.ini
 }
 tokyo_nightThemebspwm(){
   alacritty-theme-switch --select tokyo-night.yml
   ~/.config/polybar/scripts/colors.sh -tomorrow-night
-  sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/tokyo_night_2.jpg|g" ~/.config/bspwm/bspwmrc
-  sed -i "s|color.*|color tokyonight|g" ~/.config/nvim/init.vim
+  #sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/tokyo_night_2.jpg|g" ~/.config/bspwm/bspwmrc
+  sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/city_night_city_coast_179489_3840x2160.jpg|g" ~/.config/bspwm/bspwmrc
+  sed -i "s|.*focused_border_color.*|bspc config focused_border_color \"#7aa2f7\"|g" ~/.config/bspwm/bspwmrc
+  sed -i "s|colorscheme'.*|colorscheme': 'tokyonight',|g" ~/.config/nvim/init.vim
+  sed -i "s|^color.*|color tokyonight|g" ~/.config/nvim/init.vim 
+  sed -i "s|^border-color.*|border-color = #7aa2f7|g" ~/.config/polybar/config.ini
 }
-
 
 # OPAM configuration
 #. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

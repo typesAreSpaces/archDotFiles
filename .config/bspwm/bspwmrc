@@ -31,8 +31,11 @@ bspc config focused_border_color "#5E81AC"
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
-
+bspc rule -a firefox desktop='^2'
+bspc rule -a Thunderbird desktop='^3'
 bspc rule -a Evince desktop='^5'
 bspc rule -a Screenkey manage=off
+bspc rule -a Zathura state=tiled 
+bspc rule -a Emacs state=tiled 
 bspc rule -a 'VirtualBox Manager' desktop='^9'
 bspc rule -a 'VirtualBox Machine' desktop='^10'
