@@ -263,7 +263,8 @@ tokyo_nightThemebspwm(){
   alacritty-theme-switch --select tokyo-night.yml
   ~/.config/polybar/scripts/colors.sh -tomorrow-night
   sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/tokyo_night_2.jpg|g" ~/.config/bspwm/bspwmrc
-  sed -i "s|^color.*|color tokyonight|g" ~/.config/nvim/init.vim }
+  sed -i "s|^color.*|color tokyonight|g" ~/.config/nvim/init.vim 
+}
 # OPAM configuration
 #. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
