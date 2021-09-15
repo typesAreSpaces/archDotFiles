@@ -32,20 +32,13 @@ export PATH="$APPS_DIR/csdp6.2.0linuxx86_64/bin:$PATH";
 
 # General Aliases
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias git_discard_dhanges="git stash save --keep-index --include-untracked"
 alias sshVB="ssh -p 2222 jose@127.0.0.1"
-alias find_cpp_etags="find . -type f -iname \"*.[chS]p*\" | xargs etags -a"
 
 # Directory Aliases
-alias second_home="cd /media/jose/4486d9bd-d3c3-4b92-9842-d38226a22c20$HOME"
-
-alias master_thesis="cd $MASTER_THESIS_DIR/Software/Cpp/EUFInterpolant"
-alias master_thesis_paper="cd $MASTER_THESIS_DIR/Write-Ups/thesis"
 alias thesis="cd $PHD_THESIS_DIR/Documents/Write-Ups/thesis"
 alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
 alias reports="cd $PHD_THESIS_DIR/Documents/Write-Ups/weekly_reports"
 alias personal_notes="cd $PHD_THESIS_DIR/Documents/Write-Ups/personal_notes"
-alias math_logic="cd $PHD_THESIS_DIR/Courses/Math\ 439"
 
 alias bosque_paper="cd $BOSQUE_DIR/Technical\ Reports/Automatic\ verification\ for\ the\ Bosque\ Programming\ Language"
 
@@ -54,8 +47,6 @@ alias basis_conversion="cd $GITHUB_PROJECTS_DIR/Basis-Conversion"
 
 # Program Aliases
 alias open="xdg-open"
-alias emacs="emacs -nw"
-alias emacs26="emacs26 -nw"
 alias ocaml="rlwrap ocaml"
 alias wolfram="rlwrap wolfram"
 alias v="vim"
@@ -91,7 +82,6 @@ fromEmacsToVimBindings(){
   xmodmap ~/.XmodmapEmacs
   xmodmap ~/.Xmodmap
 }
-
 
 setScreenBrightness(){
   xrandr --output DP-0 --brightness $1
@@ -158,18 +148,6 @@ bosqueSymTest(){
   else
     node $BOSQUE_DIR/impl/bin/runtimes/symtest/symtest.js $1 -v -o $2;
   fi
-}
-
-axdProject(){
-  #Z3_VER=$(z3 --version | awk '{ print $3; }');
-  #if [ "$Z3_VER" != "4.7.1" ]; then
-    #installZ3InterpPlus;
-  #fi
-  cd $GITHUB_PROJECTS_DIR/AXDInterpolator
-}
-
-eufProject(){
-  cd $GITHUB_PROJECTS_DIR/EUFInterpolator
 }
 
 editSyms(){
