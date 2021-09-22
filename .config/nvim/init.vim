@@ -60,10 +60,10 @@ nnoremap <silent> <leader>y <cmd>exe "vertical resize +5"<CR>
 nnoremap <silent> <leader>o <cmd>exe "vertical resize -5"<CR>
 
 "## Telescope bindings
-nnoremap <leader>f <cmd>Telescope find_files<cr>
-nnoremap <leader>g <cmd>Telescope live_grep<cr>
-nnoremap <leader>b <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>gg <cmd>Telescope live_grep<cr>
+nnoremap <leader>bb <cmd>Telescope buffers<cr>
+nnoremap <leader>hh <cmd>Telescope help_tags<cr>
 
 "## Buffers
 nnoremap <silent> [b <cmd>bprevious<CR>
