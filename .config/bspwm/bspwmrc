@@ -5,7 +5,6 @@ xmodmap $HOME/.Xmodmap
 source $HOME/.xsessionrc
 sxhkd &
 picom --experimental-backends &
-caffeine &
 /home/jose/.local/bin/bspswallow &
 xset s off -dpms &
 
