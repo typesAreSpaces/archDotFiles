@@ -34,9 +34,8 @@ export PATH="$APPS_DIR/csdp6.2.0linuxx86_64/bin:$PATH";
 
 # General Aliases
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias git_discard_dhanges="git stash save --keep-index --include-untracked"
-alias find_cpp_etags="find . -type f -iname \"*.[chS]p*\" | xargs etags -a"
-alias sshLocalUbuntuVM="ssh -p 2222 jose@127.0.0.1"
+alias sshLocalUbuntuVM='ssh -p 2222 jose@127.0.0.1'
+alias sshJose='ssh -X jose@10.88.183.111'
 
 # Directory Aliases
 alias phd_thesis="cd $PHD_THESIS_DIR"
