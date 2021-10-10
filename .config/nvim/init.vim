@@ -97,7 +97,12 @@ let g:vimtex_view_automatic_xwin=1
 let g:vimtex_view_forward_search_on_start=1
 let g:vimtex_compiler_progname = 'nvr'
 let g:tex_flavor = "latex"
-autocmd BufWritePost *.tex :VimtexView
+
+function! TexRefresh()
+  silent :make
+  :VimtexView
+endfunction
+autocmd BufWritePost *.tex :call TexRefresh()
 
 "## Fugitive settings:
 nmap <leader>gs <cmd>G<CR>
