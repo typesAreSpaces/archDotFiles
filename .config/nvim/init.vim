@@ -16,6 +16,7 @@ Plug 'sirver/ultisnips'
 Plug 'lervag/vimtex'
 Plug 'mhinz/neovim-remote'
 Plug 'tpope/vim-fugitive'
+Plug 'skywind3000/asyncrun.vim'
 
 "# Neovim apps 
 Plug 'iamcco/markdown-preview.nvim'
@@ -99,7 +100,11 @@ let g:vimtex_compiler_progname = 'nvr'
 let g:tex_flavor = "latex"
 
 function! TexRefresh()
-  silent :make
+  if !filereadable(expand("main.pdf"))
+    :make
+  else
+    :AsyncRun make
+  endif
   :VimtexView
 endfunction
 autocmd BufWritePost *.tex :call TexRefresh()
