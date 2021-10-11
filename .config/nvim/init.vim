@@ -17,6 +17,7 @@ Plug 'lervag/vimtex'
 Plug 'mhinz/neovim-remote'
 Plug 'tpope/vim-fugitive'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'folke/which-key.nvim'
 
 "# Neovim apps 
 Plug 'iamcco/markdown-preview.nvim'
@@ -278,5 +279,11 @@ require'nvim-treesitter.configs'.setup {
     disable = {},
     additional_vim_regex_highlighting = false,
   },
+}
+EOF
+
+"## Which-keys setup
+lua << EOF
+require("which-key").setup {
 }
 EOF
