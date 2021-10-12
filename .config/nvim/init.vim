@@ -16,6 +16,9 @@ Plug 'sirver/ultisnips'
 Plug 'lervag/vimtex'
 Plug 'mhinz/neovim-remote'
 Plug 'tpope/vim-fugitive'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'folke/which-key.nvim'
+Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 
 "# Neovim apps 
 Plug 'iamcco/markdown-preview.nvim'
@@ -97,7 +100,16 @@ let g:vimtex_view_automatic_xwin=1
 let g:vimtex_view_forward_search_on_start=1
 let g:vimtex_compiler_progname = 'nvr'
 let g:tex_flavor = "latex"
-autocmd BufWritePost *.tex :VimtexView
+
+function! TexRefresh()
+  if !filereadable(expand("main.pdf"))
+    :make
+  else
+    :AsyncRun make
+  endif
+  :VimtexView
+endfunction
+autocmd BufWritePost *.tex :call TexRefresh()
 
 "## Fugitive settings:
 nmap <leader>gs <cmd>G<CR>
@@ -270,3 +282,37 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+
+"## Which-keys setup
+lua << EOF
+require("which-key").setup {
+}
+EOF
+
+" Wilder setup
+call wilder#setup({
+      \'modes': [':', '/', '?'],
+      \ 'next_key': '<Tab>',
+      \ 'previous_key': '<S-Tab>',
+      \ 'accept_key': '<Down>',
+      \ 'reject_key': '<Up>',
+      \})
+call wilder#set_option('pipeline', [
+      \   wilder#branch(
+      \     wilder#cmdline_pipeline({
+      \       'language': 'python',
+      \       'fuzzy': 1,
+      \     }),
+      \     wilder#python_search_pipeline({
+      \       'pattern': wilder#python_fuzzy_pattern(),
+      \       'sorter': wilder#python_difflib_sorter(),
+      \       'engine': 're',
+      \     }),
+      \   ),
+      \ ])
+call wilder#set_option('renderer', wilder#popupmenu_renderer({
+      \ 'highlighter': wilder#basic_highlighter(),
+      \ 'highlights': {
+      \   'accent': wilder#make_hl('WilderAccent', 'Pmenu', [{}, {}, {'foreground': '#f4468f'}]),
+      \ },
+      \}))
