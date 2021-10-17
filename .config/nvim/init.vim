@@ -100,6 +100,16 @@ let g:vimtex_view_automatic_xwin=1
 let g:vimtex_view_forward_search_on_start=1
 let g:vimtex_compiler_progname = 'nvr'
 let g:tex_flavor = "latex"
+let g:active_refresh = 1
+
+function! ToggleActiveRefresh()
+  if g:active_refresh == 1
+    let g:active_refresh = 0
+  else
+    let g:active_refresh = 1  
+  endif
+endfunction
+nnoremap <silent> <leader>ar <cmd>call ToggleActiveRefresh()<cr>
 
 function! TexRefresh()
   if !filereadable(expand("main.pdf"))
@@ -109,7 +119,12 @@ function! TexRefresh()
   endif
   :VimtexView
 endfunction
-autocmd BufWritePost *.tex :call TexRefresh()
+function! ActiveRefresh()
+  if g:active_refresh == 1
+    call TexRefresh()
+  endif
+endfunction
+autocmd BufWritePost *.tex :call ActiveRefresh()
 
 "## Fugitive settings:
 nmap <leader>gs <cmd>G<CR>
