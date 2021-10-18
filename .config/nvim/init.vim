@@ -49,7 +49,7 @@ call plug#end()
 nnoremap <C-t> <cmd>terminal<CR>
 
 "## Navigation
-let mapleader=" "
+let mapleader = " "
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -86,20 +86,26 @@ let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 "## Vimtex setup
-let g:Tex_DefaultTargetFormat='pdf'
-let g:vimtex_view_enabled=1
-let g:vimtex_view_automatic=0
-" Using okular
-"let g:vimtex_view_general_viewer = 'okular'
-"let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
-"let g:vimtex_view_general_options_latexmk = '--unique'
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:vimtex_view_enabled = 1
+let g:vimtex_view_automatic = 0
 " Using zathura
-let g:vimtex_view_method='zathura'
-let g:vimtex_view_zathura=1
-let g:vimtex_view_automatic_xwin=1
-let g:vimtex_view_forward_search_on_start=1
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_zathura = 1
+let g:vimtex_view_automatic_xwin = 1
+let g:vimtex_view_forward_search_on_start = 1
 let g:vimtex_compiler_progname = 'nvr'
 let g:tex_flavor = "latex"
+let g:active_refresh = 0
+
+function! ToggleActiveRefresh()
+  if g:active_refresh == 1
+    let g:active_refresh = 0
+  else
+    let g:active_refresh = 1
+  endif
+endfunction
+nnoremap <silent> <leader>ar <cmd>call ToggleActiveRefresh()<cr>
 
 function! TexRefresh()
   if !filereadable(expand("main.pdf"))
@@ -109,7 +115,12 @@ function! TexRefresh()
   endif
   :VimtexView
 endfunction
-autocmd BufWritePost *.tex :call TexRefresh()
+function! ActiveRefresh()
+  if g:active_refresh == 1
+    call TexRefresh()
+  endif
+endfunction
+autocmd BufWritePost *.tex :call ActiveRefresh()
 
 "## Fugitive settings:
 nmap <leader>gs <cmd>G<CR>
@@ -117,8 +128,8 @@ nmap <leader>gj <cmd>diffget //3<CR>
 nmap <leader>gf <cmd>diffget //2<CR>
 
 "## SMT settings:
-let g:smt2_solver_command="z3 -smt2"
-let g:smt2_solver_version_switch="4.8.8"
+let g:smt2_solver_command = "z3 -smt2"
+let g:smt2_solver_version_switch = "4.8.8"
 
 "## Lightline settings:
 set laststatus=2
@@ -127,15 +138,23 @@ if !has('gui_running')
   set t_Co=256
 endif
 let g:lightline = {
-      \ 'colorscheme': 'tokyonight',
+      \ 'colorscheme': 'nord',
       \ 'active': {
         \   'left': [ [ 'mode', 'paste' ],
         \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
         \ },
         \ 'component_function': {
+          \   'readonly': 'IsActiveRefresh',
           \   'gitbranch': 'FugitiveHead'
           \ },
           \ }
+function! IsActiveRefresh()
+  if g:active_refresh == 1
+    return 'Active Refresh'
+  else
+    return ''
+  endif
+endfunction
 
 "#l# Neovim binders
 if has('nvim')
@@ -165,13 +184,13 @@ set incsearch
 set number relativenumber
 set nu rnu
 
-let base16colorspace=256
+let base16colorspace = 256
 let g:gruvbox_contrast_dark = 'hard'
 if exists('+termguicolors') 
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-let g:gruvbox_invert_selection='0'
+let g:gruvbox_invert_selection = '0'
 color tokyonight
 set termguicolors
 set guifont=InputMono\ NF:h30
@@ -186,7 +205,7 @@ augroup END
 set completeopt=menuone,noinsert,noselect
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+let g:completion_matching_strategy_list=['exact', 'substring', 'fuzzy']
 
 "## Compe configuration
 let g:compe = {}
@@ -262,7 +281,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'clangd', 'tsserver', 'hls', 'rust_analyzer' }
+local servers = { 'pyright', 'clangd', 'tsserver', 'hls', 'rust_analyzer', 'latex' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup({ 
   on_attach = custom_on_attach 
