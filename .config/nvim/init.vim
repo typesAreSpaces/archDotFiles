@@ -142,17 +142,24 @@ if !has('gui_running')
   set t_Co=256
 endif
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
+      \ 'colorscheme': 'nord',
       \ 'active': {
         \   'left': [ [ 'mode', 'paste' ],
         \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
         \ },
         \ 'component_function': {
-          \   'gitbranch': 'FugitiveHead'
+          \   'readonly': 'LightlineReadonly',
           \ },
           \ }
+function! LightlineReadonly()
+  if g:active_refresh == 1
+    return "Tex Refresh: ON"
+  else
+    return "Tex Refresh: OFF"
+  endif
+endfunction
 
-"#l# Neovim binders
+"## Neovim binders
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
   tnoremap <C-v><Esc> <Esc> 
