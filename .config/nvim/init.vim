@@ -100,6 +100,16 @@ let g:vimtex_view_automatic_xwin=1
 let g:vimtex_view_forward_search_on_start=1
 let g:vimtex_compiler_progname = 'nvr'
 let g:tex_flavor = "latex"
+let g:active_refresh = 1
+
+function! ToggleActiveRefresh()
+  if g:active_refresh == 1
+    let g:active_refresh = 0
+  else
+    let g:active_refresh = 1  
+  endif
+endfunction
+nnoremap <silent> <leader>ar <cmd>call ToggleActiveRefresh()<cr>
 
 function! TexRefresh()
   if !filereadable(expand("main.pdf"))
@@ -109,7 +119,12 @@ function! TexRefresh()
   endif
   :VimtexView
 endfunction
-autocmd BufWritePost *.tex :call TexRefresh()
+function! ActiveRefresh()
+  if g:active_refresh == 1
+    call TexRefresh()
+  endif
+endfunction
+autocmd BufWritePost *.tex :call ActiveRefresh()
 
 "## Fugitive settings:
 nmap <leader>gs <cmd>G<CR>
@@ -133,9 +148,16 @@ let g:lightline = {
         \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
         \ },
         \ 'component_function': {
-          \   'gitbranch': 'FugitiveHead'
+          \   'readonly': 'LightlineReadonly',
           \ },
           \ }
+function! LightlineReadonly()
+  if g:active_refresh == 1
+    return "Tex Refresh: ON"
+  else
+    return "Tex Refresh: OFF"
+  endif
+endfunction
 
 "#l# Neovim binders
 if has('nvim')
@@ -178,8 +200,8 @@ set guifont=InputMono\ NF:h30
 "highlight Normal cterm=NONE ctermbg=none gui=NONE guibg=NONE
 
 augroup custom_term
-	autocmd!
-	autocmd TermOpen * setlocal nonumber norelativenumber bufhidden=hide
+  autocmd!
+  autocmd TermOpen * setlocal nonumber norelativenumber bufhidden=hide
 augroup END
 
 "## Autocompleting configuration
@@ -273,20 +295,20 @@ EOF
 "## Nvim-treesitter config
 lua << EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
-  ignore_install = {},
-  highlight = {
-    enable = true, 
-    disable = {},
-    additional_vim_regex_highlighting = false,
-  },
+ensure_installed = "maintained",
+ignore_install = {},
+highlight = {
+enable = true, 
+disable = {},
+additional_vim_regex_highlighting = false,
+},
 }
 EOF
 
 "## Which-keys setup
 lua << EOF
 require("which-key").setup {
-}
+  }
 EOF
 
 " Wilder setup
@@ -313,6 +335,6 @@ call wilder#set_option('pipeline', [
 call wilder#set_option('renderer', wilder#popupmenu_renderer({
       \ 'highlighter': wilder#basic_highlighter(),
       \ 'highlights': {
-      \   'accent': wilder#make_hl('WilderAccent', 'Pmenu', [{}, {}, {'foreground': '#f4468f'}]),
-      \ },
-      \ }))
+        \   'accent': wilder#make_hl('WilderAccent', 'Pmenu', [{}, {}, {'foreground': '#f4468f'}]),
+        \ },
+        \ }))
