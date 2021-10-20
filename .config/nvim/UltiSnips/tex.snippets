@@ -374,15 +374,27 @@ def stringify_args(rex):
 		count += 1
 		stringify.append("\'" + x + "\'")
 	return ' '.join(stringify), first_arg
+
+def stringToPath(s):
+  return s.replace(' ', '\\ ')
 endglobal
 
 snippet ';intro(\w+[,\w+[\s\w]*]*)  ' "Intro Knowledge" riA
 `!p
+import os
+from os.path import exists
 stringify = []
-kldb_file='/home/jose/Documents/GithubProjects/phd-thesis/Documents/Write-Ups/personal_notes/kldb.tex'
-add_knowledge_cmd='/home/jose/.local/scripts/add-knowledge '
+curr_dir = os.getcwd()
+kldb_file = curr_dir + '/kldb.tex'
+kldb_file_path = stringToPath(kldb_file)
+if(not(exists(kldb_file))):
+	file_cmd = 'touch ' + kldb_file_path
+	os.system(file_cmd)
+add_knowledge_cmd='/home/jose/.local/scripts/add-knowledge -p ' +\
+kldb_file_path + ' '
 args, first_arg = stringify_args(match)
-command = 'if ! grep ' + kldb_file + ' -e \'index=' + first_arg + '}\'; then ' + add_knowledge_cmd + args + '; fi'
+command = 'if ! grep ' + kldb_file_path + ' -e \'index=' + first_arg +\
+'}\'; then ' + add_knowledge_cmd + args + '; fi'
 os.system(command)
 snip.rv = '\\intro{' + first_arg + '}'
 `$0
@@ -394,11 +406,20 @@ endsnippet
 
 snippet ';gloss(\w+[,\w+[\s\w]*]*)  ' "Introduce new glossary term" riA
 `!p
+import os
+from os.path import exists
 stringify = []
-idxdb_file='/home/jose/Documents/GithubProjects/phd-thesis/Documents/Write-Ups/personal_notes/idxdb.tex'
-add_glossary_cmd='/home/jose/.local/scripts/add-glossary '
+curr_dir = os.getcwd()
+idxdb_file=curr_dir + '/idxdb.tex'
+idxdb_file_path = stringToPath(idxdb_file)
+if(not(exists(idxdb_file))):
+	file_cmd = 'touch ' + idxdb_file_path
+	os.system(file_cmd)
+add_glossary_cmd='/home/jose/.local/scripts/add-glossary -p ' +\
+idxdb_file_path + ' '
 args, first_arg = stringify_args(match)
-command = 'if ! grep ' + idxdb_file + ' -e \'newglossaryentry{' + first_arg + '}\'; then ' + add_glossary_cmd + args + '; fi'
+command = 'if ! grep ' + idxdb_file + ' -e \'newglossaryentry{' + first_arg +\
+'}\'; then ' + add_glossary_cmd + args + '; fi'
 os.system(command)
 snip.rv = '\\glsadd{' + first_arg + '}'
 `$0
