@@ -358,9 +358,9 @@ endsnippet
 snippet ;fig "Figure environment" iA
 \begin{figure}[${1:htpb}]
 	\centering
-	\includegraphics[width=0.8\textwidth]{$2}
-	\caption{${3:$2}}
-	\label{fig:${4:${2/\W+/-/g}}}
+	\includegraphics[width=${3:0.8}\textwidth]{./figures/$2}
+	\caption{${4:$2}}
+	\label{fig:${5:${2/\W+/-/g}}}
 \end{figure}
 endsnippet
 
