@@ -213,6 +213,14 @@ snippet ;bar "Overbar" iA
 \\overbar{$1}$0
 endsnippet
 
+snippet ';seq(\w+),(\w+)' "Sequence of symbols" riA
+`!p
+symbol = match.group(1)
+arity= match.group(2)
+result = symbol + "_1, \\dots, " + symbol + '_{' + arity + '}'
+snip.rv = result`$0
+endsnippet
+
 snippet ';polyring(\w+),(\w+)' "Polyring" riA
 $1`!p
 varSymbol = match.group(1)
