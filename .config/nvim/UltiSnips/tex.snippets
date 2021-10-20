@@ -213,7 +213,7 @@ snippet ';polyring(\w+),(\w+)' "Polyring" riA
 $1`!p
 varSymbol = match.group(1)
 arity= match.group(2)
-result = '[' + varSymbol + '_1, \\dots, ' + varSymbol + '_{' + arity + '}]'
+result = '[' + varSymbol + "_1, \\dots, " + varSymbol + '_{' + arity + '}]'
 snip.rv = result`$0
 endsnippet
 
@@ -381,22 +381,23 @@ endglobal
 
 snippet ';intro(\w+[,\w+[\s\w]*]*)  ' "Intro Knowledge" riA
 `!p
-import os
+from os import getcwd
+from os import system
 from os.path import exists
 stringify = []
-curr_dir = os.getcwd()
+curr_dir = getcwd()
 kldb_file = curr_dir + '/kldb.tex'
 kldb_file_path = stringToPath(kldb_file)
 if(not(exists(kldb_file))):
 	file_cmd = 'touch ' + kldb_file_path
-	os.system(file_cmd)
+	system(file_cmd)
 add_knowledge_cmd='/home/jose/.local/scripts/add-knowledge -p ' +\
 kldb_file_path + ' '
 args, first_arg = stringify_args(match)
 command = 'if ! grep ' + kldb_file_path + ' -e \'index=' + first_arg +\
 '}\'; then ' + add_knowledge_cmd + args + '; fi'
-os.system(command)
-snip.rv = '\\intro{' + first_arg + '}'
+system(command)
+snip.rv = "\\intro{" + first_arg + '}'
 `$0
 endsnippet
 
@@ -406,22 +407,23 @@ endsnippet
 
 snippet ';gloss(\w+[,\w+[\s\w]*]*)  ' "Introduce new glossary term" riA
 `!p
-import os
+from os import getcwd
+from os import system
 from os.path import exists
 stringify = []
-curr_dir = os.getcwd()
+curr_dir = getcwd()
 idxdb_file=curr_dir + '/idxdb.tex'
 idxdb_file_path = stringToPath(idxdb_file)
 if(not(exists(idxdb_file))):
 	file_cmd = 'touch ' + idxdb_file_path
-	os.system(file_cmd)
+	system(file_cmd)
 add_glossary_cmd='/home/jose/.local/scripts/add-glossary -p ' +\
 idxdb_file_path + ' '
 args, first_arg = stringify_args(match)
-command = 'if ! grep ' + idxdb_file + ' -e \'newglossaryentry{' + first_arg +\
+command = "if ! grep " + idxdb_file + ' -e \'newglossaryentry{' + first_arg +\
 '}\'; then ' + add_glossary_cmd + args + '; fi'
-os.system(command)
-snip.rv = '\\glsadd{' + first_arg + '}'
+system(command)
+snip.rv = "\\glsadd{" + first_arg + '}'
 `$0
 endsnippet
 
