@@ -43,16 +43,16 @@ colors:
 background_opacity: 0.8
 font:
   normal:
-    family: InputMono
+    family: FiraCode
     style: Regular
   bold:
-    family: InputMono
+    family: FiraCode
     style: Bold
   italic:
-    family: InputMono
+    family: FiraCode
     style: Italic
   bold_italic:
-    family: InputMono
+    family: FiraCode
     style: Bold Italic
   size: 18
   offset:

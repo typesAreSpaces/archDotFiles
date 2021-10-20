@@ -10,3 +10,5 @@
   required = true
 [init]
 	defaultBranch = main
+[core]
+	excludesfile = /home/jose/.gitignore_global

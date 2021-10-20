@@ -37,6 +37,7 @@ Plug 'EdenEast/nightfox.nvim'
 "# Ricing
 Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
+Plug 'ryanoasis/vim-devicons'
 
 "# Syntax
 Plug 'bohlender/vim-smt2' 
@@ -184,6 +185,7 @@ set undofile
 set incsearch 
 set number relativenumber
 set nu rnu
+set encoding=UTF-8
 
 let base16colorspace = 256
 let g:gruvbox_contrast_dark = 'hard'
