@@ -13,7 +13,7 @@ export BOSQUE_DIR="$GITHUB_PROJECTS_DIR/BosqueLanguage"
 export MASTER_THESIS_DIR="$GITHUB_PROJECTS_DIR/master-thesis"
 export PHD_THESIS_DIR="$GITHUB_PROJECTS_DIR/phd-thesis"
 export MSAT_DIR="$APPS_DIR/mathsat-5.6.5-linux-x86_64"
-export WALLPAPERS_DIR="~/Pictures/Wallpapers"
+export WALLPAPERS_DIR="$HOME/Pictures/Wallpapers"
 
 export PATH="/usr/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
@@ -39,7 +39,6 @@ alias sshJose='ssh -X jose@10.88.183.111'
 
 # Directory Aliases
 alias second_home="cd /media"
-
 alias thesis="cd $PHD_THESIS_DIR/Documents/Write-Ups/thesis"
 alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
 alias reports="cd $PHD_THESIS_DIR/Documents/Write-Ups/weekly_reports/Fall-2021/scheiderer_local_global_principle"
