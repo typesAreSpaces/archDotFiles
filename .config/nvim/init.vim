@@ -55,6 +55,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>cd <cmd>cd %:p:h<CR><cmd>pwd<CR>
+nnoremap <leader>s <cmd>mksession! session<CR>
 
 "## Windows
 nnoremap <silent> <leader>u <cmd>exe "resize -5" <CR>
@@ -80,7 +81,7 @@ nnoremap <CR> <cmd>FZF<CR>
 "## NerdToggle binders
 nnoremap <C-n> <cmd>NERDTreeToggle<CR>
 
-"## Snippets using ultisnips
+"# Snippets using ultisnips
 let g:UltiSnipsExpandTrigger = '<c-e>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
