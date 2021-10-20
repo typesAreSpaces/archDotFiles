@@ -295,20 +295,29 @@ EOF
 "## Nvim-treesitter config
 lua << EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
-  ignore_install = {},
-  highlight = {
-    enable = true, 
-    disable = {},
-    additional_vim_regex_highlighting = false,
+ensure_installed = "maintained",
+ignore_install = {},
+incremental_selection = {
+enable = true,
+keymaps = {
+  init_selection = "gnn",
+  node_incremental = "grn",
+  scope_incremental = "grc",
+  node_decremental = "grm",
   },
+},
+highlight = {
+enable = true, 
+disable = {},
+additional_vim_regex_highlighting = false,
+},
 }
 EOF
 
 "## Which-keys setup
 lua << EOF
 require("which-key").setup {
-}
+  }
 EOF
 
 " Wilder setup
@@ -335,6 +344,6 @@ call wilder#set_option('pipeline', [
 call wilder#set_option('renderer', wilder#popupmenu_renderer({
       \ 'highlighter': wilder#basic_highlighter(),
       \ 'highlights': {
-      \   'accent': wilder#make_hl('WilderAccent', 'Pmenu', [{}, {}, {'foreground': '#f4468f'}]),
-      \ },
-      \ }))
+        \   'accent': wilder#make_hl('WilderAccent', 'Pmenu', [{}, {}, {'foreground': '#f4468f'}]),
+        \ },
+        \ }))
