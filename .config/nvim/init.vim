@@ -19,6 +19,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'folke/which-key.nvim'
 Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'nvim-treesitter/playground'
 
 "# Neovim apps 
 Plug 'iamcco/markdown-preview.nvim'
@@ -56,7 +57,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>cd <cmd>cd %:p:h<CR><cmd>pwd<CR>
-nnoremap <leader>s <cmd>mksession! session<CR>
+function! SaveSession()
+  :mksession! session
+  :echon "Session saved"
+endfunction
+nnoremap <leader>s <cmd>call SaveSession()<CR>
 
 "## Windows
 nnoremap <silent> <leader>u <cmd>exe "resize -5" <CR>
