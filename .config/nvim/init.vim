@@ -19,6 +19,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'folke/which-key.nvim'
 Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'nvim-treesitter/playground'
 
 "# Neovim apps 
 Plug 'iamcco/markdown-preview.nvim'
@@ -37,6 +38,7 @@ Plug 'EdenEast/nightfox.nvim'
 "# Ricing
 Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
+Plug 'ryanoasis/vim-devicons'
 
 "# Syntax
 Plug 'bohlender/vim-smt2' 
@@ -49,12 +51,17 @@ call plug#end()
 nnoremap <C-t> <cmd>terminal<CR>
 
 "## Navigation
-let mapleader=" "
+let mapleader = " "
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>cd <cmd>cd %:p:h<CR><cmd>pwd<CR>
+function! SaveSession()
+  :mksession! session
+  :echon "Session saved"
+endfunction
+nnoremap <leader>s <cmd>call SaveSession()<CR>
 
 "## Windows
 nnoremap <silent> <leader>u <cmd>exe "resize -5" <CR>
@@ -64,9 +71,9 @@ nnoremap <silent> <leader>o <cmd>exe "vertical resize -5"<CR>
 
 "## Telescope bindings
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>gg <cmd>Telescope live_grep<cr>
+nnoremap <leader>bb <cmd>Telescope buffers<cr>
+nnoremap <leader>hh <cmd>Telescope help_tags<cr>
 
 "## Buffers
 nnoremap <silent> [b <cmd>bprevious<CR>
@@ -80,33 +87,29 @@ nnoremap <CR> <cmd>FZF<CR>
 "## NerdToggle binders
 nnoremap <C-n> <cmd>NERDTreeToggle<CR>
 
-"## Snippets using ultisnips
+"# Snippets using ultisnips
 let g:UltiSnipsExpandTrigger = '<c-e>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 "## Vimtex setup
-let g:Tex_DefaultTargetFormat='pdf'
-let g:vimtex_view_enabled=1
-let g:vimtex_view_automatic=0
-" Using okular
-"let g:vimtex_view_general_viewer = 'okular'
-"let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
-"let g:vimtex_view_general_options_latexmk = '--unique'
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:vimtex_view_enabled = 1
+let g:vimtex_view_automatic = 0
 " Using zathura
-let g:vimtex_view_method='zathura'
-let g:vimtex_view_zathura=1
-let g:vimtex_view_automatic_xwin=1
-let g:vimtex_view_forward_search_on_start=1
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_zathura = 1
+let g:vimtex_view_automatic_xwin = 1
+let g:vimtex_view_forward_search_on_start = 1
 let g:vimtex_compiler_progname = 'nvr'
 let g:tex_flavor = "latex"
-let g:active_refresh = 1
+let g:active_refresh = 0
 
 function! ToggleActiveRefresh()
   if g:active_refresh == 1
     let g:active_refresh = 0
   else
-    let g:active_refresh = 1  
+    let g:active_refresh = 1
   endif
 endfunction
 nnoremap <silent> <leader>ar <cmd>call ToggleActiveRefresh()<cr>
@@ -132,8 +135,8 @@ nmap <leader>gj <cmd>diffget //3<CR>
 nmap <leader>gf <cmd>diffget //2<CR>
 
 "## SMT settings:
-let g:smt2_solver_command="z3 -smt2"
-let g:smt2_solver_version_switch="4.8.8"
+let g:smt2_solver_command = "z3 -smt2"
+let g:smt2_solver_version_switch = "4.8.8"
 
 "## Lightline settings:
 set laststatus=2
@@ -148,14 +151,15 @@ let g:lightline = {
         \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
         \ },
         \ 'component_function': {
-          \   'readonly': 'LightlineReadonly',
+          \   'readonly': 'IsActiveRefresh',
+          \   'gitbranch': 'FugitiveHead'
           \ },
           \ }
-function! LightlineReadonly()
+function! IsActiveRefresh()
   if g:active_refresh == 1
-    return "Tex Refresh: ON"
+    return 'Active Refresh'
   else
-    return "Tex Refresh: OFF"
+    return ''
   endif
 endfunction
 
@@ -186,14 +190,15 @@ set undofile
 set incsearch 
 set number relativenumber
 set nu rnu
+set encoding=UTF-8
 
-let base16colorspace=256
+let base16colorspace = 256
 let g:gruvbox_contrast_dark = 'hard'
 if exists('+termguicolors') 
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-let g:gruvbox_invert_selection='0'
+let g:gruvbox_invert_selection = '0'
 color nord
 set termguicolors
 set guifont=InputMono\ NF:h30
@@ -208,7 +213,7 @@ augroup END
 set completeopt=menuone,noinsert,noselect
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+let g:completion_matching_strategy_list=['exact', 'substring', 'fuzzy']
 
 "## Compe configuration
 let g:compe = {}
@@ -235,81 +240,16 @@ let g:compe.source.vsnip = v:true
 let g:compe.source.ultisnips = v:true
 
 "## LSP Install config
-lua << EOF
-local lsp_install = require('lspinstall')
-local nvim_lsp = require('lspconfig')
-lsp_install.setup()
-
-local servers = lsp_install.installed_servers()
-for _, server in pairs(servers) do
-  nvim_lsp[server].setup{}
-end
-EOF
+lua require('lsp-install-config')
 
 "## LSP config:
-lua << EOF
-local nvim_lsp = require('lspconfig')
-
--- Use an custom_on_attach function to only map the following keys 
--- after the language server attaches to the current buffer
-local custom_on_attach = function(client, bufnr)
-local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
---Enable completion triggered by <c-x><c-o>
-buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
--- Mappings.
-local opts = { noremap=true, silent=true }
-
--- See `:help vim.lsp.*` for documentation on any of the below functions
-buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-buf_set_keymap('n', 'gK', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-end
-
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'clangd', 'tsserver', 'hls', 'rust_analyzer' }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup({ 
-  on_attach = custom_on_attach 
-  })
-end
-EOF
+lua require('lsp-config')
 
 "## Nvim-treesitter config
-lua << EOF
-require'nvim-treesitter.configs'.setup {
-ensure_installed = "maintained",
-ignore_install = {},
-highlight = {
-enable = true, 
-disable = {},
-additional_vim_regex_highlighting = false,
-},
-}
-EOF
+lua require('nvim-treesitter-config')
 
 "## Which-keys setup
-lua << EOF
-require("which-key").setup {
-  }
-EOF
+lua require('which-key-config')
 
 " Wilder setup
 call wilder#setup({

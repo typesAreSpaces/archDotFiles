@@ -1,3 +1,17 @@
+# Accent-related
+
+snippet ;gr "Grave accent" iA
+\\\`{$1}$0
+endsnippet
+
+snippet ;ac "Acute accent" iA
+\\'{$1}$0
+endsnippet
+
+snippet ;um "Umlaut accent" iA
+\\"{$1}$0
+endsnippet
+
 # Math-related
 priority 100
 snippet ... "ldots" iA
@@ -8,12 +22,24 @@ snippet ;emptys "Empty Set" iA
 \\emptyset$0
 endsnippet
 
+snippet ;set "Set" iA
+\\set{$1 ${2:\mid $3}}$0
+endsnippet
+
+snippet ;_ "Subindex" iA
+_{$1}$0
+endsnippet
+
 snippet ;iff "If and only if" iA
 if and only if$0
 endsnippet
 
 snippet ;abs "Absolute value" iA
 |$1|$0
+endsnippet
+
+snippet ;eps "Epsilon" iA
+\\epsilon$0
 endsnippet
 
 snippet ;inv "Inverse" iA
@@ -63,12 +89,20 @@ snippet ;wrt "with respect to" iA
 with respect to$0
 endsnippet
 
-snippet ;sse "Subseteq" iA
+snippet ;subse "Subseteq" iA
 \\subseteq$0	
 endsnippet
 
-snippet ;sss "Subseteq" iA
+snippet ;subss "Subseteq" iA
 \\subset$0	
+endsnippet
+
+snippet ;supse "Supseteq" iA
+\\supseteq$0	
+endsnippet
+
+snippet ;supss "Supseteq" iA
+\\supset$0	
 endsnippet
 
 snippet ;NN "Natural Numbers" iA
@@ -103,19 +137,27 @@ snippet ;lim "Limit" iA
 \\lim_{$1 \to $2} $3$0
 endsnippet
 
-snippet ;Conj "Big Conjunction" iA
+snippet ;bigconj "Big Conjunction" iA
+\\bigwedge_{$1}^{$2}{$3}$0
+endsnippet
+
+snippet ;bigdisj "Big Disjunction" iA
+\\bigvee_{$1}^{$2}{$3}$0
+endsnippet
+
+snippet ;biginter "Big Intersecion" iA
 \\bigcap_{$1}^{$2}{$3}$0
 endsnippet
 
-snippet ;Disj "Big Disjunction" iA
+snippet ;bigunion "Big Union" iA
 \\bigcup_{$1}^{$2}{$3}$0
 endsnippet
 
-snippet ;AA "Universal Quantifier" iA
+snippet ;qall "Universal Quantifier" iA
 \\qall{$1}{$2}$0
 endsnippet
 
-snippet ;EE "Existential Quantifier" iA
+snippet ;qex "Existential Quantifier" iA
 \\qex{$1}{$2}$0
 endsnippet
 
@@ -171,15 +213,15 @@ snippet ;bar "Overbar" iA
 \\overbar{$1}$0
 endsnippet
 
-snippet ';polyring(\w+),(\w+)' "Polyring" riA
-$1`!p
-varSymbol = match.group(1)
-arity= match.group(2)
-result = '[' + varSymbol + '_1, \\dots, ' + varSymbol + '_{' + arity + '}]'
-snip.rv = result`$0
+snippet ;seq "Sequence of symbols" iA
+$1_1, \\dots, $1_{$2}$0
 endsnippet
 
-snippet 'bigO "Big-O notation" iA
+snippet ;polyring "Polyring" iA
+$1[$2${3:_1, \\dots, $2_{$4}}]
+endsnippet
+
+snippet ;bigO "Big-O notation" iA
 \\mathcal{O}($1)$0
 endsnippet
 
@@ -270,6 +312,12 @@ snippet ;remark "Remark Environment" iA
 \end{remark}
 endsnippet
 
+snippet ;example "Example Environment" iA
+\begin{example}
+	$0
+\end{example}
+endsnippet
+
 snippet ;cor "Corollary Environment" iA
 \begin{corollary}
 	$0
@@ -288,13 +336,13 @@ snippet ;notation "Notation Environment" iA
 \end{notation}
 endsnippet
 
-snippet ;enum "Enumerate Environment" bA
+snippet ;enum "Enumerate Environment" iA
 \begin{enumerate}
 	\item $0
 \end{enumerate}
 endsnippet
 
-snippet ;itemi "Itemize Environment" bA
+snippet ;itemi "Itemize Environment" iA
 \begin{itemize}
 	\item $0
 \end{itemize}
@@ -314,9 +362,9 @@ endsnippet
 snippet ;fig "Figure environment" iA
 \begin{figure}[${1:htpb}]
 	\centering
-	${2:\includegraphics[width=0.8\textwidth]{$3}}
-	\caption{${4:$3}}
-	\label{fig:${5:${3/\W+/-/g}}}
+	\includegraphics[width=${3:0.8}\textwidth]{./figures/$2}
+	\caption{${4:$2}}
+	\label{fig:${5:${2/\W+/-/g}}}
 \end{figure}
 endsnippet
 
@@ -330,17 +378,30 @@ def stringify_args(rex):
 		count += 1
 		stringify.append("\'" + x + "\'")
 	return ' '.join(stringify), first_arg
+
+def stringToPath(s):
+  return s.replace(' ', '\\ ')
 endglobal
 
 snippet ';intro(\w+[,\w+[\s\w]*]*)  ' "Intro Knowledge" riA
 `!p
+from os import getcwd
+from os import system
+from os.path import exists
 stringify = []
-kldb_file='/home/jose/Documents/GithubProjects/phd-thesis/Documents/Write-Ups/personal_notes/kldb.tex'
-add_knowledge_cmd='/home/jose/.local/scripts/add-knowledge '
+curr_dir = getcwd()
+kldb_file = curr_dir + '/kldb.tex'
+kldb_file_path = stringToPath(kldb_file)
+if(not(exists(kldb_file))):
+	file_cmd = 'touch ' + kldb_file_path
+	system(file_cmd)
+add_knowledge_cmd='/home/jose/.local/scripts/add-knowledge -p ' +\
+kldb_file_path + ' '
 args, first_arg = stringify_args(match)
-command = 'if ! grep ' + kldb_file + ' -e \'index=' + first_arg + '}\'; then ' + add_knowledge_cmd + args + '; fi'
-os.system(command)
-snip.rv = '\\intro{' + first_arg + '}'
+command = 'if ! grep ' + kldb_file_path + ' -e \'index=' + first_arg +\
+'}\'; then ' + add_knowledge_cmd + args + '; fi'
+system(command)
+snip.rv = "\\intro{" + first_arg + '}'
 `$0
 endsnippet
 
@@ -350,13 +411,23 @@ endsnippet
 
 snippet ';gloss(\w+[,\w+[\s\w]*]*)  ' "Introduce new glossary term" riA
 `!p
+from os import getcwd
+from os import system
+from os.path import exists
 stringify = []
-idxdb_file='/home/jose/Documents/GithubProjects/phd-thesis/Documents/Write-Ups/personal_notes/idxdb.tex'
-add_glossary_cmd='/home/jose/.local/scripts/add-glossary '
+curr_dir = getcwd()
+idxdb_file=curr_dir + '/idxdb.tex'
+idxdb_file_path = stringToPath(idxdb_file)
+if(not(exists(idxdb_file))):
+	file_cmd = 'touch ' + idxdb_file_path
+	system(file_cmd)
+add_glossary_cmd='/home/jose/.local/scripts/add-glossary -p ' +\
+idxdb_file_path + ' '
 args, first_arg = stringify_args(match)
-command = 'if ! grep ' + idxdb_file + ' -e \'newglossaryentry{' + first_arg + '}\'; then ' + add_glossary_cmd + args + '; fi'
-os.system(command)
-snip.rv = '\\glsadd{' + first_arg + '}'
+command = "if ! grep " + idxdb_file + ' -e \'newglossaryentry{' + first_arg +\
+'}\'; then ' + add_glossary_cmd + args + '; fi'
+system(command)
+snip.rv = "\\glsadd{" + first_arg + '}'
 `$0
 endsnippet
 
@@ -366,6 +437,7 @@ endsnippet
 
 global !p
 def create_matrix_placeholders(snip):
+	# Create anonymous snippet body
 	anon_snippet_body = ""
 
 	# Get start and end line number of expanded snippet
@@ -401,15 +473,39 @@ def create_matrix(cols, rows, sep, start, end):
 endglobal
 
 post_jump "create_matrix_placeholders(snip)"
-snippet ';matrix(\d+),(\d+)' "LaTeX array" br
-\begin{array}{`!p
-orient = ""
-for _ in range(0, int(match.group(1))): orient += "l"
-snip.rv = orient`}
+snippet ';pmatrix(\d+),(\d+)' "LaTeX pmatrix" br
+\begin{pmatrix}
 `!p
 snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
 `$0
-\end{array}
+\end{pmatrix}
+endsnippet
+
+post_jump "create_matrix_placeholders(snip)"
+snippet ';bmatrix(\d+),(\d+)' "LaTeX bmatrix" br
+\begin{bmatrix}
+`!p
+snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
+`$0
+\end{bmatrix}
+endsnippet
+
+post_jump "create_matrix_placeholders(snip)"
+snippet ';Bmatrix(\d+),(\d+)' "LaTeX Bmatrix" br
+\begin{Bmatrix}
+`!p
+snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
+`$0
+\end{Bmatrix}
+endsnippet
+
+post_jump "create_matrix_placeholders(snip)"
+snippet ';det(\d+),(\d+)' "LaTeX vmatrix" br
+\begin{vmatrix}
+`!p
+snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
+`$0
+\end{vmatrix}
 endsnippet
 
 snippet ;template "Basic template" iA
