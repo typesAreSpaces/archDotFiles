@@ -1,5 +1,6 @@
+"# Plugins
 call plug#begin('~/.vim/plugged')
-"# IDE Experience
+"## IDE Experience
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
 Plug 'nvim-lua/plenary.nvim'
@@ -21,12 +22,12 @@ Plug 'folke/which-key.nvim'
 Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'nvim-treesitter/playground'
 
-"# Neovim apps 
+"## Neovim apps 
 Plug 'iamcco/markdown-preview.nvim'
 Plug 'rhysd/vim-grammarous'
 Plug 'sotte/presenting.vim'
 
-"# Themes
+"## Themes
 Plug 'chriskempson/base16-vim'
 Plug 'sainnhe/gruvbox-material'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
@@ -35,33 +36,35 @@ Plug 'b4skyx/serenade'
 Plug 'dracula/vim' 
 Plug 'EdenEast/nightfox.nvim'
 
-"# Ricing
+"## Ricing
 Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
 
-"# Syntax
+"## Syntax
 Plug 'bohlender/vim-smt2' 
 Plug 'plasticboy/vim-markdown'
 call plug#end()
 
-"# Vim settings
+"# Settings
 
-"## Terminal
-nnoremap <C-t> <cmd>terminal<CR>
-
-"## Navigation
+"## General
 let mapleader = " "
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <C-t> <cmd>terminal<CR>
+nnoremap <leader>sv :source $HOME/.config/nvim/init.vim<CR>
+nnoremap <leader>rs :call UltiSnips#RefreshSnippets()<CR>
 nnoremap <leader>cd <cmd>cd %:p:h<CR><cmd>pwd<CR>
 function! SaveSession()
   :mksession! session
   :echon "Session saved"
 endfunction
-nnoremap <leader>s <cmd>call SaveSession()<CR>
+nnoremap <leader>ss <cmd>call SaveSession()<CR>
+
+"## Navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 "## Windows
 nnoremap <silent> <leader>u <cmd>exe "resize -5" <CR>
@@ -87,7 +90,7 @@ nnoremap <CR> <cmd>FZF<CR>
 "## NerdToggle binders
 nnoremap <C-n> <cmd>NERDTreeToggle<CR>
 
-"# Snippets using ultisnips
+"## Snippets using ultisnips
 let g:UltiSnipsExpandTrigger = '<c-e>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
@@ -163,7 +166,7 @@ function! IsActiveRefresh()
   endif
 endfunction
 
-"#l# Neovim binders
+"## Neovim binders
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
   tnoremap <C-v><Esc> <Esc> 
@@ -251,7 +254,7 @@ lua require('nvim-treesitter-config')
 "## Which-keys setup
 lua require('which-key-config')
 
-" Wilder setup
+"## Wilder setup
 call wilder#setup({
       \'modes': [':', '/', '?'],
       \ 'next_key': '<Tab>',
