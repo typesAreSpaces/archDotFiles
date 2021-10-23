@@ -52,6 +52,7 @@ alias wolfram="rlwrap wolfram"
 alias v="vim"
 alias nv="nvim --listen localhost:12345"
 alias nvs="nvim --listen localhost:12345 -S session"
+alias e="emacs -nw"
 alias z="zathura"
 alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
 
