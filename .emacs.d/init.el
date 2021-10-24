@@ -374,6 +374,9 @@
   (define-key global-map (kbd "C-c j")
     (lambda () (interactive) (org-capture nil "jj")))
 
+  (define-key global-map (kbd "C-c a")
+      'org-sort-entries)
+
   (efs/org-font-setup))
 
 (use-package org-bullets
