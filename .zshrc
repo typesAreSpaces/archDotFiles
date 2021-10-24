@@ -53,6 +53,8 @@ alias ocaml="rlwrap ocaml"
 alias wolfram="rlwrap wolfram"
 alias v="vim"
 alias nv="nvim --listen localhost:12345"
+alias e="emacs -nw"
+alias todo="emacs -nw $PHD_THESIS_DIR/todolist.org"
 alias z="zathura"
 alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
 
