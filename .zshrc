@@ -41,7 +41,7 @@ alias sshJose='ssh -X jose@10.88.183.111'
 alias second_home="cd /media"
 alias thesis="cd $PHD_THESIS_DIR/Documents/Write-Ups/thesis"
 alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
-alias reports="cd $PHD_THESIS_DIR/Documents/Write-Ups/weekly_reports/Fall-2021/scheiderer_local_global_principle"
+alias reports="cd $PHD_THESIS_DIR/Documents/Write-Ups/weekly_reports/Fall-2021/doris_algorithm"
 alias phd_thesis="cd $PHD_THESIS_DIR"
 alias personal_notes="cd $PHD_THESIS_DIR/Documents/Write-Ups/personal_notes"
 
