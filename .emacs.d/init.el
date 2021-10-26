@@ -468,6 +468,9 @@
   :config
   (setq typescript-indent-level 2))
 
+(add-hook 'c-mode-hook 'lsp)
+(add-hook 'c++-mode-hook 'lsp)
+
 (use-package python-mode
   :ensure t
   :hook (python-mode . lsp-deferred)
