@@ -5,14 +5,40 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{symbols}[2020/01/20 Personal macros]
 
-\RequirePackage{xcolor}
-\RequirePackage{amsthm}
-\RequirePackage{amsmath}
+\RequirePackage{algorithm}
+\RequirePackage{algpseudocode}
 \RequirePackage{amsfonts}
+\RequirePackage{amsmath}
 \RequirePackage{amssymb}
-\RequirePackage{mathtools}
-\RequirePackage{tikz}
+\RequirePackage{amsthm}
+\RequirePackage[english]{babel}
+\RequirePackage{booktabs}
+\RequirePackage{caption}
+\RequirePackage{cite}
+\RequirePackage{ebproof}
+\RequirePackage{etoolbox}
+\RequirePackage{float}
+\RequirePackage{glossaries}
+\RequirePackage{graphics}
+\RequirePackage{graphicx}
+\RequirePackage[breaklinks,hidelinks]{hyperref}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[xcolor, hyperref, notion, makeidx]{knowledge}
+\RequirePackage{listing}
 \RequirePackage{listings}
+\RequirePackage{makeidx}
+\RequirePackage{mathtools}
+\RequirePackage{multirow}
+\RequirePackage{pdfpages}
+\RequirePackage{rotating}
+\RequirePackage{setspace}
+\RequirePackage{symbols}
+\RequirePackage{tikz}
+\RequirePackage{tikz-cd}
+\RequirePackage{url}
+\RequirePackage{verbatim}
+\RequirePackage{xcolor}
+\usetikzlibrary{positioning,fit,arrows.meta,backgrounds,cd}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -44,6 +70,15 @@
   \small	
   \textbf{	extit{Keywords---}} #1
 }
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[definition]
+\newtheorem*{remark}{Remark}
+
 \newcommand{\NN}[0]{\mathbb{N}}
 \newcommand{\ZZ}[0]{\mathbb{Z}}
 \newcommand{\QQ}[0]{\mathbb{Q}}
@@ -86,23 +121,17 @@
 
 \newcommand{\separationline}[0]{0.75}
 
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{notation}{Notation}[section]
-\newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{example}{Example}[definition]
-\newtheorem*{remark}{Remark}
-
-\DeclareMathOperator{\spec}{Spec}
-\DeclareMathOperator{\mspec}{m-Spec}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\Irr}{Irr}
+
 \DeclareMathOperator{\Int}{Int}
 \DeclareMathOperator{\Cl}{Cl}
+
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\mspec}{m-Spec}
 \DeclareMathOperator{\supp}{supp}
-\DeclareMathOperator{\semisper}{Semi-Sper}
 \DeclareMathOperator{\sper}{Sper}
+\DeclareMathOperator{\semisper}{Semi-Sper}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\sign}{sign}
