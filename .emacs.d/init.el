@@ -186,6 +186,16 @@
   :init
   (ivy-rich-mode 1))
 
+(use-package flx)
+
+(setq ivy-initial-inputs-alist nil)
+
+(setq ivy-re-builders-alist
+      '((t . ivy--regex-plus)))
+
+(setq ivy-re-builders-alist
+      '((t . ivy--regex-fuzzy)))
+
 (use-package counsel
   :bind (("C-M-j" . 'counsel-switch-buffer)
          :map minibuffer-local-map
@@ -201,7 +211,7 @@
   (ivy-prescient-enable-filtering nil)
   :config
   ;; Uncomment the following line to have sorting remembered across sessions!
-  ;(prescient-persist-mode 1)
+                                        ;(prescient-persist-mode 1)
   (ivy-prescient-mode 1))
 
 (use-package helpful

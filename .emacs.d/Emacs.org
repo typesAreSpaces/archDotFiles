@@ -311,6 +311,16 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
     :init
     (ivy-rich-mode 1))
 
+  (use-package flx)
+
+  (setq ivy-initial-inputs-alist nil)
+
+  (setq ivy-re-builders-alist
+        '((t . ivy--regex-plus)))
+
+  (setq ivy-re-builders-alist
+        '((t . ivy--regex-fuzzy)))
+
   (use-package counsel
     :bind (("C-M-j" . 'counsel-switch-buffer)
            :map minibuffer-local-map
@@ -336,7 +346,7 @@ This Prescient configuration is optimized for use in System Crafters videos and 
     (ivy-prescient-enable-filtering nil)
     :config
     ;; Uncomment the following line to have sorting remembered across sessions!
-    ;(prescient-persist-mode 1)
+                                          ;(prescient-persist-mode 1)
     (ivy-prescient-mode 1))
 
 #+end_src
@@ -563,7 +573,7 @@ This section contains the basic configuration for =org-mode= plus the configurat
 
     (efs/org-font-setup))
 
-         #+end_src
+#+end_src
 
 *** Nicer Heading Bullets
 
@@ -778,8 +788,8 @@ This will install the [[https://github.com/theia-ide/typescript-language-server]
 
 #+begin_src emacs-lisp
 
-(add-hook 'c-mode-hook 'lsp)
-(add-hook 'c++-mode-hook 'lsp)
+  (add-hook 'c-mode-hook 'lsp)
+  (add-hook 'c++-mode-hook 'lsp)
 
 #+end_src
 
