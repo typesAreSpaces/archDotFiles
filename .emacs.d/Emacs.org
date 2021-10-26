@@ -540,7 +540,7 @@ This section contains the basic configuration for =org-mode= plus the configurat
       (lambda () (interactive) (org-capture nil "jj")))
 
     (define-key global-map (kbd "C-c s")
-      (lambda () (interactive) (mark-whole-buffer) (org-sort-entries)))
+      (lambda () (interactive) (mark-whole-buffer) (org-sort-entries nil ?o nil nil nil nil)))
 
     (define-key global-map (kbd "C-c c")
       (lambda () (interactive) (org-todo "COMPLETED")))
