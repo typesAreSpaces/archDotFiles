@@ -92,7 +92,7 @@
     :diminish dashboard-mode
     :config
     (setq dashboard-banner-logo-title "Welcome to Emacs!")
-    (setq dashboard-startup-banner "~/.emacs.d/etc/figures/480px-EmacsIcon.svg.png")
+    (setq dashboard-startup-banner "~/Pictures/Wallpapers/figures/480px-EmacsIcon.svg.png")
     (setq dashboard-items '((recents  . 10)
                             (bookmarks . 10)))
     (dashboard-setup-startup-hook))
