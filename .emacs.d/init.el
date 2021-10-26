@@ -375,7 +375,7 @@
     (lambda () (interactive) (org-capture nil "jj")))
 
   (define-key global-map (kbd "C-c s")
-    (lambda () (interactive) (mark-whole-buffer) (org-sort-entries)))
+    (lambda () (interactive) (mark-whole-buffer) (org-sort-entries nil ?o)))
 
   (define-key global-map (kbd "C-c c")
     (lambda () (interactive) (org-todo "COMPLETED")))
@@ -429,7 +429,7 @@
   :commands (lsp lsp-deferred)
   :hook (lsp-mode . efs/lsp-mode-setup)
   :init
-  (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
+  (setq lsp-keymap-prefix "C-l")
   :config
   (lsp-enable-which-key-integration t))
 
