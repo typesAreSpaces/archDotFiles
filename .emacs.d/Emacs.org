@@ -146,6 +146,22 @@ This section configures basic UI settings that remove unneeded elements to make 
 
 #+end_src
 
+** Dashboard Configuration
+
+#+begin_src emacs-lisp
+
+(use-package dashboard
+    :ensure t
+    :diminish dashboard-mode
+    :config
+    (setq dashboard-banner-logo-title "Welcome to Emacs!")
+    (setq dashboard-startup-banner "~/.emacs.d/etc/figures/480px-EmacsIcon.svg.png")
+    (setq dashboard-items '((recents  . 10)
+                            (bookmarks . 10)))
+    (dashboard-setup-startup-hook))
+
+#+end_src
+
 ** Font Configuration
 
 I am using the [[https://github.com/tonsky/FiraCode][Fira Code]] and [[https://fonts.google.com/specimen/Cantarell][Cantarell]] fonts for this configuration which will more than likely need to be installed on your machine.  Both can usually be found in the various Linux distro package managers or downloaded from the links above.
