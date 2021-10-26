@@ -119,7 +119,7 @@ nnoremap <silent> <leader>ar <cmd>call ToggleActiveRefresh()<cr>
 
 function! TexRefresh()
   if !filereadable(expand("main.pdf"))
-    :make
+    :silent make
   else
     :AsyncRun make
   endif
@@ -131,6 +131,11 @@ function! ActiveRefresh()
   endif
 endfunction
 autocmd BufWritePost *.tex :call ActiveRefresh()
+function! TexLeave()
+  :silent !make clean
+  :call SaveSession()
+endfunction
+autocmd VimLeavePre *.tex :call TexLeave()
 
 "## Fugitive settings:
 nmap <leader>gs <cmd>G<CR>
