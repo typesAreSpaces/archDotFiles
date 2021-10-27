@@ -646,7 +646,3 @@
   (yas-global-mode 1))
 
 (use-package yasnippet-snippets)
-
-;; (define-key yas-minor-mode-map (kbd "M-e") 'yas-expand)
-;; (define-key yas-keymap (kbd "M-j") 'yas-next-field-or-maybe-expand)
-;; (define-key yas-keymap (kbd "M-k") 'yas-prev-field)
