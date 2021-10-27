@@ -1,13 +1,7 @@
 #+title: Emacs From Scratch Configuration
 #+PROPERTY: header-args:emacs-lisp :tangle ./init.el :mkdirp yes
 
-* Welcome!
-
-This is the configuration we've been building in the *Emacs From Scratch* series, now written as an Org Mode document.  This file generates [[file:init.el][init.el]] which can be loaded by Emacs at startup.
-
-*NOTE:* If you run into any issues while using this configuration, please [[https://github.com/daviwil/emacs-from-scratch/issues/new][file an issue]] or send me an email at =david at systemcrafters.cc=.
-
-The following variables are used to tweak some of the configuration pieces for use in the live streams so you might need to adjust them for your local machine if you try to use this configuration directly.
+* Settings
 
 #+begin_src emacs-lisp
 
@@ -15,8 +9,8 @@ The following variables are used to tweak some of the configuration pieces for u
   ;;       in Emacs and init.el will be generated automatically!
 
   ;; You will most likely need to adjust this font size for your system!
-  (defvar efs/default-font-size 160)
-  (defvar efs/default-variable-font-size 160)
+  (defvar efs/default-font-size 140)
+  (defvar efs/default-variable-font-size 140)
 
   ;; Make frame transparency overridable
   (defvar efs/frame-transparency '(90 . 90))
@@ -146,16 +140,32 @@ This section configures basic UI settings that remove unneeded elements to make 
 
 #+end_src
 
+** Dashboard Configuration
+
+#+begin_src emacs-lisp
+
+(use-package dashboard
+    :ensure t
+    :diminish dashboard-mode
+    :config
+    (setq dashboard-banner-logo-title "Welcome to Emacs!")
+    (setq dashboard-startup-banner "~/Pictures/Wallpapers/figures/480px-EmacsIcon.svg.png")
+    (setq dashboard-items '((recents  . 10)
+                            (bookmarks . 10)))
+    (dashboard-setup-startup-hook))
+
+#+end_src
+
 ** Font Configuration
 
 I am using the [[https://github.com/tonsky/FiraCode][Fira Code]] and [[https://fonts.google.com/specimen/Cantarell][Cantarell]] fonts for this configuration which will more than likely need to be installed on your machine.  Both can usually be found in the various Linux distro package managers or downloaded from the links above.
 
 #+begin_src emacs-lisp
 
-(set-face-attribute 'default nil :font "InputMono" :height efs/default-font-size)
+(set-face-attribute 'default nil :font "Fira Code Retina" :height efs/default-font-size)
 
 ;; Set the fixed pitch face
-(set-face-attribute 'fixed-pitch nil :font "InputMono" :height efs/default-font-size)
+(set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height efs/default-font-size)
 
 ;; Set the variable pitch face
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height efs/default-variable-font-size :weight 'regular)
@@ -229,7 +239,7 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
 #+begin_src emacs-lisp
 
 (use-package doom-themes
-  :init (load-theme 'doom-palenight t))
+  :init (load-theme 'doom-nord t))
 
 #+end_src
 
@@ -295,6 +305,16 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
     :init
     (ivy-rich-mode 1))
 
+  (use-package flx)
+
+  (setq ivy-initial-inputs-alist nil)
+
+  (setq ivy-re-builders-alist
+        '((t . ivy--regex-plus)))
+
+  (setq ivy-re-builders-alist
+        '((t . ivy--regex-fuzzy)))
+
   (use-package counsel
     :bind (("C-M-j" . 'counsel-switch-buffer)
            :map minibuffer-local-map
@@ -320,7 +340,7 @@ This Prescient configuration is optimized for use in System Crafters videos and 
     (ivy-prescient-enable-filtering nil)
     :config
     ;; Uncomment the following line to have sorting remembered across sessions!
-    ;(prescient-persist-mode 1)
+                                          ;(prescient-persist-mode 1)
     (ivy-prescient-mode 1))
 
 #+end_src
@@ -540,14 +560,14 @@ This section contains the basic configuration for =org-mode= plus the configurat
       (lambda () (interactive) (org-capture nil "jj")))
 
     (define-key global-map (kbd "C-c s")
-      (lambda () (interactive) (mark-whole-buffer) (org-sort-entries nil ?o nil nil nil nil)))
+      (lambda () (interactive) (mark-whole-buffer) (org-sort-entries nil ?o)))
 
     (define-key global-map (kbd "C-c c")
       (lambda () (interactive) (org-todo "COMPLETED")))
 
     (efs/org-font-setup))
 
-         #+end_src
+#+end_src
 
 *** Nicer Heading Bullets
 
@@ -654,7 +674,7 @@ The =which-key= integration adds helpful descriptions of the various keys so you
     :commands (lsp lsp-deferred)
     :hook (lsp-mode . efs/lsp-mode-setup)
     :init
-    (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
+    (setq lsp-keymap-prefix "C-l")
     :config
     (lsp-enable-which-key-integration t))
 
@@ -757,6 +777,15 @@ This is a basic configuration for the TypeScript language so that =.ts= files ac
 #+end_src
 
 This will install the [[https://github.com/theia-ide/typescript-language-server][typescript-language-server]] and the TypeScript compiler package.
+
+*** C/C++
+
+#+begin_src emacs-lisp
+
+  (add-hook 'c-mode-hook 'lsp)
+  (add-hook 'c++-mode-hook 'lsp)
+
+#+end_src
 
 *** Python
 
@@ -1165,9 +1194,5 @@ Dial the GC threshold back down so that garbage collection happens more frequent
     (yas-global-mode 1))
 
   (use-package yasnippet-snippets)
-
-  ;; (define-key yas-minor-mode-map (kbd "M-e") 'yas-expand)
-  ;; (define-key yas-keymap (kbd "M-j") 'yas-next-field-or-maybe-expand)
-  ;; (define-key yas-keymap (kbd "M-k") 'yas-prev-field)
 
 #+end_src

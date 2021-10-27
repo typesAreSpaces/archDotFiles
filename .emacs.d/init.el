@@ -2,8 +2,8 @@
 ;;       in Emacs and init.el will be generated automatically!
 
 ;; You will most likely need to adjust this font size for your system!
-(defvar efs/default-font-size 160)
-(defvar efs/default-variable-font-size 160)
+(defvar efs/default-font-size 140)
+(defvar efs/default-variable-font-size 140)
 
 ;; Make frame transparency overridable
 (defvar efs/frame-transparency '(90 . 90))
@@ -87,10 +87,20 @@
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-(set-face-attribute 'default nil :font "InputMono" :height efs/default-font-size)
+(use-package dashboard
+    :ensure t
+    :diminish dashboard-mode
+    :config
+    (setq dashboard-banner-logo-title "Welcome to Emacs!")
+    (setq dashboard-startup-banner "~/Pictures/Wallpapers/figures/480px-EmacsIcon.svg.png")
+    (setq dashboard-items '((recents  . 10)
+                            (bookmarks . 10)))
+    (dashboard-setup-startup-hook))
+
+(set-face-attribute 'default nil :font "Fira Code Retina" :height efs/default-font-size)
 
 ;; Set the fixed pitch face
-(set-face-attribute 'fixed-pitch nil :font "InputMono" :height efs/default-font-size)
+(set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height efs/default-font-size)
 
 ;; Set the variable pitch face
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height efs/default-variable-font-size :weight 'regular)
@@ -138,7 +148,7 @@
   :commands command-log-mode)
 
 (use-package doom-themes
-  :init (load-theme 'doom-palenight t))
+  :init (load-theme 'doom-nord t))
 
 (use-package all-the-icons)
 
@@ -176,6 +186,16 @@
   :init
   (ivy-rich-mode 1))
 
+(use-package flx)
+
+(setq ivy-initial-inputs-alist nil)
+
+(setq ivy-re-builders-alist
+      '((t . ivy--regex-plus)))
+
+(setq ivy-re-builders-alist
+      '((t . ivy--regex-fuzzy)))
+
 (use-package counsel
   :bind (("C-M-j" . 'counsel-switch-buffer)
          :map minibuffer-local-map
@@ -191,7 +211,7 @@
   (ivy-prescient-enable-filtering nil)
   :config
   ;; Uncomment the following line to have sorting remembered across sessions!
-  ;(prescient-persist-mode 1)
+                                        ;(prescient-persist-mode 1)
   (ivy-prescient-mode 1))
 
 (use-package helpful
@@ -375,7 +395,7 @@
     (lambda () (interactive) (org-capture nil "jj")))
 
   (define-key global-map (kbd "C-c s")
-    (lambda () (interactive) (mark-whole-buffer) (org-sort-entries nil ?o nil nil nil nil)))
+    (lambda () (interactive) (mark-whole-buffer) (org-sort-entries nil ?o)))
 
   (define-key global-map (kbd "C-c c")
     (lambda () (interactive) (org-todo "COMPLETED")))
@@ -429,7 +449,7 @@
   :commands (lsp lsp-deferred)
   :hook (lsp-mode . efs/lsp-mode-setup)
   :init
-  (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
+  (setq lsp-keymap-prefix "C-l")
   :config
   (lsp-enable-which-key-integration t))
 
@@ -467,6 +487,9 @@
   :hook (typescript-mode . lsp-deferred)
   :config
   (setq typescript-indent-level 2))
+
+(add-hook 'c-mode-hook 'lsp)
+(add-hook 'c++-mode-hook 'lsp)
 
 (use-package python-mode
   :ensure t
@@ -623,7 +646,3 @@
   (yas-global-mode 1))
 
 (use-package yasnippet-snippets)
-
-;; (define-key yas-minor-mode-map (kbd "M-e") 'yas-expand)
-;; (define-key yas-keymap (kbd "M-j") 'yas-next-field-or-maybe-expand)
-;; (define-key yas-keymap (kbd "M-k") 'yas-prev-field)
