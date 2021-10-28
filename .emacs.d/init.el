@@ -400,6 +400,16 @@
   (define-key global-map (kbd "C-c c")
     (lambda () (interactive) (org-todo "COMPLETED")))
 
+  (define-key global-map (kbd "C-c t")
+    (lambda () (interactive) (org-todo "TODO")))
+
+  (defun auto/SortTODO ()
+    (when (and buffer-file-name (string-match ".*/todolist.org" (buffer-file-name)))
+      (setq unread-command-events (listify-key-sequence "\C-c s"))))
+
+  ;; TODO: keep working on this one
+  ;;(add-hook 'buffer-list-update-hook #'auto/SortTODO)
+
   (efs/org-font-setup))
 
 (use-package org-bullets
