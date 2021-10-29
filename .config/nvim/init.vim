@@ -11,33 +11,10 @@ lua require('ultisnips')
 lua require('tex') 
 
 "# SMT settings:
-let g:smt2_solver_command = "z3 -smt2"
-let g:smt2_solver_version_switch = "4.8.8"
+lua require('smt2')
 
-"# Lightline settings:
-set laststatus=2
-set noshowmode
-if !has('gui_running')
-  set t_Co=256
-endif
-let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ 'active': {
-        \   'left': [ [ 'mode', 'paste' ],
-        \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-        \ },
-        \ 'component_function': {
-          \   'readonly': 'IsActiveRefresh',
-          \   'gitbranch': 'FugitiveHead'
-          \ },
-          \ }
-function! IsActiveRefresh()
-  if g:active_refresh == 1
-    return 'Active Refresh'
-  else
-    return ''
-  endif
-endfunction
+"# Lualine settings:
+lua require('lualine-config')
 
 "# Neovim binders
 if has('nvim')
