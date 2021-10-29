@@ -1,8 +1,7 @@
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
   ignore_install = {},
-  incremental_selection = {
-    enable = true,
+  incremental_selection = { enable = true,
     keymaps = {
       init_selection = "ti",
       node_incremental = "tn",

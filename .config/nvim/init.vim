@@ -4,6 +4,9 @@ lua require('plugins')
 "# Settings
 lua require('settings')
 
+"# Telescope
+lua require('telescope-config')
+
 "# Snippets using ultisnips
 lua require('ultisnips')
 

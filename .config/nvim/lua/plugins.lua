@@ -22,9 +22,9 @@ return require('packer').startup(function()
   -- # IDE Experience
   use 'neovim/nvim-lspconfig'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use 'nvim-treesitter/playground'
   use 'nvim-lua/plenary.nvim'
-  use 'nvim-telescope/telescope.nvim'
-  --use { 'hrsh7th/nvim-compe', event = 'InsertEnter *', config = [[require('config.compe')]] }
+  use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
   use 'hrsh7th/nvim-compe'
   use 'mbbill/undotree'
   use { 'junegunn/fzf', run = function() fn['fzf#install'](0) end }
@@ -40,7 +40,6 @@ return require('packer').startup(function()
   use 'skywind3000/asyncrun.vim'
   use 'folke/which-key.nvim'
   use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins'}
-  use 'nvim-treesitter/playground'
 
   -- # Neovim apps 
   use 'iamcco/markdown-preview.nvim'
@@ -58,7 +57,6 @@ return require('packer').startup(function()
 
   -- # Ricing
   use 'mhinz/vim-startify'
-  --use 'itchyny/lightline.vim'
   use { 'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
   use 'ryanoasis/vim-devicons'
 
