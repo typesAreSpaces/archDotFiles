@@ -1,101 +1,20 @@
-"# Plugins
-call plug#begin('~/.vim/plugged')
-"## IDE Experience
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'hrsh7th/nvim-compe'
-Plug 'mbbill/undotree'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'preservim/nerdtree'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'preservim/nerdcommenter'
-Plug 'kabouzeid/nvim-lspinstall'
-Plug 'puremourning/vimspector'
-Plug 'sirver/ultisnips'
-Plug 'lervag/vimtex'
-Plug 'mhinz/neovim-remote'
-Plug 'tpope/vim-fugitive'
-Plug 'skywind3000/asyncrun.vim'
-Plug 'folke/which-key.nvim'
-Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'nvim-treesitter/playground'
+"# Pluggins
+lua require('plugins')
 
-"## Neovim apps 
-Plug 'iamcco/markdown-preview.nvim'
-Plug 'rhysd/vim-grammarous'
-Plug 'sotte/presenting.vim'
-
-"## Themes
-Plug 'chriskempson/base16-vim'
-Plug 'sainnhe/gruvbox-material'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'shaunsingh/nord.nvim'
-Plug 'b4skyx/serenade'
-Plug 'dracula/vim' 
-Plug 'EdenEast/nightfox.nvim'
-
-"## Ricing
-Plug 'mhinz/vim-startify'
-Plug 'itchyny/lightline.vim'
-Plug 'ryanoasis/vim-devicons'
-
-"## Syntax
-Plug 'bohlender/vim-smt2' 
-Plug 'plasticboy/vim-markdown'
-call plug#end()
+augroup packer_user_config
+  autocmd!
+  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+augroup end
 
 "# Settings
+lua require('settings')
 
-"## General
-let mapleader = " "
-nnoremap <C-t> <cmd>terminal<CR>
-nnoremap <leader>sv :source $HOME/.config/nvim/init.vim<CR>
-nnoremap <leader>rs :call UltiSnips#RefreshSnippets()<CR>
-nnoremap <leader>cd <cmd>cd %:p:h<CR><cmd>pwd<CR>
-function! SaveSession()
-  :mksession! session
-  :echon "Session saved"
-endfunction
-nnoremap <leader>ss <cmd>call SaveSession()<CR>
-
-"## Navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-"## Windows
-nnoremap <silent> <leader>u <cmd>exe "resize -5" <CR>
-nnoremap <silent> <leader>i <cmd>exe "resize +5" <CR>
-nnoremap <silent> <leader>y <cmd>exe "vertical resize +5"<CR>
-nnoremap <silent> <leader>o <cmd>exe "vertical resize -5"<CR>
-
-"## Telescope bindings
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>gg <cmd>Telescope live_grep<cr>
-nnoremap <leader>bb <cmd>Telescope buffers<cr>
-nnoremap <leader>hh <cmd>Telescope help_tags<cr>
-
-"## Buffers
-nnoremap <silent> [b <cmd>bprevious<CR>
-nnoremap <silent> ]b <cmd>bnext<CR>
-nnoremap <silent> [B <cmd>bfirst<CR>
-nnoremap <silent> ]B <cmd>bblast<CR>
-
-"## FZF binders
-nnoremap <CR> <cmd>FZF<CR>
-
-"## NerdToggle binders
-nnoremap <C-n> <cmd>NERDTreeToggle<CR>
-
-"## Snippets using ultisnips
+"# Snippets using ultisnips
 let g:UltiSnipsExpandTrigger = '<c-e>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
-"## Vimtex setup
+"# Vimtex setup
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:vimtex_view_enabled = 1
 let g:vimtex_view_automatic = 0
@@ -137,16 +56,11 @@ function! TexLeave()
 endfunction
 autocmd VimLeavePre *.tex :call TexLeave()
 
-"## Fugitive settings:
-nmap <leader>gs <cmd>G<CR>
-nmap <leader>gj <cmd>diffget //3<CR>
-nmap <leader>gf <cmd>diffget //2<CR>
-
-"## SMT settings:
+"# SMT settings:
 let g:smt2_solver_command = "z3 -smt2"
 let g:smt2_solver_version_switch = "4.8.8"
 
-"## Lightline settings:
+"# Lightline settings:
 set laststatus=2
 set noshowmode
 if !has('gui_running')
@@ -171,7 +85,7 @@ function! IsActiveRefresh()
   endif
 endfunction
 
-"## Neovim binders
+"# Neovim binders
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
   tnoremap <C-v><Esc> <Esc> 
@@ -182,7 +96,7 @@ if has('nvim')
   highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 endif
 
-"## Customization
+"# Customization
 syntax on
 set mouse=a
 set timeoutlen=1000 ttimeoutlen=0
@@ -217,13 +131,13 @@ augroup custom_term
   autocmd TermOpen * setlocal nonumber norelativenumber bufhidden=hide
 augroup END
 
-"## Autocompleting configuration
+"# Autocompleting configuration
 set completeopt=menuone,noinsert,noselect
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:completion_matching_strategy_list=['exact', 'substring', 'fuzzy']
 
-"## Compe configuration
+"# Compe configuration
 let g:compe = {}
 let g:compe.enabled = v:true
 let g:compe.autocomplete = v:true
@@ -247,19 +161,19 @@ let g:compe.source.nvim_lua = v:true
 let g:compe.source.vsnip = v:true
 let g:compe.source.ultisnips = v:true
 
-"## LSP Install config
+"# LSP Install config
 lua require('lsp-install-config')
 
-"## LSP config:
+"# LSP config:
 lua require('lsp-config')
 
-"## Nvim-treesitter config
+"# Nvim-treesitter config
 lua require('nvim-treesitter-config')
 
-"## Which-keys setup
+"# Which-keys setup
 lua require('which-key-config')
 
-"## Wilder setup
+"# Wilder setup
 call wilder#setup({
       \'modes': [':', '/', '?'],
       \ 'next_key': '<Tab>',
