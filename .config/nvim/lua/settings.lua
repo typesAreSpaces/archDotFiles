@@ -11,10 +11,11 @@ buf_set_keymap('n', '<leader>cd', '<cmd>cd %:p:h<CR><cmd>pwd<CR>', opts)
 buf_set_keymap('n', '<leader>ss', '<cmd>mksession! session<CR><cmd>echon "Session saved"<CR>', opts)
 
 -- # Navigation
-buf_set_keymap('n', '<C-J>', '<C-W><C-J>', opts)
-buf_set_keymap('n', '<C-K>', '<C-W><C-K>', opts)
-buf_set_keymap('n', '<C-L>', '<C-W><C-L>', opts)
-buf_set_keymap('n', '<C-H>', '<C-W><C-H>', opts)
+-- TODO: fix, it's not working properly
+buf_set_keymap('n', '<C-j>', '<C-w><C-j>', opts)
+buf_set_keymap('n', '<C-k>', '<C-w><C-k>', opts)
+buf_set_keymap('n', '<C-l>', '<C-w><C-l>', opts)
+buf_set_keymap('n', '<C-h>', '<C-w><C-h>', opts)
 
 -- # Windows
 buf_set_keymap('n', '<leader>u', '<cmd>exe "resize -5" <CR>', opts)

@@ -18,6 +18,7 @@ return require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
+  --use { 'hrsh7th/nvim-compe', event = 'InsertEnter *', config = [[require('config.compe')]] }
   use 'hrsh7th/nvim-compe'
   use 'mbbill/undotree'
   use { 'junegunn/fzf', run = function() fn['fzf#install'](0) end }
