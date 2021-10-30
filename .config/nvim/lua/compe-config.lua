@@ -1,3 +1,13 @@
+-- # Autocompleting configuration
+
+local function set_keymap(...) vim.api.nvim_set_keymap(...) end
+local opts = { noremap=true, silent=true }
+
+vim.opt.completeopt = {'menuone', 'noinsert', 'noselect'}
+--set_keymap('i', '<expr> <Tab>', 'pumvisible() ? "\<C-n>" : "\<TAB>"', opts)
+--set_keymap('i', '<expr> <S-Tab>', 'pumvisible() ? "\<C-p>" : "\<S-Tab>"', opts)
+--vim.g.completion_matching_strategy_list=['exact', 'substring', 'fuzzy']
+
 require('compe').setup {
   enabled = true;
   autocomplete = true;

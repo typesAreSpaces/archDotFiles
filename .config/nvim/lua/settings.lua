@@ -40,3 +40,18 @@ set_keymap('n', '<C-n>', '<cmd>NERDTreeToggle<CR>', opts)
 set_keymap('n', '<leader>gs', '<cmd>G<CR>', opts)
 set_keymap('n', '<leader>gj', '<cmd>diffget //3<CR>', opts)
 set_keymap('n', '<leader>gf', '<cmd>diffget //2<CR>', opts)
+
+vim.cmd([[
+augroup custom_term
+  autocmd!
+  autocmd TermOpen * setlocal nonumber norelativenumber bufhidden=hide
+augroup END
+]])
+
+set_keymap('t', '<Esc>', '<C-\\><C-n>', opts)
+set_keymap('t', '<C-v><Esc>', '<Esc>', opts)
+
+vim.cmd([[
+highlight! link TermCursor Cursor
+highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
+]])
