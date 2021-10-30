@@ -1,4 +1,4 @@
-local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+local function set_keymap(...) vim.api.nvim_set_keymap(...) end
 local opts = { noremap=true, silent=true }
 
 vim.g.Tex_DefaultTargetFormat = 'pdf'
@@ -20,7 +20,7 @@ function ToggleActiveRefresh()
   end
 end
 
-buf_set_keymap('n', '<leader>ar', '<cmd>lua ToggleActiveRefresh()<CR>', opts)
+set_keymap('n', '<leader>ar', '<cmd>lua ToggleActiveRefresh()<CR>', opts)
 
 function TexRefresh()
   local f=io.open("main.pdf","r")
