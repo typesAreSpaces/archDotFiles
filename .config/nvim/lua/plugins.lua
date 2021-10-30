@@ -23,7 +23,6 @@ return require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'nvim-treesitter/playground'
-  use 'nvim-lua/plenary.nvim'
   use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
   use 'hrsh7th/nvim-compe'
   use 'mbbill/undotree'

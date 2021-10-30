@@ -35,11 +35,6 @@ buf_set_keymap('n', '<CR>', '<cmd>FZF<CR>', opts)
 -- # NerdToggle binders
 buf_set_keymap('n', '<C-n>', '<cmd>NERDTreeToggle<CR>', opts)
 
--- # Telescope bindings
-buf_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<CR>', opts)
-buf_set_keymap('n', '<leader>gg', '<cmd>Telescope live_grep<CR>', opts)
-buf_set_keymap('n', '<leader>bb', '<cmd>Telescope buffers<CR>', opts)
-buf_set_keymap('n', '<leader>hh', '<cmd>Telescope help_tags<CR>', opts)
 
 -- # Fugitive settings:
 buf_set_keymap('n', '<leader>gs', '<cmd>G<CR>', opts)
