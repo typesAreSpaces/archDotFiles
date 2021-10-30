@@ -11,7 +11,6 @@ set_keymap('n', '<leader>cd', '<cmd>cd %:p:h<CR><cmd>pwd<CR>', opts)
 set_keymap('n', '<leader>ss', '<cmd>mksession! session<CR><cmd>echon "Session saved"<CR>', opts)
 
 -- # Navigation
--- TODO: fix, it's not working properly
 set_keymap('n', '<C-j>', '<C-w><C-j>', opts)
 set_keymap('n', '<C-k>', '<C-w><C-k>', opts)
 set_keymap('n', '<C-l>', '<C-w><C-l>', opts)
@@ -34,7 +33,6 @@ set_keymap('n', '<CR>', '<cmd>FZF<CR>', opts)
 
 -- # NerdToggle binders
 set_keymap('n', '<C-n>', '<cmd>NERDTreeToggle<CR>', opts)
-
 
 -- # Fugitive settings:
 set_keymap('n', '<leader>gs', '<cmd>G<CR>', opts)
