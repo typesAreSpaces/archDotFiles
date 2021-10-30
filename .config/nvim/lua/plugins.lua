@@ -20,17 +20,17 @@ return require('packer').startup(function()
   cmd = { 'PackerCompile', 'PackerInstall', 'PackerUpdate', 'PackerClean', 'PackerSync', 'PackerLoad' } }
 
   -- # IDE Experience
+  use 'kabouzeid/nvim-lspinstall'
   use 'neovim/nvim-lspconfig'
+  use { 'junegunn/fzf', run = function() fn['fzf#install'](0) end }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'nvim-treesitter/playground'
-  use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
   use 'hrsh7th/nvim-compe'
+  use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
   use 'mbbill/undotree'
-  use { 'junegunn/fzf', run = function() fn['fzf#install'](0) end }
   use 'preservim/nerdtree'
   use 'jeffkreeftmeijer/vim-numbertoggle'
   use 'preservim/nerdcommenter'
-  use 'kabouzeid/nvim-lspinstall'
   use 'puremourning/vimspector'
   use 'sirver/ultisnips'
   use 'lervag/vimtex'
