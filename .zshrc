@@ -52,6 +52,7 @@ alias v="vim"
 alias nv="nvim --listen localhost:12345"
 alias e="emacs -nw"
 alias todo="emacs -nw $PHD_THESIS_DIR/todolist.org"
+alias addrefs="nvim $PHD_THESIS_DIR/Documents/Write-Ups/references.bib"
 alias z="zathura"
 alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
 
