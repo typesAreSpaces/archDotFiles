@@ -109,6 +109,12 @@ restore(){
   fi
 }
 
+## Set bspwm layout
+bspLayout(){
+  bsp-layout set $1 $2 -- --master-size 0.5
+}
+alias bsptall1="bspLayout tall 1"
+
 ## Quick script for local dot files
 quickConfigUpdate(){
   config status | grep "modified:" | sed 's/modified:/git --git-dir=$HOME\/.cfg --work-tree=$HOME add/g' | zsh;
