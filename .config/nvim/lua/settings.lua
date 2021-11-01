@@ -5,8 +5,8 @@ local opts = { noremap=true, silent=true }
 
 -- # General
 set_keymap('n', '<C-t>', '<cmd>terminal<CR>', opts)
-set_keymap('n', '<leader>sv', '<cmd>source $HOME/.config/nvim/init.vim<CR>', opts)
-set_keymap('n', '<leader>rs', '<cmd>call UltiSnips#RefreshSnippets()<CR>', opts)
+set_keymap('n', '<leader>sv', '<cmd>source $HOME/.config/nvim/init.vim<CR><cmd>echon "Config sourced"<CR>', opts)
+set_keymap('n', '<leader>rs', '<cmd>call UltiSnips#RefreshSnippets()<CR><cmd>echon "Snippets refreshed"<CR>', opts)
 set_keymap('n', '<leader>cd', '<cmd>cd %:p:h<CR><cmd>pwd<CR>', opts)
 set_keymap('n', '<leader>ss', '<cmd>mksession! session<CR><cmd>echon "Session saved"<CR>', opts)
 

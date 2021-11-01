@@ -65,6 +65,13 @@ alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it sea
 
 # Scripts
 #
+
+## Set bspwm layout
+bspLayout(){
+  bsp-layout set $1 $2 -- --master-size 0.5
+}
+alias bsptall1="bspLayout tall 1"
+
 quickConfigUpdate(){
   config status | grep "modified:" | sed 's/modified:/git --git-dir=$HOME\/.cfg --work-tree=$HOME add/g' | zsh;
   config status | grep "new file:" | sed 's/new file:/git --git-dir=$HOME\/.cfg --work-tree=$HOME add/g' | zsh;

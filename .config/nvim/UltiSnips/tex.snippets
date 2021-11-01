@@ -1,3 +1,55 @@
+# Algorithmic environment
+
+snippet ;algo "Algorithmic environment" iA
+\\begin{algorithm}[${1:H}]
+	\\caption{${2:title}}
+	\\label{${3:label}}
+	\\begin{algorithmic}[1]
+		\\Procedure{${4:name-of-procedure}}{${5:input}}
+		${6:\\Require conditions}
+		${7:\\Ensure conditions}
+		$0
+		\\EndProcedure
+	\\end{algorithmic}
+\\end{algorithm}
+endsnippet
+
+snippet ;state "Algorithmic Statement" iA
+\\State $1
+$0
+endsnippet
+
+snippet ;if "Algorithm If" iA
+\\If {$1}
+	$2
+${3:\\Else
+	$4}
+\\EndIf
+$0
+endsnippet
+
+snippet ;for "Algorithm For" iA
+\\For {$1}
+	$2
+\\EndFor
+$0
+endsnippet
+
+snippet ;while "Algorithm While" iA
+\\While {$1}
+	$2
+\\EndWhile
+$0
+endsnippet
+
+# Beamer environment
+
+snippet ;frame "New frame" iA
+\\begin{frame}${1:[fragile]}{$2}
+	$0
+\\end{frame}
+endsnippet 
+
 # General 
 
 snippet ;text "Text" iA
@@ -293,6 +345,10 @@ endsnippet
 
 snippet ;preord "PreOrder" iA
 \\PreOrd($1)$0
+endsnippet
+
+snippet ;semialg "SemiAlgebraic" iA
+\\SemiAlgebraic($1)$0
 endsnippet
 
 snippet ';prime(\d+)' "LaTeX array" riA
