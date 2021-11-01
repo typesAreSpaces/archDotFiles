@@ -17,7 +17,7 @@ else
 fi
 feh --bg-scale $HOME/Pictures/Wallpapers/iron_lady.jpg
 $HOME/.config/polybar/launch.sh &
-bsp-layout set tall 1&
+bsp-layout set tall 1 -- --master-size 0.5&
 
 bspc config border_width 2.5
 bspc config window_gap   20
