@@ -68,6 +68,10 @@ snippet ;ref "Reference" iA
 \\ref{${1:`!v @+`}} $0
 endsnippet
 
+snippet ;todo "TODO" iA
+{\color{red}[TODO]} \footnote{{\color{red}TODO:} $1} $0
+endsnippet
+
 # Accent-related
 
 snippet ;gr "Grave accent" iA
@@ -494,7 +498,7 @@ endglobal
 snippet ';intro(\w+[,\w+[\s\w]*]*)  ' "Intro Knowledge" riA
 `!p
 snip.rv = aux_add_cmd('/kldb.tex', '/home/jose/.local/scripts/add-knowledge -p ', ' -e \'index=', "\\intro{")
-`$0
+` $0
 endsnippet
 
 snippet ;kl "Use Knowledge" iA
@@ -504,7 +508,7 @@ endsnippet
 snippet ';gloss(\w+[,\w+[\s\w]*]*)  ' "Introduce new glossary term" riA
 `!p
 snip.rv = aux_add_cmd('/idxdb.tex', '/home/jose/.local/scripts/add-glossary -p ', ' -e \'newglossaryentry{', "\\glsadd{")
-`$0
+` $0
 endsnippet
 
 snippet ;glt "Use Glossary term" iA
