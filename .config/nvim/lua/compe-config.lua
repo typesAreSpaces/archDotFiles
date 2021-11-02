@@ -4,9 +4,16 @@ local function set_keymap(...) vim.api.nvim_set_keymap(...) end
 local opts = { noremap=true, silent=true }
 
 vim.opt.completeopt = {'menuone', 'noinsert', 'noselect'}
---set_keymap('i', '<expr> <Tab>', 'pumvisible() ? "\<C-n>" : "\<TAB>"', opts)
---set_keymap('i', '<expr> <S-Tab>', 'pumvisible() ? "\<C-p>" : "\<S-Tab>"', opts)
---vim.g.completion_matching_strategy_list=['exact', 'substring', 'fuzzy']
+set_keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
+set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
+vim.g.completion_chain_complete_list = {
+            default = {
+              default = {
+                  { complete_items = { 'lsp', 'snippet' }},
+                  { mode = '<c-p>'},
+                  { mode = '<c-n>'}},
+              comment = {},
+              string = { { complete_items = { 'path' }} }}}
 
 require('compe').setup {
   enabled = true;
