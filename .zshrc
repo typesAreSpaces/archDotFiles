@@ -34,6 +34,7 @@ export PATH="$APPS_DIR/csdp6.2.0linuxx86_64/bin:$PATH";
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias sshVB='ssh -p 2222 jose@127.0.0.1'
 alias sshJose='ssh -X jose@10.88.183.111'
+alias dict='sdcv'
 
 # Directory Aliases
 alias phd_thesis="cd $PHD_THESIS_DIR"
