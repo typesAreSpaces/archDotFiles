@@ -22,8 +22,8 @@ require('lualine-config')
 -- # Customization
 require('customization')
 
--- # Compe configuration
-require('compe-config')
+-- # Cmp configuration
+require('cmp-config')
 
 -- # LSP Install config
 require('lsp-install-config')
