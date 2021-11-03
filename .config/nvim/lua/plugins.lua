@@ -25,7 +25,12 @@ return require('packer').startup(function()
   use { 'junegunn/fzf', run = function() fn['fzf#install'](0) end }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'nvim-treesitter/playground'
-  use 'hrsh7th/nvim-compe'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+
   use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
   use 'mbbill/undotree'
   use 'preservim/nerdtree'
@@ -33,6 +38,7 @@ return require('packer').startup(function()
   use 'preservim/nerdcommenter'
   use 'puremourning/vimspector'
   use 'sirver/ultisnips'
+  use 'quangnguyen30192/cmp-nvim-ultisnips'
   use 'lervag/vimtex'
   use 'mhinz/neovim-remote'
   use 'tpope/vim-fugitive'
