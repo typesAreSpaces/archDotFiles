@@ -39,6 +39,7 @@ function ActiveRefresh()
   end
 end
 vim.cmd('autocmd BufWritePost *.tex lua ActiveRefresh()')
+vim.cmd('autocmd Filetype tex set tw=80')
 
 function SaveSession()
   vim.cmd('mksession! session')
