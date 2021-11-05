@@ -1,3 +1,9 @@
+-- A method to dump an object and print it out
+function _G.dump(...)
+  local objects = vim.tbl_map(vim.inspect, {...})
+  print(unpack(objects))
+end
+
 -- # Pluggins
 require('plugins')
 

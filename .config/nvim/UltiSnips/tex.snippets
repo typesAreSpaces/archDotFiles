@@ -19,7 +19,7 @@ snippet ;state "Algorithmic Statement" iA
 $0
 endsnippet
 
-snippet ;if "Algorithm If" iA
+snippet ;ife "Algorithm If" iA
 \\If {$1}
 	$2
 ${3:\\Else
@@ -89,16 +89,16 @@ endsnippet
 # Math-related
 
 priority 100
-snippet ... "ldots" iA
-\\dots $0
+snippet ;.. "ldots" iA
+\\dots$0
 endsnippet
 
 snippet ;emptys "Empty Set" iA
-\\emptyset $0
+\\emptyset$0
 endsnippet
 
 snippet ;set "Set" iA
-\\set{$1 ${2:\mid $3}} $0
+\\set{$1 ${2:\mid $3}}$0
 endsnippet
 
 snippet ;_ "Subindex" iA
@@ -106,15 +106,15 @@ _{$1}$0
 endsnippet
 
 snippet ;iff "If and only if" iA
-if and only if $0
+if and only if$0
 endsnippet
 
 snippet ;abs "Absolute value" iA
-|$1| $0
+|$1|$0
 endsnippet
 
 snippet ;eps "Epsilon" iA
-\\epsilon $0
+\\epsilon$0
 endsnippet
 
 snippet ;inv "Inverse" iA
@@ -136,12 +136,12 @@ snippet ;>= "Greather than or Equal to" iA
 \\geq $0
 endsnippet
 
-snippet OO "Infinity" iA
-\\infty $0
+snippet ;OO "Infinity" iA
+\\infty$0
 endsnippet
 
 snippet ;sos "Sums of squares" iA
-\\sum{$1}^2 $0
+\\sum{$1}^2$0
 endsnippet
 
 snippet ;( "Parenthesis" iA
@@ -498,7 +498,7 @@ endglobal
 snippet ';intro(\w+[,\w+[\s\w]*]*)  ' "Intro Knowledge" riA
 `!p
 snip.rv = aux_add_cmd('/kldb.tex', '/home/jose/.local/scripts/add-knowledge -p ', ' -e \'index=', "\\intro{")
-` $0
+`$0
 endsnippet
 
 snippet ;kl "Use Knowledge" iA
@@ -508,7 +508,7 @@ endsnippet
 snippet ';gloss(\w+[,\w+[\s\w]*]*)  ' "Introduce new glossary term" riA
 `!p
 snip.rv = aux_add_cmd('/idxdb.tex', '/home/jose/.local/scripts/add-glossary -p ', ' -e \'newglossaryentry{', "\\glsadd{")
-` $0
+`$0
 endsnippet
 
 snippet ;glt "Use Glossary term" iA
