@@ -59,6 +59,16 @@ cmp.setup({
         fallback()
       end
     end, {"i","s",}),
+    -- TODO: make confirm more reliable
+    ['<C-CR>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.mapping.confirm()
+      elseif has_any_words_before() then
+        press("<Space>")
+      else
+        fallback()
+      end
+    end),
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },

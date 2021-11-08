@@ -36,7 +36,9 @@ return require('packer').startup(function()
   use 'jeffkreeftmeijer/vim-numbertoggle'
   use 'preservim/nerdcommenter'
   use 'puremourning/vimspector'
-  use 'sirver/ultisnips'
+  use({ "SirVer/ultisnips", 
+  requires = "honza/vim-snippets", 
+  config = function() vim.g.UltiSnipsRemoveSelectModeMappings = 0 end,})
   use 'quangnguyen30192/cmp-nvim-ultisnips'
   use 'lervag/vimtex'
   use 'mhinz/neovim-remote'
