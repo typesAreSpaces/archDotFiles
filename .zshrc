@@ -237,90 +237,109 @@ editSyms(){
 }
 
 ## Scripts to customize system
-gruvboxThemei3(){
-  # Alacritty
-  alacritty-theme-switch --select gruvbox_dark.yml
-  # Polybar
-  ~/.config/polybar/scripts/colors.sh -gruvbox-dark
-  sed -i "s|^border-color.*|border-color = #689d6a|g" $HOME/.config/polybar/config.ini
-  # Wallpaper
-  sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/iron_lady.jpg|g" $HOME/.config/i3/config
-  # nvim
-  sed -i "s/vim.cmd(\[\[color.*/vim.cmd(\[\[color gruvbox-material\]\])/g" $HOME/.config/nvim/lua/customization.lua
-  # Zathura
-  .config/zathura/apply-gruvbox.sh
+
+alacrittyThemeSwitch(){
+  case $1 in  
+    "gruvbox")
+      alacritty-theme-switch --select gruvbox_dark.yml
+      ;;
+    "nord")
+      alacritty-theme-switch --select nord.yml
+      ;;
+    "tokyo")
+      alacritty-theme-switch --select tokyo-night.yml
+      ;;
+  esac
 }
-nordThemei3(){
-  # Alacritty
-  alacritty-theme-switch --select nord.yml
-  # Polybar
-  ~/.config/polybar/scripts/colors.sh -nord
-  sed -i "s|^border-color.*|border-color = #88C0D0|g" $HOME/.config/polybar/config.ini
-  # Wallpaper
-  sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/minimal_mountains.png|g" $HOME/.config/i3/config
-  # nvim
-  sed -i "s/vim.cmd(\[\[color.*/vim.cmd(\[\[color nord\]\])/g" $HOME/.config/nvim/lua/customization.lua
-  # Zathura
-  .config/zathura/apply-nord.sh
+polybarThemeSwitch(){
+  config_file=$HOME/.config/polybar/config.ini
+  case $1 in
+    "gruvbox")
+      ~/.config/polybar/scripts/colors.sh -gruvbox-dark
+      sed -i "s|^border-color.*|border-color = #689d6a|g" $config_file
+      ;;
+    "nord")
+      ~/.config/polybar/scripts/colors.sh -nord
+      sed -i "s|^border-color.*|border-color = #88C0D0|g" $config_file
+      ;;
+    "tokyo")
+      ~/.config/polybar/scripts/colors.sh -tomorrow-night
+      sed -i "s|^border-color.*|border-color = #7aa2f7|g" $config_file
+      ;;
+  esac
 }
-tokyo_nightThemei3(){
-  # Alacritty
-  alacritty-theme-switch --select tokyo-night.yml
-  # Polybar
-  ~/.config/polybar/scripts/colors.sh -tomorrow-night
-  sed -i "s|^border-color.*|border-color = #7aa2f7|g" $HOME/.config/polybar/config.ini
-  # Wallpaper
-  sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/tokyo_night_2.jpg|g" $HOME/.config/i3/config
-  # nvim
-  sed -i "s/vim.cmd(\[\[color.*/vim.cmd(\[\[color tokyonight\]\])/g" $HOME/.config/nvim/lua/customization.lua
-  # Zathura
-  .config/zathura/apply-tokyo.sh
+wallpaperThemeSwitch(){
+  case $1 in
+    "gruvbox")
+      sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/iron_lady.jpg|g" $2
+      ;;
+    "nord")
+      sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/minimal_mountains.png|g" $2
+      ;;
+    "tokyo")
+      sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/city_night_city_coast_179489_3840x2160.jpg|g" $2
+      ;;
+  esac
 }
-gruvboxThemebspwm(){
-  # Alacritty
-  alacritty-theme-switch --select gruvbox_dark.yml
-  # Polybar
-  ~/.config/polybar/scripts/colors.sh -gruvbox-dark
-  sed -i "s|^border-color.*|border-color = #689d6a|g" $HOME/.config/polybar/config.ini
-  # Wallpaper
-  sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/iron_lady.jpg|g" $HOME/.config/bspwm/bspwmrc
-  # bspwm
-  sed -i "s|.*focused_border_color.*|bspc config focused_border_color \"#689d6a\"|g" $HOME/.config/bspwm/bspwmrc
-  # nvim
-  sed -i "s/vim.cmd(\[\[color.*/vim.cmd(\[\[color gruvbox-material\]\])/g" $HOME/.config/nvim/lua/customization.lua
-  # Zathura
-  .config/zathura/apply-gruvbox.sh
+nvimThemeSwitch(){
+  config_file=$HOME/.config/nvim/lua/customization.lua
+  case $1 in
+    "gruvbox")
+      sed -i "s/vim.cmd(\[\[color.*/vim.cmd(\[\[color gruvbox-material\]\])/g" $config_file
+      ;;
+    "nord")
+      sed -i "s/vim.cmd(\[\[color.*/vim.cmd(\[\[color nord\]\])/g" $config_file
+      ;;
+    "tokyo")
+      sed -i "s/vim.cmd(\[\[color.*/vim.cmd(\[\[color tokyonight\]\])/g" $config_file
+      ;;
+  esac
 }
-nordThemebspwm(){
-  # Alacritty
-  alacritty-theme-switch --select nord.yml
-  # Polybar
-  ~/.config/polybar/scripts/colors.sh -nord
-  sed -i "s|^border-color.*|border-color = #88C0D0|g" $HOME/.config/polybar/config.ini
-  # Wallpaper
-  sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/minimal_mountains.png|g" $HOME/.config/bspwm/bspwmrc
-  # bspwm
-  sed -i "s|.*focused_border_color.*|bspc config focused_border_color \"#88C0D0\"|g" $HOME/.config/bspwm/bspwmrc
-  # Nvim
-  sed -i "s/vim.cmd(\[\[color.*/vim.cmd(\[\[color nord\]\])/g" $HOME/.config/nvim/lua/customization.lua
-  # Zathura
-  .config/zathura/apply-nord.sh
+bspwmThemeSwitch(){
+  config_file=$HOME/.config/bspwm/bspwmrc
+  case $1 in
+    "gruvbox")
+      sed -i "s|.*focused_border_color.*|bspc config focused_border_color \"#689d6a\"|g" $config_file
+      ;;
+    "nord")
+      sed -i "s|.*focused_border_color.*|bspc config focused_border_color \"#88C0D0\"|g" $config_file
+      ;;
+    "tokyo")
+      sed -i "s|.*focused_border_color.*|bspc config focused_border_color \"#7aa2f7\"|g" $config_file
+      ;;
+  esac
 }
-tokyo_nightThemebspwm(){
-  # Alacritty
-  alacritty-theme-switch --select tokyo-night.yml
-  # Polybar
-  ~/.config/polybar/scripts/colors.sh -tomorrow-night
-  sed -i "s|^border-color.*|border-color = #7aa2f7|g" $HOME/.config/polybar/config.ini
-  # Wallpaper
-  sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/city_night_city_coast_179489_3840x2160.jpg|g" $HOME/.config/bspwm/bspwmrc
-  # bspwm
-  sed -i "s|.*focused_border_color.*|bspc config focused_border_color \"#7aa2f7\"|g" $HOME/.config/bspwm/bspwmrc
-  # Nvim
-  sed -i "s/vim.cmd(\[\[color.*/vim.cmd(\[\[color tokyonight\]\])/g" $HOME/.config/nvim/lua/customization.lua
-  # Zathura
-  .config/zathura/apply-tokyo.sh
+zathuraThemeSwitch(){
+  case $1 in
+    "gruvbox")
+      .config/zathura/apply-gruvbox.sh
+      ;;
+    "nord")
+      .config/zathura/apply-nord.sh
+      ;;
+    "tokyo")
+      .config/zathura/apply-tokyo.sh
+      ;;
+  esac
 }
+
+changeTheme(){
+  alacrittyThemeSwitch $2
+  polybarThemeSwitch $2
+  nvimThemeSwitch $2
+  zathuraThemeSwitch $2
+  case $1 in
+    "i3")
+      wallpaperThemeSwitch $2 "$HOME/.config/i3/config"
+      ;;
+    "bspwm")
+      wallpaperThemeSwitch $2 "$HOME/.config/bspwm/bspwmrc"
+      bspwmThemeSwitch $2
+      ;;
+  esac
+  echo "Theme has changed to " $2 " for " $1
+}
+
 # OPAM configuration
 #. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
