@@ -337,8 +337,23 @@ changeTheme(){
       bspwmThemeSwitch $2
       ;;
   esac
+  bspc wm -r
   echo "Theme has changed to " $2 " for " $1
+  case $3 in 
+    "emacs")
+      xmodmap .XmodmapEmacs
+      echo "with emacs bindings"
+      ;;
+    *)
+      xmodmap .Xmodmap
+      echo "with vim bindings"
+      ;;
+  esac
 }
+
+alias bspwmGruvbox="changeTheme bspwm gruvbox"
+alias bspwmNord="changeTheme bspwm nord"
+alias bspwmTokyo="changeTheme bspwm tokyo"
 
 # OPAM configuration
 #. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
