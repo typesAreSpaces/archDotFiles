@@ -1,3 +1,47 @@
+# General 
+
+snippet ;text "Text" iA
+\\text{ $1 } $0
+endsnippet
+
+snippet ;cite "Cite (optional: current item on + register)" iA
+\\cite{${1:`!v @+`}} $0
+endsnippet
+
+snippet ;label "Label" iA
+\\label{${1:`!v @+`}} $0
+endsnippet
+
+snippet ;ref "Reference" iA
+\\ref{${1:`!v @+`}} $0
+endsnippet
+
+snippet ;todo "TODO" iA
+{\color{red}[TODO]} \footnote{{\color{red}TODO:} $1} $0
+endsnippet
+
+snippet ;bold "Bold text" iA
+\\textbf{$1} $0
+endsnippet 
+
+snippet ;itali "Italicized text" iA
+\\emph{$1} $0
+endsnippet 
+
+# Accent-related
+
+snippet ;gr "Grave accent" iA
+\\\`{$1}$0
+endsnippet
+
+snippet ;ac "Acute accent" iA
+\\'{$1}$0
+endsnippet
+
+snippet ;um "Umlaut accent" iA
+\\"{$1}$0
+endsnippet
+
 # Algorithmic environment
 
 snippet ;algo "Algorithmic environment" iA
@@ -49,42 +93,6 @@ snippet ;frame "New frame" iA
 	$0
 \\end{frame}
 endsnippet 
-
-# General 
-
-snippet ;text "Text" iA
-\\text{ $1 } $0
-endsnippet
-
-snippet ;cite "Cite (optional: current item on + register)" iA
-\\cite{${1:`!v @+`}} $0
-endsnippet
-
-snippet ;label "Label" iA
-\\label{${1:`!v @+`}} $0
-endsnippet
-
-snippet ;ref "Reference" iA
-\\ref{${1:`!v @+`}} $0
-endsnippet
-
-snippet ;todo "TODO" iA
-{\color{red}[TODO]} \footnote{{\color{red}TODO:} $1} $0
-endsnippet
-
-# Accent-related
-
-snippet ;gr "Grave accent" iA
-\\\`{$1}$0
-endsnippet
-
-snippet ;ac "Acute accent" iA
-\\'{$1}$0
-endsnippet
-
-snippet ;um "Umlaut accent" iA
-\\"{$1}$0
-endsnippet
 
 # Math-related
 
