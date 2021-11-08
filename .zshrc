@@ -342,11 +342,11 @@ changeTheme(){
   echo "Theme has changed to " $2 " for " $1
   case $3 in 
     "emacs")
-      xmodmap .XmodmapEmacs
+      xmodmap $HOME/.XmodmapEmacs
       echo "with emacs bindings"
       ;;
     *)
-      xmodmap .Xmodmap
+      xmodmap $HOME/.Xmodmap
       echo "with vim bindings"
       ;;
   esac
