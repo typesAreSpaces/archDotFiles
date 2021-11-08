@@ -331,13 +331,14 @@ changeTheme(){
   case $1 in
     "i3")
       wallpaperThemeSwitch $2 "$HOME/.config/i3/config"
+      # TODO check if i3 requires to be restarted
       ;;
     "bspwm")
       wallpaperThemeSwitch $2 "$HOME/.config/bspwm/bspwmrc"
       bspwmThemeSwitch $2
+      bspc wm -r
       ;;
   esac
-  bspc wm -r
   echo "Theme has changed to " $2 " for " $1
   case $3 in 
     "emacs")
