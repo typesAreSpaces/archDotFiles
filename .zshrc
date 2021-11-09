@@ -312,13 +312,13 @@ bspwmThemeSwitch(){
 zathuraThemeSwitch(){
   case $1 in
     "gruvbox")
-      .config/zathura/apply-gruvbox.sh
+      $HOME/.config/zathura/apply-gruvbox.sh
       ;;
     "nord")
-      .config/zathura/apply-nord.sh
+      $HOME/.config/zathura/apply-nord.sh
       ;;
     "tokyo")
-      .config/zathura/apply-tokyo.sh
+      $HOME/.config/zathura/apply-tokyo.sh
       ;;
   esac
 }
