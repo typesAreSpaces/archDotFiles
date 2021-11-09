@@ -9,8 +9,8 @@ end
 vim.cmd [[packadd packer.nvim]]
 vim.cmd([[
 augroup packer_user_config
-  autocmd!
-  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+autocmd!
+autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup end
 ]])
 
@@ -36,7 +36,6 @@ return require('packer').startup(function()
   use 'jeffkreeftmeijer/vim-numbertoggle'
   use 'preservim/nerdcommenter'
   use 'puremourning/vimspector'
-  --use 'sirver/ultisnips'
   use({ "SirVer/ultisnips", 
   requires = "honza/vim-snippets", 
   config = function() vim.g.UltiSnipsRemoveSelectModeMappings = 0 end,})

@@ -19,6 +19,9 @@ cmp.setup({
       vim.fn["UltiSnips#Anon"](args.body)
     end,
   },
+  sources = {
+    { name = "ultisnips" },
+  },
   mapping = {
     ["<C-Space>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -34,9 +37,6 @@ cmp.setup({
       end
     end, {"i","s",}),
     ["<Tab>"] = cmp.mapping(function(fallback)
-      --if cmp.get_selected_entry() == nil and vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
-      --press("<C-R>=UltiSnips#ExpandSnippet()<CR>")
-      --elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
       if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
         press("<ESC>:call UltiSnips#JumpForwards()<CR>")
       elseif cmp.visible() then

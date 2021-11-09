@@ -1,0 +1,27 @@
+# IMAP settings
+set folder = "imaps://jabelcastellanosjoo@unm.edu@outlook.office365.com:993"
+set imap_user = "jabelcastellanosjoo@unm.edu"
+set imap_pass = `pass school_email`
+set timeout = 10
+set mail_check = 5
+set from = "jabelcastellanosjoo@unm.edu"
+set realname = "Jose Abel Castellanos Joo"
+
+# SMTP settings
+set smtp_url = "smtp://jabelcastellanosjoo@unm.edu@smtp.office365.com:587"
+set smtp_pass = `pass school_email`
+set ssl_starttls=yes
+set ssl_force_tls=yes
+
+# Mailboxes
+set spoolfile = "+INBOX"
+set record = "+Sent"
+set trash = "+Trash"
+set postponed = "+Drafts"
+mailboxes =INBOX =Sent =Trash =Drafts
+
+# Cache
+set header_cache = ~/.config/mutt/accounts/unm/cache
+set message_cachedir = ~/.config/mutt/accounts/unm/cache
+set certificate_file = ~/.config/mutt/accounts/unm/certificates
+
