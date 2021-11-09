@@ -1,3 +1,47 @@
+# General 
+
+snippet ;text "Text" iA
+\\text{ $1 } $0
+endsnippet
+
+snippet ;cite "Cite (optional: current item on + register)" iA
+\\cite{${1:`!v @+`}} $0
+endsnippet
+
+snippet ;label "Label" iA
+\\label{${1:`!v @+`}} $0
+endsnippet
+
+snippet ;ref "Reference" iA
+\\ref{${1:`!v @+`}} $0
+endsnippet
+
+snippet ;todo "TODO" iA
+{\color{red}[TODO]} \footnote{{\color{red}TODO:} $1} $0
+endsnippet
+
+snippet ;bold "Bold text" iA
+\\textbf{$1}$0
+endsnippet 
+
+snippet ;itali "Italicized text" iA
+\\emph{$1}$0
+endsnippet 
+
+# Accent-related
+
+snippet ;gr "Grave accent" iA
+\\\`{$1}$0
+endsnippet
+
+snippet ;ac "Acute accent" iA
+\\'{$1}$0
+endsnippet
+
+snippet ;um "Umlaut accent" iA
+\\"{$1}$0
+endsnippet
+
 # Algorithmic environment
 
 snippet ;algo "Algorithmic environment" iA
@@ -50,42 +94,6 @@ snippet ;frame "New frame" iA
 \\end{frame}
 endsnippet 
 
-# General 
-
-snippet ;text "Text" iA
-\\text{ $1 } $0
-endsnippet
-
-snippet ;cite "Cite (optional: current item on + register)" iA
-\\cite{${1:`!v @+`}} $0
-endsnippet
-
-snippet ;label "Label" iA
-\\label{${1:`!v @+`}} $0
-endsnippet
-
-snippet ;ref "Reference" iA
-\\ref{${1:`!v @+`}} $0
-endsnippet
-
-snippet ;todo "TODO" iA
-{\color{red}[TODO]} \footnote{{\color{red}TODO:} $1} $0
-endsnippet
-
-# Accent-related
-
-snippet ;gr "Grave accent" iA
-\\\`{$1}$0
-endsnippet
-
-snippet ;ac "Acute accent" iA
-\\'{$1}$0
-endsnippet
-
-snippet ;um "Umlaut accent" iA
-\\"{$1}$0
-endsnippet
-
 # Math-related
 
 priority 100
@@ -118,7 +126,11 @@ snippet ;eps "Epsilon" iA
 endsnippet
 
 snippet ;inv "Inverse" iA
-$1^{-1}$0
+^{-1}$0
+endsnippet
+
+snippet ;pow "Power" iA
+^{$1}$0
 endsnippet
 
 priority 100
@@ -136,7 +148,7 @@ snippet ;>= "Greather than or Equal to" iA
 \\geq $0
 endsnippet
 
-snippet ;OO "Infinity" iA
+snippet ;oo "Infinity" iA
 \\infty$0
 endsnippet
 
@@ -212,6 +224,10 @@ snippet ;lim "Limit" iA
 \\lim_{$1 \to $2} $3 $0
 endsnippet
 
+snippet ;inte "Integral" iA
+\\int_{$1}^{$2} $3 \\, d${4:x}$0
+endsnippet
+
 snippet ;bigconj "Big Conjunction" iA
 \\bigwedge_{$1}^{$2}{$3}$0
 endsnippet
@@ -284,6 +300,14 @@ snippet ;ring "Ring" iA
 \\mathcal{$1}$0
 endsnippet
 
+snippet ;salg "Sigma algebra" iA
+\$${1:\\sigma}\$-algebra
+endsnippet
+
+snippet ;smeasur "S measurable" iA
+\$${1:\\mathcal{S}}\$-measurable
+endsnippet
+
 snippet ;ubar "Underbar" iA
 \\underbar{$1}$0
 endsnippet
@@ -293,7 +317,7 @@ snippet ;obar "Overbar" iA
 endsnippet
 
 snippet ;seq "Sequence of symbols" iA
-$1_1, \\dots, $1_{$2}$0
+$1_1 $2 ${3:$1_2 $2 }\\dots${4: $2 $1_{$5}}$0
 endsnippet
 
 snippet ;polyring "Polyring" iA
@@ -363,7 +387,7 @@ snip.rv = primes`}$0
 endsnippet	
 
 # Latex-related
-snippet ;mk "Inline Math" iA
+snippet ;; "Inline Math" iA
 $$1$$0
 endsnippet
 
@@ -498,7 +522,7 @@ endglobal
 snippet ';intro(\w+[,\w+[\s\w]*]*)  ' "Intro Knowledge" riA
 `!p
 snip.rv = aux_add_cmd('/kldb.tex', '/home/jose/.local/scripts/add-knowledge -p ', ' -e \'index=', "\\intro{")
-`$0
+` $0
 endsnippet
 
 snippet ;kl "Use Knowledge" iA
@@ -508,7 +532,7 @@ endsnippet
 snippet ';gloss(\w+[,\w+[\s\w]*]*)  ' "Introduce new glossary term" riA
 `!p
 snip.rv = aux_add_cmd('/idxdb.tex', '/home/jose/.local/scripts/add-glossary -p ', ' -e \'newglossaryentry{', "\\glsadd{")
-`$0
+` $0
 endsnippet
 
 snippet ;glt "Use Glossary term" iA
@@ -599,14 +623,14 @@ snippet ;template "Basic template" iA
 
 \title{$1}
 \author{$2}
-\date{\today}
+\date{${3:\today}}
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-$3
+$4
 \end{abstract}
 
 $0

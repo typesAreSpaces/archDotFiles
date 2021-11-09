@@ -11,13 +11,6 @@ vim.g.vimtex_view_forward_search_on_start = 1
 vim.g.vimtex_compiler_progname = 'nvr'
 vim.g.tex_flavor = "latex"
 vim.g.active_refresh = 0
-vim.g.xwindow_id = vim.fn.system('xdotool getactivewindow')
-
---vim.cmd([[
---function! MyHook()
-  --silent call system('xdotool windowactivate ' . g:xwindow_id . ' --sync')
---endfunction
---]])
 
 function ToggleActiveRefresh()
   if vim.g.active_refresh == 1 then
@@ -60,23 +53,16 @@ end
 
 vim.cmd('autocmd VimLeave *.tex lua TexLeave()')
 
--- TODO
 function CloseViewers()
   if vim.fn.executable('xdotool') == 1 
-    and vim.fn.exists('b:vimtex') == 1 
-    and vim.fn.exists('b:vimtex.viewer') == 1 
-    and vim.b.vimtex.viewer.xwin_id ~= nil
-    then
-    --local xwin_viewer_id = vim.fn.system(string.format("xdotool search --name \"main.pdf\""))
-    --vim.fn.system(string.format("xdotool windowactivate --sync %s key --clearmodifiers --delay 0 'ctrl+q'", xwin_viewer_id))
-    local what = vim.fn.system(
-    string.format("xdotool windowactivate --sync %d key --clearmodifiers --delay 1 'ctrl+q'", vim.b.vimtex.viewer.xwin_id))
+    and vim.fn.executable('xlsw') == 1 then
+    vim.cmd("!xlsw | grep 'main.pdf'  | awk '{print $1}' | while read _windowID; do xdotool windowClose \"${_windowID}\"; done")
   end
 end
 
---vim.cmd([[
---augroup vimtex_event_2
-  --au!
-  --au User VimtexEventQuit lua CloseViewers()
---augroup END
---]])
+vim.cmd([[
+augroup vimtex_close_viewers_on_exit_event
+au!
+au User VimtexEventQuit lua CloseViewers()
+augroup END
+]])

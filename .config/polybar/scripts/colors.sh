@@ -10,8 +10,7 @@ if  [[ $1 = "-amber" ]]; then
 # Replacing colors
 sed -i -e 's/bg = .*/bg = #E6AE29/g' $PDIR/config.ini
 # Restarting polybar
-$LAUNCH &
-
+$LAUNCH & 
 elif  [[ $1 = "-blue" ]]; then
 # Replacing colors
 sed -i -e 's/bg = .*/bg = #327BBC/g' $PDIR/config.ini
@@ -148,6 +147,12 @@ elif  [[ $1 = "-tomorrow-night-bright" ]]; then
 # Replacing colors
 sed -i -e 's/bg = .*/bg = #000000/g' $PDIR/config.ini
 # Restarting polybar
+
+elif  [[ $1 = "-dracula" ]]; then
+# Replacing colors
+sed -i -e 's/bg = .*/bg = #282a36/g' $PDIR/config.ini
+# Restarting polybar
+
 $LAUNCH &
 
 
@@ -159,5 +164,6 @@ echo "Available options:
 -lime		-orange			-pink			-purple
 -red		-teal			-yellow     -gruvbox-light
 -gruvbox-dark -nord   -nightly -solarized-dark
--tomorrow-night -tomorrow-night-bright "
+-tomorrow-night -tomorrow-night-bright 
+-dracula "
 fi

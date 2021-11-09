@@ -1,21 +1,19 @@
 #!/bin/bash
 
 # ------------------------------------------------------------------------
+# Extra programs
+sudo pacman -S zsh git vim curl
+# ------------------------------------------------------------------------
 # Dot files setup
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 echo ".cfg" >> .gitignore
-git clone --bare git@github.com:typesAreSpaces/archDotFiles.git $HOME/.cfg
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+git clone --bare https://github.com/typesAreSpaces/archDotFiles.git $HOME/.cfg
 mkdir -p .config-backup && \
-  config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
+  /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
   xargs -I{} mv {} .config-backup/{}
-config checkout
-config config --local status.showUntrackedFiles no
-source .zshrc
+/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout
+/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --local status.showUntrackedFiles no
 # ------------------------------------------------------------------------
 # Vim setup
-## Install Vim
-sudo pacman -S vim
 ## Download vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -25,5 +23,9 @@ mkdir -p ~/.vim/undodir
 vim +PlugInstall +qa
 # ------------------------------------------------------------------------
 # Installing my usual stuff
-installArchPackages()
+sudo pacman -S --needed - < .arch_packages 
 # ------------------------------------------------------------------------
+mkdir -p ~/Documents/GithubProjects/polybar
+git clone https://aur.archlinux.org/polybar.git ~/Documents/GithubProjects/polybar
+cd ~/Documents/GithubProjects/polybar && makepkg -si
+chsh -s /bin/zsh
