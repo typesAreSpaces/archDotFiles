@@ -3,7 +3,7 @@
 # key: ;block
 # --
 
-#+begin_src ${1:emacs-lisp}
+#+begin_src ${1:emacs-lisp} ${2::tangle $3}
 
 $0
 
