@@ -6,7 +6,7 @@ vim.g.vimtex_view_enabled = 1
 vim.g.vimtex_view_automatic = 0
 vim.g.vimtex_view_method = 'zathura'
 vim.g.vimtex_view_zathura = 1
-vim.g.vimtex_view_automatic_xwin = 1
+vim.g.vimtex_view_automatic_xwin = 0
 vim.g.vimtex_view_forward_search_on_start = 1
 vim.g.vimtex_compiler_progname = 'nvr'
 vim.g.tex_flavor = "latex"
@@ -40,6 +40,7 @@ function ActiveRefresh()
 end
 vim.cmd('autocmd BufWritePost *.tex lua ActiveRefresh()')
 vim.cmd('autocmd Filetype tex set tw=80')
+vim.cmd('autocmd Filetype tex set colorcolumn=80')
 
 function SaveSession()
   vim.cmd('mksession! session')
