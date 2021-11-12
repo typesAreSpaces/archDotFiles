@@ -67,3 +67,10 @@ au!
 au User VimtexEventQuit lua CloseViewers()
 augroup END
 ]])
+
+function ParentFile()
+  local file_name = vim.fn.expand('%:t')
+  vim.cmd(string.format("silent grep \"input.*%s\" *.tex", string.sub(file_name, 0, -5)))
+end
+
+set_keymap('n', '<leader>pf', '<cmd>lua ParentFile()<CR><CR>', opts)
