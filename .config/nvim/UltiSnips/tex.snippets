@@ -16,8 +16,16 @@ snippet ;ref "Reference" iA
 \\ref{${1:`!v @+`}} $0
 endsnippet
 
-snippet ;todo "TODO" iA
+snippet ;todo "TODO label" iA
 {\color{red}[TODO]} \footnote{{\color{red}TODO:} $1} $0
+endsnippet
+
+snippet ;keep "KEEP label" iA
+{\color{green}[KEEP]} \footnote{{\color{green}KEEP:} working here.} $0
+endsnippet
+
+snippet ;question "QUESTION label" iA
+{\color{blue}[QUESTION]} \footnote{{\color{blue}QUESTION:} $1} $0
 endsnippet
 
 snippet ;bold "Bold text" iA

@@ -57,7 +57,9 @@ vim.cmd('autocmd VimLeave *.tex lua TexLeave()')
 function CloseViewers()
   if vim.fn.executable('xdotool') == 1 
     and vim.fn.executable('xlsw') == 1 then
-    vim.cmd("!xlsw | grep 'main.pdf'  | awk '{print $1}' | while read _windowID; do xdotool windowClose \"${_windowID}\"; done")
+    local search_cmd="!xlsw | grep main.pdf | awk '{print $1}'"
+    local close_cmd="while read _windowID; do xdotool windowClose \"${_windowID}\"; done"
+    vim.cmd(search_cmd .. "|" .. close_cmd)
   end
 end
 
@@ -74,3 +76,7 @@ function ParentFile()
 end
 
 set_keymap('n', '<leader>pf', '<cmd>lua ParentFile()<CR><CR>', opts)
+
+function What()
+  vim.cmd(string.format("echo \"%s hahaha\"", vim.fn.getcwd()))
+end
