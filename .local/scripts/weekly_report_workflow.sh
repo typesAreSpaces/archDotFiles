@@ -30,6 +30,9 @@ if [ $? != 0 ]
     WINDOW=5
     tmux new-window -t $SESSIONNAME:$WINDOW -n 'current report'
     tmux send-keys -t $SESSIONNAME:$WINDOW "cd $CURRENT_REPORT_DIR; $NVS" C-m
+
+    WINDOW=6
+    tmux new-window -t $SESSIONNAME:$WINDOW -n 'terminal'
 fi
 
 tmux attach -t $SESSIONNAME
