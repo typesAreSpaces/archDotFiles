@@ -1,3 +1,5 @@
+shell:
+  program: /usr/bin/tmux
 colors:
   primary:
     background: '#282828'
