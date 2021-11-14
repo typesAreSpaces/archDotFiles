@@ -67,10 +67,6 @@ alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
 alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it seahorn/seahorn-llvm5"
 
 # Local Scripts
-## Brightness script
-setScreenBrightness(){
-  xrandr --output DP-0 --brightness $1
-}
 ## ImageGoNord script
 imageGoNord(){
   python $GITHUB_PROJECTS_DIR/ImageGoNord/src/cli.py --img=$1 -o=$2
@@ -147,7 +143,7 @@ fromEmacsToVimBindings(){
 }
 
 setScreenBrightness(){
-  xrandr --output DP-0 --brightness $1
+  xrandr --output DP3 --brightness $1
 }
 setKeyboardBrightness(){
   brightnessctl --device='dell::kbd_backlight' set $1
