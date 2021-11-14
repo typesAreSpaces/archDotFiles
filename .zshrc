@@ -26,6 +26,7 @@ export PATH="$APPS_DIR/LADR-2009-11A/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH" 
 export PATH="$APPS_DIR/Matlab/bin:$PATH"
 export PATH="$APPS_DIR/csdp6.2.0linuxx86_64/bin:$PATH";
+export GOPATH="$HOME/go";
 
 # Init
 [ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
