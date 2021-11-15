@@ -59,7 +59,9 @@ alias nvs="nvim --listen localhost:12345 -S session"
 alias e="emacs -nw"
 alias todo="emacs -nw $PHD_THESIS_DIR/todolist.org"
 alias addrefs="nvim $PHD_THESIS_DIR/Documents/Write-Ups/references.bib"
-alias z="zathura"
+z(){
+  zathura $1 &
+}
 alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
 
 # Docker Aliases
