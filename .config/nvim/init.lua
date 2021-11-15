@@ -10,6 +10,9 @@ require('plugins')
 -- # Settings
 require('settings')
 
+-- # Mappings
+require('mappings')
+
 -- # Telescope
 require('telescope-config')
 

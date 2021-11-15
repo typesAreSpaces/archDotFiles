@@ -1,6 +1,3 @@
-local function set_keymap(...) vim.api.nvim_set_keymap(...) end
-local opts = { noremap=true, silent=true }
-
 vim.g.Tex_DefaultTargetFormat = 'pdf'
 vim.g.vimtex_view_enabled = 1
 vim.g.vimtex_view_automatic = 0
@@ -19,8 +16,6 @@ function ToggleActiveRefresh()
     vim.g.active_refresh = 1
   end
 end
-
-set_keymap('n', '<leader>ar', '<cmd>lua ToggleActiveRefresh()<CR>', opts)
 
 function TexRefresh()
   local f=io.open("main.pdf","r")
@@ -73,10 +68,4 @@ augroup END
 function ParentFile()
   local file_name = vim.fn.expand('%:t')
   vim.cmd(string.format("silent grep \"input.*%s\" *.tex", string.sub(file_name, 0, -5)))
-end
-
-set_keymap('n', '<leader>pf', '<cmd>lua ParentFile()<CR><CR>', opts)
-
-function What()
-  vim.cmd(string.format("echo \"%s hahaha\"", vim.fn.getcwd()))
 end
