@@ -6,7 +6,7 @@ require'nvim-treesitter.configs'.setup {
       init_selection = "ti",
       node_incremental = "tn",
       scope_incremental = "tt",
-      node_decremental = "tm",
+      node_decremental = "tp",
     },
   },
   highlight = {
