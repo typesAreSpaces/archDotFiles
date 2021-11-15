@@ -1,6 +1,3 @@
-local function set_keymap(...) vim.api.nvim_set_keymap(...) end
-local opts = { noremap=true, silent=true }
-
 require('telescope').setup{
   defaults = {
     -- Default configuration for telescope goes here:
@@ -31,9 +28,3 @@ require('telescope').setup{
     -- please take a look at the readme of the extension you want to configure
   }
 }
-
--- # Telescope bindings
-set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<CR>', opts)
-set_keymap('n', '<leader>gg', '<cmd>Telescope live_grep<CR>', opts)
-set_keymap('n', '<leader>bb', '<cmd>Telescope buffers<CR>', opts)
-set_keymap('n', '<leader>hh', '<cmd>Telescope help_tags<CR>', opts)

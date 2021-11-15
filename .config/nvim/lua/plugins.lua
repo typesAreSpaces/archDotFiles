@@ -46,6 +46,7 @@ return require('packer').startup(function()
   use 'skywind3000/asyncrun.vim'
   use 'folke/which-key.nvim'
   use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins'}
+  use 'MattesGroeger/vim-bookmarks'
 
   -- # Neovim apps 
   use 'iamcco/markdown-preview.nvim'
