@@ -219,6 +219,37 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
 
 #+end_src
 
+* Managing Mail with mu4e
+
+#+begin_src emacs-lisp 
+
+(use-package mu4e
+  :ensure nil
+  ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
+  ;; :defer 20 ; Wait until 20 seconds after startup
+  :config
+
+  ;; This is set to 't' to avoid mail syncing issues when using mbsync
+  (setq mu4e-change-filenames-when-moving t)
+
+  ;; Refresh mail using isync every 10 minutes
+  (setq mu4e-update-interval (* 10 60))
+  (setq mu4e-get-mail-command "mbsync -a")
+  (setq mu4e-maildir "~/Mail")
+
+  (setq mu4e-drafts-folder "/unm/Drafts")
+  (setq mu4e-sent-folder   "/unm/Sent")
+  (setq mu4e-refile-folder "/unm/Inbox")
+  (setq mu4e-trash-folder  "/unm/Trash")
+
+  (setq mu4e-maildir-shortcuts
+      '(("/unm/Inbox"     . ?i)
+        ("/unm/Sent"      . ?s)
+        ("/unm/Trash"     . ?t)
+        ("/unm/Drafts"    . ?d))))
+
+#+end_src
+
 * UI Configuration
 
 ** Command Log Mode

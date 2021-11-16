@@ -144,6 +144,31 @@
   :config
   (evil-collection-init))
 
+(use-package mu4e
+  :ensure nil
+  ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
+  ;; :defer 20 ; Wait until 20 seconds after startup
+  :config
+
+  ;; This is set to 't' to avoid mail syncing issues when using mbsync
+  (setq mu4e-change-filenames-when-moving t)
+
+  ;; Refresh mail using isync every 10 minutes
+  (setq mu4e-update-interval (* 10 60))
+  (setq mu4e-get-mail-command "mbsync -a")
+  (setq mu4e-maildir "~/Mail")
+
+  (setq mu4e-drafts-folder "/unm/Drafts")
+  (setq mu4e-sent-folder   "/unm/Sent")
+  (setq mu4e-refile-folder "/unm/Inbox")
+  (setq mu4e-trash-folder  "/unm/Trash")
+
+  (setq mu4e-maildir-shortcuts
+      '(("/unm/Inbox"     . ?i)
+        ("/unm/Sent"      . ?s)
+        ("/unm/Trash"     . ?t)
+        ("/unm/Drafts"    . ?d))))
+
 (use-package command-log-mode
   :commands command-log-mode)
 
@@ -656,16 +681,3 @@
   (yas-global-mode 1))
 
 (use-package yasnippet-snippets)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(yasnippet-snippets yasnippet dired-hide-dotfiles dired-open all-the-icons-dired dired-single eshell-git-prompt vterm eterm-256color rainbow-delimiters evil-nerd-commenter forge magit counsel-projectile projectile company-box company pyvenv python-mode typescript-mode dap-mode lsp-ivy lsp-treemacs lsp-ui lsp-mode visual-fill-column org-bullets hydra helpful ivy-prescient counsel flx ivy-rich ivy which-key doom-modeline all-the-icons doom-themes command-log-mode evil-collection evil general dashboard no-littering auto-package-update use-package)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
