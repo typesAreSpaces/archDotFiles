@@ -164,10 +164,12 @@
   (setq mu4e-trash-folder  "/unm/Trash")
 
   (setq mu4e-maildir-shortcuts
-      '(("/unm/Inbox"     . ?i)
-        ("/unm/Sent"      . ?s)
-        ("/unm/Trash"     . ?t)
-        ("/unm/Drafts"    . ?d))))
+        '(("/unm/Inbox"     . ?i)
+          ("/unm/Sent"      . ?s)
+          ("/unm/Trash"     . ?t)
+          ("/unm/Drafts"    . ?d))))
+
+(mu4e t)
 
 (use-package command-log-mode
   :commands command-log-mode)
