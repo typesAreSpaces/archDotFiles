@@ -248,6 +248,15 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
             ("/unm/Trash"     . ?t)
             ("/unm/Drafts"    . ?d))))
 
+  (setq user-mail-address "jabelcastellanosjoo@unm.edu"
+        user-full-name "Jose Abel Castellanos Joo")
+
+  (setq smtpmail-smtp-server "smtp.office365.com"
+        smtpmail-smtp-service 587
+        smtpmail-stream-type 'starttls)
+
+  (setq message-send-mail-function 'smtpmail-send-it)
+
   (mu4e t)
 
 #+end_src
@@ -746,14 +755,14 @@ Try these commands with =M-x=:
 - =lsp-treemacs-references= - Show a tree view for the references of the symbol under the cursor
 - =lsp-treemacs-error-list= - Show a tree view for the diagnostic messages in the project
 
-This package is built on the [[https://github.com/Alexander-Miller/treemacs][treemacs]] package which might be of some interest to you if you like to have a file browser at the left side of your screen in your editor.
+  This package is built on the [[https://github.com/Alexander-Miller/treemacs][treemacs]] package which might be of some interest to you if you like to have a file browser at the left side of your screen in your editor.
 
-#+begin_src emacs-lisp
+  #+begin_src emacs-lisp
 
-  (use-package lsp-treemacs
-    :after lsp)
+    (use-package lsp-treemacs
+      :after lsp)
 
-#+end_src
+  #+end_src
 
 **** lsp-ivy
 
@@ -764,12 +773,12 @@ Try these commands with =M-x=:
 - =lsp-ivy-workspace-symbol= - Search for a symbol name in the current project workspace
 - =lsp-ivy-global-workspace-symbol= - Search for a symbol name in all active project workspaces
 
-#+begin_src emacs-lisp
+  #+begin_src emacs-lisp
 
-  (use-package lsp-ivy
-    :after lsp)
+    (use-package lsp-ivy
+      :after lsp)
 
-#+end_src
+  #+end_src
 
 *** Debugging with dap-mode
 
@@ -979,18 +988,18 @@ Run a terminal with =M-x term!=
 - =C-c C-j= - Return to line-mode
 - If you have =evil-collection= installed, =term-mode= will enter char mode when you use Evil's Insert mode
 
-#+begin_src emacs-lisp
+  #+begin_src emacs-lisp
 
-  (use-package term
-    :commands term
-    :config
-    (setq explicit-shell-file-name "bash") ;; Change this to zsh, etc
-    ;;(setq explicit-zsh-args '())         ;; Use 'explicit-<shell>-args for shell-specific args
+    (use-package term
+      :commands term
+      :config
+      (setq explicit-shell-file-name "bash") ;; Change this to zsh, etc
+      ;;(setq explicit-zsh-args '())         ;; Use 'explicit-<shell>-args for shell-specific args
 
-    ;; Match the default Bash shell prompt.  Update this if you have a custom prompt
-    (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *"))
+      ;; Match the default Bash shell prompt.  Update this if you have a custom prompt
+      (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *"))
 
-#+end_src
+  #+end_src
 
 *** Better term-mode colors
 
@@ -1031,15 +1040,15 @@ Make sure that you have the [[https://github.com/akermu/emacs-libvterm/#requirem
 - =C-c C-u= - delete the current input string backwards up to the cursor
 - =counsel-shell-history= - A searchable history of commands typed into the shell
 
-One advantage of =shell-mode= on Windows is that it's the only way to run =cmd.exe=, PowerShell, Git Bash, etc from within Emacs.  Here's an example of how you would set up =shell-mode= to run PowerShell on Windows:
+  One advantage of =shell-mode= on Windows is that it's the only way to run =cmd.exe=, PowerShell, Git Bash, etc from within Emacs.  Here's an example of how you would set up =shell-mode= to run PowerShell on Windows:
 
-#+begin_src emacs-lisp
+  #+begin_src emacs-lisp
 
-  (when (eq system-type 'windows-nt)
-    (setq explicit-shell-file-name "powershell.exe")
-    (setq explicit-powershell.exe-args '()))
+    (when (eq system-type 'windows-nt)
+      (setq explicit-shell-file-name "powershell.exe")
+      (setq explicit-powershell.exe-args '()))
 
-#+end_src
+  #+end_src
 
 ** Eshell
 
@@ -1054,46 +1063,46 @@ The downsides to Eshell are that it can be harder to configure than other packag
 - =C-c C-u= - delete the current input string backwards up to the cursor
 - =counsel-esh-history= - A searchable history of commands typed into Eshell
 
-We will be covering Eshell more in future videos highlighting other things you can do with it.
+  We will be covering Eshell more in future videos highlighting other things you can do with it.
 
-For more thoughts on Eshell, check out these articles by Pierre Neidhardt:
-- https://ambrevar.xyz/emacs-eshell/index.html
-- https://ambrevar.xyz/emacs-eshell-versus-shell/index.html
+  For more thoughts on Eshell, check out these articles by Pierre Neidhardt:
+  - https://ambrevar.xyz/emacs-eshell/index.html
+  - https://ambrevar.xyz/emacs-eshell-versus-shell/index.html
 
-#+begin_src emacs-lisp
+    #+begin_src emacs-lisp
 
-  (defun efs/configure-eshell ()
-    ;; Save command history when commands are entered
-    (add-hook 'eshell-pre-command-hook 'eshell-save-some-history)
+      (defun efs/configure-eshell ()
+        ;; Save command history when commands are entered
+        (add-hook 'eshell-pre-command-hook 'eshell-save-some-history)
 
-    ;; Truncate buffer for performance
-    (add-to-list 'eshell-output-filter-functions 'eshell-truncate-buffer)
+        ;; Truncate buffer for performance
+        (add-to-list 'eshell-output-filter-functions 'eshell-truncate-buffer)
 
-    ;; Bind some useful keys for evil-mode
-    (evil-define-key '(normal insert visual) eshell-mode-map (kbd "C-r") 'counsel-esh-history)
-    (evil-define-key '(normal insert visual) eshell-mode-map (kbd "<home>") 'eshell-bol)
-    (evil-normalize-keymaps)
+        ;; Bind some useful keys for evil-mode
+        (evil-define-key '(normal insert visual) eshell-mode-map (kbd "C-r") 'counsel-esh-history)
+        (evil-define-key '(normal insert visual) eshell-mode-map (kbd "<home>") 'eshell-bol)
+        (evil-normalize-keymaps)
 
-    (setq eshell-history-size         10000
-          eshell-buffer-maximum-lines 10000
-          eshell-hist-ignoredups t
-          eshell-scroll-to-bottom-on-input t))
+        (setq eshell-history-size         10000
+              eshell-buffer-maximum-lines 10000
+              eshell-hist-ignoredups t
+              eshell-scroll-to-bottom-on-input t))
 
-  (use-package eshell-git-prompt
-    :after eshell)
+      (use-package eshell-git-prompt
+        :after eshell)
 
-  (use-package eshell
-    :hook (eshell-first-time-mode . efs/configure-eshell)
-    :config
+      (use-package eshell
+        :hook (eshell-first-time-mode . efs/configure-eshell)
+        :config
 
-    (with-eval-after-load 'esh-opt
-      (setq eshell-destroy-buffer-when-process-dies t)
-      (setq eshell-visual-commands '("htop" "zsh" "vim")))
+        (with-eval-after-load 'esh-opt
+          (setq eshell-destroy-buffer-when-process-dies t)
+          (setq eshell-visual-commands '("htop" "zsh" "vim")))
 
-    (eshell-git-prompt-use-theme 'powerline))
+        (eshell-git-prompt-use-theme 'powerline))
 
 
-#+end_src
+    #+end_src
 
 * File Management
 
@@ -1135,7 +1144,7 @@ Dired is a built-in file manager for Emacs that does some pretty amazing things!
 - =R= - Rename marked files, renaming multiple is a move!
 - =% R= - Rename based on regular expression: =^test= , =old-\&=
 
-*Power command*: =C-x C-q= (=dired-toggle-read-only=) - Makes all file names in the buffer editable directly to rename them!  Press =Z Z= to confirm renaming or =Z Q= to abort.
+  *Power command*: =C-x C-q= (=dired-toggle-read-only=) - Makes all file names in the buffer editable directly to rename them!  Press =Z Z= to confirm renaming or =Z Q= to abort.
 
 **** Deleting files
 

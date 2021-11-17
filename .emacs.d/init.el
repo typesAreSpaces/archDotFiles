@@ -169,6 +169,15 @@
           ("/unm/Trash"     . ?t)
           ("/unm/Drafts"    . ?d))))
 
+(setq user-mail-address "jabelcastellanosjoo@unm.edu"
+      user-full-name "Jose Abel Castellanos Joo")
+
+(setq smtpmail-smtp-server "smtp.office365.com"
+      smtpmail-smtp-service 587
+      smtpmail-stream-type 'starttls)
+
+(setq message-send-mail-function 'smtpmail-send-it)
+
 (mu4e t)
 
 (use-package command-log-mode
