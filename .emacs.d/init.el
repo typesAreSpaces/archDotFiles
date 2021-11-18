@@ -144,42 +144,6 @@
   :config
   (evil-collection-init))
 
-(use-package mu4e
-  :ensure nil
-  ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
-  ;; :defer 20 ; Wait until 20 seconds after startup
-  :config
-
-  ;; This is set to 't' to avoid mail syncing issues when using mbsync
-  (setq mu4e-change-filenames-when-moving t)
-
-  ;; Refresh mail using isync every 10 minutes
-  (setq mu4e-update-interval (* 10 60))
-  (setq mu4e-get-mail-command "mbsync -a")
-  (setq mu4e-maildir "~/Mail")
-
-  (setq mu4e-drafts-folder "/unm/Drafts")
-  (setq mu4e-sent-folder   "/unm/Sent")
-  (setq mu4e-refile-folder "/unm/Inbox")
-  (setq mu4e-trash-folder  "/unm/Trash")
-
-  (setq mu4e-maildir-shortcuts
-        '(("/unm/Inbox"     . ?i)
-          ("/unm/Sent"      . ?s)
-          ("/unm/Trash"     . ?t)
-          ("/unm/Drafts"    . ?d))))
-
-(setq user-mail-address "jabelcastellanosjoo@unm.edu"
-      user-full-name "Jose Abel Castellanos Joo")
-
-(setq smtpmail-smtp-server "smtp.office365.com"
-      smtpmail-smtp-service 587
-      smtpmail-stream-type 'starttls)
-
-(setq message-send-mail-function 'smtpmail-send-it)
-
-(mu4e t)
-
 (use-package command-log-mode
   :commands command-log-mode)
 
@@ -276,18 +240,18 @@
 (defun efs/org-font-setup ()
   ;; Replace list hyphen with dot
   (font-lock-add-keywords 'org-mode
-                          '(("^ *\\([-]\\) "
-                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+			  '(("^ *\\([-]\\) "
+			     (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
   ;; Set faces for heading levels
   (dolist (face '((org-level-1 . 1.2)
-                  (org-level-2 . 1.1)
-                  (org-level-3 . 1.05)
-                  (org-level-4 . 1.0)
-                  (org-level-5 . 1.1)
-                  (org-level-6 . 1.1)
-                  (org-level-7 . 1.1)
-                  (org-level-8 . 1.1)))
+		  (org-level-2 . 1.1)
+		  (org-level-3 . 1.05)
+		  (org-level-4 . 1.0)
+		  (org-level-5 . 1.1)
+		  (org-level-6 . 1.1)
+		  (org-level-7 . 1.1)
+		  (org-level-8 . 1.1)))
     (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
 
   ;; Ensure that anything that should be fixed-pitch in Org files appears that way
@@ -320,112 +284,112 @@
   (setq org-log-into-drawer t)
 
   (setq org-agenda-files
-        '("~/.emacs.d/OrgFiles/Tasks.org"
-          "~/.emacs.d/OrgFiles/Habits.org"
-          "~/.emacs.d/OrgFiles/Birthdays.org"))
+	'("~/.emacs.d/OrgFiles/Tasks.org"
+	  "~/.emacs.d/OrgFiles/Habits.org"
+	  "~/.emacs.d/OrgFiles/Birthdays.org"))
 
   (require 'org-habit)
   (add-to-list 'org-modules 'org-habit)
   (setq org-habit-graph-column 60)
 
   (setq org-todo-keywords
-        '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
-          (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
+	'((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
+	  (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
 
   (setq org-refile-targets
-        '(("Archive.org" :maxlevel . 1)
-          ("Tasks.org" :maxlevel . 1)))
+	'(("Archive.org" :maxlevel . 1)
+	  ("Tasks.org" :maxlevel . 1)))
 
   ;; Save Org buffers after refiling!
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
 
   (setq org-tag-alist
-        '((:startgroup)
-                                        ; Put mutually exclusive tags here
-          (:endgroup)
-          ("@errand" . ?E)
-          ("@home" . ?H)
-          ("@work" . ?W)
-          ("agenda" . ?a)
-          ("planning" . ?p)
-          ("publish" . ?P)
-          ("batch" . ?b)
-          ("note" . ?n)
-          ("idea" . ?i)))
+	'((:startgroup)
+					; Put mutually exclusive tags here
+	  (:endgroup)
+	  ("@errand" . ?E)
+	  ("@home" . ?H)
+	  ("@work" . ?W)
+	  ("agenda" . ?a)
+	  ("planning" . ?p)
+	  ("publish" . ?P)
+	  ("batch" . ?b)
+	  ("note" . ?n)
+	  ("idea" . ?i)))
 
   ;; Configure custom agenda views
   (setq org-agenda-custom-commands
-        '(("d" "Dashboard"
-           ((agenda "" ((org-deadline-warning-days 7)))
-            (todo "NEXT"
-                  ((org-agenda-overriding-header "Next Tasks")))
-            (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))))
+	'(("d" "Dashboard"
+	   ((agenda "" ((org-deadline-warning-days 7)))
+	    (todo "NEXT"
+		  ((org-agenda-overriding-header "Next Tasks")))
+	    (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))))
 
-          ("n" "Next Tasks"
-           ((todo "NEXT"
-                  ((org-agenda-overriding-header "Next Tasks")))))
+	  ("n" "Next Tasks"
+	   ((todo "NEXT"
+		  ((org-agenda-overriding-header "Next Tasks")))))
 
-          ("W" "Work Tasks" tags-todo "+work-email")
+	  ("W" "Work Tasks" tags-todo "+work-email")
 
-          ;; Low-effort next actions
-          ("e" tags-todo "+TODO=\"NEXT\"+Effort<15&+Effort>0"
-           ((org-agenda-overriding-header "Low Effort Tasks")
-            (org-agenda-max-todos 20)
-            (org-agenda-files org-agenda-files)))
+	  ;; Low-effort next actions
+	  ("e" tags-todo "+TODO=\"NEXT\"+Effort<15&+Effort>0"
+	   ((org-agenda-overriding-header "Low Effort Tasks")
+	    (org-agenda-max-todos 20)
+	    (org-agenda-files org-agenda-files)))
 
-          ("w" "Workflow Status"
-           ((todo "WAIT"
-                  ((org-agenda-overriding-header "Waiting on External")
-                   (org-agenda-files org-agenda-files)))
-            (todo "REVIEW"
-                  ((org-agenda-overriding-header "In Review")
-                   (org-agenda-files org-agenda-files)))
-            (todo "PLAN"
-                  ((org-agenda-overriding-header "In Planning")
-                   (org-agenda-todo-list-sublevels nil)
-                   (org-agenda-files org-agenda-files)))
-            (todo "BACKLOG"
-                  ((org-agenda-overriding-header "Project Backlog")
-                   (org-agenda-todo-list-sublevels nil)
-                   (org-agenda-files org-agenda-files)))
-            (todo "READY"
-                  ((org-agenda-overriding-header "Ready for Work")
-                   (org-agenda-files org-agenda-files)))
-            (todo "ACTIVE"
-                  ((org-agenda-overriding-header "Active Projects")
-                   (org-agenda-files org-agenda-files)))
-            (todo "COMPLETED"
-                  ((org-agenda-overriding-header "Completed Projects")
-                   (org-agenda-files org-agenda-files)))
-            (todo "CANC"
-                  ((org-agenda-overriding-header "Cancelled Projects")
-                   (org-agenda-files org-agenda-files)))))))
+	  ("w" "Workflow Status"
+	   ((todo "WAIT"
+		  ((org-agenda-overriding-header "Waiting on External")
+		   (org-agenda-files org-agenda-files)))
+	    (todo "REVIEW"
+		  ((org-agenda-overriding-header "In Review")
+		   (org-agenda-files org-agenda-files)))
+	    (todo "PLAN"
+		  ((org-agenda-overriding-header "In Planning")
+		   (org-agenda-todo-list-sublevels nil)
+		   (org-agenda-files org-agenda-files)))
+	    (todo "BACKLOG"
+		  ((org-agenda-overriding-header "Project Backlog")
+		   (org-agenda-todo-list-sublevels nil)
+		   (org-agenda-files org-agenda-files)))
+	    (todo "READY"
+		  ((org-agenda-overriding-header "Ready for Work")
+		   (org-agenda-files org-agenda-files)))
+	    (todo "ACTIVE"
+		  ((org-agenda-overriding-header "Active Projects")
+		   (org-agenda-files org-agenda-files)))
+	    (todo "COMPLETED"
+		  ((org-agenda-overriding-header "Completed Projects")
+		   (org-agenda-files org-agenda-files)))
+	    (todo "CANC"
+		  ((org-agenda-overriding-header "Cancelled Projects")
+		   (org-agenda-files org-agenda-files)))))))
 
   (setq org-capture-templates
-        `(("t" "Tasks / Projects")
-          ("tt" "Task" entry (file+olp "~/.emacs.d/OrgFiles/Tasks.org" "Inbox")
-           "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
+	`(("t" "Tasks / Projects")
+	  ("tt" "Task" entry (file+olp "~/.emacs.d/OrgFiles/Tasks.org" "Inbox")
+	   "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
 
-          ("j" "Journal Entries")
-          ("jj" "Journal" entry
-           (file+olp+datetree "~/.emacs.d/OrgFiles/Journal.org")
-           "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
-           ;; ,(dw/read-file-as-string "~/Notes/Templates/Daily.org")
-           :clock-in :clock-resume
-           :empty-lines 1)
-          ("jm" "Meeting" entry
-           (file+olp+datetree "~/.emacs.d/OrgFiles/Journal.org")
-           "* %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
-           :clock-in :clock-resume
-           :empty-lines 1)
+	  ("j" "Journal Entries")
+	  ("jj" "Journal" entry
+	   (file+olp+datetree "~/.emacs.d/OrgFiles/Journal.org")
+	   "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
+	   ;; ,(dw/read-file-as-string "~/Notes/Templates/Daily.org")
+	   :clock-in :clock-resume
+	   :empty-lines 1)
+	  ("jm" "Meeting" entry
+	   (file+olp+datetree "~/.emacs.d/OrgFiles/Journal.org")
+	   "* %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
+	   :clock-in :clock-resume
+	   :empty-lines 1)
 
-          ("w" "Workflows")
-          ("we" "Checking Email" entry (file+olp+datetree "~/.emacs.d/OrgFiles/Journal.org")
-           "* Checking Email :email:\n\n%?" :clock-in :clock-resume :empty-lines 1)
+	  ("w" "Workflows")
+	  ("we" "Checking Email" entry (file+olp+datetree "~/.emacs.d/OrgFiles/Journal.org")
+	   "* Checking Email :email:\n\n%?" :clock-in :clock-resume :empty-lines 1)
 
-          ("m" "Metrics Capture")
-          ("mw" "Weight" table-line (file+headline "~/.emacs.d/OrgFiles/Metrics.org" "Weight")
-           "| %U | %^{Weight} | %^{Notes} |" :kill-buffer t)))
+	  ("m" "Metrics Capture")
+	  ("mw" "Weight" table-line (file+headline "~/.emacs.d/OrgFiles/Metrics.org" "Weight")
+	   "| %U | %^{Weight} | %^{Notes} |" :kill-buffer t)))
 
   (define-key global-map (kbd "C-c j")
     (lambda () (interactive) (org-capture nil "jj")))
@@ -455,7 +419,7 @@
 
 (defun efs/org-mode-visual-fill ()
   (setq visual-fill-column-width 100
-        visual-fill-column-center-text t)
+	visual-fill-column-center-text t)
   (visual-fill-column-mode 1))
 
 (use-package visual-fill-column
@@ -480,7 +444,7 @@
 ;; Automatically tangle our Emacs.org config file when we save it
 (defun efs/org-babel-tangle-config ()
   (when (string-equal (file-name-directory (buffer-file-name))
-                      (expand-file-name user-emacs-directory))
+		      (expand-file-name user-emacs-directory))
     ;; Dynamic scoping to the rescue
     (let ((org-confirm-babel-evaluate nil))
       (org-babel-tangle))))
@@ -599,6 +563,95 @@
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
+
+(use-package mu4e
+  :ensure nil
+  ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
+  ;; :defer 20 ; Wait until 20 seconds after startup
+  :config
+
+  ;; This is set to 't' to avoid mail syncing issues when using mbsync
+  (setq mu4e-change-filenames-when-moving t)
+
+  (setq mu4e-update-interval 60)
+  (setq mu4e-get-mail-command "mbsync -a")
+  (setq mu4e-maildir "~/Mail")
+
+  (setq mu4e-contexts
+        (list
+         ;; School account
+         (make-mu4e-context
+          :name "School"
+          :match-func
+          (lambda (msg)
+            (when msg
+              (string-prefix-p "/unm" (mu4e-message-field msg :maildir))))
+          :vars '((user-mail-address  . "jabelcastellanosjoo@unm.edu")
+                  (user-full-name     . "Jose Abel Castellanos Joo")
+                  (mu4e-drafts-folder . "/unm/Drafts")
+                  (mu4e-sent-folder   . "/unm/Sent")
+                  (mu4e-refile-folder . "/unm/Inbox")
+                  (mu4e-trash-folder  . "/unm/Trash")
+                  (smtpmail-smtp-server . "smtp.office365.com")
+                  (smtpmail-smtp-service . 587)
+                  (smtpmail-stream-type . starttls)))
+         ;; School CS department account
+         (make-mu4e-context
+          :name "CS department"
+          :match-func
+          (lambda (msg)
+            (when msg
+              (string-prefix-p "/cs-unm" (mu4e-message-field msg :maildir))))
+          :vars '((user-mail-address  . "jose.castellanosjoo@cs.unm.edu")
+                  (user-full-name     . "Jose Abel Castellanos Joo")
+                  (mu4e-drafts-folder . "/cs-unm/Drafts")
+                  ;;(mu4e-sent-folder   . "/cs-unm/Sent")
+                  (mu4e-refile-folder . "/cs-unm/Inbox")
+                  (mu4e-trash-folder  . "/cs-unm/Trash")
+                  (smtpmail-smtp-server . "snape.cs.unm.edu")
+                  (smtpmail-smtp-service . 587)
+                  (smtpmail-stream-type . starttls)))))
+
+  (setq mu4e-context-policy 'pick-first)
+
+  (setq mu4e-maildir-shortcuts
+        '(("/unm/Inbox" . ?i)
+          ("/unm/Sent"  . ?s)
+          ("/unm/Trash" . ?t)
+          ("/unm/Drafts". ?d)
+          ("/unm/Prof. Kapur". ?k)
+          ("/unm/Archive". ?a)
+          ("/cs-unm/Inbox". ?I)
+          ("/cs-unm/Trash". ?T)
+          ("/cs-unm/Drafts". ?D))))
+(mu4e t)
+(setq message-send-mail-function 'smtpmail-send-it)
+(setq mu4e-headers-show-threads nil)
+(setq mu4e-attachment-dir  "~/Downloads")
+(setq mu4e-confirm-quit nil)
+(setq mu4e-headers-results-limit -1)
+(setq mu4e-compose-signature "Best,\nJose")
+
+(use-package mu4e-alert
+  :ensure t
+  :init
+  :after mu4e
+  :config
+  ;; Mode line alerts:
+  (add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
+  ;; Desktop alerts:
+  ;;(mu4e-alert-set-default-style 'libnotify)
+  ;;(add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
+  ;; Only notify for "interesting" (non-trashed) new emails:
+  (setq mu4e-alert-interesting-mail-query
+        (concat
+         "flag:unread maildir:/unm/Inbox"
+         " AND NOT flag:trashed"
+         " OR "
+         "flag:unread maildir:/cs-unm/Inbox"
+         " AND NOT flag:trashed"))
+  (mu4e-update-mail-and-index 1) 
+  (mu4e-alert-enable-mode-line-display))
 
 (use-package term
   :commands term
