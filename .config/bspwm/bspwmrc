@@ -23,7 +23,7 @@ fi
 
 feh --bg-scale ~/Pictures/Wallpapers/minimal_mountains.png
 $HOME/.config/polybar/launch.sh &
-bsp-layout set ntall 1 -- --master-size 0.4&
+bsp-layout set ntall 1 -- --master-size 0.53&
 
 bspc config border_width         3
 bspc config window_gap          20
