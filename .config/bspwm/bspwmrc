@@ -8,7 +8,7 @@ picom --experimental-backends &
 /home/jose/.local/bin/bspswallow &
 xset s off -dpms &
 
-MONITOR1=DP-0
+MONITOR1=HDMI-0
 
 # Configuration 1
 bspc monitor $MONITOR1 -d 1 2 3 4 5 6 7 8 9 10
