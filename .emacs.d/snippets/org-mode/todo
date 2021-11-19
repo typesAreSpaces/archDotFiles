@@ -2,4 +2,4 @@
 # name: New entry in list
 # key: ;todo
 # --
-* TODO $0
+* TODO ${1:[#$2] }$0

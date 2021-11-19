@@ -7,6 +7,7 @@ ZSH_THEME="simple"
 plugins=(git)
 
 export APPS_DIR="$HOME/Documents/Apps"
+export SCRIPT_DIR="$HOME/.local/scripts"
 export GITHUB_PROJECTS_DIR="$HOME/Documents/GithubProjects"
 export BOSQUE_DIR="$GITHUB_PROJECTS_DIR/BosqueLanguage"
 export MASTER_THESIS_DIR="$GITHUB_PROJECTS_DIR/master-thesis"
@@ -20,10 +21,10 @@ export PATH="$HOME/.local/scripts:$PATH"
 export PATH="$HOME/.opam/system/bin:$PATH"
 export PATH="$HOME/.opam/4.07.0/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/maple2019/bin:$PATH"
-export PATH="$APPS_DIR:$PATH"
-export PATH="$APPS_DIR/LADR-2009-11A/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH" 
+export PATH="$APPS_DIR:$PATH"
+export PATH="$APPS_DIR/Maple/bin:$PATH"
+export PATH="$APPS_DIR/LADR-2009-11A/bin:$PATH"
 export PATH="$APPS_DIR/Matlab/bin:$PATH"
 export PATH="$APPS_DIR/csdp6.2.0linuxx86_64/bin:$PATH";
 
@@ -42,6 +43,7 @@ alias second_home="cd /media"
 alias thesis="cd $PHD_THESIS_DIR/Documents/Write-Ups/thesis"
 alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
 alias reports="cd $PHD_THESIS_DIR/Documents/Write-Ups/weekly_reports/Fall-2021/doris_algorithm"
+alias extra="cd $PHD_THESIS_DIR/Side-Projects/kapur-talks/mpi21"
 alias phd_thesis="cd $PHD_THESIS_DIR"
 alias personal_notes="cd $PHD_THESIS_DIR/Documents/Write-Ups/personal_notes"
 
@@ -58,8 +60,11 @@ alias nv="nvim --listen localhost:12345"
 alias nvs="nvim --listen localhost:12345 -S session"
 alias e="emacs -nw"
 alias todo="emacs -nw $PHD_THESIS_DIR/todolist.org"
+alias updatetodo="$SCRIPT_DIR/updateTodoList.sh"
 alias addrefs="nvim $PHD_THESIS_DIR/Documents/Write-Ups/references.bib"
-alias z="zathura"
+z(){
+  zathura $1 &
+}
 alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
 
 # Docker Aliases
