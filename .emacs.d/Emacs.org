@@ -989,7 +989,7 @@ Additionally, install mu and set it up with the following:
 
 #+begin_src
 
-mu init --mail-dir=DIR --my-address=ADDRESS1 --my-address=ADDRESS2
+mu init --maildir=~/Mail --my-address=ADDRESS1 --my-address=ADDRESS2
 mu index
 
 #+end_src
