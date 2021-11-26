@@ -577,6 +577,16 @@
   (setq mu4e-get-mail-command "mbsync -a")
   (setq mu4e-maildir "~/Mail")
 
+  (defun refile-func (msg)
+    (cond
+     ((mu4e-message-contact-field-matches msg :to "kapur@cs.unm.edu")
+      "/unm/Prof. Kapur")
+     ((mu4e-message-contact-field-matches msg :from "kapur@cs.unm.edu")
+      "/unm/Prof. Kapur")
+     ((mu4e-message-contact-field-matches msg :cc "kapur@cs.unm.edu")
+      "/unm/Prof. Kapur")
+     (t "/unm/Archive")))
+
   (setq mu4e-contexts
         (list
          ;; School account
@@ -590,7 +600,7 @@
                   (user-full-name     . "Jose Abel Castellanos Joo")
                   (mu4e-drafts-folder . "/unm/Drafts")
                   (mu4e-sent-folder   . "/unm/Sent")
-                  (mu4e-refile-folder . "/unm/Inbox")
+                  (mu4e-refile-folder . refile-func)
                   (mu4e-trash-folder  . "/unm/Trash")
                   (smtpmail-smtp-server . "smtp.office365.com")
                   (smtpmail-smtp-service . 587)
