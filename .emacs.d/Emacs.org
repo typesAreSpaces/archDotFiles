@@ -991,7 +991,7 @@ Additionally, install mu and set it up with the following:
 
 #+begin_src
 
-mu init --mail-dir=DIR --my-address=ADDRESS1 --my-address=ADDRESS2
+mu init --maildir=~/Mail --my-address=ADDRESS1 --my-address=ADDRESS2
 mu index
 
 #+end_src
@@ -1011,6 +1011,16 @@ mu index
     (setq mu4e-get-mail-command "mbsync -a")
     (setq mu4e-maildir "~/Mail")
 
+    (defun refile-func (msg)
+      (cond
+       ((mu4e-message-contact-field-matches msg :to "kapur@cs.unm.edu")
+        "/unm/Prof. Kapur")
+       ((mu4e-message-contact-field-matches msg :from "kapur@cs.unm.edu")
+        "/unm/Prof. Kapur")
+       ((mu4e-message-contact-field-matches msg :cc "kapur@cs.unm.edu")
+        "/unm/Prof. Kapur")
+       (t "/unm/Archive")))
+
     (setq mu4e-contexts
           (list
            ;; School account
@@ -1024,7 +1034,7 @@ mu index
                     (user-full-name     . "Jose Abel Castellanos Joo")
                     (mu4e-drafts-folder . "/unm/Drafts")
                     (mu4e-sent-folder   . "/unm/Sent")
-                    (mu4e-refile-folder . "/unm/Inbox")
+                    (mu4e-refile-folder . refile-func)
                     (mu4e-trash-folder  . "/unm/Trash")
                     (smtpmail-smtp-server . "smtp.office365.com")
                     (smtpmail-smtp-service . 587)
@@ -1066,32 +1076,32 @@ mu index
   (setq mu4e-headers-results-limit -1)
   (setq mu4e-compose-signature "Best,\nJose")
 
-#+end_src
+             #+end_src
 
 Add alerts
 
 #+begin_src emacs-lisp
 
-    (use-package mu4e-alert
-      :ensure t
-      :init
-      :after mu4e
-      :config
-      ;; Mode line alerts:
-      (add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
-      ;; Desktop alerts:
-      ;;(mu4e-alert-set-default-style 'libnotify)
-      ;;(add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
-      ;; Only notify for "interesting" (non-trashed) new emails:
-      (setq mu4e-alert-interesting-mail-query
-            (concat
-             "flag:unread maildir:/unm/Inbox"
-             " AND NOT flag:trashed"
-             " OR "
-             "flag:unread maildir:/cs-unm/Inbox"
-             " AND NOT flag:trashed"))
-      (mu4e-update-mail-and-index 1) 
-      (mu4e-alert-enable-mode-line-display))
+  (use-package mu4e-alert
+    :ensure t
+    :init
+    :after mu4e
+    :config
+    ;; Mode line alerts:
+    (add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
+    ;; Desktop alerts:
+    ;;(mu4e-alert-set-default-style 'libnotify)
+    ;;(add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
+    ;; Only notify for "interesting" (non-trashed) new emails:
+    (setq mu4e-alert-interesting-mail-query
+          (concat
+           "flag:unread maildir:/unm/Inbox"
+           " AND NOT flag:trashed"
+           " OR "
+           "flag:unread maildir:/cs-unm/Inbox"
+           " AND NOT flag:trashed"))
+    (mu4e-update-mail-and-index 1) 
+    (mu4e-alert-enable-mode-line-display))
 
 #+end_src
 
