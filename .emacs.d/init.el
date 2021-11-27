@@ -641,6 +641,8 @@
 (setq mu4e-confirm-quit nil)
 (setq mu4e-headers-results-limit -1)
 (setq mu4e-compose-signature "Best,\nJose")
+(setq message-citation-line-format "On %d %b %Y at %R, %f wrote:\n")
+(setq message-citation-line-function 'message-insert-formatted-citation-line)
 
 (use-package mu4e-alert
   :ensure t

@@ -508,14 +508,18 @@ from os import getcwd
 from os import system
 from os.path import exists
 
-def stringify_args(rex):
+def stringify_args(rex, num):
 	stringify = []
-	count = 0
 	for x in rex.group(1).split(","):
-		if(count == 0):
-			first_arg = x
-		count += 1
 		stringify.append("\'" + x + "\'")
+	if(num == -1):
+		return stringify
+	return stringify[:num]
+
+def joinArgsFstArg(rex):
+	stringify = stringify_args(rex, -1)
+	# The [1:-1] removes the extra quotes
+	first_arg = stringify[0][1:-1]
 	return ' '.join(stringify), first_arg
 
 def stringToPath(s):
@@ -533,7 +537,7 @@ def aux_add_cmd(file_name, cmd_path, prefix_entry, prefix_output):
 		file_cmd = 'touch ' + curr_file_path
 		system(file_cmd)
 	add_cmd=cmd_path + curr_file_path + ' '
-	args, first_arg = stringify_args(match)
+	args, first_arg = joinArgsFstArg(match)
 	command = "if ! grep " + curr_file + prefix_entry + first_arg + '}\'; then ' + add_cmd + args + '; fi'
 	system(command)
 	return prefix_output + first_arg + '}'
@@ -558,6 +562,18 @@ endsnippet
 snippet ;glt "Use Glossary term" iA
 \\gls{$1}$0
 endsnippet
+
+snippet ';input(\w+[,\w+[\s\w]*]*)  ' "Input file" riA
+`!p
+args = stringify_args(match, 2)
+name, section_name = args[0], args[1]
+name = name[1:-1]
+file_name = name + ".tex"
+system("touch " + file_name)
+system("echo \\\\section{" + section_name + "} > " + file_name)
+snip.rv = "\\input{" + name + "}"
+` $0
+endsnippet 
 
 global !p
 def create_matrix_placeholders(snip):
