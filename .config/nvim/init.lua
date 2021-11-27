@@ -38,6 +38,8 @@ require('cmp-config')
 require('lsp-install-config')
 
 -- # LSP config:
+-- Install texlab using paru
+-- not nvim-lsp-installer 
 require('lsp-config')
 
 -- # Nvim-treesitter config
