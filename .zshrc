@@ -6,13 +6,17 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="simple"
 plugins=(git)
 
-export APPS_DIR="$HOME/Documents/Apps"
 export SCRIPT_DIR="$HOME/.local/scripts"
+export APPS_DIR="$HOME/Documents/Apps"
+export MSAT_DIR="$APPS_DIR/mathsat-5.6.5-linux-x86_64"
 export GITHUB_PROJECTS_DIR="$HOME/Documents/GithubProjects"
 export BOSQUE_DIR="$GITHUB_PROJECTS_DIR/BosqueLanguage"
 export MASTER_THESIS_DIR="$GITHUB_PROJECTS_DIR/master-thesis"
 export PHD_THESIS_DIR="$GITHUB_PROJECTS_DIR/phd-thesis"
-export MSAT_DIR="$APPS_DIR/mathsat-5.6.5-linux-x86_64"
+export WRITE_UPS_DIR="$GITHUB_PROJECTS_DIR/phd-thesis/Documents/Write-Ups"
+export REPORTS_DIR="$WRITE_UPS_DIR/weekly_reports/Fall-2021"
+# Important to use ~ instead of $HOME. This has something
+# to do with how sed works on other files using WALLPAPERS_DIR
 export WALLPAPERS_DIR="~/Pictures/Wallpapers"
 
 export PATH="/usr/bin:$PATH"
@@ -41,12 +45,12 @@ alias dict='sdcv'
 
 # Directory Aliases
 alias second_home="cd /media"
-alias thesis="cd $PHD_THESIS_DIR/Documents/Write-Ups/thesis"
-alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
-alias reports="cd $PHD_THESIS_DIR/Documents/Write-Ups/weekly_reports/Fall-2021/doris_algorithm"
-alias extra="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-talks/mpi21/version4"
 alias phd_thesis="cd $PHD_THESIS_DIR"
-alias personal_notes="cd $PHD_THESIS_DIR/Documents/Write-Ups/personal_notes"
+alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
+alias extra="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-talks/mpi21/version4"
+alias reports="cd $REPORTS_DIR/understanding_weifengs_presentation"
+alias thesis="cd $WRITE_UPS_DIR/thesis"
+alias personal_notes="cd $WRITE_UPS_DIR/personal_notes"
 
 # Program Aliases
 alias open="xdg-open"
@@ -234,8 +238,12 @@ bosqueSymTest(){
 ## Ultimate project related scripts
 runUltimateAutomizer(){
   # Example
-  # runUltimateAutomizer $GITHUB_PROJECTS_DIR/AXDInterpolator/tests/sv-benchmarks/c/properties/no-overflow.prp 32bit simple $GITHUB_PROJECTS_DIR/AXDInterpolator/tests/sv-benchmarks/c/termination-crafted/Collatz.c
-  $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default/UAutomizer-linux/Ultimate.py --spec $1 --architecture $2 precise --file $3
+  # runUltimateAutomizer \
+  # $GITHUB_PROJECTS_DIR/AXDInterpolator/tests/sv-benchmarks/c/properties/no-overflow.prp \
+  # 32bit simple \
+  # $GITHUB_PROJECTS_DIR/AXDInterpolator/tests/sv-benchmarks/c/termination-crafted/Collatz.c
+  $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default/UAutomizer-linux/Ultimate.py \
+    --spec $1 --architecture $2 precise --file $3
 }
 buildUltimateAutomizer() { 
   pushd $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default
