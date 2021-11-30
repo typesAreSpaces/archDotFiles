@@ -566,8 +566,12 @@ endsnippet
 snippet ';input(\w+[,\w+[\s\w]*]*)  ' "Input file" riA
 `!p
 args = stringify_args(match, 2)
-name, section_name = args[0], args[1]
-name = name[1:-1]
+num_args = len(args)
+if(num_args == 2):
+	name, section_name = args[0], args[1]
+	name = name[1:-1]
+else:
+	name, section_name = "new_file", "new_title"
 file_name = name + ".tex"
 system("touch " + file_name)
 system("echo \\\\section{" + section_name + "} > " + file_name)
