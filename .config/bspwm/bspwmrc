@@ -5,7 +5,6 @@ xmodmap $HOME/.Xmodmap
 source $HOME/.xsessionrc
 sxhkd &
 picom --experimental-backends &
-/home/jose/.local/bin/bspswallow &
 xset s off -dpms &
 
 MONITOR1=DP-0
