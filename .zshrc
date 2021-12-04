@@ -47,7 +47,7 @@ alias second_home="cd /media"
 alias phd_thesis="cd $PHD_THESIS_DIR"
 alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
 alias extra="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-talks/mpi21"
-alias reports="cd $REPORTS_DIR/understanding_weifengs_presentation"
+alias reports="cd $REPORTS_DIR/doris_unbounded_implies_stable_thm_generalized_natural_generators"
 alias thesis="cd $WRITE_UPS_DIR/thesis"
 alias personal_notes="cd $WRITE_UPS_DIR/personal_notes"
 

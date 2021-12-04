@@ -580,7 +580,8 @@ file_name = name + ".tex"
 system("touch " + file_name)
 system("echo \\\\section{" + section_name + "} > " + file_name)
 snip.rv = "\\input{" + name + "}"
-` $0
+`
+$0
 endsnippet 
 
 global !p
