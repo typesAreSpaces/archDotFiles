@@ -9,7 +9,9 @@ require('telescope').setup{
         -- e.g. git_{create, delete, ...}_branch for the git_branches picker
         ["<C-h>"] = "which_key"
       }
-    }
+    },
+    layout_strategy = 'flex',
+    scroll_stategy = 'cycle',
   },
   pickers = {
     -- Default configuration for builtin pickers goes here:
@@ -21,6 +23,7 @@ require('telescope').setup{
     -- builtin picker
     find_files = {
       theme = "dropdown",
+      previewer = false,
     },
     file_browser = {
       theme = "dropdown",
@@ -29,7 +32,8 @@ require('telescope').setup{
       theme = "dropdown",
     },
     buffers = {
-      theme = "dropdown",
+      sort_lastused = true,
+      previewer = false,
     }
   },
   extensions = {
