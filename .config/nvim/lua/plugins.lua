@@ -31,8 +31,7 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
   use { 'nvim-telescope/telescope.nvim', 
-  requires = { {'nvim-lua/plenary.nvim'} },
-  commit = "f562227" }
+  requires = { {'nvim-lua/plenary.nvim'} }}
   use 'mbbill/undotree'
   use 'preservim/nerdtree'
   use 'jeffkreeftmeijer/vim-numbertoggle'
