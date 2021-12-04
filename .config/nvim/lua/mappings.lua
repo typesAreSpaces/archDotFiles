@@ -47,9 +47,10 @@ set_keymap('t', '<C-v><Esc>', '<Esc>', opts)
 
 -- # Telescope bindings:
 set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<CR>', opts)
-set_keymap('n', '<leader>gg', '<cmd>Telescope live_grep<CR>', opts)
-set_keymap('n', '<leader>bb', '<cmd>Telescope buffers<CR>', opts)
-set_keymap('n', '<leader>hh', '<cmd>Telescope help_tags<CR>', opts)
+set_keymap('n', '<leader>fb', '<cmd>Telescope find_files<CR>', opts)
+set_keymap('n', '<leader>lg', '<cmd>Telescope live_grep<CR>', opts)
+set_keymap('n', '<leader>b', '<cmd>Telescope buffers<CR>', opts)
+set_keymap('n', '<leader>ht', '<cmd>Telescope help_tags<CR>', opts)
 
 -- # Tex bindings:
 set_keymap('n', '<leader>ar', '<cmd>lua ToggleActiveRefresh()<CR>', opts)
