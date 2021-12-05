@@ -1,7 +1,8 @@
-# ZSHRC file
+# ZSHRC config
 export TERM=xterm-256color
 export HISTIGNORE='*sudo -S*'
 export ZSH="$HOME/.oh-my-zsh"
+export ZSH_PLUGINS='/usr/share/zsh/plugins'
 
 ZSH_THEME="simple"
 plugins=(git)
@@ -34,8 +35,15 @@ export PATH="$APPS_DIR/csdp6.2.0linuxx86_64/bin:$PATH";
 export GOPATH="$HOME/go";
 
 # Init
-[ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
-[ -f $HOME/.fzf.zsh ]    && source $HOME/.fzf.zsh
+TO_SOURCE=(\
+  "$ZSH/oh-my-zsh.sh" \
+  "$HOME/.fzf.zsh" \
+  "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
+  "$ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh" \
+)
+for script in ${TO_SOURCE[@]}; do 
+  [ -f $script ] && source $script
+done
 
 # General Aliases
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -48,7 +56,7 @@ alias second_home="cd /media"
 alias phd_thesis="cd $PHD_THESIS_DIR"
 alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
 alias extra="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-talks/mpi21"
-alias reports="cd $REPORTS_DIR/understanding_weifengs_presentation"
+alias reports="cd $REPORTS_DIR/doris_unbounded_implies_stable_thm_generalized_natural_generators"
 alias thesis="cd $WRITE_UPS_DIR/thesis"
 alias personal_notes="cd $WRITE_UPS_DIR/personal_notes"
 
