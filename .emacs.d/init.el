@@ -630,6 +630,7 @@
           ("/unm/Trash" . ?t)
           ("/unm/Drafts". ?d)
           ("/unm/Prof. Kapur". ?k)
+          ("/unm/You got a Package!". ?p)
           ("/unm/Archive". ?a)
           ("/cs-unm/Inbox". ?I)
           ("/cs-unm/Trash". ?T)
