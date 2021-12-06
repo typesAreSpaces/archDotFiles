@@ -1,3 +1,4 @@
+#zmodload zsh/zprof
 # ZSHRC config
 export TERM=xterm-256color
 export HISTIGNORE='*sudo -S*'
@@ -415,3 +416,4 @@ alias bspwmTokyo="changeTheme bspwm tokyo"
 
 #opam configuration
 #test -r /home/jose/.opam/opam-init/init.zsh && . /home/jose/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+#zprof
