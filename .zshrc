@@ -1,6 +1,6 @@
 #zmodload zsh/zprof
 # ZSHRC config
-export TERM=xterm-256color
+#export TERM=xterm-256color
 export HISTIGNORE='*sudo -S*'
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_PLUGINS='/usr/share/zsh/plugins'
