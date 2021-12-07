@@ -11,6 +11,14 @@ get_status() {
     fi
     if grep '==== Recording St' "$file" | tail -1 | grep -q 'Recording Start' ; then
       result=' REC '
+      tmp1_start_date=`awk '{print \$1, \$2}' "$file" | head -1`
+      tmp1_end_date=`awk '{print \$1, \$2}' "$file" | tail -1`
+      tmp2_start_date=${tmp1_start_date:0:11}
+      tmp2_end_date=${tmp1_end_date:0:11}
+      start_date=$(date -u -d "$tmp2_start_date" +"%s")
+      end_date=$(date -u -d "$tmp2_end_date" +"%s")
+      duration=`date -u -d "0 $end_date sec - $start_date sec" +"%H:%M:%S"`
+      result+="($duration)"
       break
     fi
   done
