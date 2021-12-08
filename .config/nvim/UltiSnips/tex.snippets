@@ -376,13 +376,6 @@ snippet ;grob "Groebner" iA
 Gr\"obner $0
 endsnippet
 
-snippet ;piecefun "Big function" iA
-\begin{cases}
-$1 & $2 \\\\
-$3 & $4 \\\\
-\end{cases}$0
-endsnippet
-
 snippet ;index "Index" iA
 [$1 : $2]$0
 endsnippet
@@ -640,7 +633,7 @@ def create_matrix(cols, rows, sep, start, end):
 endglobal
 
 post_jump "create_matrix_placeholders(snip)"
-snippet ';pmatrix(\d+),(\d+)' "LaTeX pmatrix" br
+snippet ';pmatrix(\d+),(\d+)' "LaTeX pmatrix" r
 \begin{pmatrix}
 `!p
 snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
@@ -649,7 +642,7 @@ snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
 endsnippet
 
 post_jump "create_matrix_placeholders(snip)"
-snippet ';bmatrix(\d+),(\d+)' "LaTeX bmatrix" br
+snippet ';bmatrix(\d+),(\d+)' "LaTeX bmatrix" r
 \begin{bmatrix}
 `!p
 snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
@@ -658,7 +651,7 @@ snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
 endsnippet
 
 post_jump "create_matrix_placeholders(snip)"
-snippet ';Bmatrix(\d+),(\d+)' "LaTeX Bmatrix" br
+snippet ';Bmatrix(\d+),(\d+)' "LaTeX Bmatrix" r
 \begin{Bmatrix}
 `!p
 snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
@@ -667,12 +660,21 @@ snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
 endsnippet
 
 post_jump "create_matrix_placeholders(snip)"
-snippet ';det(\d+),(\d+)' "LaTeX vmatrix" br
+snippet ';det(\d+),(\d+)' "LaTeX vmatrix" r
 \begin{vmatrix}
 `!p
 snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
 `$0
 \end{vmatrix}
+endsnippet
+
+post_jump "create_matrix_placeholders(snip)"
+snippet ';piecewise(\d+)' "Piecewise function" r
+\begin{cases}
+`!p
+snip.rv = create_matrix(2, match.group(1), "&", "\t", "\\\\\\\\\n")
+`$0
+\end{cases}
 endsnippet
 
 snippet ;template "Basic template" iA
