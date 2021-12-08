@@ -38,5 +38,6 @@ bspc rule -a Evince desktop='^5'
 bspc rule -a Screenkey manage=off
 bspc rule -a Zathura state=tiled 
 bspc rule -a Emacs state=tiled 
+bspc rule -a obs desktop='^8'
 bspc rule -a 'VirtualBox Manager' desktop='^9'
 bspc rule -a 'VirtualBox Machine' desktop='^10'

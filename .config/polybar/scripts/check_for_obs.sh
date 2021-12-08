@@ -1,5 +1,11 @@
 #! /usr/bin/bash
 
-for x in $(ls /proc/28914/fd); do
-  echo $x "---" $(readlink -f "/proc/28914/fd/$x")
+OBSPID=`ps ax | awk '\$5=="obs"{print \$1}'`
+
+for pid in $OBSPID; do
+  echo "Current pid $pid"
+  path="/proc/$pid/fd"
+  for x in $(ls "$path"); do
+    echo $x "---" $(readlink -f "$path/$x")
+  done;
 done;
