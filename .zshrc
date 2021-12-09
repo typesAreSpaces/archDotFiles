@@ -85,6 +85,7 @@ alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
 alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it seahorn/seahorn-llvm5"
 
 # Local Scripts
+
 ## Video uploader
 upload_video(){
   THUMBNAIL_PATH=$2
