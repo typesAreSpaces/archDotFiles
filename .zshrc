@@ -75,7 +75,7 @@ alias nvs="nvim --listen localhost:12345 -S session"
 alias e="emacs -nw"
 alias todo="emacs -nw $PHD_THESIS_DIR/todolist.org"
 alias updatetodo="$SCRIPT_DIR/updateTodoList.sh"
-alias addrefs="nvim $PHD_THESIS_DIR/Documents/Write-Ups/references.bib"
+alias addref="nvim $PHD_THESIS_DIR/Documents/Write-Ups/references.bib"
 z(){
   zathura $1 &
 }
