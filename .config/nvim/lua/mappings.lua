@@ -30,9 +30,6 @@ set_keymap('n', ']b', '<cmd>bnext<CR>', opts)
 set_keymap('n', '[B', '<cmd>bfirst<CR>', opts)
 set_keymap('n', ']B', '<cmd>bblast<CR>', opts)
 
--- # FZF binders
-set_keymap('n', '<CR>', '<cmd>FZF<CR>', opts)
-
 -- # NerdToggle binders
 set_keymap('n', '<C-n>', '<cmd>NERDTreeToggle<CR>', opts)
 
@@ -46,10 +43,10 @@ set_keymap('t', '<Esc>', '<C-\\><C-n>', opts)
 set_keymap('t', '<C-v><Esc>', '<Esc>', opts)
 
 -- # Telescope bindings:
-set_keymap('n', '<leader>ff', '<cmd>Telescope find_files prompt_prefix=🔍<CR>', opts)
+set_keymap('n', '<CR>', '<cmd>Telescope find_files prompt_prefix=🔍<CR>', opts)
 set_keymap('n', '<leader>fb', '<cmd>Telescope file_browser prompt_prefix=🔍<CR>', opts)
 set_keymap('n', '<leader>lg', '<cmd>Telescope live_grep<CR>', opts)
-set_keymap('n', '<leader>b', '<cmd>Telescope buffers<CR>', opts)
+set_keymap('n', '<leader>b', '<cmd>Telescope buffers <CR>', opts)
 set_keymap('n', '<leader>ht', '<cmd>Telescope help_tags<CR>', opts)
 
 -- # Tex bindings:

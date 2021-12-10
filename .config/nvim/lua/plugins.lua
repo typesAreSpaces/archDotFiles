@@ -22,7 +22,6 @@ return require('packer').startup(function()
   -- # IDE Experience
   use 'williamboman/nvim-lsp-installer'
   use 'neovim/nvim-lspconfig'
-  use { 'junegunn/fzf', run = function() fn['fzf#install'](0) end }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'nvim-treesitter/playground'
   use 'hrsh7th/cmp-nvim-lsp'
