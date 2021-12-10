@@ -2,6 +2,7 @@
 
 get_status() {
   result=' OFF '
+  start_prefix='Starting rec\|Recording Start'
   OBSPID=`ps ax | awk '\$5=="obs"{print \$1}'`
   for pid in $OBSPID; do
     file=`readlink -f /proc/$pid/fd/14`
@@ -11,7 +12,7 @@ get_status() {
     fi
     if grep '==== Recording St' "$file" | tail -1 | grep -q 'Recording Start' ; then
       result=' REC '
-      tmp1_start_date=`grep 'Starting rec' "$file" | tail -1 | awk '{print \$1, \$2}'`
+      tmp1_start_date=`grep "$start_prefix" "$file" | tail -1 | awk '{print \$1, \$2}'`
       tmp1_end_date=`date +%r`
       tmp2_start_date=${tmp1_start_date:0:11}
       tmp2_end_date=${tmp1_end_date:0:11}

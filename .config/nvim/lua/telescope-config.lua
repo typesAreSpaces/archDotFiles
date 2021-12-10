@@ -23,7 +23,7 @@ require('telescope').setup{
       theme = "dropdown",
     },
     buffers = {
-      sort_lastused = true,
+      theme = "dropdown",
       previewer = false,
     }
   },

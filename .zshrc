@@ -75,7 +75,7 @@ alias nvs="nvim --listen localhost:12345 -S session"
 alias e="emacs -nw"
 alias todo="emacs -nw $PHD_THESIS_DIR/todolist.org"
 alias updatetodo="$SCRIPT_DIR/updateTodoList.sh"
-alias addrefs="nvim $PHD_THESIS_DIR/Documents/Write-Ups/references.bib"
+alias addref="nvim $PHD_THESIS_DIR/Documents/Write-Ups/references.bib"
 z(){
   zathura $1 &
 }
@@ -85,6 +85,16 @@ alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
 alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it seahorn/seahorn-llvm5"
 
 # Local Scripts
+
+## Video uploader
+upload_video(){
+  THUMBNAIL_PATH=$2
+  [ -z $THUMBNAIL_PATH ] && THUMBNAIL_PATH=/home/jose/Pictures/thumbnail.jpg
+  python $GITHUB_PROJECTS_DIR/VideoUploaderMachine/upload_video.py \
+    --file $1 \
+    --thumbnail $THUMBNAIL_PATH
+}
+
 ## Brightness script
 setScreenBrightness(){
   xrandr --output DP-0 --brightness $1
