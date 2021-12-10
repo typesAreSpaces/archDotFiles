@@ -13,6 +13,7 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
   #NETWORK_INTERFACE=$interface MONITOR=$m polybar -c ~/.config/polybar/config.ini main &
   #done
 
-interface="wlp59s0";
+#interface="wlp59s0";
+interface="enp58s0u1u4";
 NETWORK_INTERFACE=$interface MONITOR=DP3 polybar -c ~/.config/polybar/config.ini main &
 NETWORK_INTERFACE=$interface MONITOR=eDP1 polybar -c ~/.config/polybar/config.ini main &
