@@ -1,52 +1,30 @@
+local execute = vim.api.nvim_command
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local packer_url = 'https://github.com/wbthomason/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', packer_url, install_path})
+end
+
+vim.cmd [[packadd packer.nvim]]
+vim.cmd([[
+augroup packer_user_config
+autocmd!
+autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+augroup end
+]])
+
 -- A method to dump an object and print it out
 function _G.dump(...)
   local objects = vim.tbl_map(vim.inspect, {...})
   print(unpack(objects))
 end
 
--- # Pluggins
+function get_config(name)
+  return string.format("require(\"config/%s\")", name)
+end
+
 require('plugins')
-
--- # Settings
 require('settings')
-
--- # Mappings
 require('mappings')
-
--- # Telescope
-require('telescope-config')
-
--- # Snippets using ultisnips
-require('ultisnips')
-
--- # Vimtex setup
-require('tex') 
-
--- # SMT settings:
-require('smt2')
-
--- # Lualine settings:
-require('lualine-config')
-
--- # Customization
 require('customization')
-
--- # Cmp configuration
-require('cmp-config')
-
--- # LSP Install config
-require('lsp-install-config')
-
--- # LSP config:
--- Install texlab using paru
--- not nvim-lsp-installer 
-require('lsp-config')
-
--- # Nvim-treesitter config
-require('nvim-treesitter-config')
-
--- # Which-keys setup
-require('which-key-config')
-
--- # Wilder setup
-require('wilder-setup')
