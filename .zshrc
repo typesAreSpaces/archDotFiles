@@ -166,16 +166,6 @@ quickGitPush(){
   git push
 }
 
-fromVimToEmacsBindings(){
-  xmodmap ~/.Xmodmap
-  xmodmap ~/.XmodmapEmacs
-}
-
-fromEmacsToVimBindings(){
-  xmodmap ~/.XmodmapEmacs
-  xmodmap ~/.Xmodmap
-}
-
 ## Scripts for system management
 se(){ 
   du -a $(pwd) | awk '{ gsub (" ", "\\ ", $0); $1 = ""; print $0; }' | fzf | xargs -r xdg-open; 
@@ -395,17 +385,8 @@ changeTheme(){
       bspc wm -r
       ;;
   esac
+  xmodmap $HOME/.Xmodmap
   echo "Theme has changed to " $2 " for " $1
-  case $3 in 
-    "emacs")
-      xmodmap $HOME/.XmodmapEmacs
-      echo "with emacs bindings"
-      ;;
-    *)
-      xmodmap $HOME/.Xmodmap
-      echo "with vim bindings"
-      ;;
-  esac
 }
 
 alias bspwmGruvbox="changeTheme bspwm gruvbox"
