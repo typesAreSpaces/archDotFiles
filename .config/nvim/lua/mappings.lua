@@ -4,6 +4,8 @@ local function set_keymap(...) vim.api.nvim_set_keymap(...) end
 local opts = { noremap=true, silent=true }
 
 -- # General
+set_keymap('i', '<C-c>', '<ESC>', opts)
+set_keymap('n', '<C-c>', '<ESC>', opts)
 set_keymap('n', '<C-t>', '<cmd>terminal<CR>', opts)
 set_keymap('n', '<leader>sv', '<cmd>source $HOME/.config/nvim/init.vim<CR><cmd>echon "Config sourced"<CR>', opts)
 set_keymap('n', '<leader>rs', '<cmd>call UltiSnips#RefreshSnippets()<CR><cmd>echon "Snippets refreshed"<CR>', opts)
