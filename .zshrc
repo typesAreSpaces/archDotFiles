@@ -7,6 +7,7 @@ export ZSH_PLUGINS='/usr/share/zsh/plugins'
 
 ZSH_THEME="simple"
 plugins=(git)
+eval "$(zoxide init zsh)"
 
 export SCRIPT_DIR="$HOME/.local/scripts"
 export APPS_DIR="$HOME/Documents/Apps"
@@ -76,7 +77,7 @@ alias e="emacs -nw"
 alias todo="emacs -nw $PHD_THESIS_DIR/Documents/TodoLists/research_tasks.org"
 alias updatetodos="$SCRIPT_DIR/updateTodoLists.sh"
 alias addref="nvim $PHD_THESIS_DIR/Documents/Write-Ups/references.bib"
-z(){
+za(){
   zathura $1 &
 }
 alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
