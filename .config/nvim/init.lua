@@ -20,7 +20,7 @@ function _G.dump(...)
   print(unpack(objects))
 end
 
-function get_config(name)
+function _G.get_config(name)
   return string.format("require(\"config/%s\")", name)
 end
 

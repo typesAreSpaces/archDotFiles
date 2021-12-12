@@ -19,10 +19,10 @@ end
 
 function TexRefresh()
   local f=io.open("main.pdf","r")
-  if f~=nil then 
-    io.close(f) 
+  if f~=nil then
+    io.close(f)
     vim.cmd('AsyncRun make')
-  else 
+  else
     vim.cmd('silent make')
   end
   vim.cmd('VimtexView')
