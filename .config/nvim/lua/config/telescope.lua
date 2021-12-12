@@ -5,7 +5,7 @@ require('telescope').setup{
     mappings = {
       i = {
         ["<C-h>"] = "which_key",
-        ["<esc>"] = actions.close
+        ["<C-g>"] = actions.close
       }
     },
     layout_strategy = 'flex',
