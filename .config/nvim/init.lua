@@ -14,21 +14,13 @@ autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup end
 ]])
 
-vim.cmd([[
-augroup packer_user_config
-autocmd!
-autocmd BufEnter * silent !touch /home/jose/a.txt
-autocmd BufLeave * silent !rm /home/jose/a.txt
-augroup end
-]])
-
 -- A method to dump an object and print it out
 function _G.dump(...)
   local objects = vim.tbl_map(vim.inspect, {...})
   print(unpack(objects))
 end
 
-function get_config(name)
+function _G.get_config(name)
   return string.format("require(\"config/%s\")", name)
 end
 

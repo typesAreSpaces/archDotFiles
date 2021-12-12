@@ -1,5 +1,16 @@
 -- Settings
 
+function _G.change_kbd()
+  local is_caps_escape_key = vim.fn.system('xmodmap | grep lock | grep 0x9')
+  if (is_caps_escape_key == nil or is_caps_escape_key  == '') then
+    vim.cmd('silent !setxkbmap;')
+    vim.cmd('silent !xmodmap /home/jose/.XmodmapVim;')
+  else
+    vim.cmd('silent !setxkbmap;')
+    vim.cmd('silent !xmodmap /home/jose/.Xmodmap;')
+  end
+end
+
 local function set_keymap(...) vim.api.nvim_set_keymap(...) end
 local opts = { noremap=true, silent=true }
 
@@ -55,3 +66,6 @@ set_keymap('n', '<leader>ht', '<cmd>Telescope help_tags<CR>', opts)
 -- # Tex bindings:
 set_keymap('n', '<leader>ar', '<cmd>lua ToggleActiveRefresh()<CR>', opts)
 set_keymap('n', '<leader>pf', '<cmd>lua ParentFile()<CR><CR>', opts)
+
+-- # System bindings:
+set_keymap('n', '<leader>ck', '<cmd>lua change_kbd()<CR>', opts)
