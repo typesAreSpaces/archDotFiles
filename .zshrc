@@ -384,9 +384,21 @@ changeTheme(){
       bspwmThemeSwitch $2
       bspc wm -r
       ;;
-  esac
-  xmodmap $HOME/.Xmodmap
+  esac 
   echo "Theme has changed to " $2 " for " $1
+}
+
+changeKBD(){
+  setxkbmap;
+  [ -z $1 ] && return
+  case $1 in
+    "ESC")
+      xmodmap /home/jose/.XmodmapVim
+      ;;
+    "CTRL")
+      xmodmap /home/jose/.Xmodmap
+      ;;
+  esac
 }
 
 alias bspwmGruvbox="changeTheme bspwm gruvbox"

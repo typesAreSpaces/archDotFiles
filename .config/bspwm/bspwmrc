@@ -1,6 +1,7 @@
 #! /bin/sh
 
 # Autostart
+setxkbmap
 xmodmap $HOME/.Xmodmap
 source $HOME/.xsessionrc
 sxhkd &
