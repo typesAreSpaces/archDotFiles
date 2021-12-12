@@ -24,7 +24,6 @@ return require('packer').startup(function()
   cmd = "Telescope",
   config = get_config("telescope")}
   use 'mbbill/undotree'
-  use 'preservim/nerdtree'
   use 'jeffkreeftmeijer/vim-numbertoggle'
   use 'preservim/nerdcommenter'
   use 'puremourning/vimspector'

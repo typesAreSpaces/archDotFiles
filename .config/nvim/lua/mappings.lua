@@ -1,9 +1,26 @@
 -- Settings
 
+function _G.change_kbd()
+  local is_caps_escape_key = vim.fn.system('xmodmap | grep lock | grep 0x9')
+  if (is_caps_escape_key == nil or is_caps_escape_key  == '') then
+    vim.cmd('silent !setxkbmap;')
+    vim.cmd('silent !xmodmap /home/jose/.XmodmapVim;')
+  else
+    vim.cmd('silent !setxkbmap;')
+    vim.cmd('silent !xmodmap /home/jose/.Xmodmap;')
+  end
+end
+
 local function set_keymap(...) vim.api.nvim_set_keymap(...) end
 local opts = { noremap=true, silent=true }
 
 -- # General
+set_keymap('n', '<C-g>', '<Esc>', opts)
+set_keymap('v', '<C-g>', '<Esc>gV', opts)
+set_keymap('o', '<C-g>', '<Esc>', opts)
+set_keymap('c', '<C-g>', '<C-c><Esc>', opts)
+set_keymap('i', '<C-g>', '<Esc>', opts)
+
 set_keymap('n', '<C-t>', '<cmd>terminal<CR>', opts)
 set_keymap('n', '<leader>sv', '<cmd>source $HOME/.config/nvim/init.vim<CR><cmd>echon "Config sourced"<CR>', opts)
 set_keymap('n', '<leader>rs', '<cmd>call UltiSnips#RefreshSnippets()<CR><cmd>echon "Snippets refreshed"<CR>', opts)
@@ -30,9 +47,6 @@ set_keymap('n', ']b', '<cmd>bnext<CR>', opts)
 set_keymap('n', '[B', '<cmd>bfirst<CR>', opts)
 set_keymap('n', ']B', '<cmd>bblast<CR>', opts)
 
--- # NerdToggle binders
-set_keymap('n', '<C-n>', '<cmd>NERDTreeToggle<CR>', opts)
-
 -- # Fugitive settings:
 set_keymap('n', '<leader>gs', '<cmd>G<CR>', opts)
 set_keymap('n', '<leader>gj', '<cmd>diffget //3<CR>', opts)
@@ -52,3 +66,6 @@ set_keymap('n', '<leader>ht', '<cmd>Telescope help_tags<CR>', opts)
 -- # Tex bindings:
 set_keymap('n', '<leader>ar', '<cmd>lua ToggleActiveRefresh()<CR>', opts)
 set_keymap('n', '<leader>pf', '<cmd>lua ParentFile()<CR><CR>', opts)
+
+-- # System bindings:
+set_keymap('n', '<leader>ck', '<cmd>lua change_kbd()<CR>', opts)

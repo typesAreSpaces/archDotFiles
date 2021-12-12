@@ -5,6 +5,7 @@ require('telescope').setup{
     mappings = {
       i = {
         ["<C-h>"] = "which_key",
+        ["<C-g>"] = actions.close,
         ["<esc>"] = actions.close
       }
     },

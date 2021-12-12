@@ -7,6 +7,7 @@ export ZSH_PLUGINS='/usr/share/zsh/plugins'
 
 ZSH_THEME="simple"
 plugins=(git)
+eval "$(zoxide init zsh)"
 
 export SCRIPT_DIR="$HOME/.local/scripts"
 export APPS_DIR="$HOME/Documents/Apps"
@@ -57,7 +58,7 @@ alias second_home="cd /media"
 alias phd_thesis="cd $PHD_THESIS_DIR"
 alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
 alias extra="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-talks/mpi21"
-alias reports="cd $REPORTS_DIR/doris_unbounded_implies_stable_thm_generalized_natural_generators"
+alias reports="cd $REPORTS_DIR/generalized_natural_generators"
 alias thesis="cd $WRITE_UPS_DIR/thesis"
 alias personal_notes="cd $WRITE_UPS_DIR/personal_notes"
 
@@ -77,7 +78,7 @@ alias e="emacs -nw"
 alias todo="emacs -nw $PHD_THESIS_DIR/Documents/TodoLists/research_tasks.org"
 alias updatetodos="$SCRIPT_DIR/updateTodoLists.sh"
 alias addref="nvim $PHD_THESIS_DIR/Documents/Write-Ups/references.bib"
-z(){
+za(){
   zathura $1 &
 }
 alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
@@ -160,16 +161,6 @@ quickGitPush(){
   git add .;
   git commit -m $1;
   git push
-}
-
-fromVimToEmacsBindings(){
-  xmodmap ~/.Xmodmap
-  xmodmap ~/.XmodmapEmacs
-}
-
-fromEmacsToVimBindings(){
-  xmodmap ~/.XmodmapEmacs
-  xmodmap ~/.Xmodmap
 }
 
 setScreenBrightness(){
@@ -401,16 +392,19 @@ changeTheme(){
       bspwmThemeSwitch $2
       bspc wm -r
       ;;
-  esac
+  esac 
   echo "Theme has changed to " $2 " for " $1
-  case $3 in 
-    "emacs")
-      xmodmap $HOME/.XmodmapEmacs
-      echo "with emacs bindings"
+}
+
+changeKBD(){
+  setxkbmap;
+  [ -z $1 ] && return
+  case $1 in
+    "ESC")
+      xmodmap /home/jose/.XmodmapVim
       ;;
-    *)
-      xmodmap $HOME/.Xmodmap
-      echo "with vim bindings"
+    "CTRL")
+      xmodmap /home/jose/.Xmodmap
       ;;
   esac
 }
