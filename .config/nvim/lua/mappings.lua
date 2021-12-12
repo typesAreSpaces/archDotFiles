@@ -5,10 +5,11 @@ local opts = { noremap=true, silent=true }
 
 -- # General
 set_keymap('n', '<C-g>', '<Esc>', opts)
-set_keymap('v', '<C-g>', '<Esc>', opts)
+set_keymap('v', '<C-g>', '<Esc>gV', opts)
 set_keymap('o', '<C-g>', '<Esc>', opts)
-set_keymap('c', '<C-g>', '<Esc>', opts)
+set_keymap('c', '<C-g>', '<C-c><Esc>', opts)
 set_keymap('i', '<C-g>', '<Esc>', opts)
+
 set_keymap('n', '<C-t>', '<cmd>terminal<CR>', opts)
 set_keymap('n', '<leader>sv', '<cmd>source $HOME/.config/nvim/init.vim<CR><cmd>echon "Config sourced"<CR>', opts)
 set_keymap('n', '<leader>rs', '<cmd>call UltiSnips#RefreshSnippets()<CR><cmd>echon "Snippets refreshed"<CR>', opts)
@@ -34,9 +35,6 @@ set_keymap('n', '[b', '<cmd>bprevious<CR>', opts)
 set_keymap('n', ']b', '<cmd>bnext<CR>', opts)
 set_keymap('n', '[B', '<cmd>bfirst<CR>', opts)
 set_keymap('n', ']B', '<cmd>bblast<CR>', opts)
-
--- # NerdToggle binders
-set_keymap('n', '<C-n>', '<cmd>NERDTreeToggle<CR>', opts)
 
 -- # Fugitive settings:
 set_keymap('n', '<leader>gs', '<cmd>G<CR>', opts)
