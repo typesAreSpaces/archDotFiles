@@ -61,7 +61,7 @@ local mappings = {
   s = {
     name = "Source Configs",
     u = {"<cmd>call UltiSnips#RefreshSnippets()<CR><cmd>echon 'Snippets refreshed'<CR>", "Source UltinSnippets Config"},
-    v = {"<cmd>source $HOME/.config/nvim/init.lua<CR><cmd>echon 'Config sourced'<CR>", "Source nvim Config"},
+    c = {"<cmd>source $HOME/.config/nvim/init.lua<CR><cmd>echon 'Config sourced'<CR>", "Source nvim Config"},
   },
 
   t = {
