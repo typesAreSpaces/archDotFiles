@@ -1,0 +1,12 @@
+#!/bin/sh
+
+setxkbmap -option
+
+case $1 in
+   ESC)
+   xmodmap /home/jose/.XmodmapVim
+   ;;
+   CTRL)
+   xmodmap /home/jose/.Xmodmap
+   ;;
+esac

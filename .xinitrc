@@ -4,6 +4,7 @@
 #
 # Executed by startx (run your window manager from here)
 
+export SXHKD_SHELL="/bin/sh"
 userresources=home/jose/.Xresources
 usermodmap=home/jose/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources

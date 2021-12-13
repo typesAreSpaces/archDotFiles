@@ -144,3 +144,6 @@ ctrl + {Up, Down}
 
 ctrl + m
   pactl set-sink-mute $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") toggle
+
+alt + shift + {e, v}
+  ~/.local/scripts/changeKBD {CTRL, ESC}

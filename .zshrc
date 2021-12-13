@@ -384,19 +384,6 @@ changeTheme(){
   echo "Theme has changed to " $2 " for " $1
 }
 
-changeKBD(){
-  setxkbmap;
-  [ -z $1 ] && return
-  case $1 in
-    "ESC")
-      xmodmap /home/jose/.XmodmapVim
-      ;;
-    "CTRL")
-      xmodmap /home/jose/.Xmodmap
-      ;;
-  esac
-}
-
 alias bspwmGruvbox="changeTheme bspwm gruvbox"
 alias bspwmNord="changeTheme bspwm nord"
 alias bspwmTokyo="changeTheme bspwm tokyo"

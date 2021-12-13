@@ -3,11 +3,9 @@
 function _G.change_kbd()
   local is_caps_escape_key = vim.fn.system('xmodmap | grep lock | grep 0x9')
   if (is_caps_escape_key == nil or is_caps_escape_key  == '') then
-    vim.cmd('silent !setxkbmap;')
-    vim.cmd('silent !xmodmap /home/jose/.XmodmapVim;')
+    vim.cmd('silent !changeKBD ESC')
   else
-    vim.cmd('silent !setxkbmap;')
-    vim.cmd('silent !xmodmap /home/jose/.Xmodmap;')
+    vim.cmd('silent !changeKBD CTRL')
   end
 end
 
@@ -47,25 +45,12 @@ set_keymap('n', ']b', '<cmd>bnext<CR>', opts)
 set_keymap('n', '[B', '<cmd>bfirst<CR>', opts)
 set_keymap('n', ']B', '<cmd>bblast<CR>', opts)
 
--- # Fugitive settings:
-set_keymap('n', '<leader>gs', '<cmd>G<CR>', opts)
-set_keymap('n', '<leader>gj', '<cmd>diffget //3<CR>', opts)
-set_keymap('n', '<leader>gf', '<cmd>diffget //2<CR>', opts)
-
 -- # Terminal:
 set_keymap('t', '<Esc>', '<C-\\><C-n>', opts)
 set_keymap('t', '<C-v><Esc>', '<Esc>', opts)
 
 -- # Telescope bindings:
 set_keymap('n', '<CR>', '<cmd>Telescope find_files prompt_prefix=🔍<CR>', opts)
-set_keymap('n', '<leader>fb', '<cmd>Telescope file_browser prompt_prefix=🔍<CR>', opts)
-set_keymap('n', '<leader>lg', '<cmd>Telescope live_grep<CR>', opts)
-set_keymap('n', '<leader>b', '<cmd>Telescope buffers <CR>', opts)
-set_keymap('n', '<leader>ht', '<cmd>Telescope help_tags<CR>', opts)
-
--- # Tex bindings:
-set_keymap('n', '<leader>ar', '<cmd>lua ToggleActiveRefresh()<CR>', opts)
-set_keymap('n', '<leader>pf', '<cmd>lua ParentFile()<CR><CR>', opts)
 
 -- # System bindings:
 set_keymap('n', '<leader>ck', '<cmd>lua change_kbd()<CR>', opts)
