@@ -21,6 +21,13 @@ local mappings = {
     j = {"<cmd>diffget //3<cr>", "Git master"},
     f = {"<cmd>diffget //2<cr>", "Git HEAD"},
   },
+
+  j = {
+    name = "Jumps",
+    o = {"<C-o>", "Jump to Previous Position"},
+    i = {"<C-i>", "Jump to Next Position"}
+  },
+  
   k = {
     name = "Keyboard Settings",
     c = {"<cmd>lua change_kbd()<CR>", "Toggle Caps Lock to ESC <-> Ctrl"}
@@ -59,8 +66,12 @@ local mappings = {
 
   t = {
     name = "Telescope",
-    b = {"<cmd>Telescope file_browser prompt_prefix=🔍<CR>", "File Browser"},
-    f = {"<cmd>Telescope find_files prompt_prefix=🔍<CR>", "Find Files"},
+    c = {"<cmd>Telescope commands<CR>", "Commands"},
+    f = {
+      name = "Files Utility",
+      b = {"<cmd>Telescope file_browser prompt_prefix=🔍<CR>", "File Browser"},
+      f = {"<cmd>Telescope find_files prompt_prefix=🔍<CR>", "Find Files"},
+    },
     g = {"<cmd>Telescope live_grep<CR>", "Live Grep"},
     b = {'<cmd>Telescope buffers <CR>', "Buffers"},
     h = {'<cmd>Telescope help_tags<CR>', "Help Tags"},

@@ -23,6 +23,9 @@ return require('packer').startup(function()
   requires = { {'nvim-lua/plenary.nvim'} },
   cmd = "Telescope",
   config = get_config("telescope")}
+  use { 'fhill2/telescope-ultisnips.nvim',
+  after = "telescope.nvim",
+  config = get_config("telescope-ultisnips")}
   use 'mbbill/undotree'
   use 'jeffkreeftmeijer/vim-numbertoggle'
   use 'preservim/nerdcommenter'
