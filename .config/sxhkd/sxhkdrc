@@ -135,7 +135,6 @@ ctrl + shift + {h,j,k,l}
 {XF86AudioRaiseVolume,XF86AudioLowerVolume}
   pactl set-sink-volume $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") {+10%,-10%}
 
-
 XF86AudioMute
   pactl set-sink-mute $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") toggle
 
@@ -144,3 +143,6 @@ ctrl + {Up, Down}
 
 ctrl + m
   pactl set-sink-mute $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") toggle
+
+alt + shift + {e, v}
+  ~/.local/scripts/changeKBD {CTRL, ESC}
