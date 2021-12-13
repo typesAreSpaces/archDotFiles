@@ -9,24 +9,30 @@ wk.setup {
 }
 
 local mappings = {
+  b = {
+    name = "Bookmarks",
+    j = {"<cmd>BookmarkNext<CR>", "Go to Next Bookmark"},
+    k = {"<cmd>BookmarkPrev<CR>", "Go to Previous Bookmark"},
+  },
+
   g = {
     name = "Fugitive Git",
     s = {"<cmd>G<CR>", "Git Status"},
     j = {"<cmd>diffget //3<cr>", "Git master"},
     f = {"<cmd>diffget //2<cr>", "Git HEAD"},
   },
-
-  t = {
-    name = "Telescope",
-    f = {"<cmd>Telescope file_browser prompt_prefix=🔍<CR>", "File Browser"},
-    g = {"<cmd>Telescope live_grep<CR>", "Live Grep"},
-    b = {'<cmd>Telescope buffers <CR>', "Buffers"},
-    h = {'<cmd>Telescope help_tags<CR>', "Help Tags"},
+  k = {
+    name = "Keyboard Settings",
+    c = {"<cmd>lua change_kbd()<CR>", "Toggle Caps Lock to ESC <-> Ctrl"}
   },
 
   l = {
     name = "LSP",
-    i = {":LspInfo<cr>", "Connected Language Servers"},
+    i = {
+      c = {":LspInfo<cr>", "Connected Language Servers"},
+      m = {"<cmd>lua vim.lsp.buf.implementation()<CR>", "Implementation"}
+    },
+    c = {":LspInfo<cr>", "Connected Language Servers"},
     k = {"<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help"},
     K = {'<cmd>lua vim.lsp.buf.hover()<CR>', "Hover Commands"},
     w = {'<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', "Add Workspace Folder"},
@@ -41,12 +47,42 @@ local mappings = {
     e = {'<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', "Show Line Diagnostics"},
     n = {'<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', "Go To Next Diagnostic"},
     N = {'<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', "Go To Previous Diagnostic"},
+    q = {"<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Diagnostic Set LocList"},
+    f = {'<cmd>lua vim.lsp.buf.formatting()<CR>', "Formatting"},
+  },
+
+  s = {
+    name = "Source Configs",
+    u = {"<cmd>call UltiSnips#RefreshSnippets()<CR><cmd>echon 'Snippets refreshed'<CR>", "Source UltinSnippets Config"},
+    v = {"<cmd>source $HOME/.config/nvim/init.vim<CR><cmd>echon 'Config sourced'<CR>", "Source nvim Config"},
+  },
+
+  t = {
+    name = "Telescope",
+    b = {"<cmd>Telescope file_browser prompt_prefix=🔍<CR>", "File Browser"},
+    f = {"<cmd>Telescope find_files prompt_prefix=🔍<CR>", "Find Files"},
+    g = {"<cmd>Telescope live_grep<CR>", "Live Grep"},
+    b = {'<cmd>Telescope buffers <CR>', "Buffers"},
+    h = {'<cmd>Telescope help_tags<CR>', "Help Tags"},
   },
 
   v = {
     name = "VimTex",
     a = {"<cmd>lua ToggleActiveRefresh()<CR>", "Toggle Active Refresh"},
     f = {"<cmd>lua ParentFile()<CR><CR>", "Go to Parent File"},
+    s = {"<cmd>mksession! session<CR><cmd>echon 'Session saved'<CR>", "Save session"},
+  },
+
+  w = {
+    name = "Windows",
+    j = {"<C-w><C-j>", "Move to the window on the left"},
+    k = {"<C-w><C-k>", "Move to the window above"},
+    l = {"<C-w><C-l>", "Move to the window below"},
+    h = {"<C-w><C-h>", "Move to the window on the left"},
+    y = {"<cmd>exe 'vertical resize +5'<CR>", "Resize vertical line +5"},
+    u = {"<cmd>exe 'resize -5' <CR>", "Resize horizontal line -5"},
+    i = {"<cmd>exe 'resize +5' <CR>", "Resize horizontal line +5"},
+    o = {"<cmd>exe 'vertical resize -5'<CR>", "Resize vertical line -5"},
   }
 }
 
