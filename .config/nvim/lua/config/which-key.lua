@@ -41,7 +41,7 @@ local mappings = {
     },
     c = {":LspInfo<cr>", "Connected Language Servers"},
     k = {"<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help"},
-    K = {'<cmd>lua vim.lsp.buf.hover()<CR>', "Hover Commands"},
+    K = {'<cmd>lua vim.lsp.buf.hover()<CR>', "Hover Command"},
     w = {'<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', "Add Workspace Folder"},
     W = {'<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>', "Remove Workspace Folder"},
     l = {'<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>', "List Workspace Folders"},
