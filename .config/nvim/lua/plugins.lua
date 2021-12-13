@@ -33,7 +33,8 @@ return require('packer').startup(function()
   use { "SirVer/ultisnips", 
   requires = "honza/vim-snippets", 
   config = get_config("ultisnips") }
-  use { 'lervag/vimtex', event = "BufWinEnter", config = get_config("vimtex") }
+  --use { 'lervag/vimtex', event = "BufWinEnter", config = get_config("vimtex") }
+  use { 'lervag/vimtex', config = get_config("vimtex") }
   use 'mhinz/neovim-remote'
   use 'tpope/vim-fugitive'
   use 'skywind3000/asyncrun.vim'

@@ -1,3 +1,5 @@
+vim.cmd('filetype plugin indent on')
+
 vim.g.Tex_DefaultTargetFormat = 'pdf'
 vim.g.vimtex_view_enabled = 1
 vim.g.vimtex_view_automatic = 0
