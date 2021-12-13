@@ -7,15 +7,7 @@ wk.setup {
     presets = {operators = false, motions = false, text_objects = false, windows = false, nav = false, z = false, g = false}
   }
 }
---local Terminal = require('toggleterm.terminal').Terminal
---local toggle_float = function()
-  --local float = Terminal:new({direction = "float"})
-  --return float:toggle()
---end
---local toggle_lazygit = function()
-  --local lazygit = Terminal:new({cmd = 'lazygit', direction = "float"})
-  --return lazygit:toggle()
---end
+
 local mappings = {
   g = {
     name = "Fugitive Git",
@@ -23,6 +15,7 @@ local mappings = {
     j = {"<cmd>diffget //3<cr>", "Git master"},
     f = {"<cmd>diffget //2<cr>", "Git HEAD"},
   },
+
   t = {
     name = "Telescope",
     f = {"<cmd>Telescope file_browser prompt_prefix=🔍<CR>", "File Browser"},
@@ -30,7 +23,7 @@ local mappings = {
     b = {'<cmd>Telescope buffers <CR>', "Buffers"},
     h = {'<cmd>Telescope help_tags<CR>', "Help Tags"},
   },
-  --t = {t = {":ToggleTerm<cr>", "Split Below"}, f = {toggle_float, "Floating Terminal"}, l = {toggle_lazygit, "LazyGit"}},
+
   l = {
     name = "LSP",
     i = {":LspInfo<cr>", "Connected Language Servers"},
@@ -49,6 +42,7 @@ local mappings = {
     n = {'<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', "Go To Next Diagnostic"},
     N = {'<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', "Go To Previous Diagnostic"},
   },
+
   v = {
     name = "VimTex",
     a = {"<cmd>lua ToggleActiveRefresh()<CR>", "Toggle Active Refresh"},
