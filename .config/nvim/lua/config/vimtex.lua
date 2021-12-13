@@ -69,6 +69,5 @@ augroup END
 
 function ParentFile()
   local file_name = vim.fn.expand('%:t')
-  print(file_name)
-  vim.cmd(string.format("silent grep \"input{%s\" *.tex", string.sub(file_name, 0, -5)))
+  vim.cmd(string.format("silent grep -w \"input{%s}\" *.tex", string.sub(file_name, 0, -5)))
 end
