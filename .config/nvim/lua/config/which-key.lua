@@ -75,6 +75,7 @@ local mappings = {
     g = {"<cmd>Telescope live_grep<CR>", "Live Grep"},
     b = {'<cmd>Telescope buffers <CR>', "Buffers"},
     h = {'<cmd>Telescope help_tags<CR>', "Help Tags"},
+    u = {'<cmd>Telescope ultisnips<CR>', "UltinSnippets"},
   },
 
   v = {
