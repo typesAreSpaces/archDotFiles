@@ -1,3 +1,5 @@
+vim.cmd('filetype plugin indent on')
+
 vim.g.Tex_DefaultTargetFormat = 'pdf'
 vim.g.vimtex_view_enabled = 1
 vim.g.vimtex_view_automatic = 0
@@ -67,5 +69,5 @@ augroup END
 
 function ParentFile()
   local file_name = vim.fn.expand('%:t')
-  vim.cmd(string.format("silent grep \"input.*%s\" *.tex", string.sub(file_name, 0, -5)))
+  vim.cmd(string.format("silent grep -w \"input{%s}\" *.tex", string.sub(file_name, 0, -5)))
 end
