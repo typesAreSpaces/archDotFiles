@@ -26,7 +26,10 @@ require('telescope').setup{
     buffers = {
       theme = "dropdown",
       previewer = false,
-    }
+    },
+    commads = {
+      theme = "dropdown",
+    },
   },
   extensions = {
   }
