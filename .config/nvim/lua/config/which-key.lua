@@ -14,6 +14,10 @@ local mappings = {
     j = {"<cmd>BookmarkNext<CR>", "Go to Next Bookmark"},
     k = {"<cmd>BookmarkPrev<CR>", "Go to Previous Bookmark"},
   },
+  
+  c = {
+    name = "NERDCommenter",
+  },
 
   g = {
     name = "Fugitive Git",
