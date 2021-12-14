@@ -4,6 +4,7 @@
 setxkbmap
 xmodmap $HOME/.Xmodmap
 source $HOME/.xsessionrc
+killall -q sxhkd
 sxhkd &
 picom --experimental-backends &
 xset s off -dpms &
@@ -22,7 +23,7 @@ feh --bg-scale ~/Pictures/Wallpapers/city_night_city_coast_179489_3840x2160.jpg
 $HOME/.config/polybar/launch.sh &
 bsp-layout set ntall 1 -- --master-size 0.4&
 
-bspc config border_width         2 
+bspc config border_width         3
 bspc config window_gap           20
 bspc config focused_border_color "#7aa2f7"
 
