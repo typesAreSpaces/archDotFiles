@@ -1,0 +1,9 @@
+#!/bin/sh
+
+CURRENT_DIR=$(pwd)
+BASE_NAME=$(basename $CURRENT_DIR)
+CONFIG="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+sed -i "s/export CURRENT_REPORT.*/export CURRENT_REPORT='$BASE_NAME'/g" $HOME/.zshrc
+$CONFIG add $HOME/.zshrc
+$CONFIG commit -m "Update weekly_report path."
+$CONFIG push

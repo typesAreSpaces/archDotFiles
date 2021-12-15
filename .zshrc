@@ -18,6 +18,7 @@ export MASTER_THESIS_DIR="$GITHUB_PROJECTS_DIR/master-thesis"
 export PHD_THESIS_DIR="$GITHUB_PROJECTS_DIR/phd-thesis"
 export WRITE_UPS_DIR="$GITHUB_PROJECTS_DIR/phd-thesis/Documents/Write-Ups"
 export REPORTS_DIR="$WRITE_UPS_DIR/weekly_reports/Fall-2021"
+export CURRENT_REPORT='6_generalized_natural_generators'
 # Important to use ~ instead of $HOME. This has something
 # to do with how sed works on other files using WALLPAPERS_DIR
 export WALLPAPERS_DIR="~/Pictures/Wallpapers"
@@ -57,7 +58,7 @@ alias second_home="cd /media"
 alias phd_thesis="cd $PHD_THESIS_DIR"
 alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
 alias extra="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-talks/mpi21"
-alias reports="cd $REPORTS_DIR/generalized_natural_generators"
+alias reports="cd $REPORTS_DIR/$CURRENT_REPORT"
 alias thesis="cd $WRITE_UPS_DIR/thesis"
 alias personal_notes="cd $WRITE_UPS_DIR/personal_notes"
 
@@ -81,6 +82,7 @@ za(){
   zathura $1 &
 }
 alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
+alias ccwr="changeCurrentWeeklyReport"
 
 # Docker Aliases
 alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it seahorn/seahorn-llvm5"
