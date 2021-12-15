@@ -588,16 +588,21 @@ endsnippet
 
 snippet ';input(\w+[,\w+[\s\w]*]*)  ' "Input file" riA
 `!p
-args = stringify_args(match, 2)
+args = stringify_args(match, 3)
 num_args = len(args)
-if(num_args == 2):
-	name, section_name = args[0], args[1]
-	name = name[1:-1]
+if(num_args == 3):
+	name, title_name, latex_header = args[0], args[1], args[2]
+elif(num_args == 2):
+	name, title_name, latex_header = args[0], args[1], "section"
+elif (num_args == 1):
+	name, title_name, latex_header = args[0], "", ""
 else:
-	name, section_name = "new_file", "new_title"
+	name, title_name, latex_header = "_new_file_", "new_title", ""
+name = name[1:-1]
 file_name = name + ".tex"
 system("touch " + file_name)
-system("echo \\\\section{" + section_name + "} > " + file_name)
+if(1 < num_args and num_args < 4):
+	system("echo \\\\" + latex_header + "{" + title_name + "} > " + file_name)
 snip.rv = "\\input{" + name + "}"
 `
 $0
