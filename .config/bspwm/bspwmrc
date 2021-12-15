@@ -28,13 +28,8 @@ $HOME/.config/polybar/launch.sh &
 bsp-layout set ntall 1 -- --master-size 0.53&
 
 bspc config border_width         3
-<<<<<<< HEAD
-bspc config window_gap          20
-bspc config focused_border_color "#689d6a"
-=======
 bspc config window_gap           20
 bspc config focused_border_color "#689d6a"
->>>>>>> master
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
