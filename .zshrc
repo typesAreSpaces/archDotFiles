@@ -16,7 +16,8 @@ export GITHUB_PROJECTS_DIR="$HOME/Documents/GithubProjects"
 export BOSQUE_DIR="$GITHUB_PROJECTS_DIR/BosqueLanguage"
 export MASTER_THESIS_DIR="$GITHUB_PROJECTS_DIR/master-thesis"
 export PHD_THESIS_DIR="$GITHUB_PROJECTS_DIR/phd-thesis"
-export WRITE_UPS_DIR="$GITHUB_PROJECTS_DIR/phd-thesis/Documents/Write-Ups"
+export TODOLIST_DIR="$PHD_THESIS_DIR/Documents/TodoLists"
+export WRITE_UPS_DIR="$PHD_THESIS_DIR/Documents/Write-Ups"
 export REPORTS_DIR="$WRITE_UPS_DIR/weekly_reports/Fall-2021"
 export CURRENT_REPORT='6_generalized_natural_generators'
 # Important to use ~ instead of $HOME. This has something
@@ -68,7 +69,14 @@ alias open="xdg-open"
 alias ocaml="rlwrap ocaml"
 alias wolfram="rlwrap wolfram"
 alias t="tmux"
-alias te="tmux new -n emacs"
+alias te="tmux new-session -s work -d;\
+  tmux rename-window -t work:1 todo; \
+  tmux send-keys -t work:1 \
+  emacs\ -nw\ $TODOLIST_DIR/research_tasks.org C-m;\
+  tmux new-window -t work:2 -n report;\
+  tmux send-keys -t work:2 \
+  reports C-m; \
+  tmux a -t work"
 alias tksp="tmux kill-pane"
 alias tks="tmux kill-session"
 alias tksr="tmux kill-server"

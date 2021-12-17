@@ -1,5 +1,4 @@
 #!/bin/zsh                                                                                                   
-
 SESSIONNAME="weekly report"
 NVS="nvim --listen localhost:12345 -S session"
 PHD_THESIS_DOCS="$PHD_THESIS_DIR/Documents"
