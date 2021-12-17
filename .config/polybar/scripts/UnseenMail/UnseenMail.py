@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 from __future__ import print_function
 from apiclient.discovery import build
 from httplib2 import Http
@@ -8,11 +9,12 @@ import imaplib
 import os
 import configparser
 
+import requests
+
 dirname = os.path.split(os.path.abspath(__file__))[0]
 accounts = configparser.RawConfigParser()
 accounts.read(os.path.abspath(dirname + '/accounts.ini'))
 strFormatted = ""
-
 
 def check_imap(imap_account):
     if imap_account["useSSL"] == "true":
@@ -26,7 +28,6 @@ def check_imap(imap_account):
         client.select()
     return len(client.search(None, 'UNSEEN')[1][0].split())
 
-
 def check_gmail(gmail_account):
     SCOPES = 'https://www.googleapis.com/auth/gmail.readonly'
     credential_file = 'gmail/' + gmail_account + '.json'
@@ -39,18 +40,23 @@ def check_gmail(gmail_account):
     results = service.users().messages().list(userId='me', q="is:unread").execute()
     return len(results["messages"])
 
-
-for account in accounts:
-    currentAccount = accounts[account]
-    if account == "DEFAULT":
-        continue
-    if not currentAccount["icon"]:
-        icon = accounts["DEFAULT"]["icon"]
-    else:
-        icon = currentAccount["icon"]
-    if currentAccount['protocol'] == "GmailAPI":
-        unread = check_gmail(account)
-    else:
-        unread = check_imap(currentAccount)
-    strFormatted += icon + " " + str(unread) + " "
-print(strFormatted)
+try:
+    url = "http://www.google.com"
+    timeout = 1
+    request = requests.get(url, timeout=timeout)
+    for account in accounts:
+        currentAccount = accounts[account]
+        if account == "DEFAULT":
+            continue
+        if not currentAccount["icon"]:
+            icon = accounts["DEFAULT"]["icon"]
+        else:
+            icon = currentAccount["icon"]
+        if currentAccount['protocol'] == "GmailAPI":
+            unread = check_gmail(account)
+        else:
+            unread = check_imap(currentAccount)
+        strFormatted += icon + " " + str(unread) + " "
+        print(strFormatted)
+except (requests.ConnectionError, requests.Timeout) as exception:
+    print("ﰸ No connection")
