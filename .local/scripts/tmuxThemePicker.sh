@@ -32,13 +32,13 @@ nordTheme(){
 
 tokyoTheme(){
   BG1="#1F2335"
-  FG1="white"
+  FG1="brightwhite"
   FG_LEFT="black"
   BG_LEFT="green"
   ALERT="blue"
-  FG_RIGHT1="white"
-  FG_RIGHT2="white"
-  FG_RIGHT3="white"
+  FG_RIGHT1="brightwhite"
+  FG_RIGHT2="brightwhite"
+  FG_RIGHT3="brightwhite"
   BG_LINE="#1F2335"
   FG_CURRENT="brightwhite"
   FG_ACTIVITY="colour167"
