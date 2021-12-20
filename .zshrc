@@ -384,6 +384,7 @@ changeTheme(){
   nvimThemeSwitch $2
   emacsThemeSwitch $2
   zathuraThemeSwitch $2
+  tmuxThemePicker.sh $2
   case $1 in
     "i3")
       wallpaperThemeSwitch $2 "$HOME/.config/i3/config"

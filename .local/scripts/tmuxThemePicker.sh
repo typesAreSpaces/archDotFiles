@@ -15,23 +15,21 @@ gruvboxTheme(){
   FG_BELL="colour235"
 }
 
-#TODO: setup proper colors
 nordTheme(){
-  BG1="colour237"
-  FG1="colour223"
-  FG_LEFT="colour7"
-  BG_LEFT="colour241"
+  BG1="brightblack"
+  FG1="black"
+  FG_LEFT="brightcyan"
+  BG_LEFT="blue"
   ALERT="colour45"
-  FG_RIGHT1="colour246"
-  FG_RIGHT2="colour109"
-  FG_RIGHT3="colour248"
-  BG_LINE="colour239"
-  FG_CURRENT="colour214"
+  FG_RIGHT1="brightwhite"
+  FG_RIGHT2="brightwhite"
+  FG_RIGHT3="brightwhite"
+  BG_LINE="blue"
+  FG_CURRENT="cyan"
   FG_ACTIVITY="colour167"
   FG_BELL="colour235"
 }
 
-#TODO: setup proper colors
 tokyoTheme(){
   BG1="#1F2335"
   FG1="white"
