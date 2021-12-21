@@ -18,6 +18,7 @@ set_keymap('v', '<C-g>', '<Esc>gV', opts)
 set_keymap('o', '<C-g>', '<Esc>', opts)
 set_keymap('c', '<C-g>', '<C-c><Esc>', opts)
 set_keymap('i', '<C-g>', '<Esc>', opts)
+
 set_keymap('n', '<C-t>', '<cmd>terminal<CR>', opts)
 
 -- # Terminal:

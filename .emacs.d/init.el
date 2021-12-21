@@ -108,6 +108,8 @@
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
+(global-set-key (kbd "C-i") 'evil-jump-forward)
+
 (use-package general
   :after evil
   :config
@@ -148,7 +150,7 @@
   :commands command-log-mode)
 
 (use-package doom-themes
-  :init (load-theme 'doom-gruvbox t))
+  :init (load-theme 'doom-palenight t))
 
 (use-package all-the-icons)
 
@@ -626,7 +628,7 @@
   ;; This is set to 't' to avoid mail syncing issues when using mbsync
   (setq mu4e-change-filenames-when-moving t)
 
-  (setq mu4e-update-interval 60)
+  (setq mu4e-update-interval 600)
   (setq mu4e-get-mail-command "mbsync -a")
   (setq mu4e-maildir "~/Mail")
 
