@@ -19,7 +19,7 @@ export PHD_THESIS_DIR="$GITHUB_PROJECTS_DIR/phd-thesis"
 export TODOLIST_DIR="$PHD_THESIS_DIR/Documents/TodoLists"
 export WRITE_UPS_DIR="$PHD_THESIS_DIR/Documents/Write-Ups"
 export REPORTS_DIR="$WRITE_UPS_DIR/weekly_reports/Fall-2021"
-export CURRENT_REPORT='6_generalized_natural_generators'
+export CURRENT_REPORT='7_generalized_natural_generators'
 # Important to use ~ instead of $HOME. This has something
 # to do with how sed works on other files using WALLPAPERS_DIR
 export WALLPAPERS_DIR="~/Pictures/Wallpapers"
@@ -392,6 +392,7 @@ changeTheme(){
   nvimThemeSwitch $2
   emacsThemeSwitch $2
   zathuraThemeSwitch $2
+  tmuxThemePicker.sh $2
   case $1 in
     "i3")
       wallpaperThemeSwitch $2 "$HOME/.config/i3/config"
