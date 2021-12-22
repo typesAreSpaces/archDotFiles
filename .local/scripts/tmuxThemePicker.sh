@@ -37,7 +37,7 @@ tokyoTheme(){
   BG_LEFT="green"
   ALERT="blue"
   FG_RIGHT1="brightwhite"
-  FG_RIGHT2="brightwhite"
+  FG_RIGHT2="brightblue"
   FG_RIGHT3="brightwhite"
   BG_LINE="#1F2335"
   FG_CURRENT="brightwhite"
