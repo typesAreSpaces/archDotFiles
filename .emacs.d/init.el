@@ -690,7 +690,7 @@
           ("/cs-unm/Inbox". ?I)
           ("/cs-unm/Trash". ?T)
           ("/cs-unm/Drafts". ?D))))
-(mu4e t)
+
 (setq message-send-mail-function 'smtpmail-send-it)
 (setq mu4e-headers-show-threads nil)
 (setq mu4e-attachment-dir  "~/Downloads")
@@ -702,27 +702,6 @@
 
 (define-key global-map (kbd "C-c e")
   (lambda () (interactive) (mu4e)))
-
-(use-package mu4e-alert
-  :ensure t
-  :init
-  :after mu4e
-  :config
-  ;; Mode line alerts:
-  (add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
-  ;; Desktop alerts:
-  ;;(mu4e-alert-set-default-style 'libnotify)
-  ;;(add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
-  ;; Only notify for "interesting" (non-trashed) new emails:
-  (setq mu4e-alert-interesting-mail-query
-        (concat
-         "flag:unread maildir:/unm/Inbox"
-         " AND NOT flag:trashed"
-         " OR "
-         "flag:unread maildir:/cs-unm/Inbox"
-         " AND NOT flag:trashed"))
-  (mu4e-update-mail-and-index 1) 
-  (mu4e-alert-enable-mode-line-display))
 
 (use-package dired
   :ensure nil
