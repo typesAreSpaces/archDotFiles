@@ -1144,6 +1144,15 @@ mu index
     ;; This is set to 't' to avoid mail syncing issues when using mbsync
     (setq mu4e-change-filenames-when-moving t)
 
+    ;; Just plain text
+    (with-eval-after-load "mm-decode"
+      (add-to-list 'mm-discouraged-alternatives "text/html")
+      (add-to-list 'mm-discouraged-alternatives "text/richtext"))
+
+    (defun jcs-view-in-eww (msg)
+      (eww-browse-url (concat "file://" (mu4e~write-body-to-html msg))))
+    (add-to-list 'mu4e-view-actions '("Eww view" . jcs-view-in-eww) t)
+
     (setq mu4e-update-interval 600)
     (setq mu4e-get-mail-command "mbsync -a")
     (setq mu4e-maildir "~/Mail")
@@ -1215,11 +1224,19 @@ mu index
   (setq mu4e-compose-signature "Best,\nJose")
   (setq message-citation-line-format "On %d %b %Y at %R, %f wrote:\n")
   (setq message-citation-line-function 'message-insert-formatted-citation-line)
+  (setq
+   ;; Display
+   mu4e-view-show-addresses t
+   mu4e-view-show-images t
+   mu4e-view-image-max-width 800
+   mu4e-hide-index-messages t)
 
   (define-key global-map (kbd "C-c e")
     (lambda () (interactive) (mu4e)))
 
-#+end_src
+  (use-package mu-cite
+    )
+    #+end_src
 
 * File Management
 
