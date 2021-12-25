@@ -137,7 +137,7 @@ This section configures basic UI settings that remove unneeded elements to make 
                   treemacs-mode-hook
                   eshell-mode-hook))
     (add-hook mode (lambda () (display-line-numbers-mode 0))))
-
+ 
 #+end_src
 
 ** Dashboard Configuration
@@ -1236,7 +1236,7 @@ mu index
 
   (use-package mu-cite
     )
-    #+end_src
+#+end_src
 
 * File Management
 
@@ -1420,5 +1420,19 @@ Dial the GC threshold back down so that garbage collection happens more frequent
   (use-package simpleclip
     :config
     (simpleclip-mode 1))
+
+#+end_src
+
+* Mode Line
+#+begin_src emacs-lisp 
+
+  (setq-default mode-line-format '(
+                                   "%e"
+                                   (:eval
+                                    (if (equal (shell-command-to-string
+                                                "ps aux | grep 'mbsync -a' | wc -l") "3\n")
+                                        "Running mbsync" ""))
+                                   (:eval
+                                    (doom-modeline-format--main))))
 
 #+end_src

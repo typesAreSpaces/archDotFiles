@@ -789,3 +789,12 @@
 (use-package simpleclip
   :config
   (simpleclip-mode 1))
+
+(setq-default mode-line-format '(
+                                 "%e"
+                                 (:eval
+                                  (if (equal (shell-command-to-string
+                                              "ps aux | grep 'mbsync -a' | wc -l") "3\n")
+                                      "Running mbsync" ""))
+                                 (:eval
+                                  (doom-modeline-format--main))))
