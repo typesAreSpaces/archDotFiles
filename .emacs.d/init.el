@@ -2,7 +2,7 @@
 ;;       in Emacs and init.el will be generated automatically!
 
 ;; You will most likely need to adjust this font size for your system!
-(defvar efs/default-font-size 120)
+(defvar efs/default-font-size 110)
 (defvar efs/default-variable-font-size 120)
 
 ;; Make frame transparency overridable
@@ -151,6 +151,8 @@
 
 (use-package doom-themes
   :init (load-theme 'doom-gruvbox t))
+  (use-package doom-themes
+    :init (load-theme 'doom-gruvbox t))
 
 (use-package all-the-icons)
 
@@ -760,19 +762,6 @@
   (yas-global-mode 1))
 
 (use-package yasnippet-snippets)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(simpleclip org-tree-slide hide-mode-line mu4e-alert yasnippet-snippets which-key vterm visual-fill-column use-package typescript-mode rainbow-delimiters pyvenv python-mode org-bullets no-littering lsp-ui lsp-ivy ivy-rich ivy-prescient helpful general forge flx evil-nerd-commenter evil-collection eterm-256color eshell-git-prompt doom-themes doom-modeline dired-single dired-open dired-hide-dotfiles dashboard dap-mode counsel-projectile company-box command-log-mode auto-package-update all-the-icons-dired)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 (use-package hide-mode-line)
 
