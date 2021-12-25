@@ -69,8 +69,6 @@ haskell-language-server
 htop
 hugo
 hwdetect
-hyperfine
-i3-gaps
 inotify-tools
 intel-ucode
 isync
@@ -78,8 +76,6 @@ iw
 iwd
 jdk11-openjdk
 jre11-openjdk
-juk
-k3b
 kactivitymanagerd
 kaddressbook
 kalarm
