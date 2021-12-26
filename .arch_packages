@@ -1,15 +1,10 @@
 acpi
 acpilight
-akonadi-calendar-tools
-akonadi-import-wizard
-akonadiconsole
-akregator
 alacritty
 alsa-utils
 amd-ucode
 arandr
 ark
-artikulate
 audiocd-kio
 autoconf
 automake
@@ -21,7 +16,6 @@ blinken
 bluedevil
 blueman
 bluez-utils
-bomber
 bovo
 breeze
 breeze-gtk
@@ -77,18 +71,10 @@ iwd
 jdk11-openjdk
 jre11-openjdk
 kactivitymanagerd
-kapman
-kapptemplate
-kate
-katomic
 kbackup
-kblackbox
-kblocks
-kbounce
 kbreakout
 kbruch
 kcachegrind
-kcalc
 kcharselect
 kcolorchooser
 kcron
@@ -103,7 +89,6 @@ kdegraphics-mobipocket
 kdegraphics-thumbnailers
 kdenetwork-filesharing
 kdenlive
-kdepim-addons
 kdeplasma-addons
 kdesdk-kioslaves
 kdesdk-thumbnailers
@@ -118,7 +103,6 @@ kgamma5
 kgeography
 kget
 kgoldrunner
-kgpg
 khangman
 khelpcenter
 khotkeys
@@ -140,8 +124,6 @@ klickety
 klines
 kmag
 kmahjongg
-kmail
-kmail-account-wizard
 kmenuedit
 kmines
 kmix
@@ -151,7 +133,6 @@ kmplot
 knavalbattle
 knetwalk
 knights
-knotes
 kolf
 kollision
 kolourpaint
@@ -159,9 +140,7 @@ kompare
 konqueror
 konquest
 konsole
-kontact
 kopete
-korganizer
 kpat
 krdc
 kreversi
@@ -213,7 +192,6 @@ materia-gtk-theme
 materia-kde
 maude
 maven
-mbox-importer
 milou
 minuet
 mtools
@@ -247,8 +225,6 @@ patch
 perf
 picmi
 picom
-pim-data-exporter
-pim-sieve-editor
 pkgconf
 plasma-browser-integration
 plasma-desktop
