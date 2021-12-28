@@ -503,6 +503,8 @@
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
 
+(add-hook 'tex-mode-hook 'lsp)
+
 (use-package python-mode
   :ensure t
   :hook (python-mode . lsp-deferred)
