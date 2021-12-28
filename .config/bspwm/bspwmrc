@@ -6,7 +6,7 @@ xmodmap $HOME/.Xmodmap
 source $HOME/.xsessionrc
 killall -q sxhkd
 sxhkd &
-#picom --experimental-backends &
+picom --experimental-backends &
 xset s off -dpms &
 MONITOR1=eDP1
 if xrandr -q | grep -q "^DP[0-9] connected*"; then
