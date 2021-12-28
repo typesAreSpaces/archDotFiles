@@ -548,6 +548,9 @@ def joinArgsFstArg(rex):
 def stringToPath(s):
 	return s.replace(' ', '\\ ')
 
+def removeExtraQuotes(s):
+	return s[1:-1]
+
 # file_name: either '/kldb.tex' or '/idxdb.tex'
 # cmd_path: either '/home/jose/.local/scripts/add-knowledge -p ' or '/home/jose/.local/scripts/add-glossary -p '
 # prefix_entry: either ' -e \'index=' or ' -e \'newglossaryentry{'
@@ -590,9 +593,9 @@ snippet ';input(\w+[,\w+[\s\w]*]*)  ' "Input file" riA
 `!p
 args = stringify_args(match, 3)
 num_args = len(args)
-if(num_args == 3):
+if (num_args == 3):
 	name, title_name, latex_header = args[0], args[1], args[2]
-elif(num_args == 2):
+elif (num_args == 2):
 	name, title_name, latex_header = args[0], args[1], "section"
 elif (num_args == 1):
 	name, title_name, latex_header = args[0], "", ""
@@ -607,6 +610,43 @@ snip.rv = "\\input{" + name + "}"
 `
 $0
 endsnippet 
+
+snippet ';Seq(.+[,.+[\s.]*]*)  ' "Sequence of symbols - advanced" riA
+`!p
+args = stringify_args(match,5)
+num_args = len(args)
+
+template, last_index, op, is_open, uses_snd = "blank.", "n", ",", False, False
+if (num_args > 0):
+	template = removeExtraQuotes(args[0].strip())
+if (num_args > 1):
+	last_index = removeExtraQuotes(args[1].strip())
+if (num_args > 2):
+	op = removeExtraQuotes(args[2].strip())
+if (num_args > 3):
+	is_open = removeExtraQuotes(args[3].strip()) == 'o'
+if (num_args > 4):
+	is_open = removeExtraQuotes(args[3].strip()) == 'o'
+	uses_snd = removeExtraQuotes(args[4].strip()) == '2'
+
+if(op == ' '):
+	op = ","
+
+last_index = last_index.strip()
+
+if(uses_snd):
+	second_term = template.replace("_", "_2") + " " + op + " "
+else:
+	second_term = ""
+
+if(is_open):
+	last_term = ""
+else:
+	last_term = " " + op + " " + template.replace("_", "_{" + last_index + "}")
+
+snip.rv = template.replace("_", "_1") + " " + op + " " + second_term + "\\dots" + last_term
+`$0
+endsnippet
 
 global !p
 def create_matrix_placeholders(snip):

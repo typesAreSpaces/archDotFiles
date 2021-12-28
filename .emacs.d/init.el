@@ -503,6 +503,8 @@
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
 
+(add-hook 'tex-mode-hook 'lsp)
+
 (use-package python-mode
   :ensure t
   :hook (python-mode . lsp-deferred)
@@ -683,7 +685,7 @@
                   (mu4e-refile-folder . "/cs-unm/Inbox")
                   (mu4e-trash-folder  . "/cs-unm/Trash")
                   (smtpmail-smtp-server . "snape.cs.unm.edu")
-                  (smtpmail-smtp-service . 587)
+                  (smtpmail-smtp-service . 1200)
                   (smtpmail-stream-type . starttls)))))
 
   (setq mu4e-context-policy 'pick-first)
