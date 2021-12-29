@@ -1444,3 +1444,16 @@ Dial the GC threshold back down so that garbage collection happens more frequent
                                     (doom-modeline-format--main))))
 
 #+end_src
+
+* AUCTex setup
+
+#+begin_src emacs-lisp 
+
+  (use-package tex
+    :ensure auctex
+    :config
+    (setq TeX-auto-save t)
+    (setq TeX-parse-self t)
+    (setq-default TeX-master nil))
+
+#+end_src

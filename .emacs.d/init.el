@@ -800,3 +800,10 @@
                                       "Running mbsync" ""))
                                  (:eval
                                   (doom-modeline-format--main))))
+
+(use-package tex
+  :ensure auctex
+  :config
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
+  (setq-default TeX-master nil))
