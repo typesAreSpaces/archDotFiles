@@ -43,16 +43,16 @@ colors:
 background_opacity: 0.8
 font:
   normal:
-    family: FiraCode
+    family: Inconsolata
     style: Regular
   bold:
-    family: FiraCode
+    family: Inconsolata
     style: Bold
   italic:
-    family: FiraCode
+    family: Inconsolata
     style: Italic
   bold_italic:
-    family: FiraCode
+    family: Inconsolata
     style: Bold Italic
   size: 12
   offset:
