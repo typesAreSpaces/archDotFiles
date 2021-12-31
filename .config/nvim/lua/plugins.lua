@@ -60,8 +60,6 @@ return require('packer').startup(function()
   use 'shaunsingh/nord.nvim'
   use 'b4skyx/serenade'
   use 'dracula/vim' 
-  use 'EdenEast/nightfox.nvim'
-  use 'arzg/vim-substrata'
 
   -- # Ricing
   use 'mhinz/vim-startify'

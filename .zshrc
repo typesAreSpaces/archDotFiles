@@ -71,7 +71,8 @@ alias t="tmux"
 alias te="tmux new-session -s work -d;\
   tmux rename-window -t work:1 todo; \
   tmux send-keys -t work:1 \
-  emacs\ -nw\ $TODOLIST_DIR/research_tasks.org C-m;\
+  emacs\ -nw\ $TODOLIST_DIR/research_tasks.org\ \
+  C-m;\
   tmux new-window -t work:2 -n report;\
   tmux send-keys -t work:2 \
   reports C-m; \
