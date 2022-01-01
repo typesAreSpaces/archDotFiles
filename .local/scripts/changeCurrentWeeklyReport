@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 CURRENT_DIR=$(pwd)
 BASE_NAME=$(basename $CURRENT_DIR)
@@ -7,3 +7,4 @@ sed -i "s/export CURRENT_REPORT.*/export CURRENT_REPORT='$BASE_NAME'/g" $HOME/.z
 $CONFIG add $HOME/.zshrc
 $CONFIG commit -m "Update weekly_report path."
 $CONFIG push
+source $HOME/.zshrc

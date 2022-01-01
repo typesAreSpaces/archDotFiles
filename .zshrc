@@ -7,7 +7,7 @@ export ZSH_PLUGINS='/usr/share/zsh/plugins'
 
 ZSH_THEME="simple"
 plugins=(git)
-#eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh)"
 
 export SCRIPT_DIR="$HOME/.local/scripts"
 export APPS_DIR="$HOME/Documents/Apps"
