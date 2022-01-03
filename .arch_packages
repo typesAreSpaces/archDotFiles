@@ -70,6 +70,7 @@ iw
 iwd
 jdk11-openjdk
 jre11-openjdk
+julia
 kactivitymanagerd
 kcharselect
 kcolorchooser
@@ -255,6 +256,7 @@ valgrind
 vi
 vim
 virtualbox
+virtualbox-guest-iso
 vlc
 wget
 which
