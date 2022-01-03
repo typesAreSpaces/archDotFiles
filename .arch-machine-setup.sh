@@ -6,7 +6,7 @@ CONFIG="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 sudo pacman -S zsh git reflector rsync
 
 # Update mirrorlist
-sudo reflector --latest 20 --protocol https --country 'US' --sort age --save /etc/pacman.d/mirrorlist
+sudo reflector --latest 100 --protocol https --country 'US' --sort age --save /etc/pacman.d/mirrorlist
 
 # Setup dot files
 echo ".cfg" >> .gitignore
