@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONFIG='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+CONFIG="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
 # Install additional programs
 sudo pacman -S zsh git
