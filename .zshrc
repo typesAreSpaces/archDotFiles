@@ -117,7 +117,7 @@ imageGoNord(){
 }
 
 updateMirrorList(){
-  sudo reflector --latest 20 --protocol https --country 'US' --sort age --save /etc/pacman.d/mirrorlist
+  sudo reflector --latest 100 --protocol https --country 'US' --sort age --save /etc/pacman.d/mirrorlist
 }
 
 ## Transport files and directories between SSD and HDD
@@ -191,7 +191,7 @@ cdclip(){
   $(xclip -o) 
 }
 updateArchPackages(){ 
-  sudo pacman -Qqen > .arch_packages 
+  sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort .arch_packages))
 }
 installArchPackages(){ 
   sudo pacman -S --needed - < .arch_packages 
