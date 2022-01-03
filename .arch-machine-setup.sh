@@ -42,7 +42,7 @@ cd $HOME/Documents/GithubProjects/paru && \
 # - zathura-pywal
 
 # TODO: 
-# - Remove polybar since it's in .arch_packages
+# - Remove polybar since it's in .arch_packages (?)
 # - Keep it for now because paru doesn't list it 
 # - on the database
 #mkdir -p ~/Documents/GithubProjects/polybar
