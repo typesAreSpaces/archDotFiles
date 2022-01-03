@@ -3,7 +3,10 @@
 CONFIG="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
 # Install additional programs
-sudo pacman -S zsh git
+sudo pacman -S zsh git reflector
+
+# Update mirrorlist
+sudo reflector --latest 20 --protocol https --sort age --save /etc/pacman.d/mirrorlist
 
 # Setup dot files
 echo ".cfg" >> .gitignore
