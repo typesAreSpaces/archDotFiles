@@ -117,7 +117,7 @@ imageGoNord(){
 }
 
 updateMirrorList(){
-  sudo reflector --latest 20 --protocol https --sort age --save /etc/pacman.d/mirrorlist
+  sudo reflector --latest 20 --protocol https --country 'US' --sort age --save /etc/pacman.d/mirrorlist
 }
 
 ## Transport files and directories between SSD and HDD

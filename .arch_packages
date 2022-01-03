@@ -59,7 +59,6 @@ go
 groff
 grub
 gwenview
-haskell-language-server
 htop
 hugo
 hwdetect
@@ -163,8 +162,6 @@ network-manager-applet
 networkmanager
 nitrogen
 npm
-nvidia
-nvidia-utils
 obs-studio
 okular
 opam
