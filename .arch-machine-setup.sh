@@ -20,7 +20,7 @@ $CONFIG checkout
 $CONFIG config --local status.showUntrackedFiles no
 
 # Installing my usual stuff
-sudo pacman -S --needed - < .arch_packages 
+sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort .arch_packages))
 
 # TODO:
 # Install GithubProjects apps including:
