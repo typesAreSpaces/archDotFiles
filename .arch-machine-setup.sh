@@ -2,19 +2,20 @@
 
 CONFIG='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-# Extra programs
+# Install additional programs
 sudo pacman -S zsh git
 
-# Dot files setup
+# Setup dot files
 echo ".cfg" >> .gitignore
-git clone --bare https://github.com/typesAreSpaces/archDotFiles.git $HOME/.cfg
+git clone --bare \
+  https://github.com/typesAreSpaces/archDotFiles.git \
+  $HOME/.cfg
 mkdir -p .config-backup && \
   $CONFIG checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
   xargs -I{} mv {} .config-backup/{}
 $CONFIG checkout
 $CONFIG config --local status.showUntrackedFiles no
 
-# ------------------------------------------------------------------------
 # Installing my usual stuff
 sudo pacman -S --needed - < .arch_packages 
 
@@ -22,21 +23,28 @@ sudo pacman -S --needed - < .arch_packages
 # Install GithubProjects apps including:
 # - bsp-layout
 # - blog
-# - paru
+# - paru - done
+mkdir -p $HOME/Documents/GithubProjects/paru
+sudo pacman -S --needed base-devel
+git clone \
+  https://aur.archlinux.org/paru.git \
+  $HOME/Documents/GithubProjects/paru
+cd $HOME/Documents/GithubProjects/paru && \
+  makepkg -si
 # - phd-thesis
 # - QuickTex
+# - QuickPandoc
 # - slimlock (?)
 # - typesAreSpaces.github.io
 # - zathura-pywal
 
-# ------------------------------------------------------------------------
 # TODO: 
 # - Remove polybar since it's in .arch_packages
-# - Keep it for now to replicate installation 
-# - for the above GithubProjects apps
-mkdir -p ~/Documents/GithubProjects/polybar
-git clone https://aur.archlinux.org/polybar.git ~/Documents/GithubProjects/polybar
-cd ~/Documents/GithubProjects/polybar && makepkg -si
+# - Keep it for now because paru doesn't list it 
+# - on the database
+#mkdir -p ~/Documents/GithubProjects/polybar
+#git clone https://aur.archlinux.org/polybar.git ~/Documents/GithubProjects/polybar
+#cd ~/Documents/GithubProjects/polybar && makepkg -si
 
 # Change shell to zsh
 chsh -s /bin/zsh
