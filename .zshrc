@@ -18,8 +18,8 @@ export MASTER_THESIS_DIR="$GITHUB_PROJECTS_DIR/master-thesis"
 export PHD_THESIS_DIR="$GITHUB_PROJECTS_DIR/phd-thesis"
 export TODOLIST_DIR="$PHD_THESIS_DIR/Documents/TodoLists"
 export WRITE_UPS_DIR="$PHD_THESIS_DIR/Documents/Write-Ups"
-export REPORTS_DIR="$WRITE_UPS_DIR/weekly_reports/Fall-2021"
-export CURRENT_REPORT='8_generalized_natural_generators'
+export REPORTS_DIR="$WRITE_UPS_DIR/weekly_reports/Spring-2022"
+export CURRENT_REPORT='1_generalized_natural_generators'
 # Important to use ~ instead of $HOME. This has something
 # to do with how sed works on other files using WALLPAPERS_DIR
 export WALLPAPERS_DIR="~/Pictures/Wallpapers"
@@ -114,7 +114,7 @@ imageGoNord(){
 }
 
 updateMirrorList(){
-  sudo reflector --latest 20 --protocol https --sort age --save /etc/pacman.d/mirrorlist
+  sudo reflector --latest 100 --protocol https --country 'US' --sort age --save /etc/pacman.d/mirrorlist
 }
 
 ## Transport files and directories between SSD and HDD
@@ -199,7 +199,7 @@ cdclip(){
   $(xclip -o) 
 }
 updateArchPackages(){ 
-  sudo pacman -Qqen > .arch_packages 
+  sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort .arch_packages))
 }
 installArchPackages(){ 
   sudo pacman -S --needed - < .arch_packages 

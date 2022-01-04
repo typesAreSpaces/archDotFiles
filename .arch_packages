@@ -53,6 +53,7 @@ intel-ucode
 isync
 jdk11-openjdk
 jre11-openjdk
+julia
 kactivitymanagerd
 kcharselect
 kcolorchooser
@@ -138,16 +139,14 @@ neovim
 network-manager-applet
 networkmanager
 npm
-nvidia
-nvidia-utils
 obs-studio
 okular
 opam
 os-prober
 oxygen
 packagekit-qt5
-pandoc
-papirus-icon-theme
+pacman-contrib
+pari
 pass
 patch
 picom
@@ -181,6 +180,7 @@ rust-analyzer
 sddm
 sddm-kcm
 signon-kwallet-extension
+slim
 spectacle
 step
 sudo
@@ -207,6 +207,9 @@ tmux
 ufw
 vi
 vim
+virtualbox
+virtualbox-guest-iso
+vlc
 wget
 which
 wireless_tools
