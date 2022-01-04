@@ -51,6 +51,8 @@ cd $HOME/Documents/GithubProjects/paru && \
 
 # Setup python packages
 # pip3 install pynvim
+# pip3 install google-api-python-client
+# pip3 install oauth2client
 
 # Setup mu
 # Create dirs $HOME/Mail/unm $HOME/Mail/cs-unm
