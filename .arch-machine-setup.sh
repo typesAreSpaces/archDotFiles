@@ -19,8 +19,16 @@ mkdir -p .config-backup && \
 $CONFIG checkout
 $CONFIG config --local status.showUntrackedFiles no
 
+# Setup fonts
+# TODO
+
 # Installing my usual stuff
 sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort .arch_packages))
+
+# Install AUR packages
+# using paru
+# TODO mu
+# TODO polybar
 
 # TODO:
 # Install GithubProjects apps including:
@@ -41,21 +49,17 @@ cd $HOME/Documents/GithubProjects/paru && \
 # - typesAreSpaces.github.io
 # - zathura-pywal
 
-# Change shell to zsh
-chsh -s /bin/zsh
-
 # Setup python packages
 # pip3 install pynvim
-
-# Setup fonts
-# TODO
-
-# Install AUR packages
-# using paru
-# TODO mu
-# TODO polybar
 
 # Setup mu
 # Create dirs $HOME/Mail/unm $HOME/Mail/cs-unm
 # mu init --maildir=~/Mail --my-address=ADDRESS1 --my-address=ADDRESS2
 # mu index
+
+# Setup bspwm
+# Manually check correct MONITOR variable setting
+# in $HOME/.config/bspwm/bspwmrc
+
+# Change shell to zsh
+chsh -s /bin/zsh
