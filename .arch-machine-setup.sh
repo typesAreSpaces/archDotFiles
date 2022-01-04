@@ -19,16 +19,8 @@ mkdir -p .config-backup && \
 $CONFIG checkout
 $CONFIG config --local status.showUntrackedFiles no
 
-# Setup fonts
-# TODO
-
-# Installing my usual stuff
+# Install packages
 sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort .arch_packages))
-
-# Install AUR packages
-# using paru
-# TODO mu
-# TODO polybar
 
 # TODO:
 # Install GithubProjects apps including:
@@ -49,17 +41,40 @@ cd $HOME/Documents/GithubProjects/paru && \
 # - typesAreSpaces.github.io
 # - zathura-pywal
 
+# Install AUR packages
+paru -S \
+  mu \
+  polybar \
+  ttf-fira-code
+
 # Setup python packages
-# pip3 install pynvim
+sudo pip3 install \
+  pynvim \
+  google-api-python-client \
+  oauth2client
+
+# Setup npm packages
+# TODO alacritty-theme-switch
+sudo npm install -g \
+  alacritty-theme-switch
 
 # Setup mu
 # Create dirs $HOME/Mail/unm $HOME/Mail/cs-unm
+mkdir -p $HOME/Mail/unm
+mkdir -p $HOME/Mail/cs-unm
+# Copy .mbsyncrc template from $HOME/.emacs.d/Emacs.org
+# Manually, execute the following commands
 # mu init --maildir=~/Mail --my-address=ADDRESS1 --my-address=ADDRESS2
 # mu index
 
 # Setup bspwm
-# Manually check correct MONITOR variable setting
+# Manually check correct MONITOR
+# (use xrandr to check for available monitors)
+# variable setting
 # in $HOME/.config/bspwm/bspwmrc
+
+# Setup alacritty
+# Change fonts if necessary
 
 # Change shell to zsh
 chsh -s /bin/zsh
