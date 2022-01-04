@@ -54,6 +54,9 @@ cd $HOME/Documents/GithubProjects/paru && \
 # pip3 install google-api-python-client
 # pip3 install oauth2client
 
+# Setup npm packages
+# TODO alacritty-theme-switch
+
 # Setup mu
 # Create dirs $HOME/Mail/unm $HOME/Mail/cs-unm
 # mu init --maildir=~/Mail --my-address=ADDRESS1 --my-address=ADDRESS2
