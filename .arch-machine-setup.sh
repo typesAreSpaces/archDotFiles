@@ -51,3 +51,9 @@ cd $HOME/Documents/GithubProjects/paru && \
 
 # Change shell to zsh
 chsh -s /bin/zsh
+
+# Setup python packages
+# pip3 install pynvim
+
+# Setup fonts
+# TODO
