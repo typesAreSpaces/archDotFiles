@@ -41,14 +41,6 @@ cd $HOME/Documents/GithubProjects/paru && \
 # - typesAreSpaces.github.io
 # - zathura-pywal
 
-# TODO: 
-# - Remove polybar since it's in .arch_packages (?)
-# - Keep it for now because paru doesn't list it 
-# - on the database
-#mkdir -p ~/Documents/GithubProjects/polybar
-#git clone https://aur.archlinux.org/polybar.git ~/Documents/GithubProjects/polybar
-#cd ~/Documents/GithubProjects/polybar && makepkg -si
-
 # Change shell to zsh
 chsh -s /bin/zsh
 
@@ -57,3 +49,13 @@ chsh -s /bin/zsh
 
 # Setup fonts
 # TODO
+
+# Install AUR packages
+# using paru
+# TODO mu
+# TODO polybar
+
+# Setup mu
+# Create dirs $HOME/Mail/unm $HOME/Mail/cs-unm
+# mu init --maildir=~/Mail --my-address=ADDRESS1 --my-address=ADDRESS2
+# mu index
