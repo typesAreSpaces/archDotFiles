@@ -81,3 +81,4 @@ chsh -s /bin/zsh
 # - QuickPandoc
 # - typesAreSpaces.github.io
 # - zathura-pywal
+# - PersonalLatexMacros as $HOME/texmf/tex/latex/local
