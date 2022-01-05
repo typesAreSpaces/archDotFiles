@@ -22,11 +22,7 @@ $CONFIG config --local status.showUntrackedFiles no
 # Install packages
 sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort .arch_packages))
 
-# TODO:
-# Install GithubProjects apps including:
-# - bsp-layout
-# - blog
-# - paru - done
+# Install paru
 mkdir -p $HOME/Documents/GithubProjects/paru
 sudo pacman -S --needed base-devel
 git clone \
@@ -34,18 +30,13 @@ git clone \
   $HOME/Documents/GithubProjects/paru
 cd $HOME/Documents/GithubProjects/paru && \
   makepkg -si
-# - phd-thesis
-# - QuickTex
-# - QuickPandoc
-# - slimlock (?)
-# - typesAreSpaces.github.io
-# - zathura-pywal
 
 # Install AUR packages
 paru -S \
   mu \
   polybar \
-  ttf-fira-code
+  ttf-fira-code \
+  betterlockscreen
 
 # Setup python packages
 sudo pip3 install \
@@ -64,8 +55,8 @@ mkdir -p $HOME/Mail/unm
 mkdir -p $HOME/Mail/cs-unm
 # Copy .mbsyncrc template from $HOME/.emacs.d/Emacs.org
 # Manually, execute the following commands
-# mu init --maildir=~/Mail --my-address=ADDRESS1 --my-address=ADDRESS2
-# mu index
+# > mu init --maildir=~/Mail --my-address=ADDRESS1 --my-address=ADDRESS2
+# > mu index
 
 # Setup bspwm
 # Manually check correct MONITOR
@@ -73,8 +64,20 @@ mkdir -p $HOME/Mail/cs-unm
 # variable setting
 # in $HOME/.config/bspwm/bspwmrc
 
-# Setup alacritty
-# Change fonts if necessary
-
 # Change shell to zsh
 chsh -s /bin/zsh
+
+# Setup ssh credentials
+# Manually run the following
+# > ssh-keygen -t ed25519 -C "email@example.com"
+# > eval "$(ssh-agent -s)"
+# Add public key to github personal accout 
+
+# Install GithubProjects apps including:
+# - bsp-layout
+# - blog
+# - phd-thesis
+# - QuickTex
+# - QuickPandoc
+# - typesAreSpaces.github.io
+# - zathura-pywal

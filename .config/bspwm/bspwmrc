@@ -3,7 +3,7 @@
 # Autostart
 setxkbmap
 xmodmap $HOME/.Xmodmap
-source $HOME/.xsessionrc
+[ -f $HOME/.xsessionrc ] && source $HOME/.xsessionrc
 killall -q sxhkd
 sxhkd &
 picom --experimental-backends &
