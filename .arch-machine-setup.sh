@@ -56,6 +56,7 @@ cd $HOME/Documents/GithubProjects/paru && \
 
 # Setup npm packages
 # TODO alacritty-theme-switch
+sudo npm install -g alacritty-theme-switch
 
 # Setup mu
 # Create dirs $HOME/Mail/unm $HOME/Mail/cs-unm
