@@ -52,6 +52,11 @@ sudo pip3 install \
 sudo npm install -g \
   alacritty-theme-switch
 
+# Change shell to zsh
+chsh -s /bin/zsh
+
+# Manual settings
+
 # Setup mu
 # Create dirs $HOME/Mail/unm $HOME/Mail/cs-unm
 mkdir -p $HOME/Mail/unm
@@ -66,9 +71,6 @@ mkdir -p $HOME/Mail/cs-unm
 # (use xrandr to check for available monitors)
 # variable setting
 # in $HOME/.config/bspwm/bspwmrc
-
-# Change shell to zsh
-chsh -s /bin/zsh
 
 # Setup ssh credentials
 # Manually run the following
