@@ -66,6 +66,10 @@ mkdir -p $HOME/Mail/cs-unm
 # > mu init --maildir=~/Mail --my-address=ADDRESS1 --my-address=ADDRESS2
 # > mu index
 
+# Setup UnseenMail
+# Manually add an accounts.ini file for UnseenMail
+# in $HOME/.config/polybar/scripts/UnseenMail
+
 # Setup bspwm
 # Manually check correct MONITOR
 # (use xrandr to check for available monitors)
@@ -78,7 +82,7 @@ mkdir -p $HOME/Mail/cs-unm
 # > eval "$(ssh-agent -s)"
 # Add public key to github personal accout 
 
-# Install GithubProjects apps including:
+# Install the following GithubProjects apps:
 # - bsp-layout
 # - blog
 # - phd-thesis
@@ -86,4 +90,4 @@ mkdir -p $HOME/Mail/cs-unm
 # - QuickPandoc
 # - typesAreSpaces.github.io
 # - zathura-pywal
-# - PersonalLatexMacros as $HOME/texmf/tex/latex/local
+# - PersonalLatexMacros at $HOME/texmf/tex/latex/local
