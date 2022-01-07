@@ -70,6 +70,7 @@ alias personal_notes="cd $WRITE_UPS_DIR/personal_notes"
 alias open="xdg-open"
 alias ocaml="rlwrap ocaml"
 alias wolfram="rlwrap wolfram"
+alias m2="M2 --script"
 alias t="tmux"
 alias te="tmux new-session -s work -d;\
   tmux rename-window -t work:1 todo; \
