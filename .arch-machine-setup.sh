@@ -2,11 +2,14 @@
 
 CONFIG="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
-# Install additional programs
-sudo pacman -S zsh git reflector rsync
+# Update repos
+sudo pacman -Syu
 
 # Update mirrorlist
 sudo reflector --latest 100 --protocol https --country 'US' --sort age --save /etc/pacman.d/mirrorlist
+
+# Install additional programs
+sudo pacman -S zsh git reflector rsync
 
 # Setup dot files
 echo ".cfg" >> .gitignore
@@ -49,6 +52,11 @@ sudo pip3 install \
 sudo npm install -g \
   alacritty-theme-switch
 
+# Change shell to zsh
+chsh -s /bin/zsh
+
+# Manual settings
+
 # Setup mu
 # Create dirs $HOME/Mail/unm $HOME/Mail/cs-unm
 mkdir -p $HOME/Mail/unm
@@ -58,14 +66,15 @@ mkdir -p $HOME/Mail/cs-unm
 # > mu init --maildir=~/Mail --my-address=ADDRESS1 --my-address=ADDRESS2
 # > mu index
 
+# Setup UnseenMail
+# Manually add an accounts.ini file for UnseenMail
+# in $HOME/.config/polybar/scripts/UnseenMail
+
 # Setup bspwm
 # Manually check correct MONITOR
 # (use xrandr to check for available monitors)
 # variable setting
 # in $HOME/.config/bspwm/bspwmrc
-
-# Change shell to zsh
-chsh -s /bin/zsh
 
 # Setup ssh credentials
 # Manually run the following
@@ -73,7 +82,7 @@ chsh -s /bin/zsh
 # > eval "$(ssh-agent -s)"
 # Add public key to github personal accout 
 
-# Install GithubProjects apps including:
+# Install the following GithubProjects apps:
 # - bsp-layout
 # - blog
 # - phd-thesis
@@ -81,4 +90,4 @@ chsh -s /bin/zsh
 # - QuickPandoc
 # - typesAreSpaces.github.io
 # - zathura-pywal
-# - PersonalLatexMacros as $HOME/texmf/tex/latex/local
+# - PersonalLatexMacros at $HOME/texmf/tex/latex/local

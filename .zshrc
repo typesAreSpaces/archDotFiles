@@ -4,6 +4,8 @@
 export HISTIGNORE='*sudo -S*'
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_PLUGINS='/usr/share/zsh/plugins'
+export GTK_PATH='/usr/lib/gtk-2.0'
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 ZSH_THEME="simple"
 plugins=(git)
@@ -34,8 +36,9 @@ export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export PATH="$APPS_DIR:$PATH"
 export PATH="$APPS_DIR/Maple/bin:$PATH"
 export PATH="$APPS_DIR/LADR-2009-11A/bin:$PATH"
-export PATH="$APPS_DIR/Matlab/bin:$PATH"
-export PATH="$APPS_DIR/csdp6.2.0linuxx86_64/bin:$PATH";
+export PATH="$APPS_DIR/MATLAB/R2021b/bin:$PATH"
+export PATH="$APPS_DIR/csdp6.2.0linuxx86_64/bin:$PATH"
+export PATH="$GITHUB_PROJECTS_DIR/M2/M2:$PATH"
 export GOPATH="$HOME/go";
 
 # Init
@@ -68,6 +71,7 @@ alias personal_notes="cd $WRITE_UPS_DIR/personal_notes"
 alias open="xdg-open"
 alias ocaml="rlwrap ocaml"
 alias wolfram="rlwrap wolfram"
+alias m2="M2 --script"
 alias t="tmux"
 alias te="tmux new-session -s work -d;\
   tmux rename-window -t work:1 todo; \
