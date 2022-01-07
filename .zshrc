@@ -21,7 +21,7 @@ export PHD_THESIS_DIR="$GITHUB_PROJECTS_DIR/phd-thesis"
 export TODOLIST_DIR="$PHD_THESIS_DIR/Documents/TodoLists"
 export WRITE_UPS_DIR="$PHD_THESIS_DIR/Documents/Write-Ups"
 export REPORTS_DIR="$WRITE_UPS_DIR/weekly_reports/Spring-2022"
-export CURRENT_REPORT='1_generalized_natural_generators'
+export CURRENT_REPORT='2_generalized_natural_generators'
 # Important to use ~ instead of $HOME. This has something
 # to do with how sed works on other files using WALLPAPERS_DIR
 export WALLPAPERS_DIR="~/Pictures/Wallpapers"
