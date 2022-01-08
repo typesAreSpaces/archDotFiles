@@ -39,7 +39,8 @@ paru -S \
   mu \
   polybar \
   ttf-fira-code \
-  betterlockscreen
+  betterlockscreen \
+  xlsw
 
 # Setup python packages
 sudo pip3 install \
