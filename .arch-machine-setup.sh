@@ -92,3 +92,13 @@ mkdir -p $HOME/Mail/cs-unm
 # - typesAreSpaces.github.io
 # - zathura-pywal
 # - PersonalLatexMacros at $HOME/texmf/tex/latex/local
+
+# Setup default apps
+MIME_DIR="$HOME/.local/share/applications"
+mkdir -p $MIME_DIR
+
+# Zathura | application/pdf
+touch $MIME_DIR/zathura.desktop
+echo "[Desktop Entry]" >> $MIME_DIR/zathura.desktop
+echo "Exec=/usr/bin/zathura %u" >> $MIME_DIR/zathura.desktop
+xdg-mime default zathura.desktop application/pdf
