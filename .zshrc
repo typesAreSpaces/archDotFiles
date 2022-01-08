@@ -173,6 +173,9 @@ alias qcu="quickConfigUpdate"
 quickConfigRestore(){
   config status | grep "modified:" | sed 's/modified:/git --git-dir=$HOME\/.cfg --work-tree=$HOME restore/g' | zsh;
 }
+quickUntrack(){
+  config rm --cached $1
+}
 
 ## Git scripts
 quickGitPush(){
