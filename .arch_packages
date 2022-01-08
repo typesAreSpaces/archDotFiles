@@ -59,7 +59,6 @@ go
 groff
 grub
 gwenview
-haskell-language-server
 htop
 hugo
 hwdetect
@@ -70,6 +69,7 @@ iw
 iwd
 jdk11-openjdk
 jre11-openjdk
+julia
 kactivitymanagerd
 kcharselect
 kcolorchooser
@@ -162,8 +162,6 @@ network-manager-applet
 networkmanager
 nitrogen
 npm
-nvidia
-nvidia-utils
 obs-studio
 okular
 opam
@@ -173,8 +171,6 @@ os-prober
 oxygen
 packagekit-qt5
 pacman-contrib
-pandoc
-papirus-icon-theme
 pari
 pass
 patch
@@ -219,7 +215,6 @@ sdcv
 sddm
 sddm-kcm
 signon-kwallet-extension
-singular
 slim
 spectacle
 spotifyd
@@ -255,6 +250,7 @@ valgrind
 vi
 vim
 virtualbox
+virtualbox-guest-iso
 vlc
 wget
 which

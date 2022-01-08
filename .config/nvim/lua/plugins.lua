@@ -72,4 +72,5 @@ return require('packer').startup(function()
   -- # Syntax
   use {'bohlender/vim-smt2', config = get_config("smt2") }
   use 'plasticboy/vim-markdown'
+  use 'coreysharris/Macaulay2.vim'
 end)
