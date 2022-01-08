@@ -38,7 +38,7 @@ export PATH="$APPS_DIR/Maple/bin:$PATH"
 export PATH="$APPS_DIR/LADR-2009-11A/bin:$PATH"
 export PATH="$APPS_DIR/MATLAB/R2021b/bin:$PATH"
 export PATH="$APPS_DIR/csdp6.2.0linuxx86_64/bin:$PATH"
-export PATH="$GITHUB_PROJECTS_DIR/M2/M2:$PATH"
+export PATH="$HOME/.cache/paru/clone/macaulay2/src/M2/M2:$PATH"
 
 # Init
 TO_SOURCE=(\
