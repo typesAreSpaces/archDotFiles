@@ -173,6 +173,9 @@ alias qcu="quickConfigUpdate"
 quickConfigRestore(){
   config status | grep "modified:" | sed 's/modified:/git --git-dir=$HOME\/.cfg --work-tree=$HOME restore/g' | zsh;
 }
+quickUntrack(){
+  config rm --cached $1
+}
 
 ## Git scripts
 quickGitPush(){
@@ -314,7 +317,7 @@ polybarThemeSwitch(){
 wallpaperThemeSwitch(){
   case $1 in
     "gruvbox")
-      sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/iron_lady.jpg|g" $2
+      sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/mountains.jpg|g" $2
       ;;
     "nord")
       sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/minimal_mountains.png|g" $2
