@@ -21,7 +21,7 @@ export PHD_THESIS_DIR="$GITHUB_PROJECTS_DIR/phd-thesis"
 export TODOLIST_DIR="$PHD_THESIS_DIR/Documents/TodoLists"
 export WRITE_UPS_DIR="$PHD_THESIS_DIR/Documents/Write-Ups"
 export REPORTS_DIR="$WRITE_UPS_DIR/weekly_reports/Spring-2022"
-export CURRENT_REPORT='1_generalized_natural_generators'
+export CURRENT_REPORT='1_doris_algorithm_example'
 # Important to use ~ instead of $HOME. This has something
 # to do with how sed works on other files using WALLPAPERS_DIR
 export WALLPAPERS_DIR="~/Pictures/Wallpapers"
@@ -169,6 +169,9 @@ quickConfigUpdate(){
 alias qcu="quickConfigUpdate"
 quickConfigRestore(){
   config status | grep "modified:" | sed 's/modified:/git --git-dir=$HOME\/.cfg --work-tree=$HOME restore/g' | zsh;
+}
+quickUntrack(){
+  config rm --cached $1
 }
 
 ## Git scripts
@@ -322,7 +325,7 @@ polybarThemeSwitch(){
 wallpaperThemeSwitch(){
   case $1 in
     "gruvbox")
-      sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/iron_lady.jpg|g" $2
+      sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/mountains.jpg|g" $2
       ;;
     "nord")
       sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/minimal_mountains.png|g" $2
