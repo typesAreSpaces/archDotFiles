@@ -22,7 +22,7 @@ export PHD_SOFTWARE_DIR="$PHD_THESIS_DIR/Software"
 export TODOLIST_DIR="$PHD_THESIS_DIR/Documents/TodoLists"
 export WRITE_UPS_DIR="$PHD_THESIS_DIR/Documents/Write-Ups"
 export REPORTS_DIR="$WRITE_UPS_DIR/weekly_reports/Spring-2022"
-export CURRENT_REPORT='2_generalized_natural_generators'
+export CURRENT_REPORT='2_seminar_discussion'
 export MATHEMATICA_PKG_DIR="$PHD_SOFTWARE_DIR/Mathematica/Packages"
 # Important to use ~ instead of $HOME. This has something
 # to do with how sed works on other files using WALLPAPERS_DIR
