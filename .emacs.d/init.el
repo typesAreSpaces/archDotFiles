@@ -66,6 +66,7 @@
 (set-fringe-mode 10)        ; Give some breathing room
 
 (menu-bar-mode -1)            ; Disable the menu bar
+(desktop-save-mode 1)
 
 ;; Set up the visible bell
 (setq visible-bell t)
@@ -807,16 +808,3 @@
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
   (setq-default TeX-master nil))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(auctex yasnippet-snippets which-key vterm visual-fill-column use-package typescript-mode simpleclip rainbow-delimiters pyvenv python-mode org-tree-slide org-bullets no-littering mu4e-alert mu-cite lsp-ui lsp-ivy ivy-rich ivy-prescient hide-mode-line helpful general forge flx evil-nerd-commenter evil-collection eterm-256color eshell-git-prompt doom-themes doom-modeline dired-single dired-open dired-hide-dotfiles dashboard dap-mode counsel-projectile company-box command-log-mode auto-package-update all-the-icons-dired)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
