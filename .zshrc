@@ -18,10 +18,13 @@ export GITHUB_PROJECTS_DIR="$HOME/Documents/GithubProjects"
 export BOSQUE_DIR="$GITHUB_PROJECTS_DIR/BosqueLanguage"
 export MASTER_THESIS_DIR="$GITHUB_PROJECTS_DIR/master-thesis"
 export PHD_THESIS_DIR="$GITHUB_PROJECTS_DIR/phd-thesis"
+export PHD_SOFTWARE_DIR="$PHD_THESIS_DIR/Software"
 export TODOLIST_DIR="$PHD_THESIS_DIR/Documents/TodoLists"
 export WRITE_UPS_DIR="$PHD_THESIS_DIR/Documents/Write-Ups"
 export REPORTS_DIR="$WRITE_UPS_DIR/weekly_reports/Spring-2022"
-export CURRENT_REPORT='2_generalized_natural_generators'
+export CURRENT_REPORT='3_generalized_natural_generators'
+export MATHEMATICA_PKG_DIR="$PHD_SOFTWARE_DIR/Mathematica/Packages"
+export LATEX_MACROS_DIR="$HOME/texmf/tex/latex/local"
 # Important to use ~ instead of $HOME. This has something
 # to do with how sed works on other files using WALLPAPERS_DIR
 export WALLPAPERS_DIR="~/Pictures/Wallpapers"
@@ -47,6 +50,11 @@ TO_SOURCE=(\
   "$HOME/.fzf.zsh" \
   "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
   "$ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh" \
+)
+ACTIVE_PROJECTS=(\
+  "$PHD_THESIS_DIR" \
+  "$LATEX_MACROS_DIR" \
+  "$GITHUB_PROJECTS_DIR/QuickTex"
 )
 for script in ${TO_SOURCE[@]}; do 
   [ -f $script ] && source $script
@@ -82,19 +90,19 @@ alias te="tmux new-session -s work -d;\
   tmux send-keys -t work:2 \
   reports C-m; \
   tmux a -t work"
-alias tksp="tmux kill-pane"
-alias tks="tmux kill-session"
-alias tksr="tmux kill-server"
-alias v="vim"
-alias nv="nvim --listen localhost:12345"
-alias nvs="nvim --listen localhost:12345 -S session"
-alias e="emacs -nw"
-alias todo="emacs -nw $PHD_THESIS_DIR/Documents/TodoLists/research_tasks.org"
-alias updatetodos="$SCRIPT_DIR/updateTodoLists.sh"
-alias addref="nvim $PHD_THESIS_DIR/Documents/Write-Ups/references.bib"
-za(){
-  zathura $1 &
-}
+  alias tksp="tmux kill-pane"
+  alias tks="tmux kill-session"
+  alias tksr="tmux kill-server"
+  alias v="vim"
+  alias nv="nvim --listen localhost:12345"
+  alias nvs="nvim --listen localhost:12345 -S session"
+  alias e="emacs -nw"
+  alias todo="emacs -nw $PHD_THESIS_DIR/Documents/TodoLists/research_tasks.org"
+  alias updatetodos="$SCRIPT_DIR/updateTodoLists.sh"
+  alias addref="nvim $PHD_THESIS_DIR/Documents/Write-Ups/references.bib"
+  za(){
+    zathura $1 &
+  }
 alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
 alias ccwr="changeCurrentWeeklyReport"
 
@@ -103,6 +111,16 @@ alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it sea
 
 # Local Scripts
 
+update(){
+  for project in ${ACTIVE_PROJECTS[@]}; do
+    pushd $project
+    git pull
+    popd
+  done
+  updateMachine.sh;
+  paru;
+}
+
 ## Video uploader
 upload_video(){
   THUMBNAIL_PATH=$2
@@ -110,7 +128,7 @@ upload_video(){
   python $GITHUB_PROJECTS_DIR/VideoUploaderMachine/upload_video.py \
     --file $1 \
     --thumbnail $THUMBNAIL_PATH
-}
+  }
 
 ## ImageGoNord script
 imageGoNord(){
@@ -273,7 +291,7 @@ runUltimateAutomizer(){
   # $GITHUB_PROJECTS_DIR/AXDInterpolator/tests/sv-benchmarks/c/termination-crafted/Collatz.c
   $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default/UAutomizer-linux/Ultimate.py \
     --spec $1 --architecture $2 precise --file $3
-}
+  }
 buildUltimateAutomizer() { 
   pushd $GITHUB_PROJECTS_DIR/ultimate/releaseScripts/default
   ./makeFresh.sh
