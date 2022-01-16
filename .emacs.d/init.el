@@ -66,6 +66,7 @@
 (set-fringe-mode 10)        ; Give some breathing room
 
 (menu-bar-mode -1)            ; Disable the menu bar
+(desktop-save-mode 1)
 
 ;; Set up the visible bell
 (setq visible-bell t)
