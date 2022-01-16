@@ -117,6 +117,7 @@ This section configures basic UI settings that remove unneeded elements to make 
   (set-fringe-mode 10)        ; Give some breathing room
 
   (menu-bar-mode -1)            ; Disable the menu bar
+  (desktop-save-mode 1)
 
   ;; Set up the visible bell
   (setq visible-bell t)
@@ -137,7 +138,7 @@ This section configures basic UI settings that remove unneeded elements to make 
                   treemacs-mode-hook
                   eshell-mode-hook))
     (add-hook mode (lambda () (display-line-numbers-mode 0))))
- 
+
 #+end_src
 
 ** Dashboard Configuration
