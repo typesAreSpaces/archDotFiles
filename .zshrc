@@ -1,4 +1,4 @@
-source $HOME/.config/shell/export.sh
+source $HOME/.config/zsh/export.sh
 
 ZSH_THEME="simple"
 plugins=(git)
