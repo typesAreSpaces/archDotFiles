@@ -81,6 +81,10 @@ update(){
   paru;
 }
 
+removeQuotes(){
+  cat $1 | tr -d '"'
+}
+
 ## Video uploader
 upload_video(){
   THUMBNAIL_PATH=$2
