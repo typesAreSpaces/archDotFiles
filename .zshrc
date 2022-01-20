@@ -32,6 +32,7 @@ alias phd_thesis="cd $PHD_THESIS_DIR"
 alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
 alias extra="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-talks/mpi21"
 alias reports="cd $REPORTS_DIR/$CURRENT_REPORT"
+alias ta="cd $CURRENT_TA_DIR"
 alias thesis="cd $WRITE_UPS_DIR/thesis"
 alias personal_notes="cd $WRITE_UPS_DIR/personal_notes"
 
