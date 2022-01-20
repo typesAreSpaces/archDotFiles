@@ -32,6 +32,7 @@ alias phd_thesis="cd $PHD_THESIS_DIR"
 alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
 alias extra="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-talks/mpi21"
 alias reports="cd $REPORTS_DIR/$CURRENT_REPORT"
+alias ta="cd $CURRENT_TA_DIR"
 alias thesis="cd $WRITE_UPS_DIR/thesis"
 alias personal_notes="cd $WRITE_UPS_DIR/personal_notes"
 
@@ -57,7 +58,7 @@ alias te="tmux new-session -s work -d;\
   alias nv="nvim --listen localhost:12345"
   alias nvs="nvim --listen localhost:12345 -S session"
   alias e="emacs -nw"
-  alias todo="emacs -nw $PHD_THESIS_DIR/Documents/TodoLists/research_tasks.org"
+  alias todo="emacs -nw $PHD_THESIS_DIR/Documents/Org-Files/research_tasks.org"
   alias updatetodos="$SCRIPT_DIR/updateTodoLists.sh"
   alias addref="nvim $PHD_THESIS_DIR/Documents/Write-Ups/references.bib"
   za(){
