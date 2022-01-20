@@ -57,7 +57,7 @@ alias te="tmux new-session -s work -d;\
   alias nv="nvim --listen localhost:12345"
   alias nvs="nvim --listen localhost:12345 -S session"
   alias e="emacs -nw"
-  alias todo="emacs -nw $PHD_THESIS_DIR/Documents/TodoLists/research_tasks.org"
+  alias todo="emacs -nw $PHD_THESIS_DIR/Documents/Org-Files/research_tasks.org"
   alias updatetodos="$SCRIPT_DIR/updateTodoLists.sh"
   alias addref="nvim $PHD_THESIS_DIR/Documents/Write-Ups/references.bib"
   za(){
