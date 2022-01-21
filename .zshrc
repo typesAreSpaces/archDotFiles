@@ -74,6 +74,7 @@ alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it sea
 
 update(){
   for project in ${ACTIVE_PROJECTS[@]}; do
+    echo "Updating project: $project"
     pushd $project
     git pull
     popd
