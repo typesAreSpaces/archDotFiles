@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-pushd /home/jose/Documents/GithubProjects/phd-thesis/Documents/TodoLists
+pushd /home/jose/Documents/GithubProjects/phd-thesis/Documents/Org-Files
 git add *.org
-git commit -m "Update todolists."
+git commit -m "Update org-files."
 popd
