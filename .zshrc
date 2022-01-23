@@ -1,10 +1,12 @@
+#zmodload zsh/zprof 
+
 source $HOME/.config/zsh/export.sh
+source $HOME/.config/zsh/aliases.sh
 
 ZSH_THEME="simple"
 plugins=(git)
 eval "$(zoxide init zsh)"
 
-# Init
 TO_SOURCE=(\
   "$ZSH/oh-my-zsh.sh" \
   "$HOME/.fzf.zsh" \
@@ -16,16 +18,26 @@ ACTIVE_PROJECTS=(\
   "$LATEX_MACROS_DIR" \
   "$GITHUB_PROJECTS_DIR/QuickTex"
 )
-for script in ${TO_SOURCE[@]}; do 
-  [ -f $script ] && source $script
+LOCAL_ZSH_SCRIPTS=(\
+  "$ZSH_SCRIPT_DIR/system.sh" \
+  "$ZSH_SCRIPT_DIR/util.sh" \
+  "$ZSH_SCRIPT_DIR/backup-scripts.sh" \
+  "$ZSH_SCRIPT_DIR/git.sh" \
+  "$ZSH_SCRIPT_DIR/install-z3.sh" \
+  "$ZSH_SCRIPT_DIR/bosque.sh" \
+  "$ZSH_SCRIPT_DIR/ultimate_automizer.sh" \
+  "$ZSH_SCRIPT_DIR/theme_changer.sh" \
+)
+
+for SCRIPT in ${TO_SOURCE[@]}; do 
+  [ -f $SCRIPT ] && source $SCRIPT
 done
 
-# General Aliases
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias sshLocalUbuntuVM="ssh -p 2222 jose@127.0.0.1"
-alias sshJose='ssh -X jose@10.88.139.128'
-alias dict='sdcv'
+for SCRIPT in ${LOCAL_ZSH_SCRIPTS[@]}; do 
+  [ -f $SCRIPT ] && source $SCRIPT
+done
 
+<<<<<<< HEAD
 # Directory Aliases
 alias second_home="cd /media"
 alias phd_thesis="cd $PHD_THESIS_DIR"
@@ -399,4 +411,6 @@ alias bspwmTokyo="changeTheme bspwm tokyo"
 
 #opam configuration
 #test -r /home/jose/.opam/opam-init/init.zsh && . /home/jose/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+=======
+>>>>>>> master
 #zprof

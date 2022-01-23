@@ -108,7 +108,6 @@
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-
 (global-set-key (kbd "C-i") 'evil-jump-forward)
 
 (use-package general
@@ -120,6 +119,7 @@
     :global-prefix "C-SPC")
 
   (efs/leader-keys
+    "c"  'shell-command
     "t"  '(:ignore t :which-key "toggles")
     "tt" '(counsel-load-theme :which-key "choose theme")
     "fde" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))))
