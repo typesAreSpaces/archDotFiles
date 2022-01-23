@@ -22,3 +22,8 @@ editSyms(){
   git push;
   popd;
 }
+
+za(){
+  zathura $1 &
+}
+

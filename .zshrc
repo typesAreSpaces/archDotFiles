@@ -1,3 +1,5 @@
+#zmodload zsh/zprof 
+
 source $HOME/.config/zsh/export.sh
 source $HOME/.config/zsh/aliases.sh
 
@@ -27,12 +29,12 @@ LOCAL_ZSH_SCRIPTS=(\
   "$ZSH_SCRIPT_DIR/theme_changer.sh" \
 )
 
-for script in ${TO_SOURCE[@]}; do 
-  [ -f $script ] && source $script
+for SCRIPT in ${TO_SOURCE[@]}; do 
+  [ -f $SCRIPT ] && source $SCRIPT
 done
 
-for script in ${LOCAL_ZSH_SCRIPTS[@]}; do 
-  [ -f $script ] && source $script
+for SCRIPT in ${LOCAL_ZSH_SCRIPTS[@]}; do 
+  [ -f $SCRIPT ] && source $SCRIPT
 done
 
 #zprof
