@@ -40,7 +40,6 @@ colors:
     cyan: '0x59dffc'
     white: '0xe6e6d1'
   indexed_colors: []
-background_opacity: 0.8
 font:
   normal:
     family: Inconsolata
@@ -62,6 +61,7 @@ font:
     x: 0
     'y': 0
 window:
+  opacity: 0.8
   padding:
     x: 10
     'y': 10
