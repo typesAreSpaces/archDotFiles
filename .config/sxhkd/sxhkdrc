@@ -150,3 +150,6 @@ ctrl + m
 
 alt + shift + {e, v}
   ~/.local/scripts/changeKBD {CTRL, ESC}
+
+super + s
+  sleep 0.2; scrot -s
