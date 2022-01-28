@@ -67,6 +67,7 @@
 
 (menu-bar-mode -1)            ; Disable the menu bar
 (desktop-save-mode 1)
+(setq process-connection-type nil)
 
 ;; Set up the visible bell
 (setq visible-bell t)
