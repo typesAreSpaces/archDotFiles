@@ -47,6 +47,7 @@ return require('packer').startup(function()
   event = "BufWinEnter",
   config = get_config("wilder") }
   use 'MattesGroeger/vim-bookmarks'
+  use { 'voldikss/vim-mma' }
 
   -- # Neovim apps 
   use 'iamcco/markdown-preview.nvim'
