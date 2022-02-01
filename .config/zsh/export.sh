@@ -22,7 +22,7 @@ export CURRENT_TA_DIR="$PHD_DOCUMENTS/Semesters/Spring/2022/TA-CS-429-529"
 export TODOLIST_DIR="$PHD_DOCUMENTS/Org-Files"
 export WRITE_UPS_DIR="$PHD_DOCUMENTS/Write-Ups"
 export REPORTS_DIR="$WRITE_UPS_DIR/weekly_reports/Spring/2022"
-export CURRENT_REPORT='4_generalized_natural_generators'
+export CURRENT_REPORT='5_cabral_dimension_two'
 export MATHEMATICA_PKG_DIR="$PHD_SOFTWARE_DIR/Mathematica/Packages"
 export LATEX_MACROS_DIR="$HOME/texmf/tex/latex/local"
 # Important to use ~ instead of $HOME. This has something
