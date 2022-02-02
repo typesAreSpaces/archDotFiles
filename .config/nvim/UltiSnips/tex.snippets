@@ -627,6 +627,11 @@ snip.rv = "\\input{" + name + "}"
 $0
 endsnippet 
 
+# First argument: template 
+# Second argument: operation (optional)
+# Third argument: last_index (optional)
+# Fourth argument: 'o' to indicate the expression is open (i.e. of the form (a, ...) (optional)
+# Fifth argument: '2' to indicate the expression uses a second term (i.e. of the form (a, b, ..., c) (optional)
 snippet ';Seq(.+[,.+[\s.]*]*)  ' "Sequence of symbols - advanced" riA
 `!p
 args = stringify_args(match,5)
@@ -636,9 +641,9 @@ template, last_index, op, is_open, uses_snd = "blank.", "n", ",", False, False
 if (num_args > 0):
 	template = removeExtraQuotes(args[0].strip())
 if (num_args > 1):
-	last_index = removeExtraQuotes(args[1].strip())
+	op = removeExtraQuotes(args[1].strip())
 if (num_args > 2):
-	op = removeExtraQuotes(args[2].strip())
+	last_index = removeExtraQuotes(args[2].strip())
 if (num_args > 3):
 	is_open = removeExtraQuotes(args[3].strip()) == 'o'
 if (num_args > 4):
