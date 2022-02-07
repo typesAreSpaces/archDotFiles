@@ -34,3 +34,29 @@ for _, lsp in ipairs(servers) do
     end
   })
 end
+
+-- Extra setup for pyright
+local configs = require 'lspconfig/configs'
+local util = require 'lspconfig/util'
+
+configs["pyright"] = {
+  default_config = {
+    cmd = {"pyright-langserver", "--stdio"};
+    filetypes = {"python"};
+    root_dir = util.root_pattern(".git", "setup.py",  "setup.cfg", "pyproject.toml", "requirements.txt");
+    settings = {
+      python = {
+        analysis = {
+          autoSearchPaths = true;
+          useLibraryCodeForTypes = true;
+        };
+      };
+    };
+  };
+  docs = {
+    description = [[
+    https://github.com/microsoft/pyright
+    `pyright`, a static type checker and language server for python
+    ]];
+  };
+}
