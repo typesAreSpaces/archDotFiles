@@ -1,0 +1,9 @@
+#!/bin/sh
+
+while read file
+do 
+  case "$1" in
+    "w") setbg $file;;
+    "r") convert $file -rotate 90 $file;;
+  esac 
+done 
