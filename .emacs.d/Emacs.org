@@ -21,25 +21,26 @@
 
 In this document I've added links in many places that lead you to documentation for the various packages we use.  If you're looking at this file in Emacs, you can put your cursor on a link and press =C-c C-o= or run =M-x org-open-at-point= to open the link in your web browser.
 
-* Startup Performance
+* Package System Setup
+
+straight.el setup
 
 #+begin_src emacs-lisp
 
-  ;; The default is 800 kilobytes.  Measured in bytes.
-  (setq gc-cons-threshold (* 50 1000 1000))
+  (defvar bootstrap-version)
+  (let ((bootstrap-file
+         (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+        (bootstrap-version 5))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+          (url-retrieve-synchronously
+           "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+           'silent 'inhibit-cookies)
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
 
-  (defun efs/display-startup-time ()
-    (message "Emacs loaded in %s with %d garbage collections."
-             (format "%.2f seconds"
-                     (float-time
-                      (time-subtract after-init-time before-init-time)))
-             gcs-done))
-
-  (add-hook 'emacs-startup-hook #'efs/display-startup-time)
-
-#+end_src
-
-* Package System Setup
+#+end_src 
 
 Emacs has a built in package manager but it doesn't make it easy to automatically install packages on a new system the first time you pull down your configuration.  [[https://github.com/jwiegley/use-package][use-package]] is a really helpful package used in this configuration to make it a lot easier to automate the installation and configuration of everything else we use.
 
@@ -81,6 +82,24 @@ You can also use =M-x auto-package-update-now= to update right now!
     :config
     (auto-package-update-maybe)
     (auto-package-update-at-time "09:00"))
+
+#+end_src
+
+* Startup Performance
+
+#+begin_src emacs-lisp
+
+  ;; The default is 800 kilobytes.  Measured in bytes.
+  (setq gc-cons-threshold (* 50 1000 1000))
+
+  (defun efs/display-startup-time ()
+    (message "Emacs loaded in %s with %d garbage collections."
+             (format "%.2f seconds"
+                     (float-time
+                      (time-subtract after-init-time before-init-time)))
+             gcs-done))
+
+  (add-hook 'emacs-startup-hook #'efs/display-startup-time)
 
 #+end_src
 
@@ -1145,108 +1164,111 @@ mu index
 
 #+begin_src emacs-lisp 
 
-  (use-package mu4e
-    :ensure nil
-    ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
-    ;; :defer 20 ; Wait until 20 seconds after startup
-    :config
+      (use-package mu4e
+        :ensure nil
+        :straight (:host github
+                   :files ("build/mu4e/*.el")
+                   :repo "djcb/mu"
+                   :pre-build (("./autogen.sh") ("ninja" "-C" "build")))
+        ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
+        ;; :defer 20 ; Wait until 20 seconds after startup
+        :config
 
-    ;; This is set to 't' to avoid mail syncing issues when using mbsync
-    (setq mu4e-change-filenames-when-moving t)
+        ;; This is set to 't' to avoid mail syncing issues when using mbsync
+        (setq mu4e-change-filenames-when-moving t)
 
-    ;; Just plain text
-    (with-eval-after-load "mm-decode"
-      (add-to-list 'mm-discouraged-alternatives "text/html")
-      (add-to-list 'mm-discouraged-alternatives "text/richtext"))
+        ;; Just plain text
+        (with-eval-after-load "mm-decode"
+          (add-to-list 'mm-discouraged-alternatives "text/html")
+          (add-to-list 'mm-discouraged-alternatives "text/richtext"))
 
-    (defun jcs-view-in-eww (msg)
-      (eww-browse-url (concat "file://" (mu4e~write-body-to-html msg))))
-    (add-to-list 'mu4e-view-actions '("Eww view" . jcs-view-in-eww) t)
+        (defun jcs-view-in-eww (msg)
+          (eww-browse-url (concat "file://" (mu4e~write-body-to-html msg))))
+        (add-to-list 'mu4e-view-actions '("Eww view" . jcs-view-in-eww) t)
 
-    (setq mu4e-update-interval 600)
-    (setq mu4e-get-mail-command "mbsync -a")
-    (setq mu4e-maildir "~/Mail")
+        (setq mu4e-update-interval 600)
+        (setq mu4e-get-mail-command "mbsync -a")
+        (setq mu4e-maildir "~/Mail")
 
-    (defun refile-func (msg)
-      (cond
-       ((mu4e-message-contact-field-matches msg :to "kapur@cs.unm.edu")
-        "/unm/Prof. Kapur")
-       ((mu4e-message-contact-field-matches msg :from "kapur@cs.unm.edu")
-        "/unm/Prof. Kapur")
-       ((mu4e-message-contact-field-matches msg :cc "kapur@cs.unm.edu")
-        "/unm/Prof. Kapur")
-       (t "/unm/Archive")))
+        (defun refile-func (msg)
+          (cond
+           ((mu4e-message-contact-field-matches msg :to "kapur@cs.unm.edu")
+            "/unm/Prof. Kapur")
+           ((mu4e-message-contact-field-matches msg :from "kapur@cs.unm.edu")
+            "/unm/Prof. Kapur")
+           ((mu4e-message-contact-field-matches msg :cc "kapur@cs.unm.edu")
+            "/unm/Prof. Kapur")
+           (t "/unm/Archive")))
 
-    (setq mu4e-contexts
-          (list
-           ;; School account
-           (make-mu4e-context
-            :name "School"
-            :match-func
-            (lambda (msg)
-              (when msg
-                (string-prefix-p "/unm" (mu4e-message-field msg :maildir))))
-            :vars '((user-mail-address  . "jabelcastellanosjoo@unm.edu")
-                    (user-full-name     . "Jose Abel Castellanos Joo")
-                    (mu4e-drafts-folder . "/unm/Drafts")
-                    (mu4e-sent-folder   . "/unm/Sent")
-                    (mu4e-refile-folder . refile-func)
-                    (mu4e-trash-folder  . "/unm/Trash")
-                    (smtpmail-smtp-server . "smtp.office365.com")
-                    (smtpmail-smtp-service . 587)
-                    (smtpmail-stream-type . starttls)))
-           ;; School CS department account
-           (make-mu4e-context
-            :name "CS department"
-            :match-func
-            (lambda (msg)
-              (when msg
-                (string-prefix-p "/cs-unm" (mu4e-message-field msg :maildir))))
-            :vars '((user-mail-address  . "jose.castellanosjoo@cs.unm.edu")
-                    (user-full-name     . "Jose Abel Castellanos Joo")
-                    (mu4e-drafts-folder . "/cs-unm/Drafts")
-                    ;;(mu4e-sent-folder   . "/cs-unm/Sent")
-                    (mu4e-refile-folder . "/cs-unm/Inbox")
-                    (mu4e-trash-folder  . "/cs-unm/Trash")
-                    (smtpmail-smtp-server . "snape.cs.unm.edu")
-                    (smtpmail-smtp-service . 1200)
-                    (smtpmail-stream-type . starttls)))))
+        (setq mu4e-contexts
+              (list
+               ;; School account
+               (make-mu4e-context
+                :name "School"
+                :match-func
+                (lambda (msg)
+                  (when msg
+                    (string-prefix-p "/unm" (mu4e-message-field msg :maildir))))
+                :vars '((user-mail-address  . "jabelcastellanosjoo@unm.edu")
+                        (user-full-name     . "Jose Abel Castellanos Joo")
+                        (mu4e-drafts-folder . "/unm/Drafts")
+                        (mu4e-sent-folder   . "/unm/Sent")
+                        (mu4e-refile-folder . refile-func)
+                        (mu4e-trash-folder  . "/unm/Trash")
+                        (smtpmail-smtp-server . "smtp.office365.com")
+                        (smtpmail-smtp-service . 587)
+                        (smtpmail-stream-type . starttls)))
+               ;; School CS department account
+               (make-mu4e-context
+                :name "CS department"
+                :match-func
+                (lambda (msg)
+                  (when msg
+                    (string-prefix-p "/cs-unm" (mu4e-message-field msg :maildir))))
+                :vars '((user-mail-address  . "jose.castellanosjoo@cs.unm.edu")
+                        (user-full-name     . "Jose Abel Castellanos Joo")
+                        (mu4e-drafts-folder . "/cs-unm/Drafts")
+                        ;;(mu4e-sent-folder   . "/cs-unm/Sent")
+                        (mu4e-refile-folder . "/cs-unm/Inbox")
+                        (mu4e-trash-folder  . "/cs-unm/Trash")
+                        (smtpmail-smtp-server . "snape.cs.unm.edu")
+                        (smtpmail-smtp-service . 1200)
+                        (smtpmail-stream-type . starttls)))))
 
-    (setq mu4e-context-policy 'pick-first)
+        (setq mu4e-context-policy 'pick-first)
 
-    (setq mu4e-maildir-shortcuts
-          '(("/unm/Inbox" . ?i)
-            ("/unm/Sent"  . ?s)
-            ("/unm/Trash" . ?t)
-            ("/unm/Drafts". ?d)
-            ("/unm/Prof. Kapur". ?k)
-            ("/unm/TA Work/CS 429-529". ?m)
-            ("/unm/You got a Package!". ?p)
-            ("/unm/Archive". ?a)
-            ("/cs-unm/Inbox". ?I)
-            ("/cs-unm/Trash". ?T)
-            ("/cs-unm/Drafts". ?D))))
+        (setq mu4e-maildir-shortcuts
+              '(("/unm/Inbox" . ?i)
+                ("/unm/Sent"  . ?s)
+                ("/unm/Trash" . ?t)
+                ("/unm/Drafts". ?d)
+                ("/unm/Prof. Kapur". ?k)
+                ("/unm/TA Work/CS 429-529". ?m)
+                ("/unm/You got a Package!". ?p)
+                ("/unm/Archive". ?a)
+                ("/cs-unm/Inbox". ?I)
+                ("/cs-unm/Trash". ?T)
+                ("/cs-unm/Drafts". ?D))))
 
-  (setq message-send-mail-function 'smtpmail-send-it)
-  (setq mu4e-headers-show-threads nil)
-  (setq mu4e-attachment-dir  "~/Downloads")
-  (setq mu4e-confirm-quit nil)
-  (setq mu4e-headers-results-limit -1)
-  (setq mu4e-compose-signature "Best,\nJose")
-  (setq message-citation-line-format "On %d %b %Y at %R, %f wrote:\n")
-  (setq message-citation-line-function 'message-insert-formatted-citation-line)
-  (setq
-   ;; Display
-   mu4e-view-show-addresses t
-   mu4e-view-show-images t
-   mu4e-view-image-max-width 800
-   mu4e-hide-index-messages t)
+      (setq message-send-mail-function 'smtpmail-send-it)
+      (setq mu4e-headers-show-threads nil)
+      (setq mu4e-attachment-dir  "~/Downloads")
+      (setq mu4e-confirm-quit nil)
+      (setq mu4e-headers-results-limit -1)
+      (setq mu4e-compose-signature "Best,\nJose")
+      (setq message-citation-line-format "On %d %b %Y at %R, %f wrote:\n")
+      (setq message-citation-line-function 'message-insert-formatted-citation-line)
+      (setq
+       ;; Display
+       mu4e-view-show-addresses t
+       mu4e-view-show-images t
+       mu4e-view-image-max-width 800
+       mu4e-hide-index-messages t)
 
-  (define-key global-map (kbd "C-c e")
-    (lambda () (interactive) (mu4e)))
+      (define-key global-map (kbd "C-c e")
+        (lambda () (interactive) (mu4e)))
 
-  (use-package mu-cite
-    )
+      (use-package mu-cite)
 #+end_src
 
 * File Management
