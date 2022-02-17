@@ -9,6 +9,11 @@ wk.setup {
 }
 
 local mappings = {
+  a = {
+    name = "CHADTree",
+    o = {"<cmd>CHADopen<CR>", "Open CHADTree"}
+  },
+
   b = {
     name = "Bookmarks",
     j = {"<cmd>BookmarkNext<CR>", "Go to Next Bookmark"},
