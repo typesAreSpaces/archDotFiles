@@ -13,6 +13,7 @@ alias report="cd $REPORTS_DIR/$CURRENT_REPORT"
 alias ta="cd $CURRENT_TA_DIR"
 alias thesis="cd $WRITE_UPS_DIR/thesis"
 alias personal_notes="cd $WRITE_UPS_DIR/personal_notes"
+alias seminar="cd $PHD_DOCUMENTS/Seminars/BeihangUniversity-Fall2021"
 
 # Program aliases
 alias open="xdg-open"
