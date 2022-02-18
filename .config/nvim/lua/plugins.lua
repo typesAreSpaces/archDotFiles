@@ -7,11 +7,6 @@ return require('packer').startup(function()
 
   -- # IDE Experience
   use { 
-    'ms-jpq/chadtree',
-    branch = 'chad',
-    run = 'python3 -m chadtree deps'
-  }
-  use { 
     'williamboman/nvim-lsp-installer', 
     event = "BufWinEnter", 
     config = get_config("lsp-install") 
