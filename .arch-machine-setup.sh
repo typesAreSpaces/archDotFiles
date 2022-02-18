@@ -36,7 +36,7 @@ cd $HOME/Documents/GithubProjects/paru && \
 
 # Install AUR packages
 paru -S \
-  mu \
+  mu-git \
   polybar \
   ttf-fira-code \
   betterlockscreen \
