@@ -53,6 +53,13 @@ sudo pip3 install \
 sudo npm install -g \
   alacritty-theme-switch
 
+# Setup git
+git config --global pull.rebase false
+git config --global push.default simple
+git config --global user.name "Jose Abel Castellanos Joo"
+git config --global user.email "jabelcastellanosjoo@unm.edu"
+sudo git config --system core.editor vim
+
 # Change shell to zsh
 chsh -s /bin/zsh
 
