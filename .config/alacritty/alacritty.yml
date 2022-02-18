@@ -53,7 +53,7 @@ font:
   bold_italic:
     family: FiraCode
     style: Bold Italic
-  size: 18
+  size: 22
   offset:
     x: 0
     'y': 0
