@@ -2,6 +2,7 @@
 
 quickConfigUpdate(){
   config status | grep "modified:" | sed 's/modified:/git --git-dir=$HOME\/.cfg --work-tree=$HOME add/g' | zsh;
+  config status | grep "both modified:" | sed 's/both modified:/git --git-dir=$HOME\/.cfg --work-tree=$HOME add/g' | zsh;
   config status | grep "new file:" | sed 's/new file:/git --git-dir=$HOME\/.cfg --work-tree=$HOME add/g' | zsh;
 }
 
