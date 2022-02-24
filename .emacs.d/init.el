@@ -715,6 +715,7 @@
           ("/unm/Trash" . ?t)
           ("/unm/Drafts". ?d)
           ("/unm/Prof. Kapur". ?k)
+          ("/unm/Prof. Kapur/Side projects/Seminars/Beihang University". ?b)
           ("/unm/TA Work/CS 429-529". ?m)
           ("/unm/You got a Package!". ?p)
           ("/unm/Archive". ?a)
