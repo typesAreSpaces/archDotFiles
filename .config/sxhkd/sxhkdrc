@@ -8,7 +8,7 @@ alt + Return
 
 # program launcher
 alt + @space
-  rofi -show drun -display-drun "" -theme ~/.config/rofi/kai.rasi
+  rofi -show drun -display-drun "" -theme ~/.config/rofi/launchers/text/style_3.rasi
 
 # make sxhkd reload its configuration files:
 alt + Escape
