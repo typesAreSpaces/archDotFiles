@@ -6,11 +6,12 @@ alias dict='sdcv'
 
 # Directory aliases
 alias second_home="cd /media"
-alias phd_thesis="cd $PHD_THESIS_DIR"
+alias phd="cd $PHD_THESIS_DIR"
 alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
 alias extra="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-talks/mpi21"
 alias report="cd $REPORTS_DIR/$CURRENT_REPORT"
 alias ta="cd $CURRENT_TA_DIR"
+alias grading="cd $CURRENT_TA_DIR/Assignments/Project-1/Students"
 alias thesis="cd $WRITE_UPS_DIR/thesis"
 alias personal_notes="cd $WRITE_UPS_DIR/personal_notes"
 alias seminar="cd $PHD_DOCUMENTS/Seminars/BeihangUniversity-Fall2021"
