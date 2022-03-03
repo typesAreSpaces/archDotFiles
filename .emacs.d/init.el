@@ -80,6 +80,7 @@
 
 (menu-bar-mode -1)                 ; Disable the menu bar
 (desktop-save-mode 1)              ; Store sessions
+(server-start)                     ; Start server
 (setq process-connection-type nil) ; Use pipes
 
 ;; Set up the visible bell
