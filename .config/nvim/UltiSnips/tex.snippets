@@ -65,46 +65,56 @@ endsnippet
 # Algorithmic environment
 
 snippet ;algo "Algorithmic environment" iA
-\\begin{algorithm}[${1:H}]
-	\\caption{${2:title}}
-	\\label{${3:label}}
-	\\begin{algorithmic}[1]
-		\\Procedure{${4:name-of-procedure}}{${5:input}}
-		${6:\\Require conditions}
-		${7:\\Ensure conditions}
-		$0
-		\\EndProcedure
-	\\end{algorithmic}
+\\begin{algorithm}${1:[H]}
+	${2:\\caption{${3:name: description}}}
+	${4:\\label{${5:label}}}
+	${6:\\kwInput{${7:input}}
+	\\kwOutput{output}
+	\\kwRequires{requires}
+	\\kwEnsures{ensures}}
+	$0
 \\end{algorithm}
 endsnippet
 
-snippet ;state "Algorithmic Statement" iA
-\\State $1
+snippet ;cmd "Algorithmic Statement" iA
+$0\\;
+endsnippet
+
+snippet ;ifs "Single If Statement" iA
+\\If{$1}{
+	$2
+}
 $0
 endsnippet
 
 snippet ;ife "Algorithm If" iA
-\\If {$1}
+\\uIf{$1}{
 	$2
-${3:\\Else
-	$4}
-\\EndIf
+}
+\\Else{
+	$3
+}
 $0
 endsnippet
 
 snippet ;for "Algorithm For" iA
-\\For {$1}
+\\For{$1}{
 	$2
-\\EndFor
+}
 $0
 endsnippet
 
 snippet ;while "Algorithm While" iA
-\\While {$1}
+\\While{$1}
 	$2
-\\EndWhile
+}
 $0
 endsnippet
+
+snippet ;ret "Algorithm Return" iA
+\\Return $0
+endsnippet
+
 
 # Beamer environment
 
