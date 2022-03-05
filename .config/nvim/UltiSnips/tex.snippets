@@ -66,12 +66,13 @@ endsnippet
 
 snippet ;algo "Algorithmic environment" iA
 \\begin{algorithm}${1:[H]}
+	\\DontPrintSemicolon
 	${2:\\caption{${3:name: description}}}
 	${4:\\label{${5:label}}}
 	${6:\\kwInput{${7:input}}
-	\\kwOutput{output}
-	\\kwRequires{requires}
-	\\kwEnsures{ensures}}
+	\\kwOutput{${8:output}}
+	\\kwRequires{${9:requires}}
+	\\kwEnsures{${10:ensures}}}
 	$0
 \\end{algorithm}
 endsnippet
