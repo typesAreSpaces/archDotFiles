@@ -71,56 +71,6 @@
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
-(setq inhibit-startup-message t)
-
-(scroll-bar-mode -1)               ; Disable visible scrollbar
-(tool-bar-mode -1)                 ; Disable the toolbar
-(tooltip-mode -1)                  ; Disable tooltips
-(set-fringe-mode 10)               ; Give some breathing room
-
-(menu-bar-mode -1)                 ; Disable the menu bar
-(desktop-save-mode 1)              ; Store sessions
-(server-start)                     ; Start server
-(setq process-connection-type nil) ; Use pipes
-
-;; Set up the visible bell
-(setq visible-bell t)
-
-(column-number-mode)
-(global-display-line-numbers-mode t)
-
-;; Set frame transparency
-(set-frame-parameter (selected-frame) 'alpha efs/frame-transparency)
-(add-to-list 'default-frame-alist `(alpha . ,efs/frame-transparency))
-(set-frame-parameter (selected-frame) 'fullscreen 'maximized)
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-;; Disable line numbers for some modes
-(dolist (mode '(org-mode-hook
-                term-mode-hook
-                shell-mode-hook
-                treemacs-mode-hook
-                eshell-mode-hook))
-  (add-hook mode (lambda () (display-line-numbers-mode 0))))
-
-(use-package dashboard
-  :ensure t
-  :diminish dashboard-mode
-  :config
-  (setq dashboard-banner-logo-title "Welcome to Emacs!")
-  (setq dashboard-startup-banner "~/Pictures/Wallpapers/figures/480px-EmacsIcon.svg.png")
-  (setq dashboard-items '((recents  . 10)
-                          (bookmarks . 10)))
-  (dashboard-setup-startup-hook))
-
-(set-face-attribute 'default nil :font "Fira Code Retina" :height efs/default-font-size)
-
-;; Set the fixed pitch face
-(set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height efs/default-font-size)
-
-;; Set the variable pitch face
-(set-face-attribute 'variable-pitch nil :font "Cantarell" :height efs/default-variable-font-size :weight 'regular)
-
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "C-i") 'evil-jump-forward)
@@ -161,6 +111,60 @@
   :after evil
   :config
   (evil-collection-init))
+
+(setq inhibit-startup-message t)
+
+(scroll-bar-mode -1)               ; Disable visible scrollbar
+(tool-bar-mode -1)                 ; Disable the toolbar
+(tooltip-mode -1)                  ; Disable tooltips
+(set-fringe-mode 10)               ; Give some breathing room
+
+(menu-bar-mode -1)                 ; Disable the menu bar
+(desktop-save-mode 1)              ; Store sessions
+(server-start)                     ; Start server
+(setq process-connection-type nil) ; Use pipes
+(setq history-length 25)
+(savehist-mode 1)
+(save-place-mode 1)
+(setq use-dialog-box nil)
+
+;; Set up the visible bell
+(setq visible-bell t)
+
+(column-number-mode)
+(global-display-line-numbers-mode t)
+
+;; Set frame transparency
+(set-frame-parameter (selected-frame) 'alpha efs/frame-transparency)
+(add-to-list 'default-frame-alist `(alpha . ,efs/frame-transparency))
+(set-frame-parameter (selected-frame) 'fullscreen 'maximized)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+;; Disable line numbers for some modes
+(dolist (mode '(org-mode-hook
+                term-mode-hook
+                shell-mode-hook
+                treemacs-mode-hook
+                eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+(use-package dashboard
+  :ensure t
+  :diminish dashboard-mode
+  :config
+  (setq dashboard-banner-logo-title "Welcome to Emacs!")
+  (setq dashboard-startup-banner "~/Pictures/Wallpapers/figures/480px-EmacsIcon.svg.png")
+  (setq dashboard-items '((recents  . 10)
+                          (bookmarks . 10)))
+  (dashboard-setup-startup-hook))
+
+(set-face-attribute 'default nil :font "Fira Code Retina" :height efs/default-font-size)
+
+;; Set the fixed pitch face
+(set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height efs/default-font-size)
+
+;; Set the variable pitch face
+(set-face-attribute 'variable-pitch nil :font "Cantarell" :height efs/default-variable-font-size :weight 'regular)
 
 (use-package command-log-mode
   :commands command-log-mode)
