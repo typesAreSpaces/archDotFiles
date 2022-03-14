@@ -15,6 +15,7 @@ alias grading="cd $CURRENT_TA_DIR/Assignments/Project-1/Students"
 alias thesis="cd $WRITE_UPS_DIR/thesis"
 alias personal_notes="cd $WRITE_UPS_DIR/personal_notes"
 alias seminar="cd $PHD_DOCUMENTS/Seminars/BeihangUniversity-Fall2021"
+alias side="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-nfs-proposal"
 
 # Program aliases
 alias open="xdg-open"
@@ -38,9 +39,9 @@ alias tks="tmux kill-session"
 alias tksr="tmux kill-server"
 alias t="tmux"
 alias te="tmux new-session -s work -d;\
-  tmux rename-window -t work:1 todo; \
+  tmux rename-window -t work:1 org-agenda; \
   tmux send-keys -t work:1 \
-  emacs\ -nw\ $TODOLIST_DIR/research_tasks.org\ \
+  emacs\ -nw\ $TODOLIST_DIR/main.org\ \
   C-m;\
   tmux new-window -t work:2 -n report;\
   tmux send-keys -t work:2 \
