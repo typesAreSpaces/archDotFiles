@@ -281,7 +281,7 @@ I am using the [[https://github.com/tonsky/FiraCode][Fira Code]] and [[https://f
   ;(use-package tron-legacy-theme
   ;  :config
   ;  (setq tron-legacy-theme-vivid-cursor t)
-  ;  (load-theme 'tron-legacy t))
+  ;  (load-theme 'doom-palenight t))
 
 #+end_src
 

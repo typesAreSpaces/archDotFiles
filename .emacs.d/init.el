@@ -178,7 +178,7 @@
 ;(use-package tron-legacy-theme
 ;  :config
 ;  (setq tron-legacy-theme-vivid-cursor t)
-;  (load-theme 'tron-legacy t))
+;  (load-theme 'doom-palenight t))
 
 (use-package all-the-icons)
 
