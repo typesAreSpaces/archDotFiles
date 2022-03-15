@@ -171,6 +171,10 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
 
 #+end_src
 
+#+begin_src emacs-lisp
+  (use-package beacon)
+#+end_src
+
 * Basic UI Configuration
 
 This section configures basic UI settings that remove unneeded elements to make Emacs look a lot more minimal and modern.  If you're just getting started in Emacs, the menu bar might be helpful so you can remove the =(menu-bar-mode -1)= line if you'd like to still see that.
@@ -186,6 +190,7 @@ This section configures basic UI settings that remove unneeded elements to make 
 
   (menu-bar-mode -1)                 ; Disable the menu bar
   (desktop-save-mode 1)              ; Store sessions
+  ;(beacon-mode 1)                    ; Enable beacon
   (server-start)                     ; Start server
   (setq process-connection-type nil) ; Use pipes
   (setq history-length 25)
@@ -270,6 +275,15 @@ I am using the [[https://github.com/tonsky/FiraCode][Fira Code]] and [[https://f
   :init (load-theme 'doom-gruvbox t))
   (use-package doom-themes
     :init (load-theme 'doom-gruvbox t))
+
+#+end_src
+
+#+begin_src emacs-lisp
+
+  ;(use-package tron-legacy-theme
+  ;  :config
+  ;  (setq tron-legacy-theme-vivid-cursor t)
+  ;  (load-theme 'tron-legacy t))
 
 #+end_src
 
