@@ -112,6 +112,8 @@
   :config
   (evil-collection-init))
 
+(use-package beacon)
+
 (setq inhibit-startup-message t)
 
 (scroll-bar-mode -1)               ; Disable visible scrollbar
@@ -121,6 +123,7 @@
 
 (menu-bar-mode -1)                 ; Disable the menu bar
 (desktop-save-mode 1)              ; Store sessions
+;(beacon-mode 1)                    ; Enable beacon
 (server-start)                     ; Start server
 (setq process-connection-type nil) ; Use pipes
 (setq history-length 25)
@@ -171,6 +174,11 @@
 
 (use-package doom-themes
   :init (load-theme 'doom-nord t))
+
+;(use-package tron-legacy-theme
+;  :config
+;  (setq tron-legacy-theme-vivid-cursor t)
+;  (load-theme 'tron-legacy t))
 
 (use-package all-the-icons)
 
