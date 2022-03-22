@@ -123,7 +123,7 @@
 
 (menu-bar-mode -1)                 ; Disable the menu bar
 (desktop-save-mode 1)              ; Store sessions
-;(beacon-mode 1)                    ; Enable beacon
+(beacon-mode 1)                    ; Enable beacon
 (server-start)                     ; Start server
 (setq process-connection-type nil) ; Use pipes
 (setq history-length 25)
