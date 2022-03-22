@@ -9,6 +9,7 @@ export GTK_PATH='/usr/lib/gtk-2.0'
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 export APPS_DIR="$HOME/Documents/Apps"
+export MATLAB_DIR="$HOME/Documents/Apps/MATLAB/R2022a/bin"
 export MSAT_DIR="$APPS_DIR/mathsat-5.6.5-linux-x86_64"
 export GITHUB_PROJECTS_DIR="$HOME/Documents/GithubProjects"
 export BOSQUE_DIR="$GITHUB_PROJECTS_DIR/BosqueLanguage"
