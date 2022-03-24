@@ -6,6 +6,7 @@ source $HOME/.config/zsh/aliases.sh
 ZSH_THEME="simple"
 plugins=(git)
 eval "$(zoxide init zsh)"
+eval $(thefuck --alias)
 
 TO_SOURCE=(\
   "$ZSH/oh-my-zsh.sh" \
