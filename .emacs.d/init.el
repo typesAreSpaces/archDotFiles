@@ -71,6 +71,11 @@
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
+;; Make ESC quit prompts
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+(global-set-key (kbd "C-i") 'evil-jump-forward)
+(global-set-key (kbd "C-o") 'evil-jump-backward)
+
 (use-package general
   :after evil
   :config
@@ -107,11 +112,6 @@
   :after evil
   :config
   (evil-collection-init))
-
-;; Make ESC quit prompts
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-(global-set-key (kbd "C-i") 'evil-jump-forward)
-(global-set-key (kbd "C-o") 'evil-jump-backward)
 
 (use-package beacon)
 

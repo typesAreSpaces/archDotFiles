@@ -128,6 +128,11 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
 
 #+begin_src emacs-lisp
 
+  ;; Make ESC quit prompts
+  (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+  (global-set-key (kbd "C-i") 'evil-jump-forward)
+  (global-set-key (kbd "C-o") 'evil-jump-backward)
+
   (use-package general
     :after evil
     :config
@@ -164,11 +169,6 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
     :after evil
     :config
     (evil-collection-init))
-
-  ;; Make ESC quit prompts
-  (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-  (global-set-key (kbd "C-i") 'evil-jump-forward)
-  (global-set-key (kbd "C-o") 'evil-jump-backward)
 
 #+end_src
 
@@ -1499,5 +1499,5 @@ Dial the GC threshold back down so that garbage collection happens more frequent
     (setq TeX-auto-save t)
     (setq TeX-parse-self t)
     (setq-default TeX-master nil))
-
+ 
 #+end_src
