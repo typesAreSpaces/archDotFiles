@@ -131,6 +131,7 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
   ;; Make ESC quit prompts
   (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
   (global-set-key (kbd "C-i") 'evil-jump-forward)
+  (global-set-key (kbd "C-o") 'evil-jump-backward)
 
   (use-package general
     :after evil
@@ -1498,5 +1499,5 @@ Dial the GC threshold back down so that garbage collection happens more frequent
     (setq TeX-auto-save t)
     (setq TeX-parse-self t)
     (setq-default TeX-master nil))
-
+ 
 #+end_src
