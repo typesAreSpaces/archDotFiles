@@ -33,7 +33,7 @@ polybarThemeSwitch(){
 wallpaperThemeSwitch(){
   case $1 in
     "gruvbox")
-      sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/mountains.jpg|g" $2
+      sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/iron_lady.jpg|g" $2
       ;;
     "nord")
       sed -i "s|$WALLPAPERS_DIR/.*|$WALLPAPERS_DIR/minimal_mountains.png|g" $2
