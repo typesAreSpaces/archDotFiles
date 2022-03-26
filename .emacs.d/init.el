@@ -74,6 +74,7 @@
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "C-i") 'evil-jump-forward)
+(global-set-key (kbd "C-o") 'evil-jump-backward)
 
 (use-package general
   :after evil
@@ -123,7 +124,8 @@
 
 (menu-bar-mode -1)                 ; Disable the menu bar
 (desktop-save-mode 1)              ; Store sessions
-;(beacon-mode 1)                    ; Enable beacon
+(beacon-mode 1)                    ; Enable beacon
+
 (server-start)                     ; Start server
 (setq process-connection-type nil) ; Use pipes
 (setq history-length 25)
@@ -174,8 +176,6 @@
 
 (use-package doom-themes
   :init (load-theme 'doom-gruvbox t))
-  (use-package doom-themes
-    :init (load-theme 'doom-gruvbox t))
 
 (use-package all-the-icons)
 
@@ -238,7 +238,7 @@
   (ivy-prescient-enable-filtering nil)
   :config
   ;; Uncomment the following line to have sorting remembered across sessions!
-                                        ;(prescient-persist-mode 1)
+  ;(prescient-persist-mode 1)
   (ivy-prescient-mode 1))
 
 (use-package helpful
@@ -649,9 +649,9 @@
 (use-package mu4e
   :ensure nil
   :straight (:host github
-             :files ("build/mu4e/*.el")
-             :repo "djcb/mu"
-             :pre-build (("./autogen.sh") ("ninja" "-C" "build")))
+                   :files ("build/mu4e/*.el")
+                   :repo "djcb/mu"
+                   :pre-build (("./autogen.sh") ("ninja" "-C" "build")))
   ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
   ;; :defer 20 ; Wait until 20 seconds after startup
   :config
@@ -748,10 +748,13 @@
  mu4e-view-image-max-width 800
  mu4e-hide-index-messages t)
 
-(define-key global-map (kbd "C-c e")
+(define-key global-map (kbd "C-c m")
   (lambda () (interactive) (mu4e)))
 
 (use-package mu-cite)
+
+(use-package org-mime
+  :ensure t)
 
 (use-package dired
   :ensure nil

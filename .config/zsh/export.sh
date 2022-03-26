@@ -9,6 +9,7 @@ export GTK_PATH='/usr/lib/gtk-2.0'
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 export APPS_DIR="$HOME/Documents/Apps"
+export MATLAB_DIR="$APPS_DIR/MATLAB/R2022a/bin"
 export MSAT_DIR="$APPS_DIR/mathsat-5.6.5-linux-x86_64"
 export GITHUB_PROJECTS_DIR="$HOME/Documents/GithubProjects"
 export BOSQUE_DIR="$GITHUB_PROJECTS_DIR/BosqueLanguage"
@@ -41,6 +42,6 @@ export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export PATH="$APPS_DIR:$PATH"
 export PATH="$APPS_DIR/Maple/maple2019/bin:$PATH"
 export PATH="$APPS_DIR/LADR-2009-11A/bin:$PATH"
-export PATH="$APPS_DIR/MATLAB/R2021b/bin:$PATH"
+export PATH="$MATLAB_DIR:$PATH"
 export PATH="$APPS_DIR/csdp6.2.0linuxx86_64/bin:$PATH"
 export PATH="$GITHUB_PROJECTS_DIR/M2/M2:$PATH"
