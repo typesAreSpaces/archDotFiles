@@ -177,11 +177,6 @@
   (use-package doom-themes
     :init (load-theme 'doom-gruvbox t))
 
-;(use-package tron-legacy-theme
-;  :config
-;  (setq tron-legacy-theme-vivid-cursor t)
-;  (load-theme 'tron-legacy t))
-
 (use-package all-the-icons)
 
 (use-package doom-modeline
