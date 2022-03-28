@@ -145,7 +145,7 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
       "c"  'shell-command
       "t"  '(:ignore t :which-key "toggles")
       "tt" '(counsel-load-theme :which-key "choose theme")
-      "fde" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))))
+      "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))))
 
   (use-package evil
     :init
@@ -1102,187 +1102,6 @@ The downsides to Eshell are that it can be harder to configure than other packag
 
     #+end_src
 
-* Managing Mail with mu4e
-
-It is necessary to install isync, setup a .mbsyncrc file like the following:
-
-#+begin_src  
-
-IMAPAccount unm
-Host outlook.office365.com
-User jabelcastellanosjoo@unm.edu
-AuthMechs Login
-PassCmd +"pass school_email"
-Port 993
-SSLType IMAPS
-CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-IMAPStore unm-remote
-Account unm
-
-MaildirStore unm-local
-Path ~/Mail/unm/
-Inbox ~/Mail/unm/Inbox
-SubFolders Verbatim
-
-Channel unm
-Far :unm-remote:
-Near :unm-local:
-Patterns *
-Create Both
-Expunge Both
-SyncState *
-
-IMAPAccount cs-unm
-Host snape.cs.unm.edu
-User jose.castellanosjoo@cs.unm.edu
-AuthMechs Login
-PassCmd +"pass school_work_email"
-Port 993
-SSLType IMAPS
-CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-IMAPStore cs-unm-remote
-Account cs-unm
-
-MaildirStore cs-unm-local
-Path ~/Mail/cs-unm/
-Inbox ~/Mail/cs-unm/Inbox
-SubFolders Verbatim
-
-Channel cs-unm
-Far :cs-unm-remote:
-Near :cs-unm-local:
-Patterns *
-Create Both
-Expunge Both
-SyncState *
-
-#+end_src
-
-Additionally, install mu and set it up with the following:
-
-#+begin_src
-
-mu init --maildir=~/Mail --my-address=ADDRESS1 --my-address=ADDRESS2
-mu index
-
-#+end_src
-
-#+begin_src emacs-lisp 
-
-      (use-package mu4e
-        :ensure nil
-        :straight (:host github
-                         :files ("build/mu4e/*.el")
-                         :repo "djcb/mu"
-                         :pre-build (("./autogen.sh") ("ninja" "-C" "build")))
-        ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
-        ;; :defer 20 ; Wait until 20 seconds after startup
-        :config
-
-        ;; This is set to 't' to avoid mail syncing issues when using mbsync
-        (setq mu4e-change-filenames-when-moving t)
-
-        ;; Just plain text
-        (with-eval-after-load "mm-decode"
-          (add-to-list 'mm-discouraged-alternatives "text/html")
-          (add-to-list 'mm-discouraged-alternatives "text/richtext"))
-
-        (defun jcs-view-in-eww (msg)
-          (eww-browse-url (concat "file://" (mu4e~write-body-to-html msg))))
-        (add-to-list 'mu4e-view-actions '("Eww view" . jcs-view-in-eww) t)
-
-        (setq mu4e-update-interval 600)
-        (setq mu4e-get-mail-command "mbsync -a")
-        (setq mu4e-maildir "~/Mail")
-
-        (defun refile-func (msg)
-          (cond
-           ((mu4e-message-contact-field-matches msg :to "kapur@cs.unm.edu")
-            "/unm/Prof. Kapur")
-           ((mu4e-message-contact-field-matches msg :from "kapur@cs.unm.edu")
-            "/unm/Prof. Kapur")
-           ((mu4e-message-contact-field-matches msg :cc "kapur@cs.unm.edu")
-            "/unm/Prof. Kapur")
-           (t "/unm/Archive")))
-
-        (setq mu4e-contexts
-              (list
-               ;; School account
-               (make-mu4e-context
-                :name "School"
-                :match-func
-                (lambda (msg)
-                  (when msg
-                    (string-prefix-p "/unm" (mu4e-message-field msg :maildir))))
-                :vars '((user-mail-address  . "jabelcastellanosjoo@unm.edu")
-                        (user-full-name     . "Jose Abel Castellanos Joo")
-                        (mu4e-drafts-folder . "/unm/Drafts")
-                        (mu4e-sent-folder   . "/unm/Sent")
-                        (mu4e-refile-folder . refile-func)
-                        (mu4e-trash-folder  . "/unm/Trash")
-                        (smtpmail-smtp-server . "smtp.office365.com")
-                        (smtpmail-smtp-service . 587)
-                        (smtpmail-stream-type . starttls)))
-               ;; School CS department account
-               (make-mu4e-context
-                :name "CS department"
-                :match-func
-                (lambda (msg)
-                  (when msg
-                    (string-prefix-p "/cs-unm" (mu4e-message-field msg :maildir))))
-                :vars '((user-mail-address  . "jose.castellanosjoo@cs.unm.edu")
-                        (user-full-name     . "Jose Abel Castellanos Joo")
-                        (mu4e-drafts-folder . "/cs-unm/Drafts")
-                        ;;(mu4e-sent-folder   . "/cs-unm/Sent")
-                        (mu4e-refile-folder . "/cs-unm/Inbox")
-                        (mu4e-trash-folder  . "/cs-unm/Trash")
-                        (smtpmail-smtp-server . "snape.cs.unm.edu")
-                        (smtpmail-smtp-service . 1200)
-                        (smtpmail-stream-type . starttls)))))
-
-        (setq mu4e-context-policy 'pick-first)
-
-        (setq mu4e-maildir-shortcuts
-              '(("/unm/Inbox" . ?i)
-                ("/unm/Sent"  . ?s)
-                ("/unm/Trash" . ?t)
-                ("/unm/Drafts". ?d)
-                ("/unm/Prof. Kapur". ?k)
-                ("/unm/Prof. Kapur/Side projects/Seminars/Beihang University". ?b)
-                ("/unm/TA Work/CS 429-529". ?m)
-                ("/unm/You got a Package!". ?p)
-                ("/unm/Archive". ?a)
-                ("/cs-unm/Inbox". ?I)
-                ("/cs-unm/Trash". ?T)
-                ("/cs-unm/Drafts". ?D))))
-
-      (setq message-send-mail-function 'smtpmail-send-it)
-      (setq mu4e-headers-show-threads nil)
-      (setq mu4e-attachment-dir  "~/Downloads")
-      (setq mu4e-confirm-quit nil)
-      (setq mu4e-headers-results-limit -1)
-      (setq mu4e-compose-signature "Best,\nJose")
-      (setq message-citation-line-format "On %d %b %Y at %R, %f wrote:\n")
-      (setq message-citation-line-function 'message-insert-formatted-citation-line)
-      (setq
-       ;; Display
-       mu4e-view-show-addresses t
-       mu4e-view-show-images t
-       mu4e-view-image-max-width 800
-       mu4e-hide-index-messages t)
-
-      (define-key global-map (kbd "C-c m")
-        (lambda () (interactive) (mu4e)))
-
-      (use-package mu-cite)
-
-      (use-package org-mime
-        :ensure t)
-
-#+end_src
-
 * File Management
 
 ** Dired
@@ -1380,6 +1199,213 @@ Dired is a built-in file manager for Emacs that does some pretty amazing things!
     :config
     (evil-collection-define-key 'normal 'dired-mode-map
       "H" 'dired-hide-dotfiles-mode))
+
+#+end_src
+
+* Managing Mail with mu4e
+
+It is necessary to install isync, setup a .mbsyncrc file like the following:
+
+#+begin_src  
+
+IMAPAccount unm
+Host outlook.office365.com
+User jabelcastellanosjoo@unm.edu
+AuthMechs Login
+PassCmd +"pass school_email"
+Port 993
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore unm-remote
+Account unm
+
+MaildirStore unm-local
+Path ~/Mail/unm/
+Inbox ~/Mail/unm/Inbox
+SubFolders Verbatim
+
+Channel unm
+Far :unm-remote:
+Near :unm-local:
+Patterns *
+Create Both
+Expunge Both
+SyncState *
+
+IMAPAccount cs-unm
+Host snape.cs.unm.edu
+User jose.castellanosjoo@cs.unm.edu
+AuthMechs Login
+PassCmd +"pass school_work_email"
+Port 993
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore cs-unm-remote
+Account cs-unm
+
+MaildirStore cs-unm-local
+Path ~/Mail/cs-unm/
+Inbox ~/Mail/cs-unm/Inbox
+SubFolders Verbatim
+
+Channel cs-unm
+Far :cs-unm-remote:
+Near :cs-unm-local:
+Patterns *
+Create Both
+Expunge Both
+SyncState *
+
+#+end_src
+
+Additionally, install mu and set it up with the following:
+
+#+begin_src
+
+mu init --maildir=~/Mail --my-address=ADDRESS1 --my-address=ADDRESS2
+mu index
+
+#+end_src
+
+#+begin_src emacs-lisp 
+
+  (use-package mu4e
+    :ensure nil
+    :straight (:host github
+                     :files ("build/mu4e/*.el")
+                     :repo "djcb/mu"
+                     :pre-build (("./autogen.sh") ("ninja" "-C" "build")))
+    ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
+    ;; :defer 20 ; Wait until 20 seconds after startup
+    :config
+
+    ;; This is set to 't' to avoid mail syncing issues when using mbsync
+    (setq mu4e-change-filenames-when-moving t)
+
+    ;; Just plain text
+    (with-eval-after-load "mm-decode"
+      (add-to-list 'mm-discouraged-alternatives "text/html")
+      (add-to-list 'mm-discouraged-alternatives "text/richtext"))
+
+    (defun jcs-view-in-eww (msg)
+      (eww-browse-url (concat "file://" (mu4e~write-body-to-html msg))))
+    (add-to-list 'mu4e-view-actions '("Eww view" . jcs-view-in-eww) t)
+
+    (setq mu4e-update-interval 600)
+    (setq mu4e-get-mail-command "mbsync -a")
+    (setq mu4e-maildir "~/Mail")
+
+    (defun refile-func (msg)
+      (cond
+       ((mu4e-message-contact-field-matches msg :to "kapur@cs.unm.edu")
+        "/unm/Prof. Kapur")
+       ((mu4e-message-contact-field-matches msg :from "kapur@cs.unm.edu")
+        "/unm/Prof. Kapur")
+       ((mu4e-message-contact-field-matches msg :cc "kapur@cs.unm.edu")
+        "/unm/Prof. Kapur")
+       (t "/unm/Archive")))
+
+    (setq mu4e-contexts
+          (list
+           ;; School account
+           (make-mu4e-context
+            :name "School"
+            :match-func
+            (lambda (msg)
+              (when msg
+                (string-prefix-p "/unm" (mu4e-message-field msg :maildir))))
+            :vars '((user-mail-address  . "jabelcastellanosjoo@unm.edu")
+                    (user-full-name     . "Jose Abel Castellanos Joo")
+                    (mu4e-drafts-folder . "/unm/Drafts")
+                    (mu4e-sent-folder   . "/unm/Sent")
+                    (mu4e-refile-folder . refile-func)
+                    (mu4e-trash-folder  . "/unm/Trash")
+                    (smtpmail-smtp-server . "smtp.office365.com")
+                    (smtpmail-smtp-service . 587)
+                    (smtpmail-stream-type . starttls)))
+           ;; School CS department account
+           (make-mu4e-context
+            :name "CS department"
+            :match-func
+            (lambda (msg)
+              (when msg
+                (string-prefix-p "/cs-unm" (mu4e-message-field msg :maildir))))
+            :vars '((user-mail-address  . "jose.castellanosjoo@cs.unm.edu")
+                    (user-full-name     . "Jose Abel Castellanos Joo")
+                    (mu4e-drafts-folder . "/cs-unm/Drafts")
+                    ;;(mu4e-sent-folder   . "/cs-unm/Sent")
+                    (mu4e-refile-folder . "/cs-unm/Inbox")
+                    (mu4e-trash-folder  . "/cs-unm/Trash")
+                    (smtpmail-smtp-server . "snape.cs.unm.edu")
+                    (smtpmail-smtp-service . 1200)
+                    (smtpmail-stream-type . starttls)))))
+
+    (setq mu4e-context-policy 'pick-first)
+
+    (setq mu4e-maildir-shortcuts
+          '(("/unm/Inbox" . ?i)
+            ("/unm/Sent"  . ?s)
+            ("/unm/Trash" . ?t)
+            ("/unm/Drafts". ?d)
+            ("/unm/Prof. Kapur". ?k)
+            ("/unm/Prof. Kapur/Side projects/Seminars/Beihang University". ?b)
+            ("/unm/TA Work/CS 429-529". ?m)
+            ("/unm/You got a Package!". ?p)
+            ("/unm/Archive". ?a)
+            ("/cs-unm/Inbox". ?I)
+            ("/cs-unm/Trash". ?T)
+            ("/cs-unm/Drafts". ?D))))
+
+  (setq mu4e-use-fancy-chars t)
+  (setq message-send-mail-function 'smtpmail-send-it)
+  (setq mu4e-attachment-dir  "~/Downloads")
+  ;;(setq mu4e-headers-show-threads nil)
+  (setq mu4e-confirm-quit nil)
+  (setq mu4e-headers-results-limit -1)
+  (setq mu4e-compose-signature "Best,\nJose")
+  (setq message-citation-line-format "On %d %b %Y at %R, %f wrote:\n")
+  (setq message-citation-line-function 'message-insert-formatted-citation-line)
+  (setq
+   ;; Display
+   mu4e-view-show-addresses t
+   mu4e-view-show-images t
+   mu4e-view-image-max-width 800
+   mu4e-hide-index-messages t)
+
+  (define-key global-map (kbd "C-c m")
+    (lambda () (interactive) (mu4e)))
+
+  (use-package mu-cite)
+
+  (use-package org-mime
+    :ensure t)
+
+    #+end_src
+
+#+begin_src emacs-lisp
+
+  (use-package mu4e-thread-folding
+    :ensure t
+    :config
+
+    (add-to-list 'mu4e-header-info-custom
+                 '(:empty . (:name "Empty"
+                                   :shortname ""
+                                   :function (lambda (msg) "  "))))
+    (setq mu4e-headers-fields '((:empty         .    2)
+                                (:human-date    .   12)
+                                (:flags         .    6)
+                                (:mailing-list  .   10)
+                                (:from          .   22)
+                                (:subject       .   ))))
+
+  (define-key mu4e-headers-mode-map (kbd "<tab>")     'mu4e-headers-toggle-at-point)
+  (define-key mu4e-headers-mode-map (kbd "<left>")    'mu4e-headers-fold-at-point)
+  (define-key mu4e-headers-mode-map (kbd "<S-left>")  'mu4e-headers-fold-all)
+  (define-key mu4e-headers-mode-map (kbd "<right>")   'mu4e-headers-unfold-at-point)
+  (define-key mu4e-headers-mode-map (kbd "<S-right>") 'mu4e-headers-unfold-all)
 
 #+end_src
 

@@ -88,7 +88,7 @@
     "c"  'shell-command
     "t"  '(:ignore t :which-key "toggles")
     "tt" '(counsel-load-theme :which-key "choose theme")
-    "fde" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))))
+    "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))))
 
 (use-package evil
   :init
@@ -645,6 +645,36 @@
 
   (eshell-git-prompt-use-theme 'powerline))
 
+(use-package dired
+  :ensure nil
+  :commands (dired dired-jump)
+  :bind (("C-x C-j" . dired-jump))
+  :custom ((dired-listing-switches "-agho --group-directories-first"))
+  :config
+  (evil-collection-define-key 'normal 'dired-mode-map
+    "h" 'dired-single-up-directory
+    "l" 'dired-single-buffer))
+
+(use-package dired-single
+  :commands (dired dired-jump))
+
+(use-package all-the-icons-dired
+  :hook (dired-mode . all-the-icons-dired-mode))
+
+(use-package dired-open
+  :commands (dired dired-jump)
+  :config
+  ;; Doesn't work as expected!
+  ;;(add-to-list 'dired-open-functions #'dired-open-xdg t)
+  (setq dired-open-extensions '(("png" . "feh")
+                                ("mkv" . "mpv"))))
+
+(use-package dired-hide-dotfiles
+  :hook (dired-mode . dired-hide-dotfiles-mode)
+  :config
+  (evil-collection-define-key 'normal 'dired-mode-map
+    "H" 'dired-hide-dotfiles-mode))
+
 (use-package mu4e
   :ensure nil
   :straight (:host github
@@ -732,9 +762,10 @@
           ("/cs-unm/Trash". ?T)
           ("/cs-unm/Drafts". ?D))))
 
+(setq mu4e-use-fancy-chars t)
 (setq message-send-mail-function 'smtpmail-send-it)
-(setq mu4e-headers-show-threads nil)
 (setq mu4e-attachment-dir  "~/Downloads")
+;;(setq mu4e-headers-show-threads nil)
 (setq mu4e-confirm-quit nil)
 (setq mu4e-headers-results-limit -1)
 (setq mu4e-compose-signature "Best,\nJose")
@@ -755,35 +786,26 @@
 (use-package org-mime
   :ensure t)
 
-(use-package dired
-  :ensure nil
-  :commands (dired dired-jump)
-  :bind (("C-x C-j" . dired-jump))
-  :custom ((dired-listing-switches "-agho --group-directories-first"))
+(use-package mu4e-thread-folding
+  :ensure t
   :config
-  (evil-collection-define-key 'normal 'dired-mode-map
-    "h" 'dired-single-up-directory
-    "l" 'dired-single-buffer))
 
-(use-package dired-single
-  :commands (dired dired-jump))
+  (add-to-list 'mu4e-header-info-custom
+               '(:empty . (:name "Empty"
+                                 :shortname ""
+                                 :function (lambda (msg) "  "))))
+  (setq mu4e-headers-fields '((:empty         .    2)
+                              (:human-date    .   12)
+                              (:flags         .    6)
+                              (:mailing-list  .   10)
+                              (:from          .   22)
+                              (:subject       .   ))))
 
-(use-package all-the-icons-dired
-  :hook (dired-mode . all-the-icons-dired-mode))
-
-(use-package dired-open
-  :commands (dired dired-jump)
-  :config
-  ;; Doesn't work as expected!
-  ;;(add-to-list 'dired-open-functions #'dired-open-xdg t)
-  (setq dired-open-extensions '(("png" . "feh")
-                                ("mkv" . "mpv"))))
-
-(use-package dired-hide-dotfiles
-  :hook (dired-mode . dired-hide-dotfiles-mode)
-  :config
-  (evil-collection-define-key 'normal 'dired-mode-map
-    "H" 'dired-hide-dotfiles-mode))
+(define-key mu4e-headers-mode-map (kbd "<tab>")     'mu4e-headers-toggle-at-point)
+(define-key mu4e-headers-mode-map (kbd "<left>")    'mu4e-headers-fold-at-point)
+(define-key mu4e-headers-mode-map (kbd "<S-left>")  'mu4e-headers-fold-all)
+(define-key mu4e-headers-mode-map (kbd "<right>")   'mu4e-headers-unfold-at-point)
+(define-key mu4e-headers-mode-map (kbd "<S-right>") 'mu4e-headers-unfold-all)
 
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1000 1000))
