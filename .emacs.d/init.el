@@ -71,47 +71,6 @@
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
-;; Make ESC quit prompts
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-(global-set-key (kbd "C-i") 'evil-jump-forward)
-(global-set-key (kbd "C-o") 'evil-jump-backward)
-
-(use-package general
-  :after evil
-  :config
-  (general-create-definer efs/leader-keys
-    :keymaps '(normal insert visual emacs)
-    :prefix "SPC"
-    :global-prefix "C-SPC")
-
-  (efs/leader-keys
-    "c"  'shell-command
-    "t"  '(:ignore t :which-key "toggles")
-    "tt" '(counsel-load-theme :which-key "choose theme")
-    "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))))
-
-(use-package evil
-  :init
-  (setq evil-want-integration t)
-  (setq evil-want-keybinding nil)
-  (setq evil-want-C-u-scroll t)
-  :config
-  (evil-mode 1)
-  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
-  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
-
-  ;; Use visual line motions even outside of visual-line-mode buffers
-  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
-  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
-
-  (evil-set-initial-state 'messages-buffer-mode 'normal)
-  (evil-set-initial-state 'dashboard-mode 'normal))
-
-(use-package evil-collection
-  :after evil
-  :config
-  (evil-collection-init))
-
 (use-package beacon)
 
 (setq inhibit-startup-message t)
@@ -169,6 +128,49 @@
 
 ;; Set the variable pitch face
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height efs/default-variable-font-size :weight 'regular)
+
+;; Make ESC quit prompts
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+(global-set-key (kbd "C-i") 'evil-jump-forward)
+(global-set-key (kbd "C-o") 'evil-jump-backward)
+
+(use-package general
+  :after evil
+  :config
+  (general-create-definer efs/leader-keys
+    :keymaps '(normal insert visual emacs)
+    :prefix "SPC"
+    :global-prefix "C-SPC")
+
+  (efs/leader-keys
+    "c"  'shell-command
+    "t"  '(:ignore t :which-key "toggles")
+    "tt" '(counsel-load-theme :which-key "choose theme")
+    "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
+    "m" '(lambda () (interactive) (mu4e))
+  ))
+
+(use-package evil
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
+  (setq evil-want-C-u-scroll t)
+  :config
+  (evil-mode 1)
+  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+
+  ;; Use visual line motions even outside of visual-line-mode buffers
+  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+
+  (evil-set-initial-state 'messages-buffer-mode 'normal)
+  (evil-set-initial-state 'dashboard-mode 'normal))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
 
 (use-package command-log-mode
   :commands command-log-mode)
@@ -237,7 +239,7 @@
   (ivy-prescient-enable-filtering nil)
   :config
   ;; Uncomment the following line to have sorting remembered across sessions!
-  ;(prescient-persist-mode 1)
+                                        ;(prescient-persist-mode 1)
   (ivy-prescient-mode 1))
 
 (use-package helpful
@@ -675,12 +677,23 @@
   (evil-collection-define-key 'normal 'dired-mode-map
     "H" 'dired-hide-dotfiles-mode))
 
+;; Make gc pauses faster by decreasing the threshold.
+(setq gc-cons-threshold (* 2 1000 1000))
+
+(use-package yasnippet
+  :config
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  (yas-global-mode 1))
+
+(use-package yasnippet-snippets)
+
 (use-package mu4e
   :ensure nil
-  :straight (:host github
-                   :files ("build/mu4e/*.el")
-                   :repo "djcb/mu"
-                   :pre-build (("./autogen.sh") ("ninja" "-C" "build")))
+  :straight (
+             :host github
+             :files ("build/mu4e/*.el")
+             :repo "djcb/mu"
+             :pre-build (("./autogen.sh") ("ninja" "-C" "build")))
   ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
   ;; :defer 20 ; Wait until 20 seconds after startup
   :config
@@ -778,44 +791,28 @@
  mu4e-view-image-max-width 800
  mu4e-hide-index-messages t)
 
-(define-key global-map (kbd "C-c m")
-  (lambda () (interactive) (mu4e)))
-
 (use-package mu-cite)
 
 (use-package org-mime
   :ensure t)
 
-(use-package mu4e-thread-folding
-  :ensure t
-  :config
-
-  (add-to-list 'mu4e-header-info-custom
-               '(:empty . (:name "Empty"
-                                 :shortname ""
-                                 :function (lambda (msg) "  "))))
-  (setq mu4e-headers-fields '((:empty         .    2)
-                              (:human-date    .   12)
-                              (:flags         .    6)
-                              (:mailing-list  .   10)
-                              (:from          .   22)
-                              (:subject       .   ))))
-
-(define-key mu4e-headers-mode-map (kbd "<tab>")     'mu4e-headers-toggle-at-point)
-(define-key mu4e-headers-mode-map (kbd "<left>")    'mu4e-headers-fold-at-point)
-(define-key mu4e-headers-mode-map (kbd "<S-left>")  'mu4e-headers-fold-all)
-(define-key mu4e-headers-mode-map (kbd "<right>")   'mu4e-headers-unfold-at-point)
-(define-key mu4e-headers-mode-map (kbd "<S-right>") 'mu4e-headers-unfold-all)
-
-;; Make gc pauses faster by decreasing the threshold.
-(setq gc-cons-threshold (* 2 1000 1000))
-
-(use-package yasnippet
-  :config
-  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-  (yas-global-mode 1))
-
-(use-package yasnippet-snippets)
+;; (use-package mu4e-thread-folding
+;;   :ensure t
+;;   :straight (
+;;              :host github
+;;              :files ("*.el")
+;;              :repo "rougier/mu4e-thread-folding")
+;;   :config
+;;   (add-to-list 'mu4e-header-info-custom
+;;                '(:empty . (:name "Empty"
+;;                                  :shortname ""
+;;                                  :function (lambda (msg) "  "))))
+;;   (setq mu4e-headers-fields '((:empty         .    2)
+;;                               (:human-date    .   12)
+;;                               (:flags         .    6)
+;;                               (:mailing-list  .   10)
+;;                               (:from          .   22)
+;;                               (:subject       .   nil))))
 
 (use-package hide-mode-line)
 
