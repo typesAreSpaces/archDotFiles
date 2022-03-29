@@ -71,47 +71,6 @@
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
-;; Make ESC quit prompts
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-(global-set-key (kbd "C-i") 'evil-jump-forward)
-(global-set-key (kbd "C-o") 'evil-jump-backward)
-
-(use-package general
-  :after evil
-  :config
-  (general-create-definer efs/leader-keys
-    :keymaps '(normal insert visual emacs)
-    :prefix "SPC"
-    :global-prefix "C-SPC")
-
-  (efs/leader-keys
-    "c"  'shell-command
-    "t"  '(:ignore t :which-key "toggles")
-    "tt" '(counsel-load-theme :which-key "choose theme")
-    "fde" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))))
-
-(use-package evil
-  :init
-  (setq evil-want-integration t)
-  (setq evil-want-keybinding nil)
-  (setq evil-want-C-u-scroll t)
-  :config
-  (evil-mode 1)
-  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
-  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
-
-  ;; Use visual line motions even outside of visual-line-mode buffers
-  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
-  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
-
-  (evil-set-initial-state 'messages-buffer-mode 'normal)
-  (evil-set-initial-state 'dashboard-mode 'normal))
-
-(use-package evil-collection
-  :after evil
-  :config
-  (evil-collection-init))
-
 (use-package beacon)
 
 (setq inhibit-startup-message t)
@@ -169,6 +128,49 @@
 
 ;; Set the variable pitch face
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height efs/default-variable-font-size :weight 'regular)
+
+;; Make ESC quit prompts
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+(global-set-key (kbd "C-i") 'evil-jump-forward)
+(global-set-key (kbd "C-o") 'evil-jump-backward)
+
+(use-package general
+  :after evil
+  :config
+  (general-create-definer efs/leader-keys
+    :keymaps '(normal insert visual emacs)
+    :prefix "SPC"
+    :global-prefix "C-SPC")
+
+  (efs/leader-keys
+    "c"  'shell-command
+    "t"  '(:ignore t :which-key "toggles")
+    "tt" '(counsel-load-theme :which-key "choose theme")
+    "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
+    "m" '(lambda () (interactive) (mu4e))
+  ))
+
+(use-package evil
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
+  (setq evil-want-C-u-scroll t)
+  :config
+  (evil-mode 1)
+  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+
+  ;; Use visual line motions even outside of visual-line-mode buffers
+  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+
+  (evil-set-initial-state 'messages-buffer-mode 'normal)
+  (evil-set-initial-state 'dashboard-mode 'normal))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
 
 (use-package command-log-mode
   :commands command-log-mode)
@@ -237,7 +239,7 @@
   (ivy-prescient-enable-filtering nil)
   :config
   ;; Uncomment the following line to have sorting remembered across sessions!
-  ;(prescient-persist-mode 1)
+                                        ;(prescient-persist-mode 1)
   (ivy-prescient-mode 1))
 
 (use-package helpful
@@ -293,6 +295,14 @@
   (set-face-attribute 'line-number nil :inherit 'fixed-pitch)
   (set-face-attribute 'line-number-current-line nil :inherit 'fixed-pitch))
 
+(with-eval-after-load 'org
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (python . t)))
+
+  (push '("conf-unix" . conf-unix) org-src-lang-modes))
+
 (defun efs/org-mode-setup ()
   (org-indent-mode)
   (variable-pitch-mode 1)
@@ -310,9 +320,9 @@
   (setq org-log-into-drawer t)
 
   (setq org-agenda-files
-        '("~/.emacs.d/OrgFiles/Tasks.org"
-          "~/.emacs.d/OrgFiles/Habits.org"
-          "~/.emacs.d/OrgFiles/Birthdays.org"))
+        '("~/.emacs.d/Org-Files/Tasks.org"
+          "~/.emacs.d/Org-Files/Habits.org"
+          "~/.emacs.d/Org-Files/Birthdays.org"))
 
   (require 'org-habit)
   (add-to-list 'org-modules 'org-habit)
@@ -393,32 +403,32 @@
 
   (setq org-capture-templates
         `(("t" "Tasks / Projects")
-          ("tt" "Task" entry (file+olp "~/.emacs.d/OrgFiles/Tasks.org" "Inbox")
+          ("tt" "Task" entry (file+olp "~/.emacs.d/Org-Files/Tasks.org" "Inbox")
            "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
 
           ("j" "Journal Entries")
           ("jj" "Journal" entry
-           (file+olp+datetree "~/.emacs.d/OrgFiles/Journal.org")
+           (file+olp+datetree "~/.emacs.d/Org-Files/Journal.org")
            "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
            ;; ,(dw/read-file-as-string "~/Notes/Templates/Daily.org")
            :clock-in :clock-resume
            :empty-lines 1)
           ("jm" "Meeting" entry
-           (file+olp+datetree "~/.emacs.d/OrgFiles/Journal.org")
+           (file+olp+datetree "~/.emacs.d/Org-Files/Journal.org")
            "* %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
            :clock-in :clock-resume
            :empty-lines 1)
 
           ("w" "Workflows")
-          ("we" "Checking Email" entry (file+olp+datetree "~/.emacs.d/OrgFiles/Journal.org")
+          ("we" "Checking Email" entry (file+olp+datetree "~/.emacs.d/Org-Files/Journal.org")
            "* Checking Email :email:\n\n%?" :clock-in :clock-resume :empty-lines 1)
 
           ("m" "Metrics Capture")
-          ("mw" "Weight" table-line (file+headline "~/.emacs.d/OrgFiles/Metrics.org" "Weight")
+          ("mw" "Weight" table-line (file+headline "~/.emacs.d/Org-Files/Metrics.org" "Weight")
            "| %U | %^{Weight} | %^{Notes} |" :kill-buffer t)))
 
   (define-key global-map (kbd "C-c j")
-    (lambda () (interactive) (org-capture nil "jj")))
+    (lambda () (interactive) (org-capture nil "mc")))
 
   (define-key global-map (kbd "C-c s")
     (lambda () (interactive) (mark-whole-buffer) (org-sort-entries nil ?o)))
@@ -450,14 +460,6 @@
 
 (use-package visual-fill-column
   :hook (org-mode . efs/org-mode-visual-fill))
-
-(with-eval-after-load 'org
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((emacs-lisp . t)
-     (python . t)))
-
-  (push '("conf-unix" . conf-unix) org-src-lang-modes))
 
 (with-eval-after-load 'org
   ;; This is needed as of Org 9.2
@@ -645,15 +647,80 @@
 
   (eshell-git-prompt-use-theme 'powerline))
 
+(use-package dired
+  :ensure nil
+  :commands (dired dired-jump)
+  :bind (("C-x C-j" . dired-jump))
+  :custom ((dired-listing-switches "-agho --group-directories-first"))
+  :config
+  (evil-collection-define-key 'normal 'dired-mode-map
+    "h" 'dired-single-up-directory
+    "l" 'dired-single-buffer))
+
+(use-package dired-single
+  :commands (dired dired-jump))
+
+(use-package all-the-icons-dired
+  :hook (dired-mode . all-the-icons-dired-mode))
+
+(use-package dired-open
+  :commands (dired dired-jump)
+  :config
+  ;; Doesn't work as expected!
+  ;;(add-to-list 'dired-open-functions #'dired-open-xdg t)
+  (setq dired-open-extensions '(("png" . "feh")
+                                ("mkv" . "mpv"))))
+
+(use-package dired-hide-dotfiles
+  :hook (dired-mode . dired-hide-dotfiles-mode)
+  :config
+  (evil-collection-define-key 'normal 'dired-mode-map
+    "H" 'dired-hide-dotfiles-mode))
+
+;; Make gc pauses faster by decreasing the threshold.
+(setq gc-cons-threshold (* 2 1000 1000))
+
+(use-package yasnippet
+  :config
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  (yas-global-mode 1))
+
+(use-package yasnippet-snippets)
+
+(use-package hide-mode-line)
+
+(defun efs/presentation-setup ()
+  (setq text-scale-mode-amount 3)
+  (hide-mode-line-mode 1)
+  (org-display-inline-images)
+  (text-scale-mode 1))
+
+(defun efs/presentation-end ()
+  (hide-mode-line-mode 0)
+  (text-scale-mode 0))
+
+(use-package org-tree-slide
+  :hook ((org-tree-slide-play . efs/presentation-setup)
+         (org-tree-slide-stop . efs/presentation-end))
+  :custom
+  (org-tree-slide-slide-in-effect t)
+  (org-tree-slide-activate-message "Presentation started!")
+  (org-tree-slide-deactivate-message "Presentation finished!")
+  (org-tree-slide-header t)
+  (org-tree-slide-breadcrumbs " // ")
+  (org-image-actual-width nil))
+
 (use-package mu4e
   :ensure nil
-  :straight (:host github
-                   :files ("build/mu4e/*.el")
-                   :repo "djcb/mu"
-                   :pre-build (("./autogen.sh") ("ninja" "-C" "build")))
+  :straight (
+             :host github
+             :files ("build/mu4e/*.el")
+             :repo "djcb/mu"
+             :pre-build (("./autogen.sh") ("ninja" "-C" "build")))
   ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
   ;; :defer 20 ; Wait until 20 seconds after startup
   :config
+  (require 'mu4e-org)
 
   ;; This is set to 't' to avoid mail syncing issues when using mbsync
   (setq mu4e-change-filenames-when-moving t)
@@ -732,9 +799,10 @@
           ("/cs-unm/Trash". ?T)
           ("/cs-unm/Drafts". ?D))))
 
+(setq mu4e-use-fancy-chars t)
 (setq message-send-mail-function 'smtpmail-send-it)
-(setq mu4e-headers-show-threads nil)
 (setq mu4e-attachment-dir  "~/Downloads")
+(setq mu4e-headers-show-threads nil)
 (setq mu4e-confirm-quit nil)
 (setq mu4e-headers-results-limit -1)
 (setq mu4e-compose-signature "Best,\nJose")
@@ -747,76 +815,115 @@
  mu4e-view-image-max-width 800
  mu4e-hide-index-messages t)
 
-(define-key global-map (kbd "C-c m")
-  (lambda () (interactive) (mu4e)))
+;; (add-to-list 'mu4e-header-info-custom
+;;              '(:acctshortname . (:name "Account short name"
+;;                                        :shortname "Acct"
+;;                                        :help "3 first letter of related root maildir"
+;;                                        :function (lambda (msg)
+;;                                                    (let ((account-name (or (mu4e-message-field msg :maildir) "")))
+;;                                                      (if (equal account-name "")
+;;                                                          ""
+;;                                                        (substring
+;;                                                         (replace-regexp-in-string "^/\\(\\w+\\)/.*$" "\\1" account-name)
+;;                                                         0 3)))))))
+(add-to-list 'mu4e-header-info-custom
+             '(:foldername . (:name "Folder information"
+                                    :shortname "Folder"
+                                    :help "Message short storage information"
+                                    :function (lambda (msg)
+                                                (let ((shortaccount)
+                                                      (maildir (or (mu4e-message-field msg :maildir) ""))
+                                                      (mailinglist (or (mu4e-message-field msg :mailing-list) "")))
+                                                  (if (not (equal mailinglist ""))
+                                                      (setq mailinglist (mu4e-get-mailing-list-shortname mailinglist)))
+                                                  (when (not (equal maildir ""))
+                                                    (setq shortaccount
+                                                          (substring
+                                                           (replace-regexp-in-string "^/\\(\\w+\\)/.*$" "\\1" maildir)
+                                                           0 3))
+                                                    (setq maildir (replace-regexp-in-string ".*/\\([^/]+\\)$" "\\1" maildir))
+                                                    (if (> (length maildir) 8)
+                                                        (setq maildir (concat (substring maildir 0 7) "…")))
+                                                    (setq maildir (concat "[" shortaccount "]" maildir)))
+                                                  (cond
+                                                   ((and (equal maildir "")
+                                                         (not (equal mailinglist "")))
+                                                    mailinglist)
+                                                   ((and (not (equal maildir ""))
+                                                         (equal mailinglist ""))
+                                                    maildir)
+                                                   ((and (not (equal maildir ""))
+                                                         (not (equal mailinglist "")))
+                                                    (concat maildir " (" mailinglist ")"))
+                                                   (t
+                                                    "")))))))
+
+;; (add-to-list 'mu4e-header-info-custom
+;;              '(:useragent . (:name "User-Agent"
+;;                                    :shortname "UserAgt."
+;;                                    :help "Mail client used by correspondant"
+;;                                    :function ed/get-origin-mail-system-header)))
+;; (add-to-list 'mu4e-header-info-custom
+;;              '(:openpgp . (:name "PGP Info"
+;;                                  :shortname "PGP"
+;;                                  :help "OpenPGP information found in mail header"
+;;                                  :function ed/get-openpgp-header)))
+;; (setq mu4e-view-fi
+;; elds '(:flags :maildir :mailing-list :tags :useragent :openpgp)
+;; mu4e-headers-fields '((:flags         . 5)
+;;                       (:human-date    . 12)
+;;                                   ;(:acctshortname . 4)
+;;                       (:foldername    . 25)
+;;                       (:from-or-to    . 25)
+;;                                   ;(:size          . 6)
+;;                       (:subject       . nil))
+;; mu4e-compose-hidden-headers '("^Face:" "^X-Face:" "^Openpgp:"
+;;                               "^X-Draft-From:" "^X-Mailer:"
+;;"^User-agent:"))
+
+(add-to-list 'org-capture-templates
+             '("m" "Email Workflow"))
+(add-to-list 'org-capture-templates
+             '("mf" "Follow Up" entry (file+olp "~/Documents/Org-Files/Mail.org" "Follow Up")
+               "* TODO %a"))
+(add-to-list 'org-capture-templates
+             '("mr" "Read Later" entry (file+olp "~/Documents/Org-Files/Mail.org" "Read Later")
+               "* TODO %a"))
+(add-to-list 'org-capture-templates
+             '("mc" "Captured" entry (file+olp "~/Documents/GithubProjects/phd-thesis/Documents/Org-Files/Mail.org" "Captured")
+               "* TODO %a"))
+
 
 (use-package mu-cite)
 
 (use-package org-mime
   :ensure t)
 
-(use-package dired
-  :ensure nil
-  :commands (dired dired-jump)
-  :bind (("C-x C-j" . dired-jump))
-  :custom ((dired-listing-switches "-agho --group-directories-first"))
-  :config
-  (evil-collection-define-key 'normal 'dired-mode-map
-    "h" 'dired-single-up-directory
-    "l" 'dired-single-buffer))
+;; (use-package mu4e-thread-folding
+;;   :ensure t
+;;   :straight (
+;;              :host github
+;;              :files ("*.el")
+;;              :repo "rougier/mu4e-thread-folding")
+;;   :config
+;;   (add-to-list 'mu4e-header-info-custom
+;;                '(:empty . (:name "Empty"
+;;                                  :shortname ""
+;;                                  :function (lambda (msg) "  "))))
+;;   (setq mu4e-headers-fields '((:empty         .    2)
+;;                               (:human-date    .   12)
+;;                               (:flags         .    6)
+;;                               (:mailing-list  .   10)
+;;                               (:from          .   22)
+;;                               (:subject       .   nil))))
 
-(use-package dired-single
-  :commands (dired dired-jump))
-
-(use-package all-the-icons-dired
-  :hook (dired-mode . all-the-icons-dired-mode))
-
-(use-package dired-open
-  :commands (dired dired-jump)
-  :config
-  ;; Doesn't work as expected!
-  ;;(add-to-list 'dired-open-functions #'dired-open-xdg t)
-  (setq dired-open-extensions '(("png" . "feh")
-                                ("mkv" . "mpv"))))
-
-(use-package dired-hide-dotfiles
-  :hook (dired-mode . dired-hide-dotfiles-mode)
-  :config
-  (evil-collection-define-key 'normal 'dired-mode-map
-    "H" 'dired-hide-dotfiles-mode))
-
-;; Make gc pauses faster by decreasing the threshold.
-(setq gc-cons-threshold (* 2 1000 1000))
-
-(use-package yasnippet
-  :config
-  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-  (yas-global-mode 1))
-
-(use-package yasnippet-snippets)
-
-(use-package hide-mode-line)
-
-(defun efs/presentation-setup ()
-  (setq text-scale-mode-amount 3)
-  (hide-mode-line-mode 1)
-  (org-display-inline-images)
-  (text-scale-mode 1))
-
-(defun efs/presentation-end ()
-  (hide-mode-line-mode 0)
-  (text-scale-mode 0))
-
-(use-package org-tree-slide
-  :hook ((org-tree-slide-play . efs/presentation-setup)
-         (org-tree-slide-stop . efs/presentation-end))
-  :custom
-  (org-tree-slide-slide-in-effect t)
-  (org-tree-slide-activate-message "Presentation started!")
-  (org-tree-slide-deactivate-message "Presentation finished!")
-  (org-tree-slide-header t)
-  (org-tree-slide-breadcrumbs " // ")
-  (org-image-actual-width nil))
+(use-package mu4e-dashboard
+  :ensure t
+  :straight (
+             :host github
+             :files ("*.el")
+             :repo "rougier/mu4e-dashboard"
+             ))
 
 (use-package simpleclip
   :config
@@ -837,6 +944,7 @@
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
   (setq-default TeX-master nil))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -850,3 +958,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(use-package markdown-preview-eww
+  :ensure nil
+  :straight (
+             :host github
+             :files ("*.el")
+             :repo "niku/markdown-preview-eww"
+             ))

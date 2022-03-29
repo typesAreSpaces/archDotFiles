@@ -47,6 +47,7 @@ alias te="tmux new-session -s work -d;\
   tmux send-keys -t work:2 \
   report C-m; \
   tmux a -t work"
+alias spass="SPASS"
 
 # Docker aliases
 alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it seahorn/seahorn-llvm5"
