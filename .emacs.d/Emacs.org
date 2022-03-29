@@ -1,6 +1,10 @@
 #+title: Emacs From Scratch Configuration
 #+PROPERTY: header-args:emacs-lisp :tangle ./init.el :mkdirp yes
 
+* Tips for Use
+
+In this document I've added links in many places that lead you to documentation for the various packages we use.  If you're looking at this file in Emacs, you can put your cursor on a link and press =C-c C-o= or run =M-x org-open-at-point= to open the link in your web browser.
+
 * Settings
 
 #+begin_src emacs-lisp
@@ -15,11 +19,13 @@
   ;; Make frame transparency overridable
   (defvar efs/frame-transparency '(90 . 90))
 
+  (defvar org-files-dir "~/Documents/Org-Files")
+  (defvar captured-mail-path (concat org-files-dir "/Mail.org"))
+  (defvar phd-thesis-dir "~/Documents/GithubProjects/phd-thesis")
+  (defvar phd-thesis-org-files-dir (concat phd-thesis-dir "/Documents/Org-Files"))
+  (defvar captured-items-path (concat phd-thesis-org-files-dir "/captured_items.org"))
+
 #+end_src
-
-* Tips for Use
-
-In this document I've added links in many places that lead you to documentation for the various packages we use.  If you're looking at this file in Emacs, you can put your cursor on a link and press =C-c C-o= or run =M-x org-open-at-point= to open the link in your web browser.
 
 * Package System Setup
 
@@ -227,7 +233,7 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
       "tt" '(counsel-load-theme :which-key "choose theme")
       "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
       "m" '(lambda () (interactive) (mu4e))
-    ))
+      ))
 
   (use-package evil
     :init
@@ -1279,6 +1285,44 @@ Dial the GC threshold back down so that garbage collection happens more frequent
 
 #+end_src
 
+* System Clipboard
+
+#+begin_src emacs-lisp
+
+  (use-package simpleclip
+    :config
+    (simpleclip-mode 1))
+
+#+end_src
+
+* Mode Line
+
+#+begin_src emacs-lisp 
+
+  (setq-default mode-line-format '(
+                                   "%e"
+                                   (:eval
+                                    (if (equal (shell-command-to-string
+                                                "ps aux | grep 'mbsync -a' | wc -l") "3\n")
+                                        "Running mbsync" ""))
+                                   (:eval
+                                    (doom-modeline-format--main))))
+
+#+end_src
+
+* AUCTex setup
+
+#+begin_src emacs-lisp 
+
+  (use-package tex
+    :ensure auctex
+    :config
+    (setq TeX-auto-save t)
+    (setq TeX-parse-self t)
+    (setq-default TeX-master nil))
+
+#+end_src
+
 * Managing Mail with mu4e
 
 It is necessary to install isync, setup a .mbsyncrc file like the following:
@@ -1518,17 +1562,19 @@ mu index
   ;; mu4e-compose-hidden-headers '("^Face:" "^X-Face:" "^Openpgp:"
   ;;                               "^X-Draft-From:" "^X-Mailer:"
   ;;"^User-agent:"))
-
   (add-to-list 'org-capture-templates
                '("m" "Email Workflow"))
   (add-to-list 'org-capture-templates
-               '("mf" "Follow Up" entry (file+olp "~/Documents/Org-Files/Mail.org" "Follow Up")
+               '("mf" "Follow Up" entry (file+olp captured-mail-path "Follow Up")
                  "* TODO %a"))
   (add-to-list 'org-capture-templates
-               '("mr" "Read Later" entry (file+olp "~/Documents/Org-Files/Mail.org" "Read Later")
+               '("mr" "Read Later" entry (file+olp captured-mail-path "Read Later")
                  "* TODO %a"))
+
   (add-to-list 'org-capture-templates
-               '("mc" "Captured" entry (file+olp "~/Documents/GithubProjects/phd-thesis/Documents/Org-Files/Mail.org" "Captured")
+               '("c" "Captured items"))
+  (add-to-list 'org-capture-templates
+               '("cm" "Mail" entry (file+olp captured-items-path "Mail")
                  "* TODO %a"))
 
 
@@ -1537,7 +1583,7 @@ mu index
   (use-package org-mime
     :ensure t)
 
-          #+end_src
+#+end_src
 
 #+begin_src emacs-lisp
 
@@ -1568,50 +1614,12 @@ mu index
     :straight (
                :host github
                :files ("*.el")
-               :repo "rougier/mu4e-dashboard"
-               ))
-
-#+end_src
-
-* System Clipboard
-
-#+begin_src emacs-lisp
-
-  (use-package simpleclip
-    :config
-    (simpleclip-mode 1))
-
-#+end_src
-
-* Mode Line
-
-#+begin_src emacs-lisp 
-
-  (setq-default mode-line-format '(
-                                   "%e"
-                                   (:eval
-                                    (if (equal (shell-command-to-string
-                                                "ps aux | grep 'mbsync -a' | wc -l") "3\n")
-                                        "Running mbsync" ""))
-                                   (:eval
-                                    (doom-modeline-format--main))))
-
-#+end_src
-
-* AUCTex setup
-
-#+begin_src emacs-lisp 
-
-  (use-package tex
-    :ensure auctex
-    :config
-    (setq TeX-auto-save t)
-    (setq TeX-parse-self t)
-    (setq-default TeX-master nil))
+               :repo "rougier/mu4e-dashboard"))
 
 #+end_src
 
 * Markdown-EWW preview
+
 #+begin_src emacs-lisp 
 
   (use-package markdown-preview-eww
@@ -1619,7 +1627,19 @@ mu index
     :straight (
                :host github
                :files ("*.el")
-               :repo "niku/markdown-preview-eww"
-               ))
+               :repo "niku/markdown-preview-eww"))
+
+#+end_src
+
+* Perspective
+
+#+begin_src emacs-lisp
+
+  (use-package perspective
+    :ensure t
+    :bind (("C-x k" . persp-kill-buffer*)
+           ("C-x C-b" . persp-ivy-switch-buffer))
+    :init
+    (persp-mode))
 
 #+end_src
