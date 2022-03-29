@@ -1,10 +1,11 @@
 #zmodload zsh/zprof 
 
+source $HOME/.config/zsh/prompt.sh
 source $HOME/.config/zsh/export.sh
 source $HOME/.config/zsh/aliases.sh
 
-ZSH_THEME="simple"
-plugins=(git)
+#ZSH_THEME="simple"
+#plugins=(git)
 eval "$(zoxide init zsh)"
 eval $(thefuck --alias)
 
