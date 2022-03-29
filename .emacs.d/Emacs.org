@@ -482,7 +482,8 @@ To execute or export code in =org-mode= code blocks, you'll need to set up =org-
 
 #+end_src
 
-** Basic Config
+** COMPLETED Basic Config
+CLOSED: [2022-03-29 Tue 15:44]
 
 This section contains the basic configuration for =org-mode= plus the configuration for Org agendas and capture templates.  There's a lot to unpack in here so I'd recommend watching the videos for [[https://youtu.be/VcgjTEa0kU4][Part 5]] and [[https://youtu.be/PNE-mgkZ6HM][Part 6]] for a full explanation.
 
@@ -612,8 +613,8 @@ This section contains the basic configuration for =org-mode= plus the configurat
             ("mw" "Weight" table-line (file+headline "~/.emacs.d/Org-Files/Metrics.org" "Weight")
              "| %U | %^{Weight} | %^{Notes} |" :kill-buffer t)))
 
-    (define-key global-map (kbd "C-c j")
-      (lambda () (interactive) (org-capture nil "mc")))
+    (define-key global-map (kbd "C-c m")
+      (lambda () (interactive) (org-capture nil "cm")))
 
     (define-key global-map (kbd "C-c s")
       (lambda () (interactive) (mark-whole-buffer) (org-sort-entries nil ?o)))

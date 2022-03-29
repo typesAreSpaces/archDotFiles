@@ -433,8 +433,8 @@
           ("mw" "Weight" table-line (file+headline "~/.emacs.d/Org-Files/Metrics.org" "Weight")
            "| %U | %^{Weight} | %^{Notes} |" :kill-buffer t)))
 
-  (define-key global-map (kbd "C-c j")
-    (lambda () (interactive) (org-capture nil "mc")))
+  (define-key global-map (kbd "C-c m")
+    (lambda () (interactive) (org-capture nil "cm")))
 
   (define-key global-map (kbd "C-c s")
     (lambda () (interactive) (mark-whole-buffer) (org-sort-entries nil ?o)))
