@@ -295,6 +295,14 @@
   (set-face-attribute 'line-number nil :inherit 'fixed-pitch)
   (set-face-attribute 'line-number-current-line nil :inherit 'fixed-pitch))
 
+(with-eval-after-load 'org
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (python . t)))
+
+  (push '("conf-unix" . conf-unix) org-src-lang-modes))
+
 (defun efs/org-mode-setup ()
   (org-indent-mode)
   (variable-pitch-mode 1)
@@ -312,9 +320,9 @@
   (setq org-log-into-drawer t)
 
   (setq org-agenda-files
-        '("~/.emacs.d/OrgFiles/Tasks.org"
-          "~/.emacs.d/OrgFiles/Habits.org"
-          "~/.emacs.d/OrgFiles/Birthdays.org"))
+        '("~/.emacs.d/Org-Files/Tasks.org"
+          "~/.emacs.d/Org-Files/Habits.org"
+          "~/.emacs.d/Org-Files/Birthdays.org"))
 
   (require 'org-habit)
   (add-to-list 'org-modules 'org-habit)
@@ -395,32 +403,32 @@
 
   (setq org-capture-templates
         `(("t" "Tasks / Projects")
-          ("tt" "Task" entry (file+olp "~/.emacs.d/OrgFiles/Tasks.org" "Inbox")
+          ("tt" "Task" entry (file+olp "~/.emacs.d/Org-Files/Tasks.org" "Inbox")
            "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
 
           ("j" "Journal Entries")
           ("jj" "Journal" entry
-           (file+olp+datetree "~/.emacs.d/OrgFiles/Journal.org")
+           (file+olp+datetree "~/.emacs.d/Org-Files/Journal.org")
            "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
            ;; ,(dw/read-file-as-string "~/Notes/Templates/Daily.org")
            :clock-in :clock-resume
            :empty-lines 1)
           ("jm" "Meeting" entry
-           (file+olp+datetree "~/.emacs.d/OrgFiles/Journal.org")
+           (file+olp+datetree "~/.emacs.d/Org-Files/Journal.org")
            "* %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
            :clock-in :clock-resume
            :empty-lines 1)
 
           ("w" "Workflows")
-          ("we" "Checking Email" entry (file+olp+datetree "~/.emacs.d/OrgFiles/Journal.org")
+          ("we" "Checking Email" entry (file+olp+datetree "~/.emacs.d/Org-Files/Journal.org")
            "* Checking Email :email:\n\n%?" :clock-in :clock-resume :empty-lines 1)
 
           ("m" "Metrics Capture")
-          ("mw" "Weight" table-line (file+headline "~/.emacs.d/OrgFiles/Metrics.org" "Weight")
+          ("mw" "Weight" table-line (file+headline "~/.emacs.d/Org-Files/Metrics.org" "Weight")
            "| %U | %^{Weight} | %^{Notes} |" :kill-buffer t)))
 
   (define-key global-map (kbd "C-c j")
-    (lambda () (interactive) (org-capture nil "jj")))
+    (lambda () (interactive) (org-capture nil "mc")))
 
   (define-key global-map (kbd "C-c s")
     (lambda () (interactive) (mark-whole-buffer) (org-sort-entries nil ?o)))
@@ -452,14 +460,6 @@
 
 (use-package visual-fill-column
   :hook (org-mode . efs/org-mode-visual-fill))
-
-(with-eval-after-load 'org
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((emacs-lisp . t)
-     (python . t)))
-
-  (push '("conf-unix" . conf-unix) org-src-lang-modes))
 
 (with-eval-after-load 'org
   ;; This is needed as of Org 9.2
@@ -687,6 +687,29 @@
 
 (use-package yasnippet-snippets)
 
+(use-package hide-mode-line)
+
+(defun efs/presentation-setup ()
+  (setq text-scale-mode-amount 3)
+  (hide-mode-line-mode 1)
+  (org-display-inline-images)
+  (text-scale-mode 1))
+
+(defun efs/presentation-end ()
+  (hide-mode-line-mode 0)
+  (text-scale-mode 0))
+
+(use-package org-tree-slide
+  :hook ((org-tree-slide-play . efs/presentation-setup)
+         (org-tree-slide-stop . efs/presentation-end))
+  :custom
+  (org-tree-slide-slide-in-effect t)
+  (org-tree-slide-activate-message "Presentation started!")
+  (org-tree-slide-deactivate-message "Presentation finished!")
+  (org-tree-slide-header t)
+  (org-tree-slide-breadcrumbs " // ")
+  (org-image-actual-width nil))
+
 (use-package mu4e
   :ensure nil
   :straight (
@@ -697,6 +720,7 @@
   ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
   ;; :defer 20 ; Wait until 20 seconds after startup
   :config
+  (require 'mu4e-org)
 
   ;; This is set to 't' to avoid mail syncing issues when using mbsync
   (setq mu4e-change-filenames-when-moving t)
@@ -845,17 +869,30 @@
 ;;                                  :help "OpenPGP information found in mail header"
 ;;                                  :function ed/get-openpgp-header)))
 ;; (setq mu4e-view-fi
-      ;; elds '(:flags :maildir :mailing-list :tags :useragent :openpgp)
-      ;; mu4e-headers-fields '((:flags         . 5)
-      ;;                       (:human-date    . 12)
-      ;;                                   ;(:acctshortname . 4)
-      ;;                       (:foldername    . 25)
-      ;;                       (:from-or-to    . 25)
-      ;;                                   ;(:size          . 6)
-      ;;                       (:subject       . nil))
-      ;; mu4e-compose-hidden-headers '("^Face:" "^X-Face:" "^Openpgp:"
-      ;;                               "^X-Draft-From:" "^X-Mailer:"
-                                    ;;"^User-agent:"))
+;; elds '(:flags :maildir :mailing-list :tags :useragent :openpgp)
+;; mu4e-headers-fields '((:flags         . 5)
+;;                       (:human-date    . 12)
+;;                                   ;(:acctshortname . 4)
+;;                       (:foldername    . 25)
+;;                       (:from-or-to    . 25)
+;;                                   ;(:size          . 6)
+;;                       (:subject       . nil))
+;; mu4e-compose-hidden-headers '("^Face:" "^X-Face:" "^Openpgp:"
+;;                               "^X-Draft-From:" "^X-Mailer:"
+;;"^User-agent:"))
+
+(add-to-list 'org-capture-templates
+             '("m" "Email Workflow"))
+(add-to-list 'org-capture-templates
+             '("mf" "Follow Up" entry (file+olp "~/Documents/Org-Files/Mail.org" "Follow Up")
+               "* TODO %a"))
+(add-to-list 'org-capture-templates
+             '("mr" "Read Later" entry (file+olp "~/Documents/Org-Files/Mail.org" "Read Later")
+               "* TODO %a"))
+(add-to-list 'org-capture-templates
+             '("mc" "Captured" entry (file+olp "~/Documents/GithubProjects/phd-thesis/Documents/Org-Files/Mail.org" "Captured")
+               "* TODO %a"))
+
 
 (use-package mu-cite)
 
@@ -888,29 +925,6 @@
              :repo "rougier/mu4e-dashboard"
              ))
 
-(use-package hide-mode-line)
-
-(defun efs/presentation-setup ()
-  (setq text-scale-mode-amount 3)
-  (hide-mode-line-mode 1)
-  (org-display-inline-images)
-  (text-scale-mode 1))
-
-(defun efs/presentation-end ()
-  (hide-mode-line-mode 0)
-  (text-scale-mode 0))
-
-(use-package org-tree-slide
-  :hook ((org-tree-slide-play . efs/presentation-setup)
-         (org-tree-slide-stop . efs/presentation-end))
-  :custom
-  (org-tree-slide-slide-in-effect t)
-  (org-tree-slide-activate-message "Presentation started!")
-  (org-tree-slide-deactivate-message "Presentation finished!")
-  (org-tree-slide-header t)
-  (org-tree-slide-breadcrumbs " // ")
-  (org-image-actual-width nil))
-
 (use-package simpleclip
   :config
   (simpleclip-mode 1))
@@ -930,3 +944,11 @@
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
   (setq-default TeX-master nil))
+
+(use-package markdown-preview-eww
+  :ensure nil
+  :straight (
+             :host github
+             :files ("*.el")
+             :repo "niku/markdown-preview-eww"
+             ))
