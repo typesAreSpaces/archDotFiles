@@ -8,6 +8,12 @@
 ;; Make frame transparency overridable
 (defvar efs/frame-transparency '(90 . 90))
 
+(defvar org-files-dir "~/Documents/Org-Files")
+(defvar captured-mail-path (concat org-files-dir "/Mail.org"))
+(defvar phd-thesis-dir "~/Documents/GithubProjects/phd-thesis")
+(defvar phd-thesis-org-files-dir (concat phd-thesis-dir "/Documents/Org-Files"))
+(defvar captured-items-path (concat phd-thesis-org-files-dir "/captured_items.org"))
+
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -148,7 +154,7 @@
     "tt" '(counsel-load-theme :which-key "choose theme")
     "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
     "m" '(lambda () (interactive) (mu4e))
-  ))
+    ))
 
 (use-package evil
   :init
@@ -325,6 +331,7 @@
           "~/.emacs.d/Org-Files/Birthdays.org"))
 
   (require 'org-habit)
+  (require 'org-protocol)
   (add-to-list 'org-modules 'org-habit)
   (setq org-habit-graph-column 60)
 
@@ -427,8 +434,8 @@
           ("mw" "Weight" table-line (file+headline "~/.emacs.d/Org-Files/Metrics.org" "Weight")
            "| %U | %^{Weight} | %^{Notes} |" :kill-buffer t)))
 
-  (define-key global-map (kbd "C-c j")
-    (lambda () (interactive) (org-capture nil "mc")))
+  (define-key global-map (kbd "C-c m")
+    (lambda () (interactive) (org-capture nil "cm")))
 
   (define-key global-map (kbd "C-c s")
     (lambda () (interactive) (mark-whole-buffer) (org-sort-entries nil ?o)))
@@ -710,6 +717,26 @@
   (org-tree-slide-breadcrumbs " // ")
   (org-image-actual-width nil))
 
+(use-package simpleclip
+  :config
+  (simpleclip-mode 1))
+
+(setq-default mode-line-format '(
+                                 "%e"
+                                 (:eval
+                                  (if (equal (shell-command-to-string
+                                              "ps aux | grep 'mbsync -a' | wc -l") "3\n")
+                                      "Running mbsync" ""))
+                                 (:eval
+                                  (doom-modeline-format--main))))
+
+(use-package tex
+  :ensure auctex
+  :config
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
+  (setq-default TeX-master nil))
+
 (use-package mu4e
   :ensure nil
   :straight (
@@ -884,15 +911,17 @@
 (add-to-list 'org-capture-templates
              '("m" "Email Workflow"))
 (add-to-list 'org-capture-templates
-             '("mf" "Follow Up" entry (file+olp "~/Documents/Org-Files/Mail.org" "Follow Up")
+             '("mf" "Follow Up" entry (file+olp captured-mail-path "Follow Up")
                "* TODO %a"))
 (add-to-list 'org-capture-templates
-             '("mr" "Read Later" entry (file+olp "~/Documents/Org-Files/Mail.org" "Read Later")
-               "* TODO %a"))
-(add-to-list 'org-capture-templates
-             '("mc" "Captured" entry (file+olp "~/Documents/GithubProjects/phd-thesis/Documents/Org-Files/Mail.org" "Captured")
+             '("mr" "Read Later" entry (file+olp captured-mail-path "Read Later")
                "* TODO %a"))
 
+(add-to-list 'org-capture-templates
+             '("c" "Captured items"))
+(add-to-list 'org-capture-templates
+             '("cm" "Mail" entry (file+olp captured-items-path "Mail")
+               "* TODO %a"))
 
 (use-package mu-cite)
 
@@ -922,28 +951,7 @@
   :straight (
              :host github
              :files ("*.el")
-             :repo "rougier/mu4e-dashboard"
-             ))
-
-(use-package simpleclip
-  :config
-  (simpleclip-mode 1))
-
-(setq-default mode-line-format '(
-                                 "%e"
-                                 (:eval
-                                  (if (equal (shell-command-to-string
-                                              "ps aux | grep 'mbsync -a' | wc -l") "3\n")
-                                      "Running mbsync" ""))
-                                 (:eval
-                                  (doom-modeline-format--main))))
-
-(use-package tex
-  :ensure auctex
-  :config
-  (setq TeX-auto-save t)
-  (setq TeX-parse-self t)
-  (setq-default TeX-master nil))
+             :repo "rougier/mu4e-dashboard"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -964,5 +972,11 @@
   :straight (
              :host github
              :files ("*.el")
-             :repo "niku/markdown-preview-eww"
-             ))
+             :repo "niku/markdown-preview-eww"))
+
+(use-package perspective
+  :ensure t
+  :bind (("C-x k" . persp-kill-buffer*)
+         ("C-x C-b" . persp-ivy-switch-buffer))
+  :init
+  (persp-mode))
