@@ -331,6 +331,7 @@
           "~/.emacs.d/Org-Files/Birthdays.org"))
 
   (require 'org-habit)
+  (require 'org-protocol)
   (add-to-list 'org-modules 'org-habit)
   (setq org-habit-graph-column 60)
 
@@ -906,6 +907,7 @@
 ;; mu4e-compose-hidden-headers '("^Face:" "^X-Face:" "^Openpgp:"
 ;;                               "^X-Draft-From:" "^X-Mailer:"
 ;;"^User-agent:"))
+
 (add-to-list 'org-capture-templates
              '("m" "Email Workflow"))
 (add-to-list 'org-capture-templates
@@ -920,7 +922,6 @@
 (add-to-list 'org-capture-templates
              '("cm" "Mail" entry (file+olp captured-items-path "Mail")
                "* TODO %a"))
-
 
 (use-package mu-cite)
 

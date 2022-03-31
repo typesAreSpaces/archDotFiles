@@ -511,6 +511,7 @@ This section contains the basic configuration for =org-mode= plus the configurat
             "~/.emacs.d/Org-Files/Birthdays.org"))
 
     (require 'org-habit)
+    (require 'org-protocol)
     (add-to-list 'org-modules 'org-habit)
     (setq org-habit-graph-column 60)
 
@@ -634,7 +635,7 @@ This section contains the basic configuration for =org-mode= plus the configurat
 
     (efs/org-font-setup))
 
-#+end_src
+    #+end_src
 
 *** Nicer Heading Bullets
 
@@ -1563,6 +1564,7 @@ mu index
   ;; mu4e-compose-hidden-headers '("^Face:" "^X-Face:" "^Openpgp:"
   ;;                               "^X-Draft-From:" "^X-Mailer:"
   ;;"^User-agent:"))
+
   (add-to-list 'org-capture-templates
                '("m" "Email Workflow"))
   (add-to-list 'org-capture-templates
@@ -1577,8 +1579,7 @@ mu index
   (add-to-list 'org-capture-templates
                '("cm" "Mail" entry (file+olp captured-items-path "Mail")
                  "* TODO %a"))
-
-
+  
   (use-package mu-cite)
 
   (use-package org-mime
