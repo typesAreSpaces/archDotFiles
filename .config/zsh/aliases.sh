@@ -38,16 +38,27 @@ alias tksp="tmux kill-pane"
 alias tks="tmux kill-session"
 alias tksr="tmux kill-server"
 alias t="tmux"
-alias te="tmux new-session -s work -d;\
-  tmux rename-window -t work:1 org-agenda; \
-  tmux send-keys -t work:1 \
+alias te="tmux new-session -s emacs -d;\
+  tmux rename-window -t emacs:1 org-agenda; \
+  tmux send-keys -t emacs:1 \
   emacs\ -nw\ $TODOLIST_DIR/main.org\ \
   C-m;\
-  tmux new-window -t work:2 -n report;\
-  tmux send-keys -t work:2 \
-  report C-m; \
-  tmux a -t work"
+  tmux a -t emacs"
+alias tw="tmux new-session -s agenda -d;\
+  tmux new-session -s scc-project -d;\
+  tmux new-session -s research -d;\
+  tmux new-session -s seminar -d;\
+  tmux new-session -s ta -d;\
+  tmux rename-window -t agenda:1 org-agenda; \
+  tmux send-keys -t agenda:1 \
+  emacs\ -nw\ $TODOLIST_DIR/main.org\ \
+  C-m;\
+  tmux a -t agenda"
 alias spass="SPASS"
+#tmux new-window -t work:2 -n report;\
+#tmux send-keys -t work:2 \
+#report C-m; \
+
 
 # Docker aliases
 alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it seahorn/seahorn-llvm5"
