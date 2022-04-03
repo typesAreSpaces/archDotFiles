@@ -8,9 +8,6 @@
 ;; Make frame transparency overridable
 (defvar efs/frame-transparency '(90 . 90))
 
-(defvar org-files-dir "~/Documents/Org-Files")
-(defvar captured-mail-path (concat org-files-dir "/Mail.org"))
-
 (defvar phd-thesis-dir "~/Documents/GithubProjects/phd-thesis")
 (defvar phd-thesis-org-files-dir
   (concat phd-thesis-dir
