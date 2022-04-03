@@ -175,7 +175,7 @@
     "tt" '(counsel-load-theme :which-key "choose theme")
     "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
     "m" '(lambda () (interactive) (mu4e))
-    ))
+    "r" '(lambda () (interactive) (org-capture nil))))
 
 (use-package evil
   :init
@@ -455,9 +455,6 @@
            (file+olp ta-tasks-mail "Captured Email")
            "* TODO Check this email %a"
            :immediate-finish t)))
-
-  (define-key global-map (kbd "C-c r")
-    (lambda () (interactive) (org-capture nil)))
 
   (define-key global-map (kbd "C-c s")
     (lambda () (interactive) (mark-whole-buffer) (org-sort-entries nil ?o)))
