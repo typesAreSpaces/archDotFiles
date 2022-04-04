@@ -8,9 +8,6 @@
 ;; Make frame transparency overridable
 (defvar efs/frame-transparency '(90 . 90))
 
-(defvar org-files-dir "~/Documents/Org-Files")
-(defvar captured-mail-path (concat org-files-dir "/Mail.org"))
-
 (defvar phd-thesis-dir "~/Documents/GithubProjects/phd-thesis")
 (defvar phd-thesis-org-files-dir
   (concat phd-thesis-dir
@@ -175,7 +172,7 @@
     "tt" '(counsel-load-theme :which-key "choose theme")
     "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
     "m" '(lambda () (interactive) (mu4e))
-    ))
+    "r" '(lambda () (interactive) (org-capture nil))))
 
 (use-package evil
   :init
@@ -455,9 +452,6 @@
            (file+olp ta-tasks-mail "Captured Email")
            "* TODO Check this email %a"
            :immediate-finish t)))
-
-  (define-key global-map (kbd "C-c r")
-    (lambda () (interactive) (org-capture nil)))
 
   (define-key global-map (kbd "C-c s")
     (lambda () (interactive) (mark-whole-buffer) (org-sort-entries nil ?o)))
@@ -987,3 +981,47 @@
          ("C-x C-b" . persp-ivy-switch-buffer))
   :init
   (persp-mode))
+
+(use-package org-modern
+  :ensure t
+  :straight (
+             :host github
+             :files ("*.el")
+             :repo "minad/org-modern")
+  :config
+  ;; Add frame borders and window dividers
+  (modify-all-frames-parameters
+   '((right-divider-width . 40)
+     (internal-border-width . 40)))
+  (dolist (face '(window-divider
+                  window-divider-first-pixel
+                  window-divider-last-pixel))
+    (face-spec-reset-face face)
+    (set-face-foreground face (face-attribute 'default :background)))
+  (set-face-background 'fringe (face-attribute 'default :background))
+
+  (setq
+   ;; Edit settings
+   org-auto-align-tags nil
+   org-tags-column 0
+   org-catch-invisible-edits 'show-and-error
+   org-special-ctrl-a/e t
+   org-insert-heading-respect-content t
+
+   ;; Org styling, hide markup etc.
+   org-hide-emphasis-markers t
+   org-pretty-entities t
+   org-ellipsis "…"
+
+   ;; Agenda styling
+   org-agenda-block-separator ?─
+   org-agenda-time-grid
+   '((daily today require-timed)
+     (800 1000 1200 1400 1600 1800 2000)
+     " ┄┄┄┄┄ " "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
+   org-agenda-current-time-string
+   "⭠ now ─────────────────────────────────────────────────")
+
+  ;; Enable org-modern-mode
+  (add-hook 'org-mode-hook #'org-modern-mode)
+  (add-hook 'org-agenda-finalize-hook #'org-modern-agenda))
