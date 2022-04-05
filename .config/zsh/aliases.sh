@@ -55,6 +55,7 @@ alias tw="tmux new-session -s agenda -d;\
   C-m;\
   tmux a -t agenda"
 alias spass="SPASS"
+alias mozilla="firefox"
 #tmux new-window -t work:2 -n report;\
 #tmux send-keys -t work:2 \
 #report C-m; \
