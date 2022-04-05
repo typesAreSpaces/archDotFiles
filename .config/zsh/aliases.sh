@@ -25,6 +25,7 @@ alias m2="M2 --script"
 alias v="vim"
 alias nv="nvim --listen localhost:12345"
 alias nvs="nvim --listen localhost:12345 -S session"
+alias c="clear"
 alias e="emacs -nw"
 alias ec="emacsclient -nw -c"
 alias todo="emacs -nw $PHD_THESIS_DIR/Documents/Org-Files/research_tasks.org"
@@ -55,6 +56,7 @@ alias tw="tmux new-session -s agenda -d;\
   C-m;\
   tmux a -t agenda"
 alias spass="SPASS"
+alias singular="Singular"
 alias mozilla="firefox"
 #tmux new-window -t work:2 -n report;\
 #tmux send-keys -t work:2 \
