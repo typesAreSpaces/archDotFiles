@@ -19,11 +19,29 @@ In this document I've added links in many places that lead you to documentation 
   ;; Make frame transparency overridable
   (defvar efs/frame-transparency '(90 . 90))
 
-  (defvar org-files-dir "~/Documents/Org-Files")
-  (defvar captured-mail-path (concat org-files-dir "/Mail.org"))
   (defvar phd-thesis-dir "~/Documents/GithubProjects/phd-thesis")
-  (defvar phd-thesis-org-files-dir (concat phd-thesis-dir "/Documents/Org-Files"))
-  (defvar captured-items-path (concat phd-thesis-org-files-dir "/captured_items.org"))
+  (defvar phd-thesis-org-files-dir
+    (concat phd-thesis-dir
+            "/Documents/Org-Files"))
+  (defvar seminar-org-files-dir 
+    (concat phd-thesis-dir
+            "/Documents/Seminars/BeihangUniversity-Fall2021/Org-Files"))
+  (defvar ta-org-files-dir 
+    (concat phd-thesis-dir
+            "/Documents/Semesters/Spring/2022/TA-CS-429-529/Org-Files"))
+
+  (defvar research-tasks-mail 
+    (concat phd-thesis-org-files-dir "/research_tasks.org"))
+  (defvar lunch-tasks-mail 
+    (concat phd-thesis-org-files-dir "/lunch_tasks.org"))
+  (defvar side-tasks-mail 
+    (concat phd-thesis-org-files-dir "/side_tasks.org"))
+  (defvar school-tasks-mail 
+    (concat phd-thesis-org-files-dir "/school_tasks.org"))
+  (defvar seminar-tasks-mail 
+    (concat seminar-org-files-dir "/seminar_tasks.org"))
+  (defvar ta-tasks-mail 
+    (concat ta-org-files-dir "/current_tasks.org"))
 
 #+end_src
 
@@ -233,7 +251,7 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
       "tt" '(counsel-load-theme :which-key "choose theme")
       "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
       "m" '(lambda () (interactive) (mu4e))
-      ))
+      "r" '(lambda () (interactive) (org-capture nil))))
 
   (use-package evil
     :init
@@ -520,6 +538,7 @@ This section contains the basic configuration for =org-mode= plus the configurat
             "~/.emacs.d/Org-Files/Birthdays.org"))
 
     (require 'org-habit)
+    (require 'org-protocol)
     (add-to-list 'org-modules 'org-habit)
     (setq org-habit-graph-column 60)
 
@@ -597,33 +616,31 @@ This section contains the basic configuration for =org-mode= plus the configurat
                      (org-agenda-files org-agenda-files)))))))
 
     (setq org-capture-templates
-          `(("t" "Tasks / Projects")
-            ("tt" "Task" entry (file+olp "~/.emacs.d/Org-Files/Tasks.org" "Inbox")
-             "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
-
-            ("j" "Journal Entries")
-            ("jj" "Journal" entry
-             (file+olp+datetree "~/.emacs.d/Org-Files/Journal.org")
-             "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
-             ;; ,(dw/read-file-as-string "~/Notes/Templates/Daily.org")
-             :clock-in :clock-resume
-             :empty-lines 1)
-            ("jm" "Meeting" entry
-             (file+olp+datetree "~/.emacs.d/Org-Files/Journal.org")
-             "* %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
-             :clock-in :clock-resume
-             :empty-lines 1)
-
-            ("w" "Workflows")
-            ("we" "Checking Email" entry (file+olp+datetree "~/.emacs.d/Org-Files/Journal.org")
-             "* Checking Email :email:\n\n%?" :clock-in :clock-resume :empty-lines 1)
-
-            ("m" "Metrics Capture")
-            ("mw" "Weight" table-line (file+headline "~/.emacs.d/Org-Files/Metrics.org" "Weight")
-             "| %U | %^{Weight} | %^{Notes} |" :kill-buffer t)))
-
-    (define-key global-map (kbd "C-c m")
-      (lambda () (interactive) (org-capture nil "cm")))
+          `(("m" "Email Capture")
+            ("mr" "Research Tasks" entry
+             (file+olp research-tasks-mail "Captured Email")
+             "* TODO Check this email %a"
+             :immediate-finish t)
+            ("ml" "Lunch Tasks" entry
+             (file+olp lunch-tasks-mail "Captured Email")
+             "* TODO Check this email %a"
+             :immediate-finish t)
+            ("ms" "Side Tasks" entry
+             (file+olp side-tasks-mail "Captured Email")
+             "* TODO Check this email %a"
+             :immediate-finish t)
+            ("mc" "School Tasks" entry
+             (file+olp school-tasks-mail "Captured Email")
+             "* TODO Check this email %a"
+             :immediate-finish t)
+            ("me" "Seminar Tasks" entry
+             (file+olp seminar-tasks-mail "Captured Email")
+             "* TODO Check this email %a"
+             :immediate-finish t)
+            ("mt" "TA Tasks" entry
+             (file+olp ta-tasks-mail "Captured Email")
+             "* TODO Check this email %a"
+             :immediate-finish t)))
 
     (define-key global-map (kbd "C-c s")
       (lambda () (interactive) (mark-whole-buffer) (org-sort-entries nil ?o)))
@@ -1572,21 +1589,6 @@ mu index
   ;; mu4e-compose-hidden-headers '("^Face:" "^X-Face:" "^Openpgp:"
   ;;                               "^X-Draft-From:" "^X-Mailer:"
   ;;"^User-agent:"))
-  (add-to-list 'org-capture-templates
-               '("m" "Email Workflow"))
-  (add-to-list 'org-capture-templates
-               '("mf" "Follow Up" entry (file+olp captured-mail-path "Follow Up")
-                 "* TODO %a"))
-  (add-to-list 'org-capture-templates
-               '("mr" "Read Later" entry (file+olp captured-mail-path "Read Later")
-                 "* TODO %a"))
-
-  (add-to-list 'org-capture-templates
-               '("c" "Captured items"))
-  (add-to-list 'org-capture-templates
-               '("cm" "Mail" entry (file+olp captured-items-path "Mail")
-                 "* TODO %a"))
-
 
   (use-package mu-cite)
 
@@ -1651,5 +1653,54 @@ mu index
            ("C-x C-b" . persp-ivy-switch-buffer))
     :init
     (persp-mode))
+
+#+end_src
+
+* Modern Org Style
+#+begin_src emacs-lisp 
+
+  (use-package org-modern
+    :ensure t
+    :straight (
+               :host github
+               :files ("*.el")
+               :repo "minad/org-modern")
+    :config
+    ;; Add frame borders and window dividers
+    (modify-all-frames-parameters
+     '((right-divider-width . 40)
+       (internal-border-width . 40)))
+    (dolist (face '(window-divider
+                    window-divider-first-pixel
+                    window-divider-last-pixel))
+      (face-spec-reset-face face)
+      (set-face-foreground face (face-attribute 'default :background)))
+    (set-face-background 'fringe (face-attribute 'default :background))
+
+    (setq
+     ;; Edit settings
+     org-auto-align-tags nil
+     org-tags-column 0
+     org-catch-invisible-edits 'show-and-error
+     org-special-ctrl-a/e t
+     org-insert-heading-respect-content t
+
+     ;; Org styling, hide markup etc.
+     org-hide-emphasis-markers t
+     org-pretty-entities t
+     org-ellipsis "…"
+
+     ;; Agenda styling
+     org-agenda-block-separator ?─
+     org-agenda-time-grid
+     '((daily today require-timed)
+       (800 1000 1200 1400 1600 1800 2000)
+       " ┄┄┄┄┄ " "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
+     org-agenda-current-time-string
+     "⭠ now ─────────────────────────────────────────────────")
+
+    ;; Enable org-modern-mode
+    (add-hook 'org-mode-hook #'org-modern-mode)
+    (add-hook 'org-agenda-finalize-hook #'org-modern-agenda))
 
 #+end_src

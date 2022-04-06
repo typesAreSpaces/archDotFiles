@@ -6,6 +6,9 @@
 alt + Return
 	alacritty
 
+alt + backslash
+  alacritty -e tmux attach
+
 # program launcher
 alt + @space
   rofi -show drun -display-drun "" -theme ~/.config/rofi/launchers/text/style_3.rasi
@@ -20,11 +23,11 @@ alt + Escape
 
 # turn off computer 
 alt + shift + p
-  shutdown -h 0
+  emacsclient -e "(kill-emacs)"; shutdown -h 0
 
 # reboot computer 
 alt + shift + r
-  reboot
+  emacsclient -e "(kill-emacs)"; reboot
 
 # lockscreen
 alt + shift + x
