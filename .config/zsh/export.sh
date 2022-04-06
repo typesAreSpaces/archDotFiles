@@ -7,6 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export ZSH_PLUGINS='/usr/share/zsh/plugins'
 export GTK_PATH='/usr/lib/gtk-2.0'
 export _JAVA_AWT_WM_NONREPARENTING=1
+export POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 export APPS_DIR="$HOME/Documents/Apps"
 export MATLAB_DIR="$APPS_DIR/MATLAB/R2022a/bin"
