@@ -11,7 +11,7 @@ alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
 alias extra="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-talks/mpi21"
 alias report="cd $REPORTS_DIR/$CURRENT_REPORT"
 alias ta="cd $CURRENT_TA_DIR"
-alias grading="cd $CURRENT_TA_DIR/Assignments/Project-1/Students"
+alias grading="cd $CURRENT_TA_DIR/Assignments/Project-2/Students"
 alias thesis="cd $WRITE_UPS_DIR/thesis"
 alias personal_notes="cd $WRITE_UPS_DIR/personal_notes"
 alias seminar="cd $PHD_DOCUMENTS/Seminars/BeihangUniversity-Fall2021"
@@ -47,6 +47,7 @@ alias te="tmux new-session -s work -d;\
   tmux send-keys -t work:2 \
   report C-m; \
   tmux a -t work"
+alias spass="SPASS"
 
 # Docker aliases
 alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it seahorn/seahorn-llvm5"
