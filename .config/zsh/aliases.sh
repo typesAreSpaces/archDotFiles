@@ -25,6 +25,7 @@ alias m2="M2 --script"
 alias v="vim"
 alias nv="nvim --listen localhost:12345"
 alias nvs="nvim --listen localhost:12345 -S session"
+alias c="clear"
 alias e="emacs -nw"
 alias ec="emacsclient -nw -c"
 alias todo="emacs -nw $PHD_THESIS_DIR/Documents/Org-Files/research_tasks.org"
@@ -35,31 +36,31 @@ alias ccwr="changeCurrentWeeklyReport"
 alias qcu="quickConfigUpdate"
 alias bsptall1="bspLayout tall 1"
 alias tksp="tmux kill-pane"
-alias tks="tmux kill-session"
+alias tks="tmux kill-session -t "
 alias tksr="tmux kill-server"
 alias t="tmux"
-alias te="tmux new-session -s emacs -d;\
+alias te="tmux new -s emacs -d;\
   tmux rename-window -t emacs:1 org-agenda; \
   tmux send-keys -t emacs:1 \
   emacs\ -nw\ $TODOLIST_DIR/main.org\ \
   C-m;\
-  tmux a -t emacs"
-alias tw="tmux new-session -s agenda -d;\
-  tmux new-session -s scc-project -d;\
-  tmux new-session -s research -d;\
-  tmux new-session -s seminar -d;\
-  tmux new-session -s ta -d;\
+  tmux switch -t emacs"
+alias tw="tmux new -s agenda -d;\
+  tmux new -s scc-project -d;\
+  tmux new -s research -d;\
+  tmux new -s seminar -d;\
+  tmux new -s ta -d;\
   tmux rename-window -t agenda:1 org-agenda; \
   tmux send-keys -t agenda:1 \
   emacs\ -nw\ $TODOLIST_DIR/main.org\ \
   C-m;\
-  tmux a -t agenda"
+  tmux switch -t agenda"
 alias spass="SPASS"
+alias singular="Singular"
 alias mozilla="firefox"
 #tmux new-window -t work:2 -n report;\
 #tmux send-keys -t work:2 \
 #report C-m; \
-
 
 # Docker aliases
 alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it seahorn/seahorn-llvm5"
