@@ -6,6 +6,9 @@
 super + Return
 	alacritty
 
+alt + backslash
+  alacritty -e tmux attach
+
 # program launcher
 super + @space
   rofi -show drun -display-drun "" -theme ~/.config/rofi/launchers/text/style_3.rasi

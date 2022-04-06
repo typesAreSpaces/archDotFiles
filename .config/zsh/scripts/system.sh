@@ -48,3 +48,8 @@ installArchPackages(){
 changeVolume(){
   pactl set-sink-volume $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") $1
 }
+
+tss(){
+  tmux new -s $1 -d
+  tmux switch -t $1
+}
