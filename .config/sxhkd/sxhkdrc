@@ -22,11 +22,15 @@ super + Escape
 #
 
 # turn off computer 
-super + shift + p
-  shutdown -h 0
+alt + shift + p
+  emacsclient -e "(kill-emacs)"; shutdown -h 0
 
-#lockscreen 
-super + shift + x
+# reboot computer 
+alt + shift + r
+  emacsclient -e "(kill-emacs)"; reboot
+
+# lockscreen
+alt + shift + x
   betterlockscreen -l dim
 
 # reboot computer 
