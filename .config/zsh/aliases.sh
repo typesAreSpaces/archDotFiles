@@ -15,7 +15,7 @@ alias grading="cd $CURRENT_TA_DIR/Assignments/Project-2/Students"
 alias thesis="cd $WRITE_UPS_DIR/thesis"
 alias personal_notes="cd $WRITE_UPS_DIR/personal_notes"
 alias seminar="cd $PHD_DOCUMENTS/Seminars/BeihangUniversity-Fall2021"
-alias scc="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-nfs-proposal"
+alias scc="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-nsf-proposal"
 
 # Program aliases
 alias open="xdg-open"
@@ -26,7 +26,7 @@ alias v="vim"
 alias nv="nvim --listen localhost:12345"
 alias nvs="nvim --listen localhost:12345 -S session"
 alias c="clear"
-alias e="emacs -nw"
+alias e="emacsclient -nw -c"
 alias ec="emacsclient -nw -c"
 alias todo="emacs -nw $PHD_THESIS_DIR/Documents/Org-Files/research_tasks.org"
 alias updatetodos="$SCRIPT_DIR/updateTodoLists.sh"
@@ -39,12 +39,12 @@ alias tksp="tmux kill-pane"
 alias tks="tmux kill-session -t "
 alias tksr="tmux kill-server"
 alias t="tmux"
-alias te="tmux new -s emacs -d;\
-  tmux rename-window -t emacs:1 org-agenda; \
-  tmux send-keys -t emacs:1 \
-  emacs\ -nw\ $TODOLIST_DIR/main.org\ \
+alias te="tmux new -s agenda -d;\
+  tmux rename-window -t agenda:1 org-agenda; \
+  tmux send-keys -t agenda:1 \
+  emacsclient\ -nw\ $TODOLIST_DIR/main.org\ \
   C-m;\
-  tmux switch -t emacs"
+  tmux switch -t agenda"
 alias tw="tmux new -s agenda -d;\
   tmux new -s scc-project -d;\
   tmux new -s research -d;\
@@ -52,7 +52,7 @@ alias tw="tmux new -s agenda -d;\
   tmux new -s ta -d;\
   tmux rename-window -t agenda:1 org-agenda; \
   tmux send-keys -t agenda:1 \
-  emacs\ -nw\ $TODOLIST_DIR/main.org\ \
+  emacsclient\ -nw\ $TODOLIST_DIR/main.org\ \
   C-m;\
   tmux switch -t agenda"
 alias spass="SPASS"
