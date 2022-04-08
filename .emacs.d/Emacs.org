@@ -301,6 +301,28 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
 
 #+end_src
 
+[[https://github.com/protesilaos/modus-themes][modus-themes]]
+
+#+begin_src emacs-lisp 
+
+  ;(use-package modus-themes
+  ;  :ensure
+  ;  :init
+  ;  ;; Add all your customizations prior to loading the themes
+  ;  (setq modus-themes-italic-constructs t
+  ;        modus-themes-bold-constructs nil
+  ;        modus-themes-region '(bg-only no-extend))
+
+  ;  ;; Load the theme files before enabling a theme
+  ;  (modus-themes-load-themes)
+  ;  :config
+  ;  ;; Load the theme of your choice:
+  ;  ;;(modus-themes-load-operandi)
+  ;  (modus-themes-load-vivendi)
+  ;  :bind ("<f5>" . modus-themes-toggle))
+
+#+end_src
+
 ** Better Modeline
 
 [[https://github.com/seagle0128/doom-modeline][doom-modeline]] is a very attractive and rich (yet still minimal) mode line configuration for Emacs.  The default configuration is quite good but you can check out the [[https://github.com/seagle0128/doom-modeline#customize][configuration options]] for more things you can enable or disable.
