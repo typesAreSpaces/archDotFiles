@@ -65,12 +65,7 @@
 
 (use-package auto-package-update
   :custom
-  (auto-package-update-interval 7)
-  (auto-package-update-prompt-before-update t)
-  (auto-package-update-hide-results t)
-  :config
-  (auto-package-update-maybe)
-  (auto-package-update-at-time "09:00"))
+  (auto-package-update-hide-results t))
 
 ;; The default is 800 kilobytes.  Measured in bytes.
 (setq gc-cons-threshold (* 50 1000 1000))
@@ -201,6 +196,22 @@
 
 (use-package doom-themes
   :init (load-theme 'doom-nord t))
+
+;(use-package modus-themes
+;  :ensure
+;  :init
+;  ;; Add all your customizations prior to loading the themes
+;  (setq modus-themes-italic-constructs t
+;        modus-themes-bold-constructs nil
+;        modus-themes-region '(bg-only no-extend))
+
+;  ;; Load the theme files before enabling a theme
+;  (modus-themes-load-themes)
+;  :config
+;  ;; Load the theme of your choice:
+;  ;;(modus-themes-load-operandi)
+;  (modus-themes-load-vivendi)
+;  :bind ("<f5>" . modus-themes-toggle))
 
 (use-package all-the-icons)
 
