@@ -1,12 +1,21 @@
 update(){
+  echo ">>> Update local projects"
   for project in ${ACTIVE_PROJECTS[@]}; do
-    echo "Updating project: $project"
+    echo ">>> Updating project: $project"
     pushd $project
     git pull
     popd
   done
+  echo ">>> Update config"
   updateMachine.sh;
+  echo ">>> Update software"
   paru;
+  echo ">>> Update emacs packages"
+  emacsclient -e "(auto-package-update-now)"
+  emacsclient -e "(kill-emacs)"
+  emacs --daemon
+  echo ">>> Update neovim packages"
+  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync';
 }
 
 setScreenBrightness(){
