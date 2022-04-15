@@ -13,7 +13,7 @@ snippet ;label "Label" iA
 endsnippet
 
 snippet ;ref "Reference" iA
-(\\ref{${1:`!v @+`}}) $0
+\\ref{${1:`!v @+`}}$0
 endsnippet
 
 snippet ;todo "TODO label" iA
@@ -122,6 +122,22 @@ endsnippet
 
 snippet ;commentm "Multiple Lines Comment" iA
 \\tcc{$1}$0
+endsnippet
+
+# ebproof environment
+
+snippet ;ptree "Start proof" iA
+\\begin{prooftree}
+$0
+\\end{prooftree}
+endsnippet
+
+snippet ;htree "Hypotheesis in proof tree" iA
+\\hypo{$1}$0
+endsnippet
+
+snippet ;itree "Inference in proof tree" iA
+\\infer${1:1}[${2:}]{$3}$0
 endsnippet
 
 # Beamer environment

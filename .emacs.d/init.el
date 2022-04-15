@@ -1,37 +1,3 @@
-;; NOTE: init.el is now generated from Emacs.org.  Please edit that file
-;;       in Emacs and init.el will be generated automatically!
-
-;; You will most likely need to adjust this font size for your system!
-(defvar efs/default-font-size 140)
-(defvar efs/default-variable-font-size 140)
-
-;; Make frame transparency overridable
-(defvar efs/frame-transparency '(90 . 90))
-
-(defvar phd-thesis-dir "~/Documents/GithubProjects/phd-thesis")
-(defvar phd-thesis-org-files-dir
-  (concat phd-thesis-dir
-          "/Documents/Org-Files"))
-(defvar seminar-org-files-dir 
-  (concat phd-thesis-dir
-          "/Documents/Seminars/BeihangUniversity-Fall2021/Org-Files"))
-(defvar ta-org-files-dir 
-  (concat phd-thesis-dir
-          "/Documents/Semesters/Spring/2022/TA-CS-429-529/Org-Files"))
-
-(defvar research-tasks-mail 
-  (concat phd-thesis-org-files-dir "/research_tasks.org"))
-(defvar lunch-tasks-mail 
-  (concat phd-thesis-org-files-dir "/lunch_tasks.org"))
-(defvar side-tasks-mail 
-  (concat phd-thesis-org-files-dir "/side_tasks.org"))
-(defvar school-tasks-mail 
-  (concat phd-thesis-org-files-dir "/school_tasks.org"))
-(defvar seminar-tasks-mail 
-  (concat seminar-org-files-dir "/seminar_tasks.org"))
-(defvar ta-tasks-mail 
-  (concat ta-org-files-dir "/current_tasks.org"))
-
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -89,6 +55,45 @@
 ;; auto save files in the same path as it uses for sessions
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+
+;; NOTE: init.el is now generated from Emacs.org.  Please edit that file
+;;       in Emacs and init.el will be generated automatically!
+
+;; You will most likely need to adjust this font size for your system!
+(defvar efs/default-font-size 160)
+(defvar efs/default-variable-font-size 160)
+
+;; Make frame transparency overridable
+(defvar efs/frame-transparency '(90 . 90))
+
+(defvar phd-thesis-dir "~/Documents/GithubProjects/phd-thesis")
+(defvar phd-thesis-org-files-dir
+  (concat phd-thesis-dir
+          "/Documents/Org-Files"))
+(defvar scc-org-files-dir 
+  (concat phd-thesis-dir
+          "/Documents/Side-Projects/kapur-nsf-proposal/Org-Files"))
+(defvar seminar-org-files-dir 
+  (concat phd-thesis-dir
+          "/Documents/Seminars/BeihangUniversity-Fall2021/Org-Files"))
+(defvar ta-org-files-dir 
+  (concat phd-thesis-dir
+          "/Documents/Semesters/Spring/2022/TA-CS-429-529/Org-Files"))
+
+(defvar research-tasks-mail 
+  (concat phd-thesis-org-files-dir "/research_tasks.org"))
+(defvar lunch-tasks-mail 
+  (concat phd-thesis-org-files-dir "/lunch_tasks.org"))
+(defvar side-tasks-mail 
+  (concat phd-thesis-org-files-dir "/side_tasks.org"))
+(defvar scc-tasks-mail 
+  (concat scc-org-files-dir "/scc_tasks.org"))
+(defvar school-tasks-mail 
+  (concat phd-thesis-org-files-dir "/school_tasks.org"))
+(defvar seminar-tasks-mail 
+  (concat seminar-org-files-dir "/seminar_tasks.org"))
+(defvar ta-tasks-mail 
+  (concat ta-org-files-dir "/current_tasks.org"))
 
 (use-package beacon)
 
@@ -447,8 +452,8 @@
            (file+olp lunch-tasks-mail "Captured Email")
            "* TODO Check this email %a"
            :immediate-finish t)
-          ("ms" "Side Tasks" entry
-           (file+olp side-tasks-mail "Captured Email")
+          ("ms" "SCC Project Tasks" entry
+           (file+olp scc-tasks-mail "Captured Email")
            "* TODO Check this email %a"
            :immediate-finish t)
           ("mc" "School Tasks" entry
@@ -964,20 +969,6 @@
              :host github
              :files ("*.el")
              :repo "rougier/mu4e-dashboard"))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(auctex yasnippet-snippets which-key vterm visual-fill-column use-package typescript-mode simpleclip rainbow-delimiters pyvenv python-mode org-tree-slide org-bullets no-littering mu4e-alert mu-cite lsp-ui lsp-ivy ivy-rich ivy-prescient hide-mode-line helpful general forge flx evil-nerd-commenter evil-collection eterm-256color eshell-git-prompt doom-themes doom-modeline dired-single dired-open dired-hide-dotfiles dashboard dap-mode counsel-projectile company-box command-log-mode auto-package-update all-the-icons-dired)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 (use-package markdown-preview-eww
   :ensure nil
