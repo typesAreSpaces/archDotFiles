@@ -12,13 +12,9 @@ update(){
   paru;
   echo ">>> Update emacs packages"
   emacsclient -e "(auto-package-update-now)"
-  wait $!
   emacsclient -e "(straight-pull-all)"
-  wait $!
   emacsclient -e "(straight-rebuild-all)"
-  wait $!
   emacsclient -e "(kill-emacs)"
-  wait $!
   emacs --daemon
   echo ">>> Update neovim packages"
   nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync';

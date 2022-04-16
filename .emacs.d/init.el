@@ -31,7 +31,8 @@
 
 (use-package auto-package-update
   :custom
-  (auto-package-update-hide-results t))
+  (auto-package-update-hide-results t)
+  (auto-package-update-delete-old-versions t))
 
 ;; The default is 800 kilobytes.  Measured in bytes.
 (setq gc-cons-threshold (* 50 1000 1000))
@@ -644,13 +645,6 @@
 
 (use-package eterm-256color
   :hook (term-mode . eterm-256color-mode))
-
-(use-package vterm
-  :commands vterm
-  :config
-  (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")  ;; Set this to match your custom shell prompt
-  ;;(setq vterm-shell "zsh")                       ;; Set this to customize the shell to launch
-  (setq vterm-max-scrollback 10000))
 
 (when (eq system-type 'windows-nt)
   (setq explicit-shell-file-name "powershell.exe")
