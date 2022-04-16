@@ -39,12 +39,11 @@ alias tksp="tmux kill-pane"
 alias tks="tmux kill-session -t "
 alias tksr="tmux kill-server"
 alias t="tmux"
-alias te="tmux new -s agenda -d;\
+alias te="tmux rename-session agenda;\
   tmux rename-window -t agenda:1 org-agenda; \
   tmux send-keys -t agenda:1 \
   emacsclient\ -nw\ $TODOLIST_DIR/main.org\ \
-  C-m;\
-  tmux switch -t agenda"
+  C-m;"
 alias tw="tmux new -s agenda -d;\
   tmux new -s scc-project -d;\
   tmux new -s research -d;\
