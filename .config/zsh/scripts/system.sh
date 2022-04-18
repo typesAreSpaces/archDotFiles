@@ -60,3 +60,7 @@ tns(){
   tmux new -s $1 -d
   tmux switch -t $1
 }
+
+trs(){
+  tmux rename-session $1
+}
