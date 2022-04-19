@@ -1,0 +1,4 @@
+#!/bin/sh
+#
+OUTPUT=$(tmux ls | wc -l)
+echo $OUTPUT
