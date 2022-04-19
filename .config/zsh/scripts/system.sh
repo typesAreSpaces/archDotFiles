@@ -12,6 +12,8 @@ update(){
   paru;
   echo ">>> Update emacs packages"
   emacsclient -e "(auto-package-update-now)"
+  emacsclient -e "(straight-pull-all)"
+  emacsclient -e "(straight-rebuild-all)"
   emacsclient -e "(kill-emacs)"
   emacs --daemon
   echo ">>> Update neovim packages"
@@ -61,4 +63,8 @@ changeVolume(){
 tns(){
   tmux new -s $1 -d
   tmux switch -t $1
+}
+
+trs(){
+  tmux rename-session $1
 }
