@@ -3,7 +3,7 @@ shell:
   args:
     - --login
     - -c
-    - "tmux new-session"
+    - "tmux new-session -s \"$(/home/jose/.local/scripts/tmux-session-number)\""
 colors:
   primary:
     background: '#282828'

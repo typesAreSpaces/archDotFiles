@@ -1277,7 +1277,14 @@ Dial the GC threshold back down so that garbage collection happens more frequent
 
   (use-package yasnippet-snippets)
 
-#+end_src
+  (defun my-yas-try-expanding-auto-snippets ()
+    (when yas-minor-mode
+      (let ((yas-buffer-local-condition ''(require-snippet-condition . auto)))
+        (yas-expand))))
+
+  (add-hook 'post-command-hook #'my-yas-try-expanding-auto-snippets)
+
+    #+end_src
 
 
 * Presentation mode with org-tree-slide
