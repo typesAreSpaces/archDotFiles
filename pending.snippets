@@ -1,0 +1,237 @@
+snippet ';prime(\d+)' "LaTeX array" riA
+$1^{`!p
+primes = ""
+for _ in range(0, int(match.group(1))): primes += "\prime"
+snip.rv = primes`}$0
+endsnippet	
+
+# Latex-related
+
+snippet ;table "Table environment" iA
+\begin{table}[${1:htpb}]
+	\centering
+	\caption{${2:caption}}
+	\label{tab:${3:label}}
+	\begin{tabular}{${5:c}}
+	$0${5/((?<=.)c|l|r)|./(?1: & )/g}
+	\end{tabular}
+\end{table}
+endsnippet
+
+snippet ;fig "Figure environment" iA
+\begin{figure}[${1:htpb}]
+	\centering
+	\includegraphics[width=${3:0.8}\textwidth]{./figures/$2}
+	\caption{${4:$2}}
+	\label{fig:${5:${2/\W+/-/g}}}
+\end{figure}
+endsnippet
+
+global !p
+from os import getcwd
+from os import system
+from os.path import exists
+
+def stringify_args(rex, num):
+	stringify = []
+	for x in rex.group(1).split(","):
+		stringify.append("\'" + x + "\'")
+	if(num == -1):
+		return stringify
+	return stringify[:num]
+
+def joinArgsFstArg(rex):
+	stringify = stringify_args(rex, -1)
+	# The [1:-1] removes the extra quotes
+	first_arg = stringify[0][1:-1]
+	return ' '.join(stringify), first_arg
+
+def stringToPath(s):
+	return s.replace(' ', '\\ ')
+
+def removeExtraQuotes(s):
+	return s[1:-1]
+
+# file_name: either '/kldb.tex' or '/idxdb.tex'
+# cmd_path: either '/home/jose/.local/scripts/add-knowledge -p ' or '/home/jose/.local/scripts/add-glossary -p '
+# prefix_entry: either ' -e \'index=' or ' -e \'newglossaryentry{'
+# prefix_output: either "\\intro{" or "\\glsadd{"
+def aux_add_cmd(file_name, cmd_path, prefix_entry, prefix_output):
+	curr_dir = getcwd()
+	curr_file = curr_dir + file_name
+	curr_file_path = stringToPath(curr_file)
+	if(not(exists(curr_file))):
+		file_cmd = 'touch ' + curr_file_path
+		system(file_cmd)
+	add_cmd=cmd_path + curr_file_path + ' '
+	args, first_arg = joinArgsFstArg(match)
+	command = "if ! grep " + curr_file + prefix_entry + first_arg + '}\'; then ' + add_cmd + args + '; fi'
+	system(command)
+	return prefix_output + first_arg + '}'
+endglobal
+
+snippet ';intro(\w+[,\w+[\s\w]*]*)  ' "Intro Knowledge" riA
+`!p
+snip.rv = aux_add_cmd('/kldb.tex', '/home/jose/.local/scripts/add-knowledge -p ', ' -e \'index=', "\\intro{")
+` $0
+endsnippet
+
+snippet ;kl "Use Knowledge" iA
+\\kl{$1}$0
+endsnippet
+
+snippet ';gloss(\w+[,\w+[\s\w]*]*)  ' "Introduce new glossary term" riA
+`!p
+snip.rv = aux_add_cmd('/idxdb.tex', '/home/jose/.local/scripts/add-glossary -p ', ' -e \'newglossaryentry{', "\\glsadd{")
+` $0
+endsnippet
+
+snippet ;glt "Use Glossary term" iA
+\\gls{$1}$0
+endsnippet
+
+snippet ';input(\w+[,\w+[\s\w]*]*)  ' "Input file" riA
+`!p
+args = stringify_args(match, 3)
+num_args = len(args)
+if (num_args == 3):
+	name, title_name, latex_header = args[0], args[1], args[2]
+elif (num_args == 2):
+	name, title_name, latex_header = args[0], args[1], "section"
+elif (num_args == 1):
+	name, title_name, latex_header = args[0], "", ""
+else:
+	name, title_name, latex_header = "_new_file_", "new_title", ""
+name = name[1:-1]
+file_name = name + ".tex"
+system("touch " + file_name)
+if(1 < num_args and num_args < 4):
+	system("echo \\\\" + latex_header + "{" + title_name + "} > " + file_name)
+snip.rv = "\\input{" + name + "}"
+`
+$0
+endsnippet 
+
+# First argument: template 
+# Second argument: operation (optional)
+# Third argument: last_index (optional)
+# Fourth argument: 'o' to indicate the expression is open (i.e. of the form (a, ...) (optional)
+# Fifth argument: '2' to indicate the expression uses a second term (i.e. of the form (a, b, ..., c) (optional)
+snippet ';Seq(.+[,.+[\s.]*]*)  ' "Sequence of symbols - advanced" riA
+`!p
+args = stringify_args(match,5)
+num_args = len(args)
+
+template, last_index, op, is_open, uses_snd = "blank.", "n", ",", False, False
+if (num_args > 0):
+	template = removeExtraQuotes(args[0].strip())
+if (num_args > 1):
+	op = removeExtraQuotes(args[1].strip())
+if (num_args > 2):
+	last_index = removeExtraQuotes(args[2].strip())
+if (num_args > 3):
+	is_open = removeExtraQuotes(args[3].strip()) == 'o'
+if (num_args > 4):
+	is_open = removeExtraQuotes(args[3].strip()) == 'o'
+	uses_snd = removeExtraQuotes(args[4].strip()) == '2'
+
+if(op == ' '):
+	op = ","
+
+last_index = last_index.strip()
+
+if(uses_snd):
+	second_term = template.replace("_", "_2") + " " + op + " "
+else:
+	second_term = ""
+
+if(is_open):
+	last_term = ""
+else:
+	last_term = " " + op + " " + template.replace("_", "_{" + last_index + "}")
+
+snip.rv = template.replace("_", "_1") + " " + op + " " + second_term + "\\dots" + last_term
+`$0
+endsnippet
+
+global !p
+def create_matrix_placeholders(snip):
+	# Create anonymous snippet body
+	anon_snippet_body = ""
+
+	# Get start and end line number of expanded snippet
+	start = snip.snippet_start[0]
+	end = snip.snippet_end[0]
+
+  # Append current line into anonymous snippet
+	for i in range(start, end + 1):
+		anon_snippet_body += snip.buffer[i]
+		anon_snippet_body += "" if i == end else "\n"
+
+	# Delete expanded snippet line till second to last line
+	for i in range(start, end):
+		del snip.buffer[start]
+
+	# Empty last expanded snippet line while preserving the line
+	snip.buffer[start] = ''
+
+	# Expand anonymous snippet
+	snip.expand_anon(anon_snippet_body)
+
+def create_matrix(cols, rows, sep, start, end):
+	res = ""
+	placeholder = 1
+	for _ in range(0, int(rows)):
+		res += start + f"${placeholder} "
+		placeholder += 1
+		for _ in range(0, int(cols) - 1):
+			res += sep + f" ${placeholder} "
+			placeholder += 1
+		res += end
+	return res[:-1]
+endglobal
+
+post_jump "create_matrix_placeholders(snip)"
+snippet ';pmatrix(\d+),(\d+)' "LaTeX pmatrix" r
+\begin{pmatrix}
+`!p
+snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
+`$0
+\end{pmatrix}
+endsnippet
+
+post_jump "create_matrix_placeholders(snip)"
+snippet ';bmatrix(\d+),(\d+)' "LaTeX bmatrix" r
+\begin{bmatrix}
+`!p
+snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
+`$0
+\end{bmatrix}
+endsnippet
+
+post_jump "create_matrix_placeholders(snip)"
+snippet ';Bmatrix(\d+),(\d+)' "LaTeX Bmatrix" r
+\begin{Bmatrix}
+`!p
+snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
+`$0
+\end{Bmatrix}
+endsnippet
+
+post_jump "create_matrix_placeholders(snip)"
+snippet ';det(\d+),(\d+)' "LaTeX vmatrix" r
+\begin{vmatrix}
+`!p
+snip.rv = create_matrix(match.group(1), match.group(2), "&", "\t", "\\\\\\\\\n")
+`$0
+\end{vmatrix}
+endsnippet
+
+post_jump "create_matrix_placeholders(snip)"
+snippet ';piecewise(\d+)' "Piecewise function" r
+\begin{cases}
+`!p
+snip.rv = create_matrix(2, match.group(1), "&", "\t", "\\\\\\\\\n")
+`$0
+\end{cases}
+endsnippet
