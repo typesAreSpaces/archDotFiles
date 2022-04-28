@@ -1,37 +1,3 @@
-;; NOTE: init.el is now generated from Emacs.org.  Please edit that file
-;;       in Emacs and init.el will be generated automatically!
-
-;; You will most likely need to adjust this font size for your system!
-(defvar efs/default-font-size 160)
-(defvar efs/default-variable-font-size 160)
-
-;; Make frame transparency overridable
-(defvar efs/frame-transparency '(90 . 90))
-
-(defvar phd-thesis-dir "~/Documents/GithubProjects/phd-thesis")
-(defvar phd-thesis-org-files-dir
-  (concat phd-thesis-dir
-          "/Documents/Org-Files"))
-(defvar seminar-org-files-dir 
-  (concat phd-thesis-dir
-          "/Documents/Seminars/BeihangUniversity-Fall2021/Org-Files"))
-(defvar ta-org-files-dir 
-  (concat phd-thesis-dir
-          "/Documents/Semesters/Spring/2022/TA-CS-429-529/Org-Files"))
-
-(defvar research-tasks-mail 
-  (concat phd-thesis-org-files-dir "/research_tasks.org"))
-(defvar lunch-tasks-mail 
-  (concat phd-thesis-org-files-dir "/lunch_tasks.org"))
-(defvar side-tasks-mail 
-  (concat phd-thesis-org-files-dir "/side_tasks.org"))
-(defvar school-tasks-mail 
-  (concat phd-thesis-org-files-dir "/school_tasks.org"))
-(defvar seminar-tasks-mail 
-  (concat seminar-org-files-dir "/seminar_tasks.org"))
-(defvar ta-tasks-mail 
-  (concat ta-org-files-dir "/current_tasks.org"))
-
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -65,12 +31,8 @@
 
 (use-package auto-package-update
   :custom
-  (auto-package-update-interval 7)
-  (auto-package-update-prompt-before-update t)
   (auto-package-update-hide-results t)
-  :config
-  (auto-package-update-maybe)
-  (auto-package-update-at-time "09:00"))
+  (auto-package-update-delete-old-versions t))
 
 ;; The default is 800 kilobytes.  Measured in bytes.
 (setq gc-cons-threshold (* 50 1000 1000))
@@ -94,6 +56,45 @@
 ;; auto save files in the same path as it uses for sessions
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+
+;; NOTE: init.el is now generated from Emacs.org.  Please edit that file
+;;       in Emacs and init.el will be generated automatically!
+
+;; You will most likely need to adjust this font size for your system!
+(defvar efs/default-font-size 160)
+(defvar efs/default-variable-font-size 160)
+
+;; Make frame transparency overridable
+(defvar efs/frame-transparency '(90 . 90))
+
+(defvar phd-thesis-dir "~/Documents/GithubProjects/phd-thesis")
+(defvar phd-thesis-org-files-dir
+  (concat phd-thesis-dir
+          "/Documents/Org-Files"))
+(defvar scc-org-files-dir 
+  (concat phd-thesis-dir
+          "/Documents/Side-Projects/kapur-nsf-proposal/Org-Files"))
+(defvar seminar-org-files-dir 
+  (concat phd-thesis-dir
+          "/Documents/Seminars/BeihangUniversity-Fall2021/Org-Files"))
+(defvar ta-org-files-dir 
+  (concat phd-thesis-dir
+          "/Documents/Semesters/Spring/2022/TA-CS-429-529/Org-Files"))
+
+(defvar research-tasks-mail 
+  (concat phd-thesis-org-files-dir "/research_tasks.org"))
+(defvar lunch-tasks-mail 
+  (concat phd-thesis-org-files-dir "/lunch_tasks.org"))
+(defvar side-tasks-mail 
+  (concat phd-thesis-org-files-dir "/side_tasks.org"))
+(defvar scc-tasks-mail 
+  (concat scc-org-files-dir "/scc_tasks.org"))
+(defvar school-tasks-mail 
+  (concat phd-thesis-org-files-dir "/school_tasks.org"))
+(defvar seminar-tasks-mail 
+  (concat seminar-org-files-dir "/seminar_tasks.org"))
+(defvar ta-tasks-mail 
+  (concat ta-org-files-dir "/current_tasks.org"))
 
 (use-package beacon)
 
@@ -202,10 +203,21 @@
 (use-package doom-themes
   :init (load-theme 'doom-palenight t))
 
-;(use-package tron-legacy-theme
+;(use-package modus-themes
+;  :ensure
+;  :init
+;  ;; Add all your customizations prior to loading the themes
+;  (setq modus-themes-italic-constructs t
+;        modus-themes-bold-constructs nil
+;        modus-themes-region '(bg-only no-extend))
+
+;  ;; Load the theme files before enabling a theme
+;  (modus-themes-load-themes)
 ;  :config
-;  (setq tron-legacy-theme-vivid-cursor t)
-;  (load-theme 'doom-palenight t))
+;  ;; Load the theme of your choice:
+;  ;;(modus-themes-load-operandi)
+;  (modus-themes-load-vivendi)
+;  :bind ("<f5>" . modus-themes-toggle))
 
 (use-package all-the-icons)
 
@@ -441,8 +453,8 @@
            (file+olp lunch-tasks-mail "Captured Email")
            "* TODO Check this email %a"
            :immediate-finish t)
-          ("ms" "Side Tasks" entry
-           (file+olp side-tasks-mail "Captured Email")
+          ("ms" "SCC Project Tasks" entry
+           (file+olp scc-tasks-mail "Captured Email")
            "* TODO Check this email %a"
            :immediate-finish t)
           ("mc" "School Tasks" entry
@@ -634,13 +646,6 @@
 (use-package eterm-256color
   :hook (term-mode . eterm-256color-mode))
 
-(use-package vterm
-  :commands vterm
-  :config
-  (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")  ;; Set this to match your custom shell prompt
-  ;;(setq vterm-shell "zsh")                       ;; Set this to customize the shell to launch
-  (setq vterm-max-scrollback 10000))
-
 (when (eq system-type 'windows-nt)
   (setq explicit-shell-file-name "powershell.exe")
   (setq explicit-powershell.exe-args '()))
@@ -714,6 +719,13 @@
   (yas-global-mode 1))
 
 (use-package yasnippet-snippets)
+
+(defun my-yas-try-expanding-auto-snippets ()
+  (when yas-minor-mode
+    (let ((yas-buffer-local-condition ''(require-snippet-condition . auto)))
+      (yas-expand))))
+
+(add-hook 'post-command-hook #'my-yas-try-expanding-auto-snippets)
 
 (use-package hide-mode-line)
 

@@ -7,6 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export ZSH_PLUGINS='/usr/share/zsh/plugins'
 export GTK_PATH='/usr/lib/gtk-2.0'
 export _JAVA_AWT_WM_NONREPARENTING=1
+export LD_PRELOAD=/lib/libfreetype.so
 export POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 export APPS_DIR="$HOME/Documents/Apps"
@@ -44,6 +45,7 @@ export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
 export PATH="$APPS_DIR:$PATH"
 export PATH="$APPS_DIR/Maple/maple2019/bin:$PATH"
 export PATH="$APPS_DIR/LADR-2009-11A/bin:$PATH"
+export PATH="$APPS_DIR/cweb:$PATH"
 export PATH="$MATLAB_DIR:$PATH"
 export PATH="$APPS_DIR/csdp6.2.0linuxx86_64/bin:$PATH"
 export PATH="$APPS_DIR/spass:$PATH"

@@ -1,12 +1,23 @@
 update(){
+  echo ">>> Update local projects"
   for project in ${ACTIVE_PROJECTS[@]}; do
-    echo "Updating project: $project"
+    echo ">>> Updating project: $project"
     pushd $project
     git pull
     popd
   done
+  echo ">>> Update config"
   updateMachine.sh;
+  echo ">>> Update software"
   paru;
+  echo ">>> Update emacs packages"
+  emacsclient -e "(auto-package-update-now)"
+  emacsclient -e "(straight-pull-all)"
+  emacsclient -e "(straight-rebuild-all)"
+  emacsclient -e "(kill-emacs)"
+  emacs --daemon
+  echo ">>> Update neovim packages"
+  nvim --headless +PackerSync +TSUpdate +qa;
 }
 
 setScreenBrightness(){
@@ -45,7 +56,11 @@ changeVolume(){
   pactl set-sink-volume $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") $1
 }
 
-tss(){
+tns(){
   tmux new -s $1 -d
   tmux switch -t $1
+}
+
+trs(){
+  tmux rename-session $1
 }
