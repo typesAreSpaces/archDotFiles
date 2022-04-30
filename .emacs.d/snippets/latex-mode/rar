@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Right arrow
+# key: ;rar
+# condition: 'auto
+# --
+\\rightarrow$0
