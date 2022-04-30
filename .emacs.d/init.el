@@ -727,6 +727,17 @@
 
 (add-hook 'post-command-hook #'my-yas-try-expanding-auto-snippets)
 
+(defun yasnippet/aux_add_cmd (file_name cmd_path prefix_entry prefix_output)
+  (let ((curr_dir default-directory))
+    (let ((curr_file (concat curr_dir file_name)))
+      (let ((curr_file_path (replace-regexp-in-string " " "\\\\ " curr_file)))
+        (progn
+          (if (not (file-exists-p curr_file)) (shell-command (concat "touch " curr_file_path)))
+          (message "todo")
+          (concat prefix_output "<missing>" "}"))))))
+
+; (yasnippet/aux_add_cmd "kldb.tex" "/home/jose/.local/scripts/add-knowledge -p " "-e 'index=" "\\\\intro{")
+
 (use-package hide-mode-line)
 
 (defun efs/presentation-setup ()

@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: Header
+# key: ;header
+# condition: 'auto
+# --
+#+TITLE: $1
+#+AUTHOR: ${2:Jose Abel Castellanos Joo}
+#+OPTIONS: toc:nil
+
+$0
