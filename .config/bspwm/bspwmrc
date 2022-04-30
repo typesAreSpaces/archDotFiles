@@ -20,6 +20,7 @@ fi
 emacs --daemon
 
 feh --bg-scale ~/Pictures/Wallpapers/iron_lady.jpg
+
 $HOME/.config/polybar/launch.sh &
 bsp-layout set ntall 1 -- --master-size 0.4&
 
