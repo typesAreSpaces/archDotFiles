@@ -89,17 +89,7 @@ bspwmThemeSwitch(){
   esac
 }
 zathuraThemeSwitch(){
-  case $1 in
-    "gruvbox")
-      $HOME/.config/zathura/apply-gruvbox.sh
-      ;;
-    "nord")
-      $HOME/.config/zathura/apply-nord.sh
-      ;;
-    "tokyo")
-      $HOME/.config/zathura/apply-tokyo.sh
-      ;;
-  esac
+  sed -i "s|.*include.*theme|include zathura-$1-theme|g" $HOME/.config/zathura/zathurarc
 }
 
 changeTheme(){
