@@ -65,6 +65,10 @@ trs(){
   tmux rename-session $1
 }
 
+_grading(){
+  cd $CURRENT_TA_DIR/Assignments/Project-2/Students 
+}
+
 grading(){
   tmux rename-session grading
   tmux rename-window -t grading:1 todo
