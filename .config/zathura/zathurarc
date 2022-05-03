@@ -26,32 +26,4 @@ map <C--> zoom out
 map i recolor
 map p print
 
-# Tokyo night Theme
-set default-bg              "#24283b" 
-set default-fg              "#c0caf5" 
-set statusbar-bg            "#24283b" 
-set statusbar-fg            "#c0caf5" 
-set inputbar-bg             "#24283b"
-set inputbar-fg             "#0db9d7"
-set completion-bg           "#24283b"
-set completion-fg           "#c0caf5"
-set completion-group-bg     "#24283b"
-set completion-group-fg     "#c0caf5"
-set completion-highlight-bg "#737aa2"
-set completion-highlight-fg "#c0caf5"
-set notification-bg         "#B4F9F8"
-set notification-fg         "#0db9d7"
-set notification-error-bg   "#db4b4b"
-set notification-error-fg   "#f7768e"
-set notification-warning-bg "#f7768e"
-set notification-warning-fg "#24283b"
-set highlight-color         "#f7768e"
-set highlight-active-color  "#f7768e"
-set index-bg                "#24283b"
-set index-fg                "#c0caf5"
-set index-active-bg         "#f7768e"
-set index-active-fg         "#c0caf5"
-set recolor-darkcolor       "#c0caf5"
-set recolor-lightcolor      "#24283b"
-set render-loading-bg       "#24283b"
-set render-loading-fg       "#c0caf5"
+include zathura-tokyo-theme
