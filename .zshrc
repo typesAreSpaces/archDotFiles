@@ -18,7 +18,8 @@ TO_SOURCE=(\
 ACTIVE_PROJECTS=(\
   "$PHD_THESIS_DIR" \
   "$LATEX_MACROS_DIR" \
-  "$GITHUB_PROJECTS_DIR/QuickTex"
+  "$GITHUB_PROJECTS_DIR/QuickTex" \
+  "$PHD_THESIS_DIR/Documents/Semesters/Spring/2022/TA-CS-429-529/Assignments/Project-3/Students"
 )
 LOCAL_ZSH_SCRIPTS=(\
   "$ZSH_SCRIPT_DIR/system.sh" \
