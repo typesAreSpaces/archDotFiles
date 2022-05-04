@@ -750,11 +750,11 @@
 
 (add-hook 'post-command-hook #'my-yas-try-expanding-auto-snippets)
 
-; file_name: either '/kldb.tex' or '/idxdb.tex'
-; cmd_path: either '/home/jose/.local/scripts/add-knowledge -p ' or
-; '/home/jose/.local/scripts/add-glossary -p '
-; prefix_entry: either ' -e \'index=' or ' -e \'newglossaryentry{'
-; prefix_output: either "\\intro{" or "\\glsadd{"
+                                        ; file_name: either '/kldb.tex' or '/idxdb.tex'
+                                        ; cmd_path: either '/home/jose/.local/scripts/add-knowledge -p ' or
+                                        ; '/home/jose/.local/scripts/add-glossary -p '
+                                        ; prefix_entry: either ' -e \'index=' or ' -e \'newglossaryentry{'
+                                        ; prefix_output: either "\\intro{" or "\\glsadd{"
 
 (defun yasnippet/aux_add_cmd (file_name cmd_path prefix_entry prefix_output input)
   (let* ((curr_dir default-directory)
@@ -771,6 +771,12 @@
       (if (not (file-exists-p curr_file)) (shell-command (concat "touch " curr_file_path)))
       (shell-command command)
       (concat prefix_output first_arg "}"))))
+
+(defun yasnippet/repeat (x y)
+       (let ((x_num (string-to-number x)))
+         (let (value) (while (> x_num 0)
+                        (setq value (concat value y))
+                        (setq x_num (- x_num 1))) value)))
 
 (use-package simpleclip
   :config
