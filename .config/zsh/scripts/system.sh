@@ -70,13 +70,13 @@ trs(){
 }
 
 _grading(){
-  cd $CURRENT_TA_DIR/Assignments/Project-2/Students 
+  cd $CURRENT_TA_DIR/Assignments/Project-3/Students 
 }
 
 grading(){
   tmux rename-session grading
   tmux rename-window -t grading:1 todo
-  cd $CURRENT_TA_DIR/Assignments/Project-2/Students 
+  cd $CURRENT_TA_DIR/Assignments/Project-3/Students 
   tmux new-window -n "ct evaluation"
   tmux new-window -n "ct implementation" 
   tmux new-window -n "ct paper"
