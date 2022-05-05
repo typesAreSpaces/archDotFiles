@@ -570,6 +570,12 @@
 (add-hook 'c++-mode-hook 'lsp)
 
 (add-hook 'tex-mode-hook 'lsp)
+(add-hook 'latex-mode-hook 'lsp)
+
+(use-package lsp-latex
+  :config
+  (setq lsp-latex-forward-search-executable "zathura")
+  (setq lsp-latex-forward-search-args '("--synctex-forward" "%l:1:%f" "%p")))
 
 (use-package python-mode
   :ensure t
@@ -773,10 +779,10 @@
       (concat prefix_output first_arg "}"))))
 
 (defun yasnippet/repeat (x y)
-       (let ((x_num (string-to-number x)))
-         (let (value) (while (> x_num 0)
-                        (setq value (concat value y))
-                        (setq x_num (- x_num 1))) value)))
+  (let ((x_num (string-to-number x)))
+    (let (value) (while (> x_num 0)
+                   (setq value (concat value y))
+                   (setq x_num (- x_num 1))) value)))
 
 (use-package simpleclip
   :config
