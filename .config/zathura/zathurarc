@@ -1,5 +1,6 @@
 set dbus-service true
 set synctex true
+set synctex-editor-command "emacsclient +%{line} %{input}"
 set font "InputMono 16"
 
 set recolor-keephue "true"
