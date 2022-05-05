@@ -201,7 +201,7 @@
   :commands command-log-mode)
 
 (use-package doom-themes
-  :init (load-theme 'doom-gruvbox t))
+  :init (load-theme 'doom-palenight t))
 
 ;(use-package modus-themes
 ;  :ensure
