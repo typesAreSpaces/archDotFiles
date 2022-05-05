@@ -569,8 +569,8 @@
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
 
-(add-hook 'tex-mode-hook 'lsp)
-(add-hook 'latex-mode-hook 'lsp)
+(add-hook 'TeX-mode-hook 'lsp)
+(add-hook 'LaTeX-mode-hook 'lsp)
 
 (use-package lsp-latex
   :config
