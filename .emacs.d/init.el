@@ -173,6 +173,7 @@
     "tt" '(counsel-load-theme :which-key "choose theme")
     "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
     "m" '(lambda () (interactive) (mu4e))
+    "p" '(lambda () (interactive) (yasnippet/goto-parent-file))
     "r" '(lambda () (interactive) (org-capture nil))))
 
 (use-package evil
@@ -783,6 +784,23 @@
     (let (value) (while (> x_num 0)
                    (setq value (concat value y))
                    (setq x_num (- x_num 1))) value)))
+
+(defun yasnippet/find-char-position (x y n)
+  (if (null x) (- 1)
+    (if (equal (car x) y)
+        n
+      (yasnippet/find-char-position (cdr x) y (+ 1 n)))))
+
+(defun yasnippet/parent-file ()
+  (let* ((file_name (substring (buffer-name) 0 -4))
+         (grep_command (concat "grep -nr input{" file_name "}"))
+         (grep_output (shell-command-to-string grep_command))
+         (position (yasnippet/find-char-position (string-to-list grep_output) 58 0)))
+    (if (equal position (- 1)) "" (substring grep_output 0 position))))
+
+(defun yasnippet/goto-parent-file ()
+  (let ((file (yasnippet/parent-file)))
+    (if (not (equal file "")) (find-file file))))
 
 (use-package simpleclip
   :config
