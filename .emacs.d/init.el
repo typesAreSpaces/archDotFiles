@@ -173,6 +173,7 @@
     "tt" '(counsel-load-theme :which-key "choose theme")
     "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
     "m" '(lambda () (interactive) (mu4e))
+    "p" '(lambda () (interactive) (yasnippet/goto-parent-file))
     "r" '(lambda () (interactive) (org-capture nil))))
 
 (use-package evil
@@ -569,7 +570,13 @@
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
 
-(add-hook 'tex-mode-hook 'lsp)
+(add-hook 'TeX-mode-hook 'lsp)
+(add-hook 'LaTeX-mode-hook 'lsp)
+
+(use-package lsp-latex
+  :config
+  (setq lsp-latex-forward-search-executable "zathura")
+  (setq lsp-latex-forward-search-args '("--synctex-forward" "%l:1:%f" "%p")))
 
 (use-package python-mode
   :ensure t
@@ -713,35 +720,6 @@
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1000 1000))
 
-(use-package yasnippet
-  :config
-  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-  (yas-global-mode 1))
-
-(use-package yasnippet-snippets)
-
-(defun my-yas-try-expanding-auto-snippets ()
-  (when yas-minor-mode
-    (let ((yas-buffer-local-condition ''(require-snippet-condition . auto)))
-      (yas-expand))))
-
-(add-hook 'post-command-hook #'my-yas-try-expanding-auto-snippets)
-
-(defun yasnippet/aux_add_cmd (file_name cmd_path prefix_entry prefix_output input)
-  (let* ((curr_dir default-directory)
-         (curr_file (concat curr_dir file_name))
-         (curr_file_path (replace-regexp-in-string " " "\\\\ " curr_file)))
-    (progn
-      (if (not (file-exists-p curr_file)) (shell-command (concat "touch " curr_file_path)))
-      (let* ((add_cmd (concat cmd_path curr_file_path " "))
-             (_args (split-string input ","))
-             (first_arg (car _args))
-             (args (mapconcat (lambda (x) (concat "\'" x "\'")) _args " "))
-             (command
-              (concat "if ! grep " curr_file prefix_entry first_arg "}\'; then " add_cmd args "; fi")))
-        (shell-command command)
-        (concat prefix_output first_arg "}")))))
-
 (use-package hide-mode-line)
 
 (defun efs/presentation-setup ()
@@ -764,6 +742,65 @@
   (org-tree-slide-header t)
   (org-tree-slide-breadcrumbs " // ")
   (org-image-actual-width nil))
+
+(use-package yasnippet
+  :config
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  (yas-global-mode 1))
+
+(use-package yasnippet-snippets)
+
+(defun my-yas-try-expanding-auto-snippets ()
+  (when yas-minor-mode
+    (let ((yas-buffer-local-condition ''(require-snippet-condition . auto)))
+      (yas-expand))))
+
+(add-hook 'post-command-hook #'my-yas-try-expanding-auto-snippets)
+
+                                        ; file_name: either '/kldb.tex' or '/idxdb.tex'
+                                        ; cmd_path: either '/home/jose/.local/scripts/add-knowledge -p ' or
+                                        ; '/home/jose/.local/scripts/add-glossary -p '
+                                        ; prefix_entry: either ' -e \'index=' or ' -e \'newglossaryentry{'
+                                        ; prefix_output: either "\\intro{" or "\\glsadd{"
+
+(defun yasnippet/aux_add_cmd (file_name cmd_path prefix_entry prefix_output input)
+  (let* ((curr_dir default-directory)
+         (curr_file (concat curr_dir file_name))
+         (curr_file_path (replace-regexp-in-string " " "\\\\ " curr_file))
+         (add_cmd (concat cmd_path curr_file_path " "))
+         (_args (split-string input ","))
+         (first_arg (car _args))
+         (args (mapconcat (lambda (x) (concat "\'" x "\'")) _args " "))
+         (command
+          (concat "if ! grep " curr_file prefix_entry first_arg "}\'; then "
+                  add_cmd args "; fi")))
+    (progn
+      (if (not (file-exists-p curr_file)) (shell-command (concat "touch " curr_file_path)))
+      (shell-command command)
+      (concat prefix_output first_arg "}"))))
+
+(defun yasnippet/repeat (x y)
+  (let ((x_num (string-to-number x)))
+    (let (value) (while (> x_num 0)
+                   (setq value (concat value y))
+                   (setq x_num (- x_num 1))) value)))
+
+(defun yasnippet/find-char-position (x y n)
+  (if (null x) (- 1)
+    (if (equal (car x) y)
+        n
+      (yasnippet/find-char-position (cdr x) y (+ 1 n)))))
+
+(defun yasnippet/parent-file ()
+  (let* ((file_name (substring (buffer-name) 0 -4))
+         (grep_command (concat "grep -nr input{" file_name "}"))
+         (grep_output (shell-command-to-string grep_command))
+         (position (yasnippet/find-char-position (string-to-list grep_output) 58 0)))
+    (if (equal position (- 1)) "" (substring grep_output 0 position))))
+
+(defun yasnippet/goto-parent-file ()
+  (let ((file (yasnippet/parent-file)))
+    (if (not (equal file "")) (find-file file))))
 
 (use-package simpleclip
   :config

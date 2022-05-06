@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: Inline Math
-# key: ;;
+# name: glt
+# key: ;glt
 # condition: 'auto
 # --
-$$1$$0
+\\gls{$1}$0
