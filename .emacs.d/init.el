@@ -575,6 +575,10 @@
 
 (use-package lsp-latex
   :config
+  ; Currently not working
+  (setq lsp-latex-build-executable "make")
+  ; Currently not working
+  (setq lsp-latex-build-args "")
   (setq lsp-latex-forward-search-executable "zathura")
   (setq lsp-latex-forward-search-args '("--synctex-forward" "%l:1:%f" "%p")))
 
@@ -780,7 +784,7 @@
       (concat prefix_output first_arg "}"))))
 
 (defun yasnippet/repeat (x y)
-  (let ((x_num (string-to-number x)))
+  (let ((x_num (if (stringp x) (string-to-number x) x)))
     (let (value) (while (> x_num 0)
                    (setq value (concat value y))
                    (setq x_num (- x_num 1))) value)))
@@ -801,6 +805,13 @@
 (defun yasnippet/goto-parent-file ()
   (let ((file (yasnippet/parent-file)))
     (if (not (equal file "")) (find-file file))))
+
+(defun yasnippet/count-delims-table (x n)
+  (if (null x) n
+    (let ((curr (car x)))
+      (if (or (equal curr 99) (equal curr 108) (equal curr 114))
+          (yasnippet/count-delims-table (cdr x) (+ 1 n))
+        (yasnippet/count-delims-table (cdr x) n)))))
 
 (use-package simpleclip
   :config
