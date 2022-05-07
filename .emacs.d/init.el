@@ -168,7 +168,8 @@
     :global-prefix "C-SPC")
 
   (efs/leader-keys
-    "c"  'shell-command
+    "c"  'comment-line
+    "s"  'shell-command
     "t"  '(:ignore t :which-key "toggles")
     "tt" '(counsel-load-theme :which-key "choose theme")
     "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
@@ -575,10 +576,10 @@
 
 (use-package lsp-latex
   :config
-  ; Currently not working
-  (setq lsp-latex-build-executable "make")
-  ; Currently not working
-  (setq lsp-latex-build-args "")
+  (setq lsp-latex-build-executable "latexmk")
+  (setq lsp-latex-build-args '("-pdf" "-interaction=nonstopmode" "-synctex=1" "%f"))
+  (setq lsp-latex-forward-search-after t)
+  (setq lsp-latex-build-on-save t)
   (setq lsp-latex-forward-search-executable "zathura")
   (setq lsp-latex-forward-search-args '("--synctex-forward" "%l:1:%f" "%p")))
 
@@ -832,182 +833,6 @@
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
   (setq-default TeX-master nil))
-
-(use-package mu4e
-  :ensure nil
-  :straight (
-             :host github
-             :files ("build/mu4e/*.el")
-             :repo "djcb/mu"
-             :pre-build (("./autogen.sh") ("ninja" "-C" "build")))
-  ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
-  ;; :defer 20 ; Wait until 20 seconds after startup
-  :config
-  (require 'mu4e-org)
-
-  ;; This is set to 't' to avoid mail syncing issues when using mbsync
-  (setq mu4e-change-filenames-when-moving t)
-
-  ;; Just plain text
-  (with-eval-after-load "mm-decode"
-    (add-to-list 'mm-discouraged-alternatives "text/html")
-    (add-to-list 'mm-discouraged-alternatives "text/richtext"))
-
-  (defun jcs-view-in-eww (msg)
-    (eww-browse-url (concat "file://" (mu4e~write-body-to-html msg))))
-  (add-to-list 'mu4e-view-actions '("Eww view" . jcs-view-in-eww) t)
-
-  (setq mu4e-update-interval 600)
-  (setq mu4e-get-mail-command "mbsync -a")
-  (setq mu4e-maildir "~/Mail")
-
-  (defun refile-func (msg)
-    (cond
-     ((mu4e-message-contact-field-matches msg :to "kapur@cs.unm.edu")
-      "/unm/Prof. Kapur")
-     ((mu4e-message-contact-field-matches msg :from "kapur@cs.unm.edu")
-      "/unm/Prof. Kapur")
-     ((mu4e-message-contact-field-matches msg :cc "kapur@cs.unm.edu")
-      "/unm/Prof. Kapur")
-     (t "/unm/Archive")))
-
-  (setq mu4e-contexts
-        (list
-         ;; School account
-         (make-mu4e-context
-          :name "School"
-          :match-func
-          (lambda (msg)
-            (when msg
-              (string-prefix-p "/unm" (mu4e-message-field msg :maildir))))
-          :vars '((user-mail-address  . "jabelcastellanosjoo@unm.edu")
-                  (user-full-name     . "Jose Abel Castellanos Joo")
-                  (mu4e-drafts-folder . "/unm/Drafts")
-                  (mu4e-sent-folder   . "/unm/Sent")
-                  (mu4e-refile-folder . refile-func)
-                  (mu4e-trash-folder  . "/unm/Trash")
-                  (smtpmail-smtp-server . "smtp.office365.com")
-                  (smtpmail-smtp-service . 587)
-                  (smtpmail-stream-type . starttls)))
-         ;; School CS department account
-         (make-mu4e-context
-          :name "CS department"
-          :match-func
-          (lambda (msg)
-            (when msg
-              (string-prefix-p "/cs-unm" (mu4e-message-field msg :maildir))))
-          :vars '((user-mail-address  . "jose.castellanosjoo@cs.unm.edu")
-                  (user-full-name     . "Jose Abel Castellanos Joo")
-                  (mu4e-drafts-folder . "/cs-unm/Drafts")
-                  ;;(mu4e-sent-folder   . "/cs-unm/Sent")
-                  (mu4e-refile-folder . "/cs-unm/Inbox")
-                  (mu4e-trash-folder  . "/cs-unm/Trash")
-                  (smtpmail-smtp-server . "snape.cs.unm.edu")
-                  (smtpmail-smtp-service . 1200)
-                  (smtpmail-stream-type . starttls)))))
-
-  (setq mu4e-context-policy 'pick-first)
-
-  (setq mu4e-maildir-shortcuts
-        '(("/unm/Inbox" . ?i)
-          ("/unm/Sent"  . ?s)
-          ("/unm/Trash" . ?t)
-          ("/unm/Drafts". ?d)
-          ("/unm/Prof. Kapur". ?k)
-          ("/unm/Prof. Kapur/Side projects/Seminars/Beihang University". ?b)
-          ("/unm/TA Work/CS 429-529". ?m)
-          ("/unm/You got a Package!". ?p)
-          ("/unm/Archive". ?a)
-          ("/cs-unm/Inbox". ?I)
-          ("/cs-unm/Trash". ?T)
-          ("/cs-unm/Drafts". ?D))))
-
-(setq mu4e-use-fancy-chars t)
-(setq message-send-mail-function 'smtpmail-send-it)
-(setq mu4e-attachment-dir  "~/Downloads")
-(setq mu4e-headers-show-threads nil)
-(setq mu4e-confirm-quit nil)
-(setq mu4e-headers-results-limit -1)
-(setq mu4e-compose-signature "Best,\nJose")
-(setq message-citation-line-format "On %d %b %Y at %R, %f wrote:\n")
-(setq message-citation-line-function 'message-insert-formatted-citation-line)
-(setq
- ;; Display
- mu4e-view-show-addresses t
- mu4e-view-show-images t
- mu4e-view-image-max-width 800
- mu4e-hide-index-messages t)
-
-;; (add-to-list 'mu4e-header-info-custom
-;;              '(:acctshortname . (:name "Account short name"
-;;                                        :shortname "Acct"
-;;                                        :help "3 first letter of related root maildir"
-;;                                        :function (lambda (msg)
-;;                                                    (let ((account-name (or (mu4e-message-field msg :maildir) "")))
-;;                                                      (if (equal account-name "")
-;;                                                          ""
-;;                                                        (substring
-;;                                                         (replace-regexp-in-string "^/\\(\\w+\\)/.*$" "\\1" account-name)
-;;                                                         0 3)))))))
-(add-to-list 'mu4e-header-info-custom
-             '(:foldername . (:name "Folder information"
-                                    :shortname "Folder"
-                                    :help "Message short storage information"
-                                    :function (lambda (msg)
-                                                (let ((shortaccount)
-                                                      (maildir (or (mu4e-message-field msg :maildir) ""))
-                                                      (mailinglist (or (mu4e-message-field msg :mailing-list) "")))
-                                                  (if (not (equal mailinglist ""))
-                                                      (setq mailinglist (mu4e-get-mailing-list-shortname mailinglist)))
-                                                  (when (not (equal maildir ""))
-                                                    (setq shortaccount
-                                                          (substring
-                                                           (replace-regexp-in-string "^/\\(\\w+\\)/.*$" "\\1" maildir)
-                                                           0 3))
-                                                    (setq maildir (replace-regexp-in-string ".*/\\([^/]+\\)$" "\\1" maildir))
-                                                    (if (> (length maildir) 8)
-                                                        (setq maildir (concat (substring maildir 0 7) "…")))
-                                                    (setq maildir (concat "[" shortaccount "]" maildir)))
-                                                  (cond
-                                                   ((and (equal maildir "")
-                                                         (not (equal mailinglist "")))
-                                                    mailinglist)
-                                                   ((and (not (equal maildir ""))
-                                                         (equal mailinglist ""))
-                                                    maildir)
-                                                   ((and (not (equal maildir ""))
-                                                         (not (equal mailinglist "")))
-                                                    (concat maildir " (" mailinglist ")"))
-                                                   (t
-                                                    "")))))))
-
-;; (add-to-list 'mu4e-header-info-custom
-;;              '(:useragent . (:name "User-Agent"
-;;                                    :shortname "UserAgt."
-;;                                    :help "Mail client used by correspondant"
-;;                                    :function ed/get-origin-mail-system-header)))
-;; (add-to-list 'mu4e-header-info-custom
-;;              '(:openpgp . (:name "PGP Info"
-;;                                  :shortname "PGP"
-;;                                  :help "OpenPGP information found in mail header"
-;;                                  :function ed/get-openpgp-header)))
-;; (setq mu4e-view-fi
-;; elds '(:flags :maildir :mailing-list :tags :useragent :openpgp)
-;; mu4e-headers-fields '((:flags         . 5)
-;;                       (:human-date    . 12)
-;;                                   ;(:acctshortname . 4)
-;;                       (:foldername    . 25)
-;;                       (:from-or-to    . 25)
-;;                                   ;(:size          . 6)
-;;                       (:subject       . nil))
-;; mu4e-compose-hidden-headers '("^Face:" "^X-Face:" "^Openpgp:"
-;;                               "^X-Draft-From:" "^X-Mailer:"
-;;"^User-agent:"))
-
-(use-package mu-cite)
-
-(use-package org-mime
-  :ensure t)
 
 ;; (use-package mu4e-thread-folding
 ;;   :ensure t
