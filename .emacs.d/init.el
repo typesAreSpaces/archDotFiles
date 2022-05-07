@@ -575,6 +575,10 @@
 
 (use-package lsp-latex
   :config
+  ; Currently not working
+  (setq lsp-latex-build-executable "make")
+  ; Currently not working
+  (setq lsp-latex-build-args "")
   (setq lsp-latex-forward-search-executable "zathura")
   (setq lsp-latex-forward-search-args '("--synctex-forward" "%l:1:%f" "%p")))
 
