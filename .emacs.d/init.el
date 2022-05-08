@@ -205,22 +205,6 @@
 (use-package doom-themes
   :init (load-theme 'doom-palenight t))
 
-;(use-package modus-themes
-;  :ensure
-;  :init
-;  ;; Add all your customizations prior to loading the themes
-;  (setq modus-themes-italic-constructs t
-;        modus-themes-bold-constructs nil
-;        modus-themes-region '(bg-only no-extend))
-
-;  ;; Load the theme files before enabling a theme
-;  (modus-themes-load-themes)
-;  :config
-;  ;; Load the theme of your choice:
-;  ;;(modus-themes-load-operandi)
-;  (modus-themes-load-vivendi)
-;  :bind ("<f5>" . modus-themes-toggle))
-
 (use-package all-the-icons)
 
 (use-package doom-modeline
@@ -834,23 +818,12 @@
   (setq TeX-parse-self t)
   (setq-default TeX-master nil))
 
-;; (use-package mu4e-thread-folding
-;;   :ensure t
-;;   :straight (
-;;              :host github
-;;              :files ("*.el")
-;;              :repo "rougier/mu4e-thread-folding")
-;;   :config
-;;   (add-to-list 'mu4e-header-info-custom
-;;                '(:empty . (:name "Empty"
-;;                                  :shortname ""
-;;                                  :function (lambda (msg) "  "))))
-;;   (setq mu4e-headers-fields '((:empty         .    2)
-;;                               (:human-date    .   12)
-;;                               (:flags         .    6)
-;;                               (:mailing-list  .   10)
-;;                               (:from          .   22)
-;;                               (:subject       .   nil))))
+(use-package markdown-preview-eww
+  :ensure nil
+  :straight (
+             :host github
+             :files ("*.el")
+             :repo "niku/markdown-preview-eww"))
 
 (use-package mu4e-dashboard
   :ensure t
@@ -858,13 +831,6 @@
              :host github
              :files ("*.el")
              :repo "rougier/mu4e-dashboard"))
-
-(use-package markdown-preview-eww
-  :ensure nil
-  :straight (
-             :host github
-             :files ("*.el")
-             :repo "niku/markdown-preview-eww"))
 
 (use-package perspective
   :ensure t
@@ -916,3 +882,10 @@
   ;; Enable org-modern-mode
   (add-hook 'org-mode-hook #'org-modern-mode)
   (add-hook 'org-agenda-finalize-hook #'org-modern-agenda))
+
+(use-package anzu
+  :ensure t
+  :config
+  (anzu-mode +1)
+  (global-set-key [remap query-replace] 'anzu-query-replace)
+  (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp))
