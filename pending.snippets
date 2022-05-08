@@ -1,16 +1,5 @@
 # Latex-related
 
-snippet ;table "Table environment" iA
-\begin{table}[${1:htpb}]
-	\centering
-	\caption{${2:caption}}
-	\label{tab:${3:label}}
-	\begin{tabular}{${5:c}}
-	$0${5/((?<=.)c|l|r)|./(?1: & )/g}
-	\end{tabular}
-\end{table}
-endsnippet
-
 snippet ;fig "Figure environment" iA
 \begin{figure}[${1:htpb}]
 	\centering
