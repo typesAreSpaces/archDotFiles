@@ -85,9 +85,10 @@ local mappings = {
   v = {
     name = "VimTex",
     a = {"<cmd>lua ToggleActiveRefresh()<CR>", "Toggle Active Refresh"},
-    f = {"<cmd>lua ParentFile()<CR><CR>", "Go to Parent File"},
     s = {"<cmd>mksession! session<CR><cmd>echon 'Session saved'<CR>", "Save session"},
   },
+
+  p = { "<cmd>lua ParentFile()<CR><CR>", "Go to Parent File"},
 
   w = {
     name = "Windows",

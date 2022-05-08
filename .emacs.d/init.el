@@ -168,7 +168,8 @@
     :global-prefix "C-SPC")
 
   (efs/leader-keys
-    "c"  'shell-command
+    "c"  'comment-line
+    "s"  'shell-command
     "t"  '(:ignore t :which-key "toggles")
     "tt" '(counsel-load-theme :which-key "choose theme")
     "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
@@ -203,22 +204,6 @@
 
 (use-package doom-themes
   :init (load-theme 'doom-nord t))
-
-;(use-package modus-themes
-;  :ensure
-;  :init
-;  ;; Add all your customizations prior to loading the themes
-;  (setq modus-themes-italic-constructs t
-;        modus-themes-bold-constructs nil
-;        modus-themes-region '(bg-only no-extend))
-
-;  ;; Load the theme files before enabling a theme
-;  (modus-themes-load-themes)
-;  :config
-;  ;; Load the theme of your choice:
-;  ;;(modus-themes-load-operandi)
-;  (modus-themes-load-vivendi)
-;  :bind ("<f5>" . modus-themes-toggle))
 
 (use-package all-the-icons)
 
@@ -575,6 +560,10 @@
 
 (use-package lsp-latex
   :config
+  (setq lsp-latex-build-executable "latexmk")
+  (setq lsp-latex-build-args '("-pdf" "-interaction=nonstopmode" "-synctex=1" "%f"))
+  (setq lsp-latex-forward-search-after t)
+  (setq lsp-latex-build-on-save t)
   (setq lsp-latex-forward-search-executable "zathura")
   (setq lsp-latex-forward-search-args '("--synctex-forward" "%l:1:%f" "%p")))
 
@@ -780,7 +769,7 @@
       (concat prefix_output first_arg "}"))))
 
 (defun yasnippet/repeat (x y)
-  (let ((x_num (string-to-number x)))
+  (let ((x_num (if (stringp x) (string-to-number x) x)))
     (let (value) (while (> x_num 0)
                    (setq value (concat value y))
                    (setq x_num (- x_num 1))) value)))
@@ -802,6 +791,13 @@
   (let ((file (yasnippet/parent-file)))
     (if (not (equal file "")) (find-file file))))
 
+(defun yasnippet/count-delims-table (x n)
+  (if (null x) n
+    (let ((curr (car x)))
+      (if (or (equal curr 99) (equal curr 108) (equal curr 114))
+          (yasnippet/count-delims-table (cdr x) (+ 1 n))
+        (yasnippet/count-delims-table (cdr x) n)))))
+
 (use-package simpleclip
   :config
   (simpleclip-mode 1))
@@ -822,16 +818,19 @@
   (setq TeX-parse-self t)
   (setq-default TeX-master nil))
 
-(use-package mu4e
+(use-package markdown-preview-eww
   :ensure nil
   :straight (
              :host github
-             :files ("build/mu4e/*.el")
-             :repo "djcb/mu"
-             :pre-build (("./autogen.sh") ("ninja" "-C" "build")))
+             :files ("*.el")
+             :repo "niku/markdown-preview-eww"))
+
+(use-package mu4e
+  :ensure nil
   ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
   ;; :defer 20 ; Wait until 20 seconds after startup
   :config
+  (require 'mu4e)
   (require 'mu4e-org)
 
   ;; This is set to 't' to avoid mail syncing issues when using mbsync
@@ -927,94 +926,8 @@
  mu4e-view-image-max-width 800
  mu4e-hide-index-messages t)
 
-;; (add-to-list 'mu4e-header-info-custom
-;;              '(:acctshortname . (:name "Account short name"
-;;                                        :shortname "Acct"
-;;                                        :help "3 first letter of related root maildir"
-;;                                        :function (lambda (msg)
-;;                                                    (let ((account-name (or (mu4e-message-field msg :maildir) "")))
-;;                                                      (if (equal account-name "")
-;;                                                          ""
-;;                                                        (substring
-;;                                                         (replace-regexp-in-string "^/\\(\\w+\\)/.*$" "\\1" account-name)
-;;                                                         0 3)))))))
-(add-to-list 'mu4e-header-info-custom
-             '(:foldername . (:name "Folder information"
-                                    :shortname "Folder"
-                                    :help "Message short storage information"
-                                    :function (lambda (msg)
-                                                (let ((shortaccount)
-                                                      (maildir (or (mu4e-message-field msg :maildir) ""))
-                                                      (mailinglist (or (mu4e-message-field msg :mailing-list) "")))
-                                                  (if (not (equal mailinglist ""))
-                                                      (setq mailinglist (mu4e-get-mailing-list-shortname mailinglist)))
-                                                  (when (not (equal maildir ""))
-                                                    (setq shortaccount
-                                                          (substring
-                                                           (replace-regexp-in-string "^/\\(\\w+\\)/.*$" "\\1" maildir)
-                                                           0 3))
-                                                    (setq maildir (replace-regexp-in-string ".*/\\([^/]+\\)$" "\\1" maildir))
-                                                    (if (> (length maildir) 8)
-                                                        (setq maildir (concat (substring maildir 0 7) "…")))
-                                                    (setq maildir (concat "[" shortaccount "]" maildir)))
-                                                  (cond
-                                                   ((and (equal maildir "")
-                                                         (not (equal mailinglist "")))
-                                                    mailinglist)
-                                                   ((and (not (equal maildir ""))
-                                                         (equal mailinglist ""))
-                                                    maildir)
-                                                   ((and (not (equal maildir ""))
-                                                         (not (equal mailinglist "")))
-                                                    (concat maildir " (" mailinglist ")"))
-                                                   (t
-                                                    "")))))))
-
-;; (add-to-list 'mu4e-header-info-custom
-;;              '(:useragent . (:name "User-Agent"
-;;                                    :shortname "UserAgt."
-;;                                    :help "Mail client used by correspondant"
-;;                                    :function ed/get-origin-mail-system-header)))
-;; (add-to-list 'mu4e-header-info-custom
-;;              '(:openpgp . (:name "PGP Info"
-;;                                  :shortname "PGP"
-;;                                  :help "OpenPGP information found in mail header"
-;;                                  :function ed/get-openpgp-header)))
-;; (setq mu4e-view-fi
-;; elds '(:flags :maildir :mailing-list :tags :useragent :openpgp)
-;; mu4e-headers-fields '((:flags         . 5)
-;;                       (:human-date    . 12)
-;;                                   ;(:acctshortname . 4)
-;;                       (:foldername    . 25)
-;;                       (:from-or-to    . 25)
-;;                                   ;(:size          . 6)
-;;                       (:subject       . nil))
-;; mu4e-compose-hidden-headers '("^Face:" "^X-Face:" "^Openpgp:"
-;;                               "^X-Draft-From:" "^X-Mailer:"
-;;"^User-agent:"))
-
-(use-package mu-cite)
-
 (use-package org-mime
   :ensure t)
-
-;; (use-package mu4e-thread-folding
-;;   :ensure t
-;;   :straight (
-;;              :host github
-;;              :files ("*.el")
-;;              :repo "rougier/mu4e-thread-folding")
-;;   :config
-;;   (add-to-list 'mu4e-header-info-custom
-;;                '(:empty . (:name "Empty"
-;;                                  :shortname ""
-;;                                  :function (lambda (msg) "  "))))
-;;   (setq mu4e-headers-fields '((:empty         .    2)
-;;                               (:human-date    .   12)
-;;                               (:flags         .    6)
-;;                               (:mailing-list  .   10)
-;;                               (:from          .   22)
-;;                               (:subject       .   nil))))
 
 (use-package mu4e-dashboard
   :ensure t
@@ -1022,13 +935,6 @@
              :host github
              :files ("*.el")
              :repo "rougier/mu4e-dashboard"))
-
-(use-package markdown-preview-eww
-  :ensure nil
-  :straight (
-             :host github
-             :files ("*.el")
-             :repo "niku/markdown-preview-eww"))
 
 (use-package perspective
   :ensure t
