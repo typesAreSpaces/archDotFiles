@@ -882,10 +882,3 @@
   ;; Enable org-modern-mode
   (add-hook 'org-mode-hook #'org-modern-mode)
   (add-hook 'org-agenda-finalize-hook #'org-modern-agenda))
-
-(use-package anzu
-  :ensure t
-  :config
-  (anzu-mode +1)
-  (global-set-key [remap query-replace] 'anzu-query-replace)
-  (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp))

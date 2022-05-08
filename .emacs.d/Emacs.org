@@ -1662,16 +1662,3 @@ mu index
     (add-hook 'org-agenda-finalize-hook #'org-modern-agenda))
 
 #+end_src
-
-* Anzu
-
-#+begin_src emacs-lisp
-
-  (use-package anzu
-    :ensure t
-    :config
-    (anzu-mode +1)
-    (global-set-key [remap query-replace] 'anzu-query-replace)
-    (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp))
-
-      #+end_src
