@@ -827,11 +827,6 @@
 
 (use-package mu4e
   :ensure nil
-  :straight (
-             :host github
-             :files ("build/mu4e/*.el")
-             :repo "djcb/mu"
-             :pre-build (("./autogen.sh") ("ninja" "-C" "build")))
   ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
   ;; :defer 20 ; Wait until 20 seconds after startup
   :config
@@ -918,9 +913,9 @@
 (setq mu4e-use-fancy-chars t)
 (setq message-send-mail-function 'smtpmail-send-it)
 (setq mu4e-attachment-dir  "~/Downloads")
-;(setq mu4e-headers-show-threads nil)
+(setq mu4e-headers-show-threads nil)
 (setq mu4e-confirm-quit nil)
-;; (setq mu4e-headers-results-limit -1)
+(setq mu4e-headers-results-limit -1)
 (setq mu4e-compose-signature "Best,\nJose")
 (setq message-citation-line-format "On %d %b %Y at %R, %f wrote:\n")
 (setq message-citation-line-function 'message-insert-formatted-citation-line)
