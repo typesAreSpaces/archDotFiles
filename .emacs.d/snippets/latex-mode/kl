@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: Inline Math
-# key: ;;
+# name: kl
+# key: ;kl
 # condition: 'auto
 # --
-$$1$$0
+\\kl{$1}$0
