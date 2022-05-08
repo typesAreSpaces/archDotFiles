@@ -1476,7 +1476,7 @@ mu index
 
 #+end_src
 
-#+begin_src emacs-lisp :tangle no
+#+begin_src emacs-lisp
 
   (use-package mu4e
     :ensure nil
