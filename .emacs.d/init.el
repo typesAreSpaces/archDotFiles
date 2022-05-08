@@ -820,6 +820,10 @@
 
 (use-package markdown-preview-eww
   :ensure nil
+  :straight (
+             :host github
+             :files ("*.el")
+             :repo "niku/markdown-preview-eww"))
 
 (use-package mu4e
   :ensure nil
