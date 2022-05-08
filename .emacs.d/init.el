@@ -168,7 +168,8 @@
     :global-prefix "C-SPC")
 
   (efs/leader-keys
-    "c"  'shell-command
+    "c"  'comment-line
+    "s"  'shell-command
     "t"  '(:ignore t :which-key "toggles")
     "tt" '(counsel-load-theme :which-key "choose theme")
     "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
@@ -575,10 +576,10 @@
 
 (use-package lsp-latex
   :config
-  ; Currently not working
-  (setq lsp-latex-build-executable "make")
-  ; Currently not working
-  (setq lsp-latex-build-args "")
+  (setq lsp-latex-build-executable "latexmk")
+  (setq lsp-latex-build-args '("-pdf" "-interaction=nonstopmode" "-synctex=1" "%f"))
+  (setq lsp-latex-build-is-continuous t)
+  (setq lsp-latex-build-on-save t)
   (setq lsp-latex-forward-search-executable "zathura")
   (setq lsp-latex-forward-search-args '("--synctex-forward" "%l:1:%f" "%p")))
 
