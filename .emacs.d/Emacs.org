@@ -1477,11 +1477,6 @@ mu index
 
   (use-package mu4e
     :ensure nil
-    :straight (
-               :host github
-               :files ("build/mu4e/*.el")
-               :repo "djcb/mu"
-               :pre-build (("./autogen.sh") ("ninja" "-C" "build")))
     ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
     ;; :defer 20 ; Wait until 20 seconds after startup
     :config
