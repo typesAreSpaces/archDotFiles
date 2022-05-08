@@ -732,6 +732,26 @@
   (org-tree-slide-breadcrumbs " // ")
   (org-image-actual-width nil))
 
+(use-package simpleclip
+  :config
+  (simpleclip-mode 1))
+
+(setq-default mode-line-format '(
+                                 "%e"
+                                 (:eval
+                                  (if (equal (shell-command-to-string
+                                              "ps aux | grep 'mbsync -a' | wc -l") "3\n")
+                                      "Running mbsync" ""))
+                                 (:eval
+                                  (doom-modeline-format--main))))
+
+(use-package tex
+  :ensure auctex
+  :config
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
+  (setq-default TeX-master nil))
+
 (use-package yasnippet
   :config
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
@@ -768,6 +788,30 @@
       (shell-command command)
       (concat prefix_output first_arg "}"))))
 
+(defun yasnippet/input (input)
+  (let* ((args (split-string input ","))
+         (num_args (length args)))
+    (cond ((equal num_args 3)
+           (let ((name (nth 0 args))
+                 (title_name (nth 1 args))
+                 (latex_header (nth 2 args)))
+             (yasnippet/input_aux name title_name latex_header 3)))
+          ((equal num_args 2)
+           (let ((name (nth 0 args))
+                 (title_name (nth 1 args)))
+             (yasnippet/input_aux name title_name "section" 2)))
+          ((equal num_args 1)
+           (let ((name (nth 0 args)))
+             (yasnippet/input_aux name "" "" 1)))
+          (t (yasnippet/input_aux "_new_file_" "new_title" "" num_args)))))
+
+(defun yasnippet/input_aux (name title_name latex_header num_args)
+  (let* ((file_name (concat name ".tex")))
+    (shell-command (concat "touch " file_name))
+    (if (and (< 1 num_args) (< num_args 4))
+        (shell-command (concat "echo \\\\\'" latex_header "{" title_name "}\' > " file_name)))
+    (concat "\\input\{" name "}")))
+
 (defun yasnippet/repeat (x y)
   (let ((x_num (if (stringp x) (string-to-number x) x)))
     (let (value) (while (> x_num 0)
@@ -797,26 +841,6 @@
       (if (or (equal curr 99) (equal curr 108) (equal curr 114))
           (yasnippet/count-delims-table (cdr x) (+ 1 n))
         (yasnippet/count-delims-table (cdr x) n)))))
-
-(use-package simpleclip
-  :config
-  (simpleclip-mode 1))
-
-(setq-default mode-line-format '(
-                                 "%e"
-                                 (:eval
-                                  (if (equal (shell-command-to-string
-                                              "ps aux | grep 'mbsync -a' | wc -l") "3\n")
-                                      "Running mbsync" ""))
-                                 (:eval
-                                  (doom-modeline-format--main))))
-
-(use-package tex
-  :ensure auctex
-  :config
-  (setq TeX-auto-save t)
-  (setq TeX-parse-self t)
-  (setq-default TeX-master nil))
 
 (use-package markdown-preview-eww
   :ensure nil
