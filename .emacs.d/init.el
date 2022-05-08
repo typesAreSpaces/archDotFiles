@@ -205,22 +205,6 @@
 (use-package doom-themes
   :init (load-theme 'doom-gruvbox t))
 
-;(use-package modus-themes
-;  :ensure
-;  :init
-;  ;; Add all your customizations prior to loading the themes
-;  (setq modus-themes-italic-constructs t
-;        modus-themes-bold-constructs nil
-;        modus-themes-region '(bg-only no-extend))
-
-;  ;; Load the theme files before enabling a theme
-;  (modus-themes-load-themes)
-;  :config
-;  ;; Load the theme of your choice:
-;  ;;(modus-themes-load-operandi)
-;  (modus-themes-load-vivendi)
-;  :bind ("<f5>" . modus-themes-toggle))
-
 (use-package all-the-icons)
 
 (use-package doom-modeline
@@ -578,7 +562,7 @@
   :config
   (setq lsp-latex-build-executable "latexmk")
   (setq lsp-latex-build-args '("-pdf" "-interaction=nonstopmode" "-synctex=1" "%f"))
-  (setq lsp-latex-build-is-continuous t)
+  (setq lsp-latex-forward-search-after t)
   (setq lsp-latex-build-on-save t)
   (setq lsp-latex-forward-search-executable "zathura")
   (setq lsp-latex-forward-search-args '("--synctex-forward" "%l:1:%f" "%p")))
@@ -834,6 +818,13 @@
   (setq TeX-parse-self t)
   (setq-default TeX-master nil))
 
+(use-package markdown-preview-eww
+  :ensure nil
+  :straight (
+             :host github
+             :files ("*.el")
+             :repo "niku/markdown-preview-eww"))
+
 (use-package mu4e
   :ensure nil
   :straight (
@@ -844,6 +835,7 @@
   ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
   ;; :defer 20 ; Wait until 20 seconds after startup
   :config
+  (require 'mu4e)
   (require 'mu4e-org)
 
   ;; This is set to 't' to avoid mail syncing issues when using mbsync
@@ -926,9 +918,9 @@
 (setq mu4e-use-fancy-chars t)
 (setq message-send-mail-function 'smtpmail-send-it)
 (setq mu4e-attachment-dir  "~/Downloads")
-(setq mu4e-headers-show-threads nil)
+;(setq mu4e-headers-show-threads nil)
 (setq mu4e-confirm-quit nil)
-(setq mu4e-headers-results-limit -1)
+;; (setq mu4e-headers-results-limit -1)
 (setq mu4e-compose-signature "Best,\nJose")
 (setq message-citation-line-format "On %d %b %Y at %R, %f wrote:\n")
 (setq message-citation-line-function 'message-insert-formatted-citation-line)
@@ -939,94 +931,8 @@
  mu4e-view-image-max-width 800
  mu4e-hide-index-messages t)
 
-;; (add-to-list 'mu4e-header-info-custom
-;;              '(:acctshortname . (:name "Account short name"
-;;                                        :shortname "Acct"
-;;                                        :help "3 first letter of related root maildir"
-;;                                        :function (lambda (msg)
-;;                                                    (let ((account-name (or (mu4e-message-field msg :maildir) "")))
-;;                                                      (if (equal account-name "")
-;;                                                          ""
-;;                                                        (substring
-;;                                                         (replace-regexp-in-string "^/\\(\\w+\\)/.*$" "\\1" account-name)
-;;                                                         0 3)))))))
-(add-to-list 'mu4e-header-info-custom
-             '(:foldername . (:name "Folder information"
-                                    :shortname "Folder"
-                                    :help "Message short storage information"
-                                    :function (lambda (msg)
-                                                (let ((shortaccount)
-                                                      (maildir (or (mu4e-message-field msg :maildir) ""))
-                                                      (mailinglist (or (mu4e-message-field msg :mailing-list) "")))
-                                                  (if (not (equal mailinglist ""))
-                                                      (setq mailinglist (mu4e-get-mailing-list-shortname mailinglist)))
-                                                  (when (not (equal maildir ""))
-                                                    (setq shortaccount
-                                                          (substring
-                                                           (replace-regexp-in-string "^/\\(\\w+\\)/.*$" "\\1" maildir)
-                                                           0 3))
-                                                    (setq maildir (replace-regexp-in-string ".*/\\([^/]+\\)$" "\\1" maildir))
-                                                    (if (> (length maildir) 8)
-                                                        (setq maildir (concat (substring maildir 0 7) "…")))
-                                                    (setq maildir (concat "[" shortaccount "]" maildir)))
-                                                  (cond
-                                                   ((and (equal maildir "")
-                                                         (not (equal mailinglist "")))
-                                                    mailinglist)
-                                                   ((and (not (equal maildir ""))
-                                                         (equal mailinglist ""))
-                                                    maildir)
-                                                   ((and (not (equal maildir ""))
-                                                         (not (equal mailinglist "")))
-                                                    (concat maildir " (" mailinglist ")"))
-                                                   (t
-                                                    "")))))))
-
-;; (add-to-list 'mu4e-header-info-custom
-;;              '(:useragent . (:name "User-Agent"
-;;                                    :shortname "UserAgt."
-;;                                    :help "Mail client used by correspondant"
-;;                                    :function ed/get-origin-mail-system-header)))
-;; (add-to-list 'mu4e-header-info-custom
-;;              '(:openpgp . (:name "PGP Info"
-;;                                  :shortname "PGP"
-;;                                  :help "OpenPGP information found in mail header"
-;;                                  :function ed/get-openpgp-header)))
-;; (setq mu4e-view-fi
-;; elds '(:flags :maildir :mailing-list :tags :useragent :openpgp)
-;; mu4e-headers-fields '((:flags         . 5)
-;;                       (:human-date    . 12)
-;;                                   ;(:acctshortname . 4)
-;;                       (:foldername    . 25)
-;;                       (:from-or-to    . 25)
-;;                                   ;(:size          . 6)
-;;                       (:subject       . nil))
-;; mu4e-compose-hidden-headers '("^Face:" "^X-Face:" "^Openpgp:"
-;;                               "^X-Draft-From:" "^X-Mailer:"
-;;"^User-agent:"))
-
-(use-package mu-cite)
-
 (use-package org-mime
   :ensure t)
-
-;; (use-package mu4e-thread-folding
-;;   :ensure t
-;;   :straight (
-;;              :host github
-;;              :files ("*.el")
-;;              :repo "rougier/mu4e-thread-folding")
-;;   :config
-;;   (add-to-list 'mu4e-header-info-custom
-;;                '(:empty . (:name "Empty"
-;;                                  :shortname ""
-;;                                  :function (lambda (msg) "  "))))
-;;   (setq mu4e-headers-fields '((:empty         .    2)
-;;                               (:human-date    .   12)
-;;                               (:flags         .    6)
-;;                               (:mailing-list  .   10)
-;;                               (:from          .   22)
-;;                               (:subject       .   nil))))
 
 (use-package mu4e-dashboard
   :ensure t
@@ -1034,13 +940,6 @@
              :host github
              :files ("*.el")
              :repo "rougier/mu4e-dashboard"))
-
-(use-package markdown-preview-eww
-  :ensure nil
-  :straight (
-             :host github
-             :files ("*.el")
-             :repo "niku/markdown-preview-eww"))
 
 (use-package perspective
   :ensure t
