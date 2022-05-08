@@ -940,6 +940,8 @@
   :ensure t
   :bind (("C-x k" . persp-kill-buffer*)
          ("C-x C-b" . persp-ivy-switch-buffer))
+  :custom
+  (persp-mode-prefix-key (kbd "C-x M-p"))
   :init
   (persp-mode))
 
