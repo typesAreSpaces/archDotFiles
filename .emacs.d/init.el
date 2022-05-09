@@ -207,6 +207,10 @@
 
 (use-package all-the-icons)
 
+(use-package anzu
+  :config (global-anzu-mode 1)
+  (setq anzu-minimum-input-length 4))
+
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 15)))

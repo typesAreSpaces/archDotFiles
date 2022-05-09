@@ -304,7 +304,7 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
 
 #+end_src
 
-** Better Modeline
+*** Better Modeline
 
 [[https://github.com/seagle0128/doom-modeline][doom-modeline]] is a very attractive and rich (yet still minimal) mode line configuration for Emacs.  The default configuration is quite good but you can check out the [[https://github.com/seagle0128/doom-modeline#customize][configuration options]] for more things you can enable or disable.
 
@@ -314,11 +314,15 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
 
   (use-package all-the-icons)
 
+  (use-package anzu
+    :config (global-anzu-mode 1)
+    (setq anzu-minimum-input-length 4))
+
   (use-package doom-modeline
     :init (doom-modeline-mode 1)
     :custom ((doom-modeline-height 15)))
 
-#+end_src
+    #+end_src
 
 ** Which Key
 
@@ -1283,7 +1287,7 @@ Dial the GC threshold back down so that garbage collection happens more frequent
     (org-tree-slide-breadcrumbs " // ")
     (org-image-actual-width nil))
 
-    #+end_src
+#+end_src
 
 * System Clipboard
 
@@ -1417,7 +1421,7 @@ Dial the GC threshold back down so that garbage collection happens more frequent
             (yasnippet/count-delims-table (cdr x) (+ 1 n))
           (yasnippet/count-delims-table (cdr x) n)))))
 
-                 #+end_src
+#+end_src
 
 
 * Markdown-EWW preview
