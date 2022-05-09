@@ -207,7 +207,7 @@
 
 (use-package all-the-icons)
 
-(use-package anzu
+(use-package evil-anzu
   :config (global-anzu-mode 1)
   (setq anzu-minimum-input-length 4))
 
