@@ -5,7 +5,7 @@ get_status() {
   start_prefix='Starting rec\|Recording Start'
   OBSPID=`ps ax | awk '\$5=="obs"{print \$1}'`
   for pid in $OBSPID; do
-    file=`readlink -f /proc/$pid/fd/14`
+    file=`readlink -f /proc/$pid/fd/15`
     if grep '==== Streaming St' "$file" | tail -1 | grep -q 'Streaming Start' ; then
       result=' LIVE '
       break
