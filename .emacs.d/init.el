@@ -207,6 +207,8 @@
 
 (use-package all-the-icons)
 
+(use-package anzu)
+
 (use-package evil-anzu
   :config (global-anzu-mode 1)
   (setq anzu-minimum-input-length 4))
@@ -743,21 +745,20 @@
   :config
   (simpleclip-mode 1))
 
-(setq-default mode-line-format '(
-                                 "%e"
-                                 (:eval
-                                  (if (equal (shell-command-to-string
-                                              "ps aux | grep 'mbsync -a' | wc -l") "3\n")
-                                      "Running mbsync" ""))
-                                 (:eval
-                                  (doom-modeline-format--main))))
-
 (use-package tex
   :ensure auctex
   :config
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
   (setq-default TeX-master nil))
+
+(setq-default mode-line-format '(
+                                 "%e"
+                                 (:eval
+                                  (if (equal (shell-command-to-string
+                                              "ps aux | grep 'mbsync -a' | wc -l") "3\n")
+                                      "Running mbsync" ""))
+                                 (:eval (doom-modeline-format--main))))
 
 (use-package yasnippet
   :config
