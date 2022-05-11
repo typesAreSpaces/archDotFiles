@@ -40,6 +40,4 @@ for SCRIPT in ${LOCAL_ZSH_SCRIPTS[@]}; do
   [ -f $SCRIPT ] && source $SCRIPT
 done
 
-bspc config top_padding 25
-
 #zprof
