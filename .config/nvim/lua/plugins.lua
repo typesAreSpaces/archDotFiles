@@ -11,6 +11,13 @@ return require('packer').startup(function()
     event = "BufWinEnter", 
     config = get_config("lsp-install") 
   }
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+    },
+    config = get_config("lua-tree")
+  }
   -- Install texlab using paru
   -- not nvim-lsp-installer 
   use { 
