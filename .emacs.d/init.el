@@ -77,9 +77,6 @@
 (defvar seminar-org-files-dir 
   (concat phd-thesis-dir
           "/Documents/Seminars/BeihangUniversity-Fall2021/Org-Files"))
-(defvar ta-org-files-dir 
-  (concat phd-thesis-dir
-          "/Documents/Semesters/Spring/2022/TA-CS-429-529/Org-Files"))
 
 (defvar research-tasks-mail 
   (concat phd-thesis-org-files-dir "/research_tasks.org"))
@@ -93,8 +90,6 @@
   (concat phd-thesis-org-files-dir "/school_tasks.org"))
 (defvar seminar-tasks-mail 
   (concat seminar-org-files-dir "/seminar_tasks.org"))
-(defvar ta-tasks-mail 
-  (concat ta-org-files-dir "/current_tasks.org"))
 
 (use-package beacon)
 
@@ -168,7 +163,7 @@
     :global-prefix "C-SPC")
 
   (efs/leader-keys
-    "c"  'comment-line
+    "c"  'evilnc-comment-or-uncomment-lines
     "s"  'shell-command
     "t"  '(:ignore t :which-key "toggles")
     "tt" '(counsel-load-theme :which-key "choose theme")
@@ -459,10 +454,6 @@
           ("me" "Seminar Tasks" entry
            (file+olp seminar-tasks-mail "Captured Email")
            "* TODO Check this email %a"
-           :immediate-finish t)
-          ("mt" "TA Tasks" entry
-           (file+olp ta-tasks-mail "Captured Email")
-           "* TODO Check this email %a"
            :immediate-finish t)))
 
   (define-key global-map (kbd "C-c s")
@@ -752,11 +743,12 @@
   (setq TeX-parse-self t)
   (setq-default TeX-master nil))
 
-(setq-default mode-line-format '(
-                                 "%e"
+(setq-default mode-line-format '("%e"
                                  (:eval
-                                  (if (equal (shell-command-to-string
-                                              "ps aux | grep 'mbsync -a' | wc -l") "3\n")
+                                  (if (equal
+                                       (shell-command-to-string
+                                        "ps aux | grep 'mbsync -a' | wc -l")
+                                       "3\n")
                                       "Running mbsync" ""))
                                  (:eval (doom-modeline-format--main))))
 
@@ -935,7 +927,6 @@
           ("/unm/Drafts". ?d)
           ("/unm/Prof. Kapur". ?k)
           ("/unm/Prof. Kapur/Side projects/Seminars/Beihang University". ?b)
-          ("/unm/TA Work/CS 429-529". ?m)
           ("/unm/You got a Package!". ?p)
           ("/unm/Archive". ?a)
           ("/cs-unm/Inbox". ?I)

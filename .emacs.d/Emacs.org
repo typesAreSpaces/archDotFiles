@@ -126,9 +126,6 @@ We use the [[https://github.com/emacscollective/no-littering/blob/master/no-litt
   (defvar seminar-org-files-dir 
     (concat phd-thesis-dir
             "/Documents/Seminars/BeihangUniversity-Fall2021/Org-Files"))
-  (defvar ta-org-files-dir 
-    (concat phd-thesis-dir
-            "/Documents/Semesters/Spring/2022/TA-CS-429-529/Org-Files"))
 
   (defvar research-tasks-mail 
     (concat phd-thesis-org-files-dir "/research_tasks.org"))
@@ -142,8 +139,6 @@ We use the [[https://github.com/emacscollective/no-littering/blob/master/no-litt
     (concat phd-thesis-org-files-dir "/school_tasks.org"))
   (defvar seminar-tasks-mail 
     (concat seminar-org-files-dir "/seminar_tasks.org"))
-  (defvar ta-tasks-mail 
-    (concat ta-org-files-dir "/current_tasks.org"))
 
 #+end_src
 
@@ -247,7 +242,7 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
       :global-prefix "C-SPC")
 
     (efs/leader-keys
-      "c"  'comment-line
+      "c"  'evilnc-comment-or-uncomment-lines
       "s"  'shell-command
       "t"  '(:ignore t :which-key "toggles")
       "tt" '(counsel-load-theme :which-key "choose theme")
@@ -638,10 +633,6 @@ This section contains the basic configuration for =org-mode= plus the configurat
              :immediate-finish t)
             ("me" "Seminar Tasks" entry
              (file+olp seminar-tasks-mail "Captured Email")
-             "* TODO Check this email %a"
-             :immediate-finish t)
-            ("mt" "TA Tasks" entry
-             (file+olp ta-tasks-mail "Captured Email")
              "* TODO Check this email %a"
              :immediate-finish t)))
 
@@ -1321,11 +1312,12 @@ Dial the GC threshold back down so that garbage collection happens more frequent
 
 #+begin_src emacs-lisp 
 
-  (setq-default mode-line-format '(
-                                   "%e"
+  (setq-default mode-line-format '("%e"
                                    (:eval
-                                    (if (equal (shell-command-to-string
-                                                "ps aux | grep 'mbsync -a' | wc -l") "3\n")
+                                    (if (equal
+                                         (shell-command-to-string
+                                          "ps aux | grep 'mbsync -a' | wc -l")
+                                         "3\n")
                                         "Running mbsync" ""))
                                    (:eval (doom-modeline-format--main))))
 
@@ -1588,7 +1580,6 @@ mu index
             ("/unm/Drafts". ?d)
             ("/unm/Prof. Kapur". ?k)
             ("/unm/Prof. Kapur/Side projects/Seminars/Beihang University". ?b)
-            ("/unm/TA Work/CS 429-529". ?m)
             ("/unm/You got a Package!". ?p)
             ("/unm/Archive". ?a)
             ("/cs-unm/Inbox". ?I)
@@ -1776,4 +1767,4 @@ mu index
     ;; (setq consult-project-function (lambda (_) (locate-dominating-file "." ".git")))
     )
 
-    #+end_src
+#+end_src
