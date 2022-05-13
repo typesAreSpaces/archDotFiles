@@ -8,7 +8,6 @@ killall -q sxhkd
 sxhkd &
 picom --experimental-backends &
 xset s off -dpms &
-emacs --daemon
 
 MONITOR1=DP-0
 
@@ -38,3 +37,5 @@ bspc rule -a firefox desktop='^2'
 bspc rule -a obs desktop='^8'
 bspc rule -a 'VirtualBox Manager' desktop='^9'
 bspc rule -a 'VirtualBox Machine' desktop='^10'
+
+emacs --daemon
