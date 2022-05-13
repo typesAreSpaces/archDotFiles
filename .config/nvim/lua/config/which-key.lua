@@ -62,6 +62,11 @@ local mappings = {
     f = {'<cmd>lua vim.lsp.buf.formatting()<CR>', "Formatting"},
   },
 
+  n = {
+    name = "NvimTree",
+    t = {"<cmd>:NvimTreeToggle<CR>", "Toggle"},
+  },
+
   s = {
     name = "Source Configs",
     u = {"<cmd>call UltiSnips#RefreshSnippets()<CR><cmd>echon 'Snippets refreshed'<CR>", "Source UltinSnippets Config"},
