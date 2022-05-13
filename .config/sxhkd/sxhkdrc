@@ -140,16 +140,16 @@ ctrl + shift + {h,j,k,l}
   ~/.local/scripts/bspwm_smart_move {west,south,north,east}
 
 {XF86AudioRaiseVolume,XF86AudioLowerVolume}
-  pactl set-sink-volume $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") {+10%,-10%}
+  amixer set Master {10%+, 10%-}
 
 XF86AudioMute
-  pactl set-sink-mute $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") toggle
+  amixer set Master toggle
 
 ctrl + {Up, Down}
-  pactl set-sink-volume $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") {+10%,-10%}
+  amixer set Master {10%+, 10%-}
 
 ctrl + m
-  pactl set-sink-mute $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") toggle
+  amixer set Master toggle
 
 alt + shift + {e, v}
   ~/.local/scripts/changeKBD {CTRL, ESC}
