@@ -77,9 +77,6 @@
 (defvar seminar-org-files-dir 
   (concat phd-thesis-dir
           "/Documents/Seminars/BeihangUniversity-Fall2021/Org-Files"))
-(defvar ta-org-files-dir 
-  (concat phd-thesis-dir
-          "/Documents/Semesters/Spring/2022/TA-CS-429-529/Org-Files"))
 
 (defvar research-tasks-mail 
   (concat phd-thesis-org-files-dir "/research_tasks.org"))
@@ -93,8 +90,6 @@
   (concat phd-thesis-org-files-dir "/school_tasks.org"))
 (defvar seminar-tasks-mail 
   (concat seminar-org-files-dir "/seminar_tasks.org"))
-(defvar ta-tasks-mail 
-  (concat ta-org-files-dir "/current_tasks.org"))
 
 (use-package beacon)
 
@@ -168,7 +163,7 @@
     :global-prefix "C-SPC")
 
   (efs/leader-keys
-    "c"  'comment-line
+    "c"  'evilnc-comment-or-uncomment-lines
     "s"  'shell-command
     "t"  '(:ignore t :which-key "toggles")
     "tt" '(counsel-load-theme :which-key "choose theme")
@@ -459,10 +454,6 @@
           ("me" "Seminar Tasks" entry
            (file+olp seminar-tasks-mail "Captured Email")
            "* TODO Check this email %a"
-           :immediate-finish t)
-          ("mt" "TA Tasks" entry
-           (file+olp ta-tasks-mail "Captured Email")
-           "* TODO Check this email %a"
            :immediate-finish t)))
 
   (define-key global-map (kbd "C-c s")
@@ -752,11 +743,12 @@
   (setq TeX-parse-self t)
   (setq-default TeX-master nil))
 
-(setq-default mode-line-format '(
-                                 "%e"
+(setq-default mode-line-format '("%e"
                                  (:eval
-                                  (if (equal (shell-command-to-string
-                                              "ps aux | grep 'mbsync -a' | wc -l") "3\n")
+                                  (if (equal
+                                       (shell-command-to-string
+                                        "ps aux | grep 'mbsync -a' | wc -l")
+                                       "3\n")
                                       "Running mbsync" ""))
                                  (:eval (doom-modeline-format--main))))
 
@@ -767,88 +759,8 @@
 
 (use-package yasnippet-snippets)
 
-(defun my-yas-try-expanding-auto-snippets ()
-  (when yas-minor-mode
-    (let ((yas-buffer-local-condition ''(require-snippet-condition . auto)))
-      (yas-expand))))
-
-(add-hook 'post-command-hook #'my-yas-try-expanding-auto-snippets)
-
-                                        ; file_name: either '/kldb.tex' or '/idxdb.tex'
-                                        ; cmd_path: either '/home/jose/.local/scripts/add-knowledge -p ' or
-                                        ; '/home/jose/.local/scripts/add-glossary -p '
-                                        ; prefix_entry: either ' -e \'index=' or ' -e \'newglossaryentry{'
-                                        ; prefix_output: either "\\intro{" or "\\glsadd{"
-
-(defun yasnippet/aux_add_cmd (file_name cmd_path prefix_entry prefix_output input)
-  (let* ((curr_dir default-directory)
-         (curr_file (concat curr_dir file_name))
-         (curr_file_path (replace-regexp-in-string " " "\\\\ " curr_file))
-         (add_cmd (concat cmd_path curr_file_path " "))
-         (_args (split-string input ","))
-         (first_arg (car _args))
-         (args (mapconcat (lambda (x) (concat "\'" x "\'")) _args " "))
-         (command
-          (concat "if ! grep " curr_file prefix_entry first_arg "}\'; then "
-                  add_cmd args "; fi")))
-    (progn
-      (if (not (file-exists-p curr_file)) (shell-command (concat "touch " curr_file_path)))
-      (shell-command command)
-      (concat prefix_output first_arg "}"))))
-
-(defun yasnippet/input (input)
-  (let* ((args (split-string input ","))
-         (num_args (length args)))
-    (cond ((equal num_args 3)
-           (let ((name (nth 0 args))
-                 (title_name (nth 1 args))
-                 (latex_header (nth 2 args)))
-             (yasnippet/input_aux name title_name latex_header 3)))
-          ((equal num_args 2)
-           (let ((name (nth 0 args))
-                 (title_name (nth 1 args)))
-             (yasnippet/input_aux name title_name "section" 2)))
-          ((equal num_args 1)
-           (let ((name (nth 0 args)))
-             (yasnippet/input_aux name "" "" 1)))
-          (t (yasnippet/input_aux "_new_file_" "new_title" "" num_args)))))
-
-(defun yasnippet/input_aux (name title_name latex_header num_args)
-  (let* ((file_name (concat name ".tex")))
-    (shell-command (concat "touch " file_name))
-    (if (and (< 1 num_args) (< num_args 4))
-        (shell-command (concat "echo \\\\\'" latex_header "{" title_name "}\' > " file_name)))
-    (concat "\\input\{" name "}")))
-
-(defun yasnippet/repeat (x y)
-  (let ((x_num (if (stringp x) (string-to-number x) x)))
-    (let (value) (while (> x_num 0)
-                   (setq value (concat value y))
-                   (setq x_num (- x_num 1))) value)))
-
-(defun yasnippet/find-char-position (x y n)
-  (if (null x) (- 1)
-    (if (equal (car x) y)
-        n
-      (yasnippet/find-char-position (cdr x) y (+ 1 n)))))
-
-(defun yasnippet/parent-file ()
-  (let* ((file_name (substring (buffer-name) 0 -4))
-         (grep_command (concat "grep -nr input{" file_name "}"))
-         (grep_output (shell-command-to-string grep_command))
-         (position (yasnippet/find-char-position (string-to-list grep_output) 58 0)))
-    (if (equal position (- 1)) "" (substring grep_output 0 position))))
-
-(defun yasnippet/goto-parent-file ()
-  (let ((file (yasnippet/parent-file)))
-    (if (not (equal file "")) (find-file file))))
-
-(defun yasnippet/count-delims-table (x n)
-  (if (null x) n
-    (let ((curr (car x)))
-      (if (or (equal curr 99) (equal curr 108) (equal curr 114))
-          (yasnippet/count-delims-table (cdr x) (+ 1 n))
-        (yasnippet/count-delims-table (cdr x) n)))))
+;(add-to-list 'load-path "~/.emacs.d/snippets/")
+(load "~/.emacs.d/snippets/yasnippet-scripts.el")
 
 (use-package markdown-preview-eww
   :ensure nil
@@ -935,7 +847,6 @@
           ("/unm/Drafts". ?d)
           ("/unm/Prof. Kapur". ?k)
           ("/unm/Prof. Kapur/Side projects/Seminars/Beihang University". ?b)
-          ("/unm/TA Work/CS 429-529". ?m)
           ("/unm/You got a Package!". ?p)
           ("/unm/Archive". ?a)
           ("/cs-unm/Inbox". ?I)
