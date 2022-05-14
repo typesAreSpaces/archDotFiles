@@ -1334,7 +1334,6 @@ Dial the GC threshold back down so that garbage collection happens more frequent
 
   (use-package yasnippet-snippets)
 
-  ;(add-to-list 'load-path "~/.emacs.d/snippets/")
   (load "~/.emacs.d/snippets/yasnippet-scripts.el")
 
 #+end_src

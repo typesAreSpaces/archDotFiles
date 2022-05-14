@@ -759,7 +759,6 @@
 
 (use-package yasnippet-snippets)
 
-;(add-to-list 'load-path "~/.emacs.d/snippets/")
 (load "~/.emacs.d/snippets/yasnippet-scripts.el")
 
 (use-package markdown-preview-eww
