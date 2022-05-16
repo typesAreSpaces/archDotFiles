@@ -570,8 +570,10 @@
   :config
   (setq lsp-latex-build-executable "latexmk")
   (setq lsp-latex-build-args '("-pdf" "-interaction=nonstopmode" "-synctex=1" "%f"))
+  ; (setq lsp-latex-build-args '("-pvc" "-pdf" "-interaction=nonstopmode" "-synctex=1" "%f"))
   (setq lsp-latex-forward-search-after t)
   (setq lsp-latex-build-on-save t)
+  ; (setq lsp-latex-build-is-continuous t)
   (setq lsp-latex-forward-search-executable "zathura")
   (setq lsp-latex-forward-search-args '("--synctex-forward" "%l:1:%f" "%p")))
 
