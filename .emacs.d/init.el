@@ -168,6 +168,7 @@
     "t"  '(:ignore t :which-key "toggles")
     "tt" '(counsel-load-theme :which-key "choose theme")
     "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
+    "g" '(lambda () (interactive) (magit-status))
     "m" '(lambda () (interactive) (mu4e))
     "p" '(lambda () (interactive) (yasnippet/goto-parent-file))
     "r" '(lambda () (interactive) (org-capture nil))))
@@ -270,7 +271,7 @@
   (ivy-prescient-enable-filtering nil)
   :config
   ;; Uncomment the following line to have sorting remembered across sessions!
-                                        ;(prescient-persist-mode 1)
+                                       ;  (prescient-persist-mode 1)
   (ivy-prescient-mode 1))
 
 (use-package helpful
@@ -557,6 +558,13 @@
 
 (add-hook 'TeX-mode-hook 'lsp)
 (add-hook 'LaTeX-mode-hook 'lsp)
+
+(add-hook 'TeX-mode-hook #'auto-fill-mode)
+(add-hook 'LaTeX-mode-hook #'auto-fill-mode)
+(setq-default fill-column 80)
+
+(add-hook 'TeX-mode-hook #'display-fill-column-indicator-mode)
+(add-hook 'LaTeX-mode-hook #'display-fill-column-indicator-mode)
 
 (use-package lsp-latex
   :config
@@ -904,13 +912,8 @@
   :after selectrum
   :straight t
   ;; Replace bindings. Lazily loaded due by `use-package'.
-  :bind (;; C-c bindings (mode-specific-map)
-         ("C-c h" . consult-history)
-         ("C-c m" . consult-mode-command)
-         ("C-c k" . consult-kmacro)
-         ;; C-x bindings (ctl-x-map)
+  :bind (;; C-x bindings (ctl-x-map)
          ("C-x M-:" . consult-complex-command)     ;; orig. repeat-complex-command
-         ("C-x b" . consult-buffer)                ;; orig. switch-to-buffer
          ("C-x 4 b" . consult-buffer-other-window) ;; orig. switch-to-buffer-other-window
          ("C-x 5 b" . consult-buffer-other-frame)  ;; orig. switch-to-buffer-other-frame
          ("C-x r b" . consult-bookmark)            ;; orig. bookmark-jump
@@ -933,16 +936,21 @@
          ("M-g i" . consult-imenu)
          ("M-g I" . consult-imenu-multi)
          ;; M-s bindings (search-map)
-         ("M-s d" . consult-find)
-         ("M-s D" . consult-locate)
-         ("C-x C-g" . consult-grep)
          ("M-s G" . consult-git-grep)
          ("M-s r" . consult-ripgrep)
-         ("M-s l" . consult-line)
          ("M-s L" . consult-line-multi)
          ("M-s m" . consult-multi-occur)
          ("M-s k" . consult-keep-lines)
          ("M-s u" . consult-focus-lines)
+         ; C-c bindings
+         ("C-c C-b" . consult-buffer)                ;; orig. switch-to-buffer
+         ("C-c C-l" . consult-line)
+         ("C-c C-f" . consult-find)
+         ("C-c D" . consult-locate)
+         ("C-c h" . consult-history)
+         ("C-c m" . consult-mode-command)
+         ("C-c k" . consult-kmacro)
+         ("C-c C-g" . consult-grep)
          ;; Isearch integration
          ("M-s e" . consult-isearch-history)
          :map isearch-mode-map
