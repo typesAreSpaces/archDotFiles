@@ -696,6 +696,8 @@
     "h" 'dired-single-up-directory
     "l" 'dired-single-buffer))
 
+(put 'dired-find-alternate-file 'disabled nil)
+
 (use-package dired-single
   :commands (dired dired-jump))
 
