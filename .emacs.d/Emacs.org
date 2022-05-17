@@ -242,17 +242,17 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
       :global-prefix "C-SPC")
 
     (efs/leader-keys
-      "c"  'evilnc-comment-or-uncomment-lines
-      "s"  'shell-command
-      "t"  '(:ignore t :which-key "toggles")
-      "tt" '(counsel-load-theme :which-key "choose theme")
+      "c"  '(evilnc-comment-or-uncomment-lines :which-key "Comment line")
+      "s"  '(shell-command :which-key "Shell command")
+      "t"  '(:ignore t :which-key "Toggles")
+      "tt" '(counsel-load-theme :which-key "Choose theme")
       "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
-      "a" '(lambda () (interactive) (find-file (expand-file-name (concat phd-thesis-org-files-dir "/main.org"))))
-      "g" '(lambda () (interactive) (magit-status))
-      "d" '(lambda () (interactive) (dired-jump))
-      "m" '(lambda () (interactive) (mu4e))
-      "p" '(lambda () (interactive) (yasnippet/goto-parent-file))
-      "r" '(lambda () (interactive) (org-capture nil))))
+      "a" '(lambda () (interactive) "Agenda" (find-file (expand-file-name (concat phd-thesis-org-files-dir "/main.org"))))
+      "g" '(magit-status :which-key "Magit status")
+      "d" '(dired-jump :which-key "Dired jump")
+      "m" '(mu4e :which-key "Mu4e")
+      "p" '(yasnippet/goto-parent-file :which-key "Go to parent file")
+      "r" '(org-capture nil :which-key "Org-capture")))
 
   (use-package evil
     :init

@@ -1,7 +1,7 @@
 # General aliases
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias sshLocalUbuntuVM="ssh -p 2222 jose@127.0.0.1"
-alias sshJose='ssh -X jose@10.88.198.99'
+alias sshJose='ssh -X jose@10.88.167.53'
 alias dict='sdcv'
 
 # Directory aliases
