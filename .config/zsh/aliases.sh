@@ -9,10 +9,11 @@ alias second_home="cd /media"
 alias phd="cd $PHD_THESIS_DIR"
 alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
 alias extra="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-talks/mpi21"
-alias report="cd $REPORTS_DIR/$CURRENT_REPORT"
+#alias report="cd $REPORTS_DIR/$CURRENT_REPORT"
+alias report="cd $SEMINAR_REPORTS/$CURRENT_REPORT"
 alias thesis="cd $WRITE_UPS_DIR/thesis"
 alias personal_notes="cd $WRITE_UPS_DIR/personal_notes"
-alias seminar="cd $PHD_DOCUMENTS/Seminars/BeihangUniversity-Fall2021"
+alias seminar="cd $SEMINAR"
 alias scc="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-nsf-proposal"
 
 # Program aliases
