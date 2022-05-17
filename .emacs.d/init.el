@@ -172,7 +172,7 @@
     "g" '(magit-status :which-key "Magit status")
     "d" '(dired-jump :which-key "Dired jump")
     "m" '(mu4e :which-key "Mu4e")
-    "p" '(yasnippet/goto-parent-file :which-key "Go to parent file")
+    "p" '(lambda () (interactive) (yasnippet/goto-parent-file))
     "r" '(org-capture nil :which-key "Org-capture")))
 
 (use-package evil
