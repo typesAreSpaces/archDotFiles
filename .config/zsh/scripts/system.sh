@@ -17,7 +17,8 @@ update(){
   emacsclient -e "(kill-emacs)"
   emacs --daemon
   echo ">>> Update neovim packages"
-  nvim --headless +PackerSync +TSUpdate +qa;
+  nvim --headless +TSUpdateSync +qa;
+  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync';
 }
 
 setScreenBrightness(){
