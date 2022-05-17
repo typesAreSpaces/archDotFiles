@@ -575,7 +575,7 @@
   ; (setq lsp-latex-build-args '("-pvc" "-pdf" "-interaction=nonstopmode" "-synctex=1" "%f"))
   (setq lsp-latex-forward-search-after t)
   (setq lsp-latex-build-on-save t)
-  ; (setq lsp-latex-build-is-continuous t)
+                                        ; (setq lsp-latex-build-is-continuous t)
   (setq lsp-latex-forward-search-executable "zathura")
   (setq lsp-latex-forward-search-args '("--synctex-forward" "%l:1:%f" "%p")))
 
@@ -946,7 +946,7 @@
          ("M-s m" . consult-multi-occur)
          ("M-s k" . consult-keep-lines)
          ("M-s u" . consult-focus-lines)
-         ; C-c bindings
+                                        ; C-c bindings
          ("C-c C-b" . consult-buffer)                ;; orig. switch-to-buffer
          ("C-c C-l" . consult-line)
          ("C-c C-f" . consult-find)
