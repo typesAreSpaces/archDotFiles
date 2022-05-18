@@ -114,6 +114,7 @@
 (setq visible-bell t)
 
 (column-number-mode)
+(setq-default display-line-numbers-type 'visual) 
 (global-display-line-numbers-mode t)
 
 ;; Set frame transparency

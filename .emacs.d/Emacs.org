@@ -171,6 +171,7 @@ This section configures basic UI settings that remove unneeded elements to make 
   (setq visible-bell t)
 
   (column-number-mode)
+  (setq-default display-line-numbers-type 'visual) 
   (global-display-line-numbers-mode t)
 
   ;; Set frame transparency
@@ -187,7 +188,7 @@ This section configures basic UI settings that remove unneeded elements to make 
                   eshell-mode-hook))
     (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-#+end_src
+      #+end_src
 
 ** Dashboard Configuration
 
@@ -276,7 +277,7 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
     :config
     (evil-collection-init))
 
-    #+end_src
+#+end_src
 
 * UI Configuration
 
@@ -660,7 +661,7 @@ This section contains the basic configuration for =org-mode= plus the configurat
 
     (efs/org-font-setup))
 
-    #+end_src
+#+end_src
 
 *** Nicer Heading Bullets
 
