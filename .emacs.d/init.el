@@ -374,6 +374,9 @@
   ;; Save Org buffers after refiling!
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
 
+  ;; Use find-file instead of file-find-other-window
+  (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file)
+
   (setq org-tag-alist
         '((:startgroup)
                                         ; Put mutually exclusive tags here
