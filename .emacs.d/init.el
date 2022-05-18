@@ -74,9 +74,8 @@
 (defvar scc-org-files-dir 
   (concat phd-thesis-dir
           "/Documents/Side-Projects/kapur-nsf-proposal/Org-Files"))
-(defvar seminar-org-files-dir 
-  (concat phd-thesis-dir
-          "/Documents/Seminars/BeihangUniversity-Fall2021/Org-Files"))
+(defvar seminar-dir (concat phd-thesis-dir "/Documents/Seminars/BeihangUniversity-Fall2021"))
+(defvar seminar-org-files-dir (concat seminar-dir "/Org-Files"))
 
 (defvar research-tasks-mail 
   (concat phd-thesis-org-files-dir "/research_tasks.org"))
@@ -163,14 +162,18 @@
     :global-prefix "C-SPC")
 
   (efs/leader-keys
-    "c"  'evilnc-comment-or-uncomment-lines
-    "s"  'shell-command
-    "t"  '(:ignore t :which-key "toggles")
-    "tt" '(counsel-load-theme :which-key "choose theme")
-    "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
-    "m" '(lambda () (interactive) (mu4e))
+    "c"  '(evilnc-comment-or-uncomment-lines :which-key "Comment line")
+    "s"  '(shell-command :which-key "Shell command")
+    "t"  '(:ignore t :which-key "Toggles")
+    "tt" '(counsel-load-theme :which-key "Choose theme")
+    "e" '(lambda () (interactive) "Emacs source" (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
+    "a" '(lambda () (interactive) "Agenda" (find-file (expand-file-name (concat phd-thesis-org-files-dir "/main.org"))))
+    "w" '(lambda () (interactive) "Current Work" (find-file (expand-file-name (concat seminar-dir "/Reports/finding_certificates_qm_univariate/main.tex"))))
+    "g" '(magit-status :which-key "Magit status")
+    "d" '(dired-jump :which-key "Dired jump")
+    "m" '(mu4e :which-key "Mu4e")
     "p" '(lambda () (interactive) (yasnippet/goto-parent-file))
-    "r" '(lambda () (interactive) (org-capture nil))))
+    "r" '(org-capture nil :which-key "Org-capture")))
 
 (use-package evil
   :init
@@ -270,7 +273,7 @@
   (ivy-prescient-enable-filtering nil)
   :config
   ;; Uncomment the following line to have sorting remembered across sessions!
-                                        ;(prescient-persist-mode 1)
+                                       ;  (prescient-persist-mode 1)
   (ivy-prescient-mode 1))
 
 (use-package helpful
@@ -558,10 +561,17 @@
 (add-hook 'TeX-mode-hook 'lsp)
 (add-hook 'LaTeX-mode-hook 'lsp)
 
+(add-hook 'TeX-mode-hook #'auto-fill-mode)
+(add-hook 'LaTeX-mode-hook #'auto-fill-mode)
+(setq-default fill-column 80)
+
+(add-hook 'TeX-mode-hook #'display-fill-column-indicator-mode)
+(add-hook 'LaTeX-mode-hook #'display-fill-column-indicator-mode)
+
 (use-package lsp-latex
   :config
   (setq lsp-latex-build-executable "latexmk")
-  (setq lsp-latex-build-args '("-pdf" "-interaction=nonstopmode" "-synctex=1" "%f"))
+  (setq lsp-latex-build-args '("-pvc" "-pdf" "-interaction=nonstopmode" "-synctex=1" "%f"))
   (setq lsp-latex-forward-search-after t)
   (setq lsp-latex-build-on-save t)
   (setq lsp-latex-forward-search-executable "zathura")
@@ -686,6 +696,8 @@
     "h" 'dired-single-up-directory
     "l" 'dired-single-buffer))
 
+(put 'dired-find-alternate-file 'disabled nil)
+
 (use-package dired-single
   :commands (dired dired-jump))
 
@@ -755,6 +767,7 @@
 (use-package yasnippet
   :config
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  (setq yas-key-syntaxes '(yas-longest-key-from-whitespace "w_.()" "w_." "w_" "w"))
   (yas-global-mode 1))
 
 (use-package yasnippet-snippets)
@@ -904,13 +917,8 @@
   :after selectrum
   :straight t
   ;; Replace bindings. Lazily loaded due by `use-package'.
-  :bind (;; C-c bindings (mode-specific-map)
-         ("C-c h" . consult-history)
-         ("C-c m" . consult-mode-command)
-         ("C-c k" . consult-kmacro)
-         ;; C-x bindings (ctl-x-map)
+  :bind (;; C-x bindings (ctl-x-map)
          ("C-x M-:" . consult-complex-command)     ;; orig. repeat-complex-command
-         ("C-x b" . consult-buffer)                ;; orig. switch-to-buffer
          ("C-x 4 b" . consult-buffer-other-window) ;; orig. switch-to-buffer-other-window
          ("C-x 5 b" . consult-buffer-other-frame)  ;; orig. switch-to-buffer-other-frame
          ("C-x r b" . consult-bookmark)            ;; orig. bookmark-jump
@@ -933,16 +941,21 @@
          ("M-g i" . consult-imenu)
          ("M-g I" . consult-imenu-multi)
          ;; M-s bindings (search-map)
-         ("M-s d" . consult-find)
-         ("M-s D" . consult-locate)
-         ("C-x C-g" . consult-grep)
          ("M-s G" . consult-git-grep)
          ("M-s r" . consult-ripgrep)
-         ("M-s l" . consult-line)
          ("M-s L" . consult-line-multi)
          ("M-s m" . consult-multi-occur)
          ("M-s k" . consult-keep-lines)
          ("M-s u" . consult-focus-lines)
+                                        ; C-c bindings
+         ("C-c C-b" . consult-buffer)                ;; orig. switch-to-buffer
+         ("C-c C-l" . consult-line)
+         ("C-c C-f" . consult-find)
+         ("C-c D" . consult-locate)
+         ("C-c h" . consult-history)
+         ("C-c m" . consult-mode-command)
+         ("C-c k" . consult-kmacro)
+         ("C-c C-g" . consult-grep)
          ;; Isearch integration
          ("M-s e" . consult-isearch-history)
          :map isearch-mode-map
