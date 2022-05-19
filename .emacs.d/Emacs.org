@@ -171,6 +171,7 @@ This section configures basic UI settings that remove unneeded elements to make 
   (setq visible-bell t)
 
   (column-number-mode)
+  (setq-default display-line-numbers-type 'visual) 
   (global-display-line-numbers-mode t)
 
   ;; Set frame transparency
@@ -179,15 +180,20 @@ This section configures basic UI settings that remove unneeded elements to make 
   (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
   (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-  ;; Disable line numbers for some modes
+  ; Disable line numbers for some modes
   (dolist (mode '(org-mode-hook
                   term-mode-hook
                   shell-mode-hook
+                  mu4e-headers-mode-hook
+                  mu4e-view-mode-hook
+                  mu4e-main-mode-hook
+                  mu4e-org-mode-hook
+                  mu4e-compose-mode-hook
                   treemacs-mode-hook
                   eshell-mode-hook))
     (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-#+end_src
+      #+end_src
 
 ** Dashboard Configuration
 
@@ -408,7 +414,7 @@ This Prescient configuration is optimized for use in System Crafters videos and 
     (ivy-prescient-enable-filtering nil)
     :config
     ;; Uncomment the following line to have sorting remembered across sessions!
-                                         ;  (prescient-persist-mode 1)
+                                          ;  (prescient-persist-mode 1)
     (ivy-prescient-mode 1))
 
 #+end_src
@@ -553,6 +559,9 @@ This section contains the basic configuration for =org-mode= plus the configurat
 
     ;; Save Org buffers after refiling!
     (advice-add 'org-refile :after 'org-save-all-org-buffers)
+
+    ;; Use find-file instead of file-find-other-window
+    (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file)
 
     (setq org-tag-alist
           '((:startgroup)
@@ -884,7 +893,7 @@ This will install the [[https://github.com/theia-ide/typescript-language-server]
     (setq lsp-latex-forward-search-executable "zathura")
     (setq lsp-latex-forward-search-args '("--synctex-forward" "%l:1:%f" "%p")))
 
-    #+end_src
+#+end_src
 
 *** Python
 
@@ -1234,7 +1243,7 @@ Dired is a built-in file manager for Emacs that does some pretty amazing things!
     (evil-collection-define-key 'normal 'dired-mode-map
       "H" 'dired-hide-dotfiles-mode))
 
-      #+end_src
+#+end_src
 
 * Applications
 

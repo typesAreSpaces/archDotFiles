@@ -114,6 +114,7 @@
 (setq visible-bell t)
 
 (column-number-mode)
+(setq-default display-line-numbers-type 'visual) 
 (global-display-line-numbers-mode t)
 
 ;; Set frame transparency
@@ -122,10 +123,15 @@
 (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-;; Disable line numbers for some modes
+; Disable line numbers for some modes
 (dolist (mode '(org-mode-hook
                 term-mode-hook
                 shell-mode-hook
+                mu4e-headers-mode-hook
+                mu4e-view-mode-hook
+                mu4e-main-mode-hook
+                mu4e-org-mode-hook
+                mu4e-compose-mode-hook
                 treemacs-mode-hook
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
@@ -273,7 +279,7 @@
   (ivy-prescient-enable-filtering nil)
   :config
   ;; Uncomment the following line to have sorting remembered across sessions!
-                                       ;  (prescient-persist-mode 1)
+                                        ;  (prescient-persist-mode 1)
   (ivy-prescient-mode 1))
 
 (use-package helpful
@@ -373,6 +379,9 @@
 
   ;; Save Org buffers after refiling!
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
+
+  ;; Use find-file instead of file-find-other-window
+  (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file)
 
   (setq org-tag-alist
         '((:startgroup)
