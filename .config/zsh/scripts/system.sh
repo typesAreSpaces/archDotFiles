@@ -14,8 +14,6 @@ update(){
   emacsclient -e "(auto-package-update-now)"
   emacsclient -e "(straight-pull-all)"
   emacsclient -e "(straight-rebuild-all)"
-  emacsclient -e "(kill-emacs)"
-  emacs --daemon
   echo ">>> Update neovim packages"
   nvim --headless +TSUpdateSync +qa;
   nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync';
