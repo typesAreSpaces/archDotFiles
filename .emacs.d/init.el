@@ -352,7 +352,7 @@
   :pin org
   :commands (org-capture org-agenda)
   :hook (org-mode . efs/org-mode-setup)
-  :config
+
   (setq org-ellipsis " ▾")
 
   (setq org-agenda-start-with-log-mode t)
@@ -480,9 +480,6 @@
   (defun auto/SortTODO ()
     (when (and buffer-file-name (string-match ".*/todolist.org" (buffer-file-name)))
       (setq unread-command-events (listify-key-sequence "\C-c s"))))
-
-  ;; TODO: keep working on this one
-  ;;(add-hook 'buffer-list-update-hook #'auto/SortTODO)
 
   (efs/org-font-setup))
 
@@ -1039,3 +1036,8 @@
       ;;;; 4. locate-dominating-file
   ;; (setq consult-project-function (lambda (_) (locate-dominating-file "." ".git")))
   )
+
+(use-package ox-hugo
+  :ensure t
+  :pin melpa
+  :after ox)
