@@ -4,9 +4,9 @@
       (bootstrap-version 5))
   (unless (file-exists-p bootstrap-file)
     (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
+	(url-retrieve-synchronously
+	 "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+	 'silent 'inhibit-cookies)
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
@@ -15,8 +15,8 @@
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("org" . "https://orgmode.org/elpa/")
-                         ("elpa" . "https://elpa.gnu.org/packages/")))
+			 ("org" . "https://orgmode.org/elpa/")
+			 ("elpa" . "https://elpa.gnu.org/packages/")))
 
 (package-initialize)
 (unless package-archive-contents
@@ -39,16 +39,16 @@
 
 (defun efs/display-startup-time ()
   (message "Emacs loaded in %s with %d garbage collections."
-           (format "%.2f seconds"
-                   (float-time
-                    (time-subtract after-init-time before-init-time)))
-           gcs-done))
+	   (format "%.2f seconds"
+		   (float-time
+		    (time-subtract after-init-time before-init-time)))
+	   gcs-done))
 
 (add-hook 'emacs-startup-hook #'efs/display-startup-time)
 
 ;; NOTE: If you want to move everything out of the ~/.emacs.d folder
 ;; reliably, set `user-emacs-directory` before loading no-littering!
-                                        ;(setq user-emacs-directory "~/.cache/emacs")
+					;(setq user-emacs-directory "~/.cache/emacs")
 
 (use-package no-littering)
 
@@ -70,10 +70,10 @@
 (defvar phd-thesis-dir "~/Documents/GithubProjects/phd-thesis")
 (defvar phd-thesis-org-files-dir
   (concat phd-thesis-dir
-          "/Documents/Org-Files"))
+	  "/Documents/Org-Files"))
 (defvar scc-org-files-dir 
   (concat phd-thesis-dir
-          "/Documents/Side-Projects/kapur-nsf-proposal/Org-Files"))
+	  "/Documents/Side-Projects/kapur-nsf-proposal/Org-Files"))
 (defvar seminar-dir (concat phd-thesis-dir "/Documents/Seminars/BeihangUniversity-Fall2021"))
 (defvar seminar-org-files-dir (concat seminar-dir "/Org-Files"))
 
@@ -123,17 +123,17 @@
 (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-; Disable line numbers for some modes
+					; Disable line numbers for some modes
 (dolist (mode '(org-mode-hook
-                term-mode-hook
-                shell-mode-hook
-                mu4e-headers-mode-hook
-                mu4e-view-mode-hook
-                mu4e-main-mode-hook
-                mu4e-org-mode-hook
-                mu4e-compose-mode-hook
-                treemacs-mode-hook
-                eshell-mode-hook))
+		term-mode-hook
+		shell-mode-hook
+		mu4e-headers-mode-hook
+		mu4e-view-mode-hook
+		mu4e-main-mode-hook
+		mu4e-org-mode-hook
+		mu4e-compose-mode-hook
+		treemacs-mode-hook
+		eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (use-package dashboard
@@ -143,7 +143,7 @@
   (setq dashboard-banner-logo-title "Welcome to Emacs!")
   (setq dashboard-startup-banner "~/Pictures/Wallpapers/figures/480px-EmacsIcon.svg.png")
   (setq dashboard-items '((recents  . 10)
-                          (bookmarks . 10)))
+			  (bookmarks . 10)))
   (dashboard-setup-startup-hook))
 
 (set-face-attribute 'default nil :font "Fira Code Retina" :height efs/default-font-size)
@@ -220,9 +220,9 @@
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
   :custom (
-           (doom-modeline-height 15)
-           (doom-modeline-enable-word-count t)
-           (doom-modeline-continuous-word-count-modes '(markdown-mode gfm-mode org-mode text-mode))))
+	   (doom-modeline-height 15)
+	   (doom-modeline-enable-word-count t)
+	   (doom-modeline-continuous-word-count-modes '(markdown-mode gfm-mode org-mode text-mode))))
 
 (use-package which-key
   :defer 0
@@ -234,18 +234,18 @@
 (use-package ivy
   :diminish
   :bind (("C-s" . swiper)
-         :map ivy-minibuffer-map
-         ("TAB" . ivy-alt-done)
-         ("C-l" . ivy-alt-done)
-         ("C-j" . ivy-next-line)
-         ("C-k" . ivy-previous-line)
-         :map ivy-switch-buffer-map
-         ("C-k" . ivy-previous-line)
-         ("C-l" . ivy-done)
-         ("C-d" . ivy-switch-buffer-kill)
-         :map ivy-reverse-i-search-map
-         ("C-k" . ivy-previous-line)
-         ("C-d" . ivy-reverse-i-search-kill))
+	 :map ivy-minibuffer-map
+	 ("TAB" . ivy-alt-done)
+	 ("C-l" . ivy-alt-done)
+	 ("C-j" . ivy-next-line)
+	 ("C-k" . ivy-previous-line)
+	 :map ivy-switch-buffer-map
+	 ("C-k" . ivy-previous-line)
+	 ("C-l" . ivy-done)
+	 ("C-d" . ivy-switch-buffer-kill)
+	 :map ivy-reverse-i-search-map
+	 ("C-k" . ivy-previous-line)
+	 ("C-d" . ivy-reverse-i-search-kill))
   :config
   (ivy-mode 1))
 
@@ -266,8 +266,8 @@
 
 (use-package counsel
   :bind (("C-M-j" . 'counsel-switch-buffer)
-         :map minibuffer-local-map
-         ("C-r" . 'counsel-minibuffer-history))
+	 :map minibuffer-local-map
+	 ("C-r" . 'counsel-minibuffer-history))
   :custom
   (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
   :config
@@ -279,7 +279,7 @@
   (ivy-prescient-enable-filtering nil)
   :config
   ;; Uncomment the following line to have sorting remembered across sessions!
-                                        ;  (prescient-persist-mode 1)
+					;  (prescient-persist-mode 1)
   (ivy-prescient-mode 1))
 
 (use-package helpful
@@ -308,18 +308,18 @@
 (defun efs/org-font-setup ()
   ;; Replace list hyphen with dot
   (font-lock-add-keywords 'org-mode
-                          '(("^ *\\([-]\\) "
-                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+			  '(("^ *\\([-]\\) "
+			     (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
   ;; Set faces for heading levels
   (dolist (face '((org-level-1 . 1.2)
-                  (org-level-2 . 1.1)
-                  (org-level-3 . 1.05)
-                  (org-level-4 . 1.0)
-                  (org-level-5 . 1.1)
-                  (org-level-6 . 1.1)
-                  (org-level-7 . 1.1)
-                  (org-level-8 . 1.1)))
+		  (org-level-2 . 1.1)
+		  (org-level-3 . 1.05)
+		  (org-level-4 . 1.0)
+		  (org-level-5 . 1.1)
+		  (org-level-6 . 1.1)
+		  (org-level-7 . 1.1)
+		  (org-level-8 . 1.1)))
     (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
 
   ;; Ensure that anything that should be fixed-pitch in Org files appears that way
@@ -360,9 +360,9 @@
   (setq org-log-into-drawer t)
 
   (setq org-agenda-files
-        '("~/.emacs.d/Org-Files/Tasks.org"
-          "~/.emacs.d/Org-Files/Habits.org"
-          "~/.emacs.d/Org-Files/Birthdays.org"))
+	'("~/.emacs.d/Org-Files/Tasks.org"
+	  "~/.emacs.d/Org-Files/Habits.org"
+	  "~/.emacs.d/Org-Files/Birthdays.org"))
 
   (require 'org-habit)
   (require 'org-protocol)
@@ -370,12 +370,12 @@
   (setq org-habit-graph-column 60)
 
   (setq org-todo-keywords
-        '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
-          (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
+	'((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
+	  (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
 
   (setq org-refile-targets
-        '(("Archive.org" :maxlevel . 1)
-          ("Tasks.org" :maxlevel . 1)))
+	'(("Archive.org" :maxlevel . 1)
+	  ("Tasks.org" :maxlevel . 1)))
 
   ;; Save Org buffers after refiling!
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
@@ -384,89 +384,89 @@
   (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file)
 
   (setq org-tag-alist
-        '((:startgroup)
-                                        ; Put mutually exclusive tags here
-          (:endgroup)
-          ("@errand" . ?E)
-          ("@home" . ?H)
-          ("@work" . ?W)
-          ("agenda" . ?a)
-          ("planning" . ?p)
-          ("publish" . ?P)
-          ("batch" . ?b)
-          ("note" . ?n)
-          ("idea" . ?i)))
+	'((:startgroup)
+					; Put mutually exclusive tags here
+	  (:endgroup)
+	  ("@errand" . ?E)
+	  ("@home" . ?H)
+	  ("@work" . ?W)
+	  ("agenda" . ?a)
+	  ("planning" . ?p)
+	  ("publish" . ?P)
+	  ("batch" . ?b)
+	  ("note" . ?n)
+	  ("idea" . ?i)))
 
   ;; Configure custom agenda views
   (setq org-agenda-custom-commands
-        '(("d" "Dashboard"
-           ((agenda "" ((org-deadline-warning-days 7)))
-            (todo "NEXT"
-                  ((org-agenda-overriding-header "Next Tasks")))
-            (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))))
+	'(("d" "Dashboard"
+	   ((agenda "" ((org-deadline-warning-days 7)))
+	    (todo "NEXT"
+		  ((org-agenda-overriding-header "Next Tasks")))
+	    (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))))
 
-          ("n" "Next Tasks"
-           ((todo "NEXT"
-                  ((org-agenda-overriding-header "Next Tasks")))))
+	  ("n" "Next Tasks"
+	   ((todo "NEXT"
+		  ((org-agenda-overriding-header "Next Tasks")))))
 
-          ("W" "Work Tasks" tags-todo "+work-email")
+	  ("W" "Work Tasks" tags-todo "+work-email")
 
-          ;; Low-effort next actions
-          ("e" tags-todo "+TODO=\"NEXT\"+Effort<15&+Effort>0"
-           ((org-agenda-overriding-header "Low Effort Tasks")
-            (org-agenda-max-todos 20)
-            (org-agenda-files org-agenda-files)))
+	  ;; Low-effort next actions
+	  ("e" tags-todo "+TODO=\"NEXT\"+Effort<15&+Effort>0"
+	   ((org-agenda-overriding-header "Low Effort Tasks")
+	    (org-agenda-max-todos 20)
+	    (org-agenda-files org-agenda-files)))
 
-          ("w" "Workflow Status"
-           ((todo "WAIT"
-                  ((org-agenda-overriding-header "Waiting on External")
-                   (org-agenda-files org-agenda-files)))
-            (todo "REVIEW"
-                  ((org-agenda-overriding-header "In Review")
-                   (org-agenda-files org-agenda-files)))
-            (todo "PLAN"
-                  ((org-agenda-overriding-header "In Planning")
-                   (org-agenda-todo-list-sublevels nil)
-                   (org-agenda-files org-agenda-files)))
-            (todo "BACKLOG"
-                  ((org-agenda-overriding-header "Project Backlog")
-                   (org-agenda-todo-list-sublevels nil)
-                   (org-agenda-files org-agenda-files)))
-            (todo "READY"
-                  ((org-agenda-overriding-header "Ready for Work")
-                   (org-agenda-files org-agenda-files)))
-            (todo "ACTIVE"
-                  ((org-agenda-overriding-header "Active Projects")
-                   (org-agenda-files org-agenda-files)))
-            (todo "COMPLETED"
-                  ((org-agenda-overriding-header "Completed Projects")
-                   (org-agenda-files org-agenda-files)))
-            (todo "CANC"
-                  ((org-agenda-overriding-header "Cancelled Projects")
-                   (org-agenda-files org-agenda-files)))))))
+	  ("w" "Workflow Status"
+	   ((todo "WAIT"
+		  ((org-agenda-overriding-header "Waiting on External")
+		   (org-agenda-files org-agenda-files)))
+	    (todo "REVIEW"
+		  ((org-agenda-overriding-header "In Review")
+		   (org-agenda-files org-agenda-files)))
+	    (todo "PLAN"
+		  ((org-agenda-overriding-header "In Planning")
+		   (org-agenda-todo-list-sublevels nil)
+		   (org-agenda-files org-agenda-files)))
+	    (todo "BACKLOG"
+		  ((org-agenda-overriding-header "Project Backlog")
+		   (org-agenda-todo-list-sublevels nil)
+		   (org-agenda-files org-agenda-files)))
+	    (todo "READY"
+		  ((org-agenda-overriding-header "Ready for Work")
+		   (org-agenda-files org-agenda-files)))
+	    (todo "ACTIVE"
+		  ((org-agenda-overriding-header "Active Projects")
+		   (org-agenda-files org-agenda-files)))
+	    (todo "COMPLETED"
+		  ((org-agenda-overriding-header "Completed Projects")
+		   (org-agenda-files org-agenda-files)))
+	    (todo "CANC"
+		  ((org-agenda-overriding-header "Cancelled Projects")
+		   (org-agenda-files org-agenda-files)))))))
 
   (setq org-capture-templates
-        `(("m" "Email Capture")
-          ("mr" "Research Tasks" entry
-           (file+olp research-tasks-mail "Captured Email")
-           "* TODO Check this email %a"
-           :immediate-finish t)
-          ("ml" "Lunch Tasks" entry
-           (file+olp lunch-tasks-mail "Captured Email")
-           "* TODO Check this email %a"
-           :immediate-finish t)
-          ("ms" "SCC Project Tasks" entry
-           (file+olp scc-tasks-mail "Captured Email")
-           "* TODO Check this email %a"
-           :immediate-finish t)
-          ("mc" "School Tasks" entry
-           (file+olp school-tasks-mail "Captured Email")
-           "* TODO Check this email %a"
-           :immediate-finish t)
-          ("me" "Seminar Tasks" entry
-           (file+olp seminar-tasks-mail "Captured Email")
-           "* TODO Check this email %a"
-           :immediate-finish t)))
+	`(("m" "Email Capture")
+	  ("mr" "Research Tasks" entry
+	   (file+olp research-tasks-mail "Captured Email")
+	   "* TODO Check this email %a"
+	   :immediate-finish t)
+	  ("ml" "Lunch Tasks" entry
+	   (file+olp lunch-tasks-mail "Captured Email")
+	   "* TODO Check this email %a"
+	   :immediate-finish t)
+	  ("ms" "SCC Project Tasks" entry
+	   (file+olp scc-tasks-mail "Captured Email")
+	   "* TODO Check this email %a"
+	   :immediate-finish t)
+	  ("mc" "School Tasks" entry
+	   (file+olp school-tasks-mail "Captured Email")
+	   "* TODO Check this email %a"
+	   :immediate-finish t)
+	  ("me" "Seminar Tasks" entry
+	   (file+olp seminar-tasks-mail "Captured Email")
+	   "* TODO Check this email %a"
+	   :immediate-finish t)))
 
   (define-key global-map (kbd "C-c s")
     (lambda () (interactive) (mark-whole-buffer) (org-sort-entries nil ?o)))
@@ -481,7 +481,24 @@
     (when (and buffer-file-name (string-match ".*/todolist.org" (buffer-file-name)))
       (setq unread-command-events (listify-key-sequence "\C-c s"))))
 
-  (efs/org-font-setup))
+  (efs/org-font-setup)
+
+  ;;   (setq org-latex-classes nil)
+  ;;   (add-to-list 'org-latex-classes
+  ;;                '("article"
+  ;;                  "\\documentclass{article}"
+  ;;                  ("\\section{%s}" . "\\section*{%s}")))
+
+(add-to-list 'org-latex-classes
+	     '("myarticle"
+	       "\\documentclass{article}
+                [NO-DEFAULT-PACKAGES]
+	       \\usepackage{symbols}"
+	       ("\\section{%s}" . "\\section*{%s}")
+	       ("\\subsection{%s}" . "\\subsection*{%s}")
+	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+	       ("\\paragraph{%s}" . "\\paragraph*{%s}")
+	       ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 (use-package org-bullets
   :hook (org-mode . org-bullets-mode)
@@ -490,7 +507,7 @@
 
 (defun efs/org-mode-visual-fill ()
   (setq visual-fill-column-width 100
-        visual-fill-column-center-text t)
+	visual-fill-column-center-text t)
   (visual-fill-column-mode 1))
 
 (use-package visual-fill-column
@@ -507,7 +524,7 @@
 ;; Automatically tangle our Emacs.org config file when we save it
 (defun efs/org-babel-tangle-config ()
   (when (string-equal (file-name-directory (buffer-file-name))
-                      (expand-file-name user-emacs-directory))
+		      (expand-file-name user-emacs-directory))
     ;; Dynamic scoping to the rescue
     (let ((org-confirm-babel-evaluate nil))
       (org-babel-tangle))))
@@ -603,9 +620,9 @@
   :after lsp-mode
   :hook (lsp-mode . company-mode)
   :bind (:map company-active-map
-              ("<tab>" . company-complete-selection))
+	      ("<tab>" . company-complete-selection))
   (:map lsp-mode-map
-        ("<tab>" . company-indent-or-complete-common))
+	("<tab>" . company-indent-or-complete-common))
   :custom
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0))
@@ -675,9 +692,9 @@
   (evil-normalize-keymaps)
 
   (setq eshell-history-size         10000
-        eshell-buffer-maximum-lines 10000
-        eshell-hist-ignoredups t
-        eshell-scroll-to-bottom-on-input t))
+	eshell-buffer-maximum-lines 10000
+	eshell-hist-ignoredups t
+	eshell-scroll-to-bottom-on-input t))
 
 (use-package eshell-git-prompt
   :after eshell)
@@ -716,7 +733,7 @@
   ;; Doesn't work as expected!
   ;;(add-to-list 'dired-open-functions #'dired-open-xdg t)
   (setq dired-open-extensions '(("png" . "feh")
-                                ("mkv" . "mpv"))))
+				("mkv" . "mpv"))))
 
 (use-package dired-hide-dotfiles
   :hook (dired-mode . dired-hide-dotfiles-mode)
@@ -741,7 +758,7 @@
 
 (use-package org-tree-slide
   :hook ((org-tree-slide-play . efs/presentation-setup)
-         (org-tree-slide-stop . efs/presentation-end))
+	 (org-tree-slide-stop . efs/presentation-end))
   :custom
   (org-tree-slide-slide-in-effect t)
   (org-tree-slide-activate-message "Presentation started!")
@@ -762,13 +779,13 @@
   (setq-default TeX-master nil))
 
 (setq-default mode-line-format '("%e"
-                                 (:eval
-                                  (if (equal
-                                       (shell-command-to-string
-                                        "ps aux | grep 'mbsync -a' | wc -l")
-                                       "3\n")
-                                      "Running mbsync" ""))
-                                 (:eval (doom-modeline-format--main))))
+				 (:eval
+				  (if (equal
+				       (shell-command-to-string
+					"ps aux | grep 'mbsync -a' | wc -l")
+				       "3\n")
+				      "Running mbsync" ""))
+				 (:eval (doom-modeline-format--main))))
 
 (use-package yasnippet
   :config
@@ -783,9 +800,9 @@
 (use-package markdown-preview-eww
   :ensure nil
   :straight (
-             :host github
-             :files ("*.el")
-             :repo "niku/markdown-preview-eww"))
+	     :host github
+	     :files ("*.el")
+	     :repo "niku/markdown-preview-eww"))
 
 (use-package mu4e
   :ensure nil
@@ -822,54 +839,54 @@
      (t "/unm/Archive")))
 
   (setq mu4e-contexts
-        (list
-         ;; School account
-         (make-mu4e-context
-          :name "School"
-          :match-func
-          (lambda (msg)
-            (when msg
-              (string-prefix-p "/unm" (mu4e-message-field msg :maildir))))
-          :vars '((user-mail-address  . "jabelcastellanosjoo@unm.edu")
-                  (user-full-name     . "Jose Abel Castellanos Joo")
-                  (mu4e-drafts-folder . "/unm/Drafts")
-                  (mu4e-sent-folder   . "/unm/Sent")
-                  (mu4e-refile-folder . refile-func)
-                  (mu4e-trash-folder  . "/unm/Trash")
-                  (smtpmail-smtp-server . "smtp.office365.com")
-                  (smtpmail-smtp-service . 587)
-                  (smtpmail-stream-type . starttls)))
-         ;; School CS department account
-         (make-mu4e-context
-          :name "CS department"
-          :match-func
-          (lambda (msg)
-            (when msg
-              (string-prefix-p "/cs-unm" (mu4e-message-field msg :maildir))))
-          :vars '((user-mail-address  . "jose.castellanosjoo@cs.unm.edu")
-                  (user-full-name     . "Jose Abel Castellanos Joo")
-                  (mu4e-drafts-folder . "/cs-unm/Drafts")
-                  ;;(mu4e-sent-folder   . "/cs-unm/Sent")
-                  (mu4e-refile-folder . "/cs-unm/Inbox")
-                  (mu4e-trash-folder  . "/cs-unm/Trash")
-                  (smtpmail-smtp-server . "snape.cs.unm.edu")
-                  (smtpmail-smtp-service . 1200)
-                  (smtpmail-stream-type . starttls)))))
+	(list
+	 ;; School account
+	 (make-mu4e-context
+	  :name "School"
+	  :match-func
+	  (lambda (msg)
+	    (when msg
+	      (string-prefix-p "/unm" (mu4e-message-field msg :maildir))))
+	  :vars '((user-mail-address  . "jabelcastellanosjoo@unm.edu")
+		  (user-full-name     . "Jose Abel Castellanos Joo")
+		  (mu4e-drafts-folder . "/unm/Drafts")
+		  (mu4e-sent-folder   . "/unm/Sent")
+		  (mu4e-refile-folder . refile-func)
+		  (mu4e-trash-folder  . "/unm/Trash")
+		  (smtpmail-smtp-server . "smtp.office365.com")
+		  (smtpmail-smtp-service . 587)
+		  (smtpmail-stream-type . starttls)))
+	 ;; School CS department account
+	 (make-mu4e-context
+	  :name "CS department"
+	  :match-func
+	  (lambda (msg)
+	    (when msg
+	      (string-prefix-p "/cs-unm" (mu4e-message-field msg :maildir))))
+	  :vars '((user-mail-address  . "jose.castellanosjoo@cs.unm.edu")
+		  (user-full-name     . "Jose Abel Castellanos Joo")
+		  (mu4e-drafts-folder . "/cs-unm/Drafts")
+		  ;;(mu4e-sent-folder   . "/cs-unm/Sent")
+		  (mu4e-refile-folder . "/cs-unm/Inbox")
+		  (mu4e-trash-folder  . "/cs-unm/Trash")
+		  (smtpmail-smtp-server . "snape.cs.unm.edu")
+		  (smtpmail-smtp-service . 1200)
+		  (smtpmail-stream-type . starttls)))))
 
   (setq mu4e-context-policy 'pick-first)
 
   (setq mu4e-maildir-shortcuts
-        '(("/unm/Inbox" . ?i)
-          ("/unm/Sent"  . ?s)
-          ("/unm/Trash" . ?t)
-          ("/unm/Drafts". ?d)
-          ("/unm/Prof. Kapur". ?k)
-          ("/unm/Prof. Kapur/Side projects/Seminars/Beihang University". ?b)
-          ("/unm/You got a Package!". ?p)
-          ("/unm/Archive". ?a)
-          ("/cs-unm/Inbox". ?I)
-          ("/cs-unm/Trash". ?T)
-          ("/cs-unm/Drafts". ?D))))
+	'(("/unm/Inbox" . ?i)
+	  ("/unm/Sent"  . ?s)
+	  ("/unm/Trash" . ?t)
+	  ("/unm/Drafts". ?d)
+	  ("/unm/Prof. Kapur". ?k)
+	  ("/unm/Prof. Kapur/Side projects/Seminars/Beihang University". ?b)
+	  ("/unm/You got a Package!". ?p)
+	  ("/unm/Archive". ?a)
+	  ("/cs-unm/Inbox". ?I)
+	  ("/cs-unm/Trash". ?T)
+	  ("/cs-unm/Drafts". ?D))))
 
 (setq mu4e-use-fancy-chars t)
 (setq message-send-mail-function 'smtpmail-send-it)
@@ -893,14 +910,14 @@
 (use-package mu4e-dashboard
   :ensure t
   :straight (
-             :host github
-             :files ("*.el")
-             :repo "rougier/mu4e-dashboard"))
+	     :host github
+	     :files ("*.el")
+	     :repo "rougier/mu4e-dashboard"))
 
 (use-package perspective
   :ensure t
   :bind (("C-x k" . persp-kill-buffer*)
-         ("C-x C-b" . persp-ivy-switch-buffer))
+	 ("C-x C-b" . persp-ivy-switch-buffer))
   :custom
   (persp-mode-prefix-key (kbd "C-x M-p"))
   :init
@@ -924,55 +941,55 @@
   :straight t
   ;; Replace bindings. Lazily loaded due by `use-package'.
   :bind (;; C-x bindings (ctl-x-map)
-         ("C-x M-:" . consult-complex-command)     ;; orig. repeat-complex-command
-         ("C-x 4 b" . consult-buffer-other-window) ;; orig. switch-to-buffer-other-window
-         ("C-x 5 b" . consult-buffer-other-frame)  ;; orig. switch-to-buffer-other-frame
-         ("C-x r b" . consult-bookmark)            ;; orig. bookmark-jump
-         ("C-x p b" . consult-project-buffer)      ;; orig. project-switch-to-buffer
-         ;; Custom M-# bindings for fast register access
-         ("M-#" . consult-register-load)
-         ("M-'" . consult-register-store)          ;; orig. abbrev-prefix-mark (unrelated)
-         ("C-M-#" . consult-register)
-         ;; Other custom bindings
-         ("M-y" . consult-yank-pop)                ;; orig. yank-pop
-         ("<help> a" . consult-apropos)            ;; orig. apropos-command
-         ;; M-g bindings (goto-map)
-         ("M-g e" . consult-compile-error)
-         ("M-g f" . consult-flymake)               ;; Alternative: consult-flycheck
-         ("M-g g" . consult-goto-line)             ;; orig. goto-line
-         ("M-g M-g" . consult-goto-line)           ;; orig. goto-line
-         ("M-g o" . consult-outline)               ;; Alternative: consult-org-heading
-         ("M-g m" . consult-mark)
-         ("M-g k" . consult-global-mark)
-         ("M-g i" . consult-imenu)
-         ("M-g I" . consult-imenu-multi)
-         ;; M-s bindings (search-map)
-         ("M-s G" . consult-git-grep)
-         ("M-s r" . consult-ripgrep)
-         ("M-s L" . consult-line-multi)
-         ("M-s m" . consult-multi-occur)
-         ("M-s k" . consult-keep-lines)
-         ("M-s u" . consult-focus-lines)
-                                        ; C-c bindings
-         ("C-c C-b" . consult-buffer)                ;; orig. switch-to-buffer
-         ("C-c C-l" . consult-line)
-         ("C-c C-f" . consult-find)
-         ("C-c D" . consult-locate)
-         ("C-c h" . consult-history)
-         ("C-c m" . consult-mode-command)
-         ("C-c k" . consult-kmacro)
-         ("C-c C-g" . consult-grep)
-         ;; Isearch integration
-         ("M-s e" . consult-isearch-history)
-         :map isearch-mode-map
-         ("M-e" . consult-isearch-history)         ;; orig. isearch-edit-string
-         ("M-s e" . consult-isearch-history)       ;; orig. isearch-edit-string
-         ("M-s l" . consult-line)                  ;; needed by consult-line to detect isearch
-         ("M-s L" . consult-line-multi)            ;; needed by consult-line to detect isearch
-         ;; Minibuffer history
-         :map minibuffer-local-map
-         ("M-s" . consult-history)                 ;; orig. next-matching-history-element
-         ("M-r" . consult-history))                ;; orig. previous-matching-history-element
+	 ("C-x M-:" . consult-complex-command)     ;; orig. repeat-complex-command
+	 ("C-x 4 b" . consult-buffer-other-window) ;; orig. switch-to-buffer-other-window
+	 ("C-x 5 b" . consult-buffer-other-frame)  ;; orig. switch-to-buffer-other-frame
+	 ("C-x r b" . consult-bookmark)            ;; orig. bookmark-jump
+	 ("C-x p b" . consult-project-buffer)      ;; orig. project-switch-to-buffer
+	 ;; Custom M-# bindings for fast register access
+	 ("M-#" . consult-register-load)
+	 ("M-'" . consult-register-store)          ;; orig. abbrev-prefix-mark (unrelated)
+	 ("C-M-#" . consult-register)
+	 ;; Other custom bindings
+	 ("M-y" . consult-yank-pop)                ;; orig. yank-pop
+	 ("<help> a" . consult-apropos)            ;; orig. apropos-command
+	 ;; M-g bindings (goto-map)
+	 ("M-g e" . consult-compile-error)
+	 ("M-g f" . consult-flymake)               ;; Alternative: consult-flycheck
+	 ("M-g g" . consult-goto-line)             ;; orig. goto-line
+	 ("M-g M-g" . consult-goto-line)           ;; orig. goto-line
+	 ("M-g o" . consult-outline)               ;; Alternative: consult-org-heading
+	 ("M-g m" . consult-mark)
+	 ("M-g k" . consult-global-mark)
+	 ("M-g i" . consult-imenu)
+	 ("M-g I" . consult-imenu-multi)
+	 ;; M-s bindings (search-map)
+	 ("M-s G" . consult-git-grep)
+	 ("M-s r" . consult-ripgrep)
+	 ("M-s L" . consult-line-multi)
+	 ("M-s m" . consult-multi-occur)
+	 ("M-s k" . consult-keep-lines)
+	 ("M-s u" . consult-focus-lines)
+					; C-c bindings
+	 ("C-c C-b" . consult-buffer)                ;; orig. switch-to-buffer
+	 ("C-c C-l" . consult-line)
+	 ("C-c C-f" . consult-find)
+	 ("C-c D" . consult-locate)
+	 ("C-c h" . consult-history)
+	 ("C-c m" . consult-mode-command)
+	 ("C-c k" . consult-kmacro)
+	 ("C-c C-g" . consult-grep)
+	 ;; Isearch integration
+	 ("M-s e" . consult-isearch-history)
+	 :map isearch-mode-map
+	 ("M-e" . consult-isearch-history)         ;; orig. isearch-edit-string
+	 ("M-s e" . consult-isearch-history)       ;; orig. isearch-edit-string
+	 ("M-s l" . consult-line)                  ;; needed by consult-line to detect isearch
+	 ("M-s L" . consult-line-multi)            ;; needed by consult-line to detect isearch
+	 ;; Minibuffer history
+	 :map minibuffer-local-map
+	 ("M-s" . consult-history)                 ;; orig. next-matching-history-element
+	 ("M-r" . consult-history))                ;; orig. previous-matching-history-element
 
   ;; Enable automatic preview at point in the *Completions* buffer. This is
   ;; relevant when you use the default completion UI.
@@ -985,7 +1002,7 @@
   ;; preview for `consult-register', `consult-register-load',
   ;; `consult-register-store' and the Emacs built-ins.
   (setq register-preview-delay 0.5
-        register-preview-function #'consult-register-format)
+	register-preview-function #'consult-register-format)
 
   ;; Optionally tweak the register preview window.
   ;; This adds thin lines, sorting and hides the mode line of the window.
@@ -993,7 +1010,7 @@
 
   ;; Use Consult to select xref locations with preview
   (setq xref-show-xrefs-function #'consult-xref
-        xref-show-definitions-function #'consult-xref)
+	xref-show-definitions-function #'consult-xref)
 
   ;; Configure other variables and modes in the :config section,
   ;; after lazily loading the package.
