@@ -481,18 +481,12 @@
     (when (and buffer-file-name (string-match ".*/todolist.org" (buffer-file-name)))
       (setq unread-command-events (listify-key-sequence "\C-c s"))))
 
-  (efs/org-font-setup)
-
-  ;;   (setq org-latex-classes nil)
-  ;;   (add-to-list 'org-latex-classes
-  ;;                '("article"
-  ;;                  "\\documentclass{article}"
-  ;;                  ("\\section{%s}" . "\\section*{%s}")))
+  (efs/org-font-setup))
 
 (add-to-list 'org-latex-classes
 	     '("myarticle"
 	       "\\documentclass{article}
-                [NO-DEFAULT-PACKAGES]
+		[NO-DEFAULT-PACKAGES]
 	       \\usepackage{symbols}"
 	       ("\\section{%s}" . "\\section*{%s}")
 	       ("\\subsection{%s}" . "\\subsection*{%s}")
