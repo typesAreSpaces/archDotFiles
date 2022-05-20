@@ -516,9 +516,6 @@ To execute or export code in =org-mode= code blocks, you'll need to set up =org-
 
 #+end_src
 
-** COMPLETED Basic Config
-CLOSED: [2022-03-29 Tue 15:44]
-
 This section contains the basic configuration for =org-mode= plus the configuration for Org agendas and capture templates.  There's a lot to unpack in here so I'd recommend watching the videos for [[https://youtu.be/VcgjTEa0kU4][Part 5]] and [[https://youtu.be/PNE-mgkZ6HM][Part 6]] for a full explanation.
 
 #+begin_src emacs-lisp
@@ -663,15 +660,28 @@ This section contains the basic configuration for =org-mode= plus the configurat
 
     (efs/org-font-setup))
 
-    #+end_src
+#+end_src
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp 
+  (unless (boundp 'org-latex-classes)
+    (setq org-latex-classes nil))
 
   (add-to-list 'org-latex-classes
 	       '("myarticle"
 		 "\\documentclass{article}
-		  [NO-DEFAULT-PACKAGES]
-		 \\usepackage{symbols}"
+		    [NO-DEFAULT-PACKAGES]
+		   \\usepackage{symbols}"
+		 ("\\section{%s}" . "\\section*{%s}")
+		 ("\\subsection{%s}" . "\\subsection*{%s}")
+		 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+		 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+		 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+  (add-to-list 'org-latex-classes
+	       '("myreport"
+		 "\\documentclass[peerreview]{IEEEtran}
+		    [NO-DEFAULT-PACKAGES]
+		   \\usepackage{symbols}"
 		 ("\\section{%s}" . "\\section*{%s}")
 		 ("\\subsection{%s}" . "\\subsection*{%s}")
 		 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
@@ -679,7 +689,6 @@ This section contains the basic configuration for =org-mode= plus the configurat
 		 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 #+end_src
-    
 
 *** Nicer Heading Bullets
 
