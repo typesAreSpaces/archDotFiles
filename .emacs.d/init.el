@@ -1052,7 +1052,7 @@
   ;; Optionally configure a different project root function.
   ;; There are multiple reasonable alternatives to chose from.
       ;;;; 1. project.el (the default)
-  ;; (setq consult-project-function #'consult--default-project--function)
+  (setq consult-project-function #'consult--default-project--function)
       ;;;; 2. projectile.el (projectile-project-root)
   ;; (autoload 'projectile-project-root "projectile")
   ;; (setq consult-project-function (lambda (_) (projectile-project-root)))
