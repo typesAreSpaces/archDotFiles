@@ -978,7 +978,7 @@
          ("M-s m" . consult-multi-occur)
          ("M-s k" . consult-keep-lines)
          ("M-s u" . consult-focus-lines)
-                                        ; C-c bindings
+         ;; C-c bindings
          ("C-c C-b" . consult-buffer)                ;; orig. switch-to-buffer
          ("C-c C-l" . consult-line)
          ("C-c C-f" . consult-find)
