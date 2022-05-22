@@ -978,7 +978,7 @@
          ("M-s m" . consult-multi-occur)
          ("M-s k" . consult-keep-lines)
          ("M-s u" . consult-focus-lines)
-                                        ; C-c bindings
+         ;; C-c bindings
          ("C-c C-b" . consult-buffer)                ;; orig. switch-to-buffer
          ("C-c C-l" . consult-line)
          ("C-c C-f" . consult-find)
@@ -1051,16 +1051,22 @@
   ;; By default `consult-project-function' uses `project-root' from project.el.
   ;; Optionally configure a different project root function.
   ;; There are multiple reasonable alternatives to chose from.
-      ;;;; 1. project.el (the default)
+        ;;;; 1. project.el (the default)
   ;; (setq consult-project-function #'consult--default-project--function)
-      ;;;; 2. projectile.el (projectile-project-root)
+        ;;;; 2. projectile.el (projectile-project-root)
   ;; (autoload 'projectile-project-root "projectile")
   ;; (setq consult-project-function (lambda (_) (projectile-project-root)))
-      ;;;; 3. vc.el (vc-root-dir)
+        ;;;; 3. vc.el (vc-root-dir)
   ;; (setq consult-project-function (lambda (_) (vc-root-dir)))
-      ;;;; 4. locate-dominating-file
+        ;;;; 4. locate-dominating-file
   ;; (setq consult-project-function (lambda (_) (locate-dominating-file "." ".git")))
   )
+
+(defun consult-grep-current-dir ()
+  "Call `consult-grep' for the current buffer (a single file)."
+  (interactive)
+  (let ((consult-project-function (lambda (x) "./")))
+    (consult-grep)))
 
 (use-package ox-hugo
   :ensure t
