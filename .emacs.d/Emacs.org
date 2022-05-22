@@ -1751,3 +1751,11 @@ mu index
     :after ox)
 
 #+end_src
+
+* Maple mode
+
+#+begin_src emacs-lisp
+
+  (add-to-list 'auto-mode-alist '("\\.mpl\\'" . maplev-mode))
+
+#+end_src
