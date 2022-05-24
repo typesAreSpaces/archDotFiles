@@ -1072,3 +1072,5 @@
   :ensure t
   :pin melpa
   :after ox)
+
+(add-to-list 'auto-mode-alist '("\\.mpl\\'" . maplev-mode))
