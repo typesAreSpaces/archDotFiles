@@ -174,6 +174,7 @@
     "tt" '(counsel-load-theme :which-key "Choose theme")
     "e" '(lambda () (interactive) "Emacs source" (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
     "a" '(lambda () (interactive) "Agenda" (find-file (expand-file-name (concat phd-thesis-org-files-dir "/main.org"))))
+    "b" '(lambda () (interactive) "Edit References" (find-file (expand-file-name (concat phd-thesis-dir "/Documents/Write-Ups/references.bib"))))
     "w" '(lambda () (interactive) "Current Work" (find-file (expand-file-name (concat seminar-dir "/Reports/finding_certificates_qm_univariate/main.tex"))))
     "g" '(magit-status :which-key "Magit status")
     "d" '(dired-jump :which-key "Dired jump")
