@@ -114,6 +114,7 @@
 (setq visible-bell t)
 
 (column-number-mode)
+(setq-default display-line-numbers-type 'visual) 
 (global-display-line-numbers-mode t)
 
 ;; Set frame transparency
@@ -122,10 +123,15 @@
 (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-;; Disable line numbers for some modes
+                                        ; Disable line numbers for some modes
 (dolist (mode '(org-mode-hook
                 term-mode-hook
                 shell-mode-hook
+                mu4e-headers-mode-hook
+                mu4e-view-mode-hook
+                mu4e-main-mode-hook
+                mu4e-org-mode-hook
+                mu4e-compose-mode-hook
                 treemacs-mode-hook
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
@@ -165,9 +171,11 @@
     "c"  '(evilnc-comment-or-uncomment-lines :which-key "Comment line")
     "s"  '(shell-command :which-key "Shell command")
     "t"  '(:ignore t :which-key "Toggles")
+    "te"  '(lambda () (interactive) (ansi-term "/usr/bin/zsh"))
     "tt" '(counsel-load-theme :which-key "Choose theme")
     "e" '(lambda () (interactive) "Emacs source" (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
     "a" '(lambda () (interactive) "Agenda" (find-file (expand-file-name (concat phd-thesis-org-files-dir "/main.org"))))
+    "b" '(lambda () (interactive) "Edit References" (find-file (expand-file-name (concat phd-thesis-dir "/Documents/Write-Ups/references.bib"))))
     "w" '(lambda () (interactive) "Current Work" (find-file (expand-file-name (concat seminar-dir "/Reports/finding_certificates_qm_univariate/main.tex"))))
     "g" '(magit-status :which-key "Magit status")
     "d" '(dired-jump :which-key "Dired jump")
@@ -273,7 +281,7 @@
   (ivy-prescient-enable-filtering nil)
   :config
   ;; Uncomment the following line to have sorting remembered across sessions!
-                                       ;  (prescient-persist-mode 1)
+                                        ;  (prescient-persist-mode 1)
   (ivy-prescient-mode 1))
 
 (use-package helpful
@@ -374,6 +382,9 @@
   ;; Save Org buffers after refiling!
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
 
+  ;; Use find-file instead of file-find-other-window
+  (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file)
+
   (setq org-tag-alist
         '((:startgroup)
                                         ; Put mutually exclusive tags here
@@ -472,10 +483,32 @@
     (when (and buffer-file-name (string-match ".*/todolist.org" (buffer-file-name)))
       (setq unread-command-events (listify-key-sequence "\C-c s"))))
 
-  ;; TODO: keep working on this one
-  ;;(add-hook 'buffer-list-update-hook #'auto/SortTODO)
-
   (efs/org-font-setup))
+
+(unless (boundp 'org-latex-classes)
+  (setq org-latex-classes nil))
+
+(add-to-list 'org-latex-classes
+             '("myarticle"
+               "\\documentclass{article}
+                  [NO-DEFAULT-PACKAGES]
+                 \\usepackage{symbols}"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+(add-to-list 'org-latex-classes
+             '("myreport"
+               "\\documentclass[peerreview]{IEEEtran}
+                  [NO-DEFAULT-PACKAGES]
+                 \\usepackage{symbols}"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 (use-package org-bullets
   :hook (org-mode . org-bullets-mode)
@@ -643,7 +676,7 @@
 (use-package term
   :commands term
   :config
-  (setq explicit-shell-file-name "bash") ;; Change this to zsh, etc
+  (setq explicit-shell-file-name "zsh") ;; Change this to zsh, etc
   ;;(setq explicit-zsh-args '())         ;; Use 'explicit-<shell>-args for shell-specific args
 
   ;; Match the default Bash shell prompt.  Update this if you have a custom prompt
@@ -947,7 +980,7 @@
          ("M-s m" . consult-multi-occur)
          ("M-s k" . consult-keep-lines)
          ("M-s u" . consult-focus-lines)
-                                        ; C-c bindings
+         ;; C-c bindings
          ("C-c C-b" . consult-buffer)                ;; orig. switch-to-buffer
          ("C-c C-l" . consult-line)
          ("C-c C-f" . consult-find)
@@ -1020,13 +1053,26 @@
   ;; By default `consult-project-function' uses `project-root' from project.el.
   ;; Optionally configure a different project root function.
   ;; There are multiple reasonable alternatives to chose from.
-      ;;;; 1. project.el (the default)
+        ;;;; 1. project.el (the default)
   ;; (setq consult-project-function #'consult--default-project--function)
-      ;;;; 2. projectile.el (projectile-project-root)
+        ;;;; 2. projectile.el (projectile-project-root)
   ;; (autoload 'projectile-project-root "projectile")
   ;; (setq consult-project-function (lambda (_) (projectile-project-root)))
-      ;;;; 3. vc.el (vc-root-dir)
+        ;;;; 3. vc.el (vc-root-dir)
   ;; (setq consult-project-function (lambda (_) (vc-root-dir)))
-      ;;;; 4. locate-dominating-file
+        ;;;; 4. locate-dominating-file
   ;; (setq consult-project-function (lambda (_) (locate-dominating-file "." ".git")))
   )
+
+(defun consult-grep-current-dir ()
+  "Call `consult-grep' for the current buffer (a single file)."
+  (interactive)
+  (let ((consult-project-function (lambda (x) "./")))
+    (consult-grep)))
+
+(use-package ox-hugo
+  :ensure t
+  :pin melpa
+  :after ox)
+
+(add-to-list 'auto-mode-alist '("\\.mpl\\'" . maplev-mode))
