@@ -171,6 +171,7 @@
     "c"  '(evilnc-comment-or-uncomment-lines :which-key "Comment line")
     "s"  '(shell-command :which-key "Shell command")
     "t"  '(:ignore t :which-key "Toggles")
+    "te"  '(lambda () (interactive) (ansi-term "/usr/bin/zsh"))
     "tt" '(counsel-load-theme :which-key "Choose theme")
     "e" '(lambda () (interactive) "Emacs source" (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
     "a" '(lambda () (interactive) "Agenda" (find-file (expand-file-name (concat phd-thesis-org-files-dir "/main.org"))))
@@ -675,7 +676,7 @@
 (use-package term
   :commands term
   :config
-  (setq explicit-shell-file-name "bash") ;; Change this to zsh, etc
+  (setq explicit-shell-file-name "zsh") ;; Change this to zsh, etc
   ;;(setq explicit-zsh-args '())         ;; Use 'explicit-<shell>-args for shell-specific args
 
   ;; Match the default Bash shell prompt.  Update this if you have a custom prompt
