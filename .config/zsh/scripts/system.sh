@@ -44,7 +44,7 @@ cdclip(){
 }
 
 updateArchPackages(){ 
-  sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort .arch_packages))
+  sudo pacman -Qqet > .arch_packages
 }
 
 installArchPackages(){ 
