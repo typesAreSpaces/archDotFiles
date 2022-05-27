@@ -610,6 +610,24 @@
   (setq lsp-latex-forward-search-executable "zathura")
   (setq lsp-latex-forward-search-args '("--synctex-forward" "%l:1:%f" "%p")))
 
+(defun get-bibtex-from-doi (doi)
+  "Get a BibTeX entry from the DOI"
+  (interactive "MDOI: ")
+  (let ((url-mime-accept-string "text/bibliography;style=bibtex"))
+    (with-current-buffer 
+        (url-retrieve-synchronously 
+         (format "http://dx.doi.org/%s" 
+                 (replace-regexp-in-string "http://dx.doi.org/" "" doi)))
+      (switch-to-buffer (current-buffer))
+      (goto-char (point-max))
+      (setq bibtex-entry 
+            (buffer-substring 
+             (string-match "@" (buffer-string))
+             (point)))
+      (kill-buffer (current-buffer))))
+  (insert (decode-coding-string bibtex-entry 'utf-8))
+  (bibtex-fill-entry))
+
 (use-package python-mode
   :ensure t
   :hook (python-mode . lsp-deferred)
