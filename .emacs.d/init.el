@@ -68,12 +68,19 @@
 (defvar efs/frame-transparency '(90 . 90))
 
 (defvar phd-thesis-dir "~/Documents/GithubProjects/phd-thesis")
+(defvar phd-thesis-write-ups-dir
+  (concat phd-thesis-dir
+          "/Documents/Write-Ups"))
 (defvar phd-thesis-org-files-dir
   (concat phd-thesis-dir
           "/Documents/Org-Files"))
-(defvar scc-org-files-dir 
+
+(defvar scc-dir 
   (concat phd-thesis-dir
-          "/Documents/Side-Projects/kapur-nsf-proposal/Org-Files"))
+          "/Documents/Side-Projects/kapur-nsf-proposal"))
+(defvar scc-reports-dir (concat scc-dir "/Reports"))
+(defvar scc-org-files-dir (concat scc-dir "/Org-Files"))
+
 (defvar seminar-dir (concat phd-thesis-dir "/Documents/Seminars/BeihangUniversity-Fall2021"))
 (defvar seminar-org-files-dir (concat seminar-dir "/Org-Files"))
 
@@ -1094,3 +1101,11 @@
   :after ox)
 
 (add-to-list 'auto-mode-alist '("\\.mpl\\'" . maplev-mode))
+
+(use-package citar
+  :bind (("C-c b" . citar-insert-citation)
+         :map minibuffer-local-map
+         ("M-b" . citar-insert-preset))
+  :custom
+  (citar-bibliography `(,(concat scc-reports-dir "/references.bib")
+                        ,(concat phd-thesis-write-ups-dir "/references.bib"))))
