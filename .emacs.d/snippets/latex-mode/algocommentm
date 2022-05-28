@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: Multiple Lines Comment
-# key: ;commentm
+# key: ;mcomment
 # condition: 'auto
 # --
 \\tcc{$1}$0
