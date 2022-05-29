@@ -202,21 +202,6 @@ This section configures basic UI settings that remove unneeded elements to make 
 
 #+end_src
 
-** Mode Line
-
-#+begin_src emacs-lisp 
-
-  (setq-default mode-line-format '("%e"
-                                   (:eval
-                                    (if (equal
-                                         (shell-command-to-string
-                                          "ps aux | grep 'mbsync -a' | wc -l")
-                                         "3\n")
-                                        "Running mbsync" ""))
-                                   (:eval (doom-modeline-format--main))))
-
-#+end_src
-
 ** Dashboard Configuration
 
 #+begin_src emacs-lisp
@@ -356,6 +341,21 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
              (doom-modeline-height 15)
              (doom-modeline-enable-word-count t)
              (doom-modeline-continuous-word-count-modes '(markdown-mode gfm-mode org-mode text-mode))))
+
+#+end_src
+
+**** Mode Line
+
+#+begin_src emacs-lisp 
+
+  (setq-default mode-line-format '("%e"
+                                   (:eval
+                                    (if (equal
+                                         (shell-command-to-string
+                                          "ps aux | grep 'mbsync -a' | wc -l")
+                                         "3\n")
+                                        "Running mbsync" ""))
+                                   (:eval (doom-modeline-format--main))))
 
 #+end_src
 

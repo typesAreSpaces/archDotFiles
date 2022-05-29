@@ -143,15 +143,6 @@
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-(setq-default mode-line-format '("%e"
-                                 (:eval
-                                  (if (equal
-                                       (shell-command-to-string
-                                        "ps aux | grep 'mbsync -a' | wc -l")
-                                       "3\n")
-                                      "Running mbsync" ""))
-                                 (:eval (doom-modeline-format--main))))
-
 (use-package dashboard
   :ensure t
   :diminish dashboard-mode
@@ -243,6 +234,15 @@
            (doom-modeline-height 15)
            (doom-modeline-enable-word-count t)
            (doom-modeline-continuous-word-count-modes '(markdown-mode gfm-mode org-mode text-mode))))
+
+(setq-default mode-line-format '("%e"
+                                 (:eval
+                                  (if (equal
+                                       (shell-command-to-string
+                                        "ps aux | grep 'mbsync -a' | wc -l")
+                                       "3\n")
+                                      "Running mbsync" ""))
+                                 (:eval (doom-modeline-format--main))))
 
 (use-package which-key
   :defer 0
