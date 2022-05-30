@@ -1,7 +1,7 @@
 # archDotFiles
 
-* To download script
+* To download and execute script
 
 ``
-curl -fLo "${XDG_DATA_HOME:-$HOME/arch-setup.sh}" https://raw.githubusercontent.com/typesAreSpaces/archDotFiles/master/.arch-machine-setup.sh
+bash <(curl -s https://raw.githubusercontent.com/typesAreSpaces/archDotFiles/master/.arch-machine-setup.sh)
 ``
