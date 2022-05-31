@@ -141,7 +141,6 @@ kompare
 konsole
 krdc
 krfb
-kross-interpreters
 kscreen
 kscreenlocker
 ksnakeduel
@@ -369,7 +368,6 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 xsel
-yaourt
 yasm
 yay-git
 yq

@@ -48,7 +48,7 @@ updateArchPackages(){
 }
 
 installArchPackages(){ 
-  sudo pacman -S --needed - < .arch_packages 
+  paru -S --needed - < .arch_packages 
 }
 
 changeVolume(){
