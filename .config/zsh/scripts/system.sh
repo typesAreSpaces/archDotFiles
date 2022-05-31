@@ -44,7 +44,7 @@ cdclip(){
 }
 
 updateArchPackages(){ 
-  sudo pacman -Qqet > .arch_packages
+  sudo pacman -Qqe > .arch_packages
 }
 
 installArchPackages(){ 
