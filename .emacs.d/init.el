@@ -780,6 +780,9 @@
 (add-hook 'TeX-mode-hook 'lsp)
 (add-hook 'LaTeX-mode-hook 'lsp)
 
+(add-hook 'TeX-mode-hook 'turn-on-reftex)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+
 (add-hook 'TeX-mode-hook #'auto-fill-mode)
 (add-hook 'LaTeX-mode-hook #'auto-fill-mode)
 (setq-default fill-column 80)
@@ -819,7 +822,8 @@
   :config
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
-  (setq-default TeX-master nil))
+  (setq-default TeX-master nil)
+  (setq reftex-ref-macro-prompt nil))
 
 (use-package python-mode
   :ensure t
