@@ -839,6 +839,8 @@
 
 (add-to-list 'auto-mode-alist '("\\.mpl\\'" . maplev-mode))
 
+(use-package z3-mode)
+
 (use-package company
   :after lsp-mode
   :hook (lsp-mode . company-mode)

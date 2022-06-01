@@ -48,11 +48,11 @@ cdclip(){
 }
 
 updateArchPackages(){ 
-  sudo pacman -Qqet > .arch_packages
+  sudo pacman -Qqe > .arch_packages
 }
 
 installArchPackages(){ 
-  sudo pacman -S --needed - < .arch_packages 
+  paru -S --needed - < .arch_packages 
 }
 
 changeVolume(){
