@@ -1225,6 +1225,7 @@ You can use the pyvenv package to use =virtualenv= environments in Emacs.  The =
 #+begin_src emacs-lisp
 
   (add-to-list 'auto-mode-alist '("\\.mpl\\'" . maplev-mode))
+  (add-to-list 'auto-mode-alist '("\\.mm\\'" . maplev-mode))
 
 #+end_src
 

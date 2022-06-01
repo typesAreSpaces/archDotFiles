@@ -842,6 +842,7 @@
   (pyvenv-mode 1))
 
 (add-to-list 'auto-mode-alist '("\\.mpl\\'" . maplev-mode))
+(add-to-list 'auto-mode-alist '("\\.mm\\'" . maplev-mode))
 
 (use-package z3-mode)
 
