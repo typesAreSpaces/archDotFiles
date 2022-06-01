@@ -1,3 +1,4 @@
 libname := libname, "/home/jose/Documents/GithubProjects/phd-thesis/Software/Maple/Packages/FGb":
 libname := libname, "/home/jose/Documents/GithubProjects/phd-thesis/Software/Maple/Packages/SPECTRA":
 libname := libname, "/home/jose/Documents/GithubProjects/phd-thesis/Software/Maple/Packages/RAG":
+libname := libname, "/home/jose/Documents/GithubProjects/phd-thesis/Software/Maple/Packages/Convex":
