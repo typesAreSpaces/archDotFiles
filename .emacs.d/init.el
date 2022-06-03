@@ -134,6 +134,7 @@
 (dolist (mode '(org-mode-hook
                 term-mode-hook
                 shell-mode-hook
+                markdown-mode-hook
                 mu4e-headers-mode-hook
                 mu4e-view-mode-hook
                 mu4e-main-mode-hook
@@ -689,6 +690,7 @@
 
 (use-package visual-fill-column
   :hook ((org-mode . efs/org-mode-visual-fill)
+         (markdown-mode . efs/org-mode-visual-fill)
          (mu4e-main-mode . efs/org-mode-visual-fill)))
 
 (with-eval-after-load 'org
