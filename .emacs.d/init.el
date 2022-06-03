@@ -688,7 +688,8 @@
   (visual-fill-column-mode 1))
 
 (use-package visual-fill-column
-  :hook (org-mode . efs/org-mode-visual-fill))
+  :hook ((org-mode . efs/org-mode-visual-fill)
+         (mu4e-main-mode . efs/org-mode-visual-fill)))
 
 (with-eval-after-load 'org
                                         ; This is needed as of Org 9.2
