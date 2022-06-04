@@ -198,6 +198,8 @@ This section configures basic UI settings that remove unneeded elements to make 
                   mu4e-org-mode-hook
                   mu4e-compose-mode-hook
                   treemacs-mode-hook
+                  TeX-mode-hook
+                  LaTeX-mode-hook
                   eshell-mode-hook))
     (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
@@ -914,6 +916,8 @@ We use [[https://github.com/joostkremers/visual-fill-column][visual-fill-column]
   (use-package visual-fill-column
     :hook ((org-mode . efs/org-mode-visual-fill)
            (markdown-mode . efs/org-mode-visual-fill)
+           (Tex-mode . efs/org-mode-visual-fill)
+           (LaTeX-mode . efs/org-mode-visual-fill)
            (mu4e-main-mode . efs/org-mode-visual-fill)))
 
     #+end_src
@@ -1226,6 +1230,9 @@ You can use the pyvenv package to use =virtualenv= environments in Emacs.  The =
 *** Maple mode
 
 #+begin_src emacs-lisp
+
+  (defvar maplev-package "/home/jose/maple/toolbox/maplev/maplev-3.0.4.tar")
+  (if (file-exists-p maplev-package) (package-install-file maplev-package))
 
   (add-to-list 'auto-mode-alist '("\\.mpl\\'" . maplev-mode))
   (add-to-list 'auto-mode-alist '("\\.mm\\'" . maplev-mode))
