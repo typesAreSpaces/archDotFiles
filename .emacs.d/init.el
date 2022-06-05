@@ -134,12 +134,15 @@
 (dolist (mode '(org-mode-hook
                 term-mode-hook
                 shell-mode-hook
+                markdown-mode-hook
                 mu4e-headers-mode-hook
                 mu4e-view-mode-hook
                 mu4e-main-mode-hook
                 mu4e-org-mode-hook
                 mu4e-compose-mode-hook
                 treemacs-mode-hook
+                TeX-mode-hook
+                LaTeX-mode-hook
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
@@ -688,7 +691,11 @@
   (visual-fill-column-mode 1))
 
 (use-package visual-fill-column
-  :hook (org-mode . efs/org-mode-visual-fill))
+  :hook ((org-mode . efs/org-mode-visual-fill)
+         (markdown-mode . efs/org-mode-visual-fill)
+         (Tex-mode . efs/org-mode-visual-fill)
+         (LaTeX-mode . efs/org-mode-visual-fill)
+         (mu4e-main-mode . efs/org-mode-visual-fill)))
 
 (with-eval-after-load 'org
                                         ; This is needed as of Org 9.2
@@ -840,6 +847,9 @@
   :after python-mode
   :config
   (pyvenv-mode 1))
+
+(defvar maplev-package "/home/jose/maple/toolbox/maplev/maplev-3.0.4.tar")
+(if (file-exists-p maplev-package) (package-install-file maplev-package))
 
 (add-to-list 'auto-mode-alist '("\\.mpl\\'" . maplev-mode))
 (add-to-list 'auto-mode-alist '("\\.mm\\'" . maplev-mode))
