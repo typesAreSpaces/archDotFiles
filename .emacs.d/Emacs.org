@@ -920,7 +920,7 @@ We use [[https://github.com/joostkremers/visual-fill-column][visual-fill-column]
            (LaTeX-mode . efs/org-mode-visual-fill)
            (mu4e-main-mode . efs/org-mode-visual-fill)))
 
-    #+end_src
+#+end_src
 
 ** Structure Templates
 
