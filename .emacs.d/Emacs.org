@@ -733,7 +733,8 @@ This section contains the basic configuration for =org-mode= plus the configurat
 
     (setq org-todo-keywords
           '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
-            (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
+            (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")
+            (sequence "GOAL(g)" "|")))
 
     (setq org-refile-targets
           '(("Archive.org" :maxlevel . 1)
@@ -845,7 +846,7 @@ This section contains the basic configuration for =org-mode= plus the configurat
 
     (efs/org-font-setup))
 
-#+end_src
+      #+end_src
 
 Update org-latex-classes
 
@@ -920,7 +921,7 @@ We use [[https://github.com/joostkremers/visual-fill-column][visual-fill-column]
            (LaTeX-mode . efs/org-mode-visual-fill)
            (mu4e-main-mode . efs/org-mode-visual-fill)))
 
-    #+end_src
+#+end_src
 
 ** Structure Templates
 

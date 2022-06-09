@@ -14,7 +14,8 @@ def send_email(email, attachment):
     port = 587  
     smtp_server = "smtp.office365.com"
     subject = "Quick Attachment"
-    body = ""
+    body = f"""
+    Sent by quick_attachment.py"""
     sender_email = "jabelcastellanosjoo@unm.edu"
     password = getpass('Password: ')
 
