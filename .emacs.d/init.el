@@ -720,6 +720,8 @@
   :config
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
   (setq yas-key-syntaxes '(yas-longest-key-from-whitespace "w_.()" "w_." "w_" "w"))
+  (define-key yas-minor-mode-map (kbd "C-g") 'evil-normal-state)
+  (define-key yas-keymap (kbd "C-g") 'evil-normal-state)
   (yas-global-mode 1))
 
 (use-package yasnippet-snippets)
