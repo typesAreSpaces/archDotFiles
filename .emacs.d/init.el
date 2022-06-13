@@ -537,9 +537,10 @@
   (setq org-habit-graph-column 60)
 
   (setq org-todo-keywords
-        '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
+        '((sequence "GOAL(g)" "|")
+          (sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
           (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")
-          (sequence "GOAL(g)" "|")))
+          (sequence "EMAIL(e)" "|")))
 
   (setq org-refile-targets
         '(("Archive.org" :maxlevel . 1)
@@ -616,24 +617,24 @@
   (setq org-capture-templates
         `(("m" "Email Capture")
           ("mr" "Research Tasks" entry
-           (file+olp research-tasks-mail "Captured Email")
-           "* TODO Check this email %a"
+           (file+olp research-tasks-mail "EMAIL")
+           "** TODO Check this email %a"
            :immediate-finish t)
           ("ml" "Lunch Tasks" entry
-           (file+olp lunch-tasks-mail "Captured Email")
-           "* TODO Check this email %a"
+           (file+olp lunch-tasks-mail "EMAIL")
+           "** TODO Check this email %a"
            :immediate-finish t)
           ("ms" "SCC Project Tasks" entry
-           (file+olp scc-tasks-mail "Captured Email")
-           "* TODO Check this email %a"
+           (file+olp scc-tasks-mail "EMAIL")
+           "** TODO Check this email %a"
            :immediate-finish t)
           ("mc" "School Tasks" entry
-           (file+olp school-tasks-mail "Captured Email")
-           "* TODO Check this email %a"
+           (file+olp school-tasks-mail "EMAIL")
+           "** TODO Check this email %a"
            :immediate-finish t)
           ("me" "Seminar Tasks" entry
-           (file+olp seminar-tasks-mail "Captured Email")
-           "* TODO Check this email %a"
+           (file+olp seminar-tasks-mail "EMAIL")
+           "** TODO Check this email %a"
            :immediate-finish t)))
 
   (define-key global-map (kbd "C-c s")
