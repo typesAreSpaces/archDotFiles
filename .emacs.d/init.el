@@ -193,7 +193,9 @@
     "d" '(dired-jump :which-key "Dired jump")
     "m" '(mu4e :which-key "Mu4e")
     "p" '(lambda () (interactive) (yasnippet/goto-parent-file))
-    "r" '(org-capture nil :which-key "Org-capture")))
+    "f" '(lambda () (interactive) (LaTeX-fill-buffer nil))
+    "r" '(lambda () (interactive) (LaTeX-fill-buffer nil))
+    "o" '(org-capture nil :which-key "Org-capture")))
 
 (use-package evil
   :init
