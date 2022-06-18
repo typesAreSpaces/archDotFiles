@@ -10,8 +10,8 @@ alt + backslash
   alacritty -e tmux attach
 
 # program launcher
-alt + @space
-  rofi -show drun -display-drun "" -theme ~/.config/rofi/launchers/text/style_3.rasi
+alt + {_, shift + } @space
+  rofi -show {run, window} -display-drun "" -theme ~/.config/rofi/launchers/text/style_3.rasi
 
 # make sxhkd reload its configuration files:
 alt + Escape
