@@ -6,6 +6,9 @@
 alt + Return
 	alacritty
 
+alt + shift + Return
+  ~/.local/scripts/Scratchpad.sh title terminal-scratchpad st -n terminal-scratchpad -g 160x50 -e tmux 
+
 alt + backslash
   alacritty -e tmux attach
 
