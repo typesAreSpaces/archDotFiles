@@ -23,5 +23,6 @@ if __name__ == "__main__":
     f.write(f"savelib('{modulename}', dir);\n")
     f.close()
 
+    os.system(f"rm -rf {libname}.mla")
     os.system('maple installation_script.mpl')
     os.system('rm installation_script.mpl')
