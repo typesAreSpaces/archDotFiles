@@ -79,6 +79,7 @@ selection:
   semantic_escape_chars: ',│`|:"'' ()[]{}<>'
   save_to_clipboard: true
 live_config_reload: true
+dynamic_title: true
 key_bindings:
   - key: Equals
     mods: Control

@@ -14,10 +14,9 @@ update(){
   emacsclient -e "(auto-package-update-now)"
   emacsclient -e "(straight-pull-all)"
   emacsclient -e "(straight-rebuild-all)"
-  emacsclient -e "(kill-emacs)"
-  emacs --daemon
   echo ">>> Update neovim packages"
-  nvim --headless +PackerSync +TSUpdate +qa;
+  nvim --headless +TSUpdateSync +qa;
+  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync';
 }
 
 setScreenBrightness(){
@@ -45,11 +44,11 @@ cdclip(){
 }
 
 updateArchPackages(){ 
-  sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort .arch_packages))
+  sudo pacman -Qqe > .arch_packages
 }
 
 installArchPackages(){ 
-  sudo pacman -S --needed - < .arch_packages 
+  paru -S --needed - < .arch_packages 
 }
 
 changeVolume(){
@@ -63,17 +62,4 @@ tns(){
 
 trs(){
   tmux rename-session $1
-}
-
-_grading(){
-  cd $CURRENT_TA_DIR/Assignments/Project-3/Students 
-}
-
-grading(){
-  tmux rename-session grading
-  tmux rename-window -t grading:1 todo
-  cd $CURRENT_TA_DIR/Assignments/Project-3/Students 
-  tmux new-window -n "ct evaluation"
-  tmux new-window -n "ct implementation" 
-  tmux new-window -n "ct paper"
 }

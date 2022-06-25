@@ -6,12 +6,15 @@
 alt + Return
 	alacritty
 
+alt + shift + Return
+  ~/.local/scripts/Scratchpad.sh title terminal-scratchpad st -n terminal-scratchpad -g 160x50 -e tmux 
+
 alt + backslash
   alacritty -e tmux attach
 
 # program launcher
-alt + @space
-  rofi -show drun -display-drun "" -theme ~/.config/rofi/launchers/text/style_3.rasi
+alt + {_, shift + } @space
+  rofi -show {run, window} -display-drun "" -theme ~/.config/rofi/launchers/text/style_3.rasi
 
 # make sxhkd reload its configuration files:
 alt + Escape
@@ -140,16 +143,16 @@ ctrl + shift + {h,j,k,l}
   ~/.local/scripts/bspwm_smart_move {west,south,north,east}
 
 {XF86AudioRaiseVolume,XF86AudioLowerVolume}
-  pactl set-sink-volume $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") {+10%,-10%}
+  amixer set Master {10%+, 10%-}
 
 XF86AudioMute
-  pactl set-sink-mute $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") toggle
+  amixer set Master toggle
 
 ctrl + {Up, Down}
-  pactl set-sink-volume $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") {+10%,-10%}
+  amixer set Master {10%+, 10%-}
 
 ctrl + m
-  pactl set-sink-mute $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") toggle
+  amixer set Master toggle
 
 alt + shift + {e, v}
   ~/.local/scripts/changeKBD {CTRL, ESC}
