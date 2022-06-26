@@ -194,7 +194,6 @@
     "m" '(mu4e :which-key "Mu4e")
     "p" '(lambda () (interactive) (yasnippet/goto-parent-file))
     "f" '(lambda () (interactive) (LaTeX-fill-buffer nil))
-    "r" '(lambda () (interactive) (LaTeX-fill-buffer nil))
     "o" '(org-capture nil :which-key "Org-capture")))
 
 (use-package evil
