@@ -756,6 +756,17 @@
   :custom
   (lsp-ui-doc-position 'bottom))
 
+(use-package treemacs
+  :bind
+  (:map global-map
+        ([f8] . treemacs)
+        ([f7] . treemacs))
+  :config
+  (setq treemacs-is-never-other-window t))
+
+(use-package treemacs-evil
+  :after treemacs evil)
+
 (use-package lsp-treemacs
   :after lsp)
 

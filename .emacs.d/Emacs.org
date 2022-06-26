@@ -1037,6 +1037,29 @@ The =which-key= integration adds helpful descriptions of the various keys so you
 
 #+end_src
 
+**** treemacs
+
+#+begin_src emacs-lisp
+
+  (use-package treemacs
+    :bind
+    (:map global-map
+          ([f8] . treemacs)
+          ([f7] . treemacs))
+    :config
+    (setq treemacs-is-never-other-window t))
+
+#+end_src
+
+**** treemacs-evil
+
+#+begin_src emacs-lisp 
+
+  (use-package treemacs-evil
+    :after treemacs evil)
+
+#+end_src
+
 **** lsp-treemacs
 
 [[https://github.com/emacs-lsp/lsp-treemacs][lsp-treemacs]] provides nice tree views for different aspects of your code like symbols in a file, references of a symbol, or diagnostic messages (errors and warnings) that are found in your code.
