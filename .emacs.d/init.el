@@ -442,6 +442,12 @@
   (let ((consult-project-function (lambda (x) "./")))
     (consult-grep)))
 
+(defun consult-find-current-dir ()
+  "Call `consult-find' for the current buffer (a single file)."
+  (interactive)
+  (let ((consult-project-function (lambda (x) "./")))
+    (consult-find)))
+
 (use-package citar
   :bind (("C-c b" . citar-insert-citation)
          :map minibuffer-local-map
@@ -760,7 +766,7 @@
   :bind
   (:map global-map
         ([f8] . treemacs)
-        ([f7] . treemacs))
+        ([f7] . treemacs-select-window))
   :config
   (setq treemacs-is-never-other-window t))
 
