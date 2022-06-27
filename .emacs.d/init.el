@@ -194,7 +194,6 @@
     "m" '(mu4e :which-key "Mu4e")
     "p" '(lambda () (interactive) (yasnippet/goto-parent-file))
     "f" '(lambda () (interactive) (LaTeX-fill-buffer nil))
-    "r" '(lambda () (interactive) (LaTeX-fill-buffer nil))
     "o" '(org-capture nil :which-key "Org-capture")))
 
 (use-package evil
@@ -442,6 +441,12 @@
   (interactive)
   (let ((consult-project-function (lambda (x) "./")))
     (consult-grep)))
+
+(defun consult-find-current-dir ()
+  "Call `consult-find' for the current buffer (a single file)."
+  (interactive)
+  (let ((consult-project-function (lambda (x) "./")))
+    (consult-find)))
 
 (use-package citar
   :bind (("C-c b" . citar-insert-citation)
@@ -756,6 +761,17 @@
   :hook (lsp-mode . lsp-ui-mode)
   :custom
   (lsp-ui-doc-position 'bottom))
+
+(use-package treemacs
+  :bind
+  (:map global-map
+        ([f8] . treemacs)
+        ([f7] . treemacs-select-window))
+  :config
+  (setq treemacs-is-never-other-window t))
+
+(use-package treemacs-evil
+  :after treemacs evil)
 
 (use-package lsp-treemacs
   :after lsp)

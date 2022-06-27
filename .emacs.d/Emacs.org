@@ -273,7 +273,6 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
       "m" '(mu4e :which-key "Mu4e")
       "p" '(lambda () (interactive) (yasnippet/goto-parent-file))
       "f" '(lambda () (interactive) (LaTeX-fill-buffer nil))
-      "r" '(lambda () (interactive) (LaTeX-fill-buffer nil))
       "o" '(org-capture nil :which-key "Org-capture")))
 
   (use-package evil
@@ -589,6 +588,12 @@ This Prescient configuration is optimized for use in System Crafters videos and 
     (interactive)
     (let ((consult-project-function (lambda (x) "./")))
       (consult-grep)))
+
+  (defun consult-find-current-dir ()
+    "Call `consult-find' for the current buffer (a single file)."
+    (interactive)
+    (let ((consult-project-function (lambda (x) "./")))
+      (consult-find)))
 
 #+end_src
 
@@ -1035,6 +1040,29 @@ The =which-key= integration adds helpful descriptions of the various keys so you
     :hook (lsp-mode . lsp-ui-mode)
     :custom
     (lsp-ui-doc-position 'bottom))
+
+#+end_src
+
+**** treemacs
+
+#+begin_src emacs-lisp
+
+  (use-package treemacs
+    :bind
+    (:map global-map
+          ([f8] . treemacs)
+          ([f7] . treemacs-select-window))
+    :config
+    (setq treemacs-is-never-other-window t))
+
+#+end_src
+
+**** treemacs-evil
+
+#+begin_src emacs-lisp 
+
+  (use-package treemacs-evil
+    :after treemacs evil)
 
 #+end_src
 
