@@ -527,6 +527,13 @@
   :commands (org-capture org-agenda)
   :hook (org-mode . efs/org-mode-setup)
   :config
+  (setq org-file-apps
+        '((auto-mode . emacs)
+          (directory . emacs)
+          ("\\.mm\\'" . default)
+          ("\\.x?html?\\'" . default)
+          ("\\.pdf\\'" . "zathura %s")))
+
   (setq org-ellipsis " ▾")
 
   (setq org-agenda-start-with-log-mode t)
