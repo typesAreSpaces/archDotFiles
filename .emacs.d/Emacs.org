@@ -1216,7 +1216,8 @@ This will install the [[https://github.com/theia-ide/typescript-language-server]
     (setq TeX-auto-save t)
     (setq TeX-parse-self t)
     (setq-default TeX-master nil)
-    (setq reftex-ref-macro-prompt nil))
+    (setq reftex-ref-macro-prompt nil)
+    (setq font-latex-fontify-script nil))
 
 #+end_src
 
