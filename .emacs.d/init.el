@@ -753,51 +753,6 @@
   :init
   (persp-mode))
 
-;; (use-package tree-sitter
-;;   :straight (tree-sitter :type git
-;;                          :host github
-;;                          :repo "ubolonton/emacs-tree-sitter"
-;;                          :files ("lisp/*.el"))
-;;   :config (add-to-list 'tree-sitter-major-mode-language-alist '(rustic-mode . rust))
-;;   :hook ((org-mode TeX-mode LaTeX-mode typescript-mode maplev-mode c-mode c++-mode python-mode rustic-mode) . tree-sitter-hl-mode))
-
-(use-package tree-sitter
-  :straight (tree-sitter :type git
-                         :host github
-                         :repo "ubolonton/emacs-tree-sitter"
-                         :files ("lisp/*.el"))
-  :config
-  (add-to-list 'tree-sitter-major-mode-language-alist '(rustic-mode . rust))
-  (add-to-list 'tree-sitter-major-mode-language-alist '(TeX-mode . latex))
-  (add-to-list 'tree-sitter-major-mode-language-alist '(LaTeX-mode . latex))
-  (add-to-list 'tree-sitter-major-mode-language-alist '(latex-mode . latex))
-  :hook ((python-mode rustic-mode) . tree-sitter-hl-mode))
-
-(use-package tree-sitter-langs
-  :straight (tree-sitter-langs :type git
-                               :host github
-                               :repo "ubolonton/emacs-tree-sitter"
-                               :files ("langs/*.el" "langs/queries"))
-  :after tree-sitter)
-
-(defun tree-sitter-mark-bigger-node ()
-  (interactive)
-  (let* ((p (point))
-         (m (or (mark) p))
-         (beg (min p m))
-         (end (max p m))
-         (root (ts-root-node tree-sitter-tree))
-         (node (ts-get-descendant-for-position-range root beg end))
-         (node-beg (ts-node-start-position node))
-         (node-end (ts-node-end-position node)))
-    ;; Node fits the region exactly. Try its parent node instead.
-    (when (and (= beg node-beg) (= end node-end))
-      (when-let ((node (ts-get-parent node)))
-        (setq node-beg (ts-node-start-position node)
-              node-end (ts-node-end-position node))))
-    (set-mark node-end)
-    (goto-char node-beg)))
-
 (defun efs/lsp-mode-setup ()
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
   (lsp-headerline-breadcrumb-mode))
@@ -822,6 +777,71 @@
         ([f7] . treemacs-select-window))
   :config
   (setq treemacs-is-never-other-window t))
+
+;; (use-package tree-sitter
+;;   :straight (tree-sitter :type git
+;;                          :host github
+;;                          :repo "ubolonton/emacs-tree-sitter"
+;;                          :files ("lisp/*.el"))
+;;   :config (add-to-list 'tree-sitter-major-mode-language-alist '(rustic-mode . rust))
+;;   :hook ((org-mode TeX-mode LaTeX-mode typescript-mode maplev-mode c-mode c++-mode python-mode rustic-mode) . tree-sitter-hl-mode))
+
+(use-package tree-sitter
+  :straight (tree-sitter :type git
+                         :host github
+                         :repo "ubolonton/emacs-tree-sitter"
+                         :files ("lisp/*.el"))
+  :config
+  (add-to-list 'tree-sitter-major-mode-language-alist '(rustic-mode . rust))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(TeX-mode . latex))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(LaTeX-mode . latex))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(latex-mode . latex))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(bibtex-mode . bibtex))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(org-mode . org))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(c-mode . c))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(cpp-mode . cpp))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(python-mode . python))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-mode . typescript))
+  :hook ((latex-mode python-mode rustic-mode) . tree-sitter-hl-mode))
+
+(use-package tree-sitter-langs
+  :straight (tree-sitter-langs :type git
+                               :host github
+                               :repo "ubolonton/emacs-tree-sitter"
+                               :files ("langs/*.el" "langs/queries"))
+  :after tree-sitter)
+
+; TODO: fix bindings and check the appropriate text objects (i.e. block.outer doesnt work)
+(use-package evil-textobj-tree-sitter
+  :config
+  ;; Goto start of next function
+  (define-key evil-normal-state-map (kbd "]f")
+    (lambda ()
+      (interactive)
+      (evil-textobj-tree-sitter-goto-textobj "block.outer")))
+  ;; Goto start of previous function
+  (define-key evil-normal-state-map (kbd "[f")
+    (lambda ()
+      (interactive)
+      (evil-textobj-tree-sitter-goto-textobj "block.outer" t)))
+  ;; Goto end of next function
+  (define-key evil-normal-state-map (kbd "]F")
+    (lambda ()
+      (interactive)
+      (evil-textobj-tree-sitter-goto-textobj "block.outer" nil t)))
+  ;; Goto end of previous function
+  (define-key evil-normal-state-map (kbd "[F")
+    (lambda ()
+      (interactive)
+      (evil-textobj-tree-sitter-goto-textobj "block.outer" t t)))
+
+  ;; bind `function.outer`(entire function block) to `f` for use in things like `vaf`, `yaf`
+  (define-key evil-outer-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "block.outer"))
+  ;; bind `function.inner`(function block without name and args) to `f` for use in things like `vif`, `yif`
+  (define-key evil-inner-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "block.inner"))
+
+  ;; You can also bind multiple items and we will match the first one we can find
+  (define-key evil-outer-text-objects-map "a" (evil-textobj-tree-sitter-get-textobj ("conditional.outer" "loop.outer"))))
 
 (use-package treemacs-evil
   :after treemacs evil)
