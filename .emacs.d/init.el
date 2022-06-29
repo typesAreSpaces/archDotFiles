@@ -185,15 +185,16 @@
     "tt" '(counsel-load-theme :which-key "Choose theme")
     "e" '(lambda () (interactive) "Emacs source" (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
     "a" '(lambda () (interactive) "Agenda" (find-file (expand-file-name (concat phd-thesis-org-files-dir "/main.org"))))
-    "b" '(:ignore t :which-key "Edit References")
-    "bs" '(lambda () (interactive) "Edit References" (find-file (expand-file-name (concat scc-reports-dir "/references.bib"))))
-    "bp" '(lambda () (interactive) "Edit References" (find-file (expand-file-name (concat phd-thesis-write-ups-dir "/references.bib"))))
+    "r" '(:ignore t :which-key "Edit References")
+    "rs" '(lambda () (interactive) "Edit References" (find-file (expand-file-name (concat scc-reports-dir "/references.bib"))))
+    "rp" '(lambda () (interactive) "Edit References" (find-file (expand-file-name (concat phd-thesis-write-ups-dir "/references.bib"))))
     "w" '(lambda () (interactive) "Current Work" (find-file (expand-file-name (concat seminar-dir "/Reports/finding_certificates_qm_univariate/main.tex"))))
     "g" '(magit-status :which-key "Magit status")
     "d" '(dired-jump :which-key "Dired jump")
     "m" '(mu4e :which-key "Mu4e")
     "p" '(lambda () (interactive) (yasnippet/goto-parent-file))
     "f" '(lambda () (interactive) (LaTeX-fill-buffer nil))
+    "F" '(lambda () (interactive) (lsp-latex-forward-search))
     "o" '(org-capture nil :which-key "Org-capture")))
 
 (use-package evil
@@ -752,6 +753,51 @@
   :init
   (persp-mode))
 
+;; (use-package tree-sitter
+;;   :straight (tree-sitter :type git
+;;                          :host github
+;;                          :repo "ubolonton/emacs-tree-sitter"
+;;                          :files ("lisp/*.el"))
+;;   :config (add-to-list 'tree-sitter-major-mode-language-alist '(rustic-mode . rust))
+;;   :hook ((org-mode TeX-mode LaTeX-mode typescript-mode maplev-mode c-mode c++-mode python-mode rustic-mode) . tree-sitter-hl-mode))
+
+(use-package tree-sitter
+  :straight (tree-sitter :type git
+                         :host github
+                         :repo "ubolonton/emacs-tree-sitter"
+                         :files ("lisp/*.el"))
+  :config
+  (add-to-list 'tree-sitter-major-mode-language-alist '(rustic-mode . rust))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(TeX-mode . latex))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(LaTeX-mode . latex))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(latex-mode . latex))
+  :hook ((python-mode rustic-mode) . tree-sitter-hl-mode))
+
+(use-package tree-sitter-langs
+  :straight (tree-sitter-langs :type git
+                               :host github
+                               :repo "ubolonton/emacs-tree-sitter"
+                               :files ("langs/*.el" "langs/queries"))
+  :after tree-sitter)
+
+(defun tree-sitter-mark-bigger-node ()
+  (interactive)
+  (let* ((p (point))
+         (m (or (mark) p))
+         (beg (min p m))
+         (end (max p m))
+         (root (ts-root-node tree-sitter-tree))
+         (node (ts-get-descendant-for-position-range root beg end))
+         (node-beg (ts-node-start-position node))
+         (node-end (ts-node-end-position node)))
+    ;; Node fits the region exactly. Try its parent node instead.
+    (when (and (= beg node-beg) (= end node-end))
+      (when-let ((node (ts-get-parent node)))
+        (setq node-beg (ts-node-start-position node)
+              node-end (ts-node-end-position node))))
+    (set-mark node-end)
+    (goto-char node-beg)))
+
 (defun efs/lsp-mode-setup ()
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
   (lsp-headerline-breadcrumb-mode))
@@ -810,6 +856,9 @@
   :config
   (setq typescript-indent-level 2))
 
+(use-package rustic
+  :straight t)
+
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
 
@@ -867,8 +916,8 @@
   :hook (python-mode . lsp-deferred)
   :custom
                                         ; NOTE: Set these if Python 3 is called "python3" on your system!
-                                        ; (python-shell-interpreter "python3")
-                                        ; (dap-python-executable "python3")
+  (python-shell-interpreter "python3")
+  (dap-python-executable "python3")
   (dap-python-debugger 'debugpy)
   :config
   (require 'dap-python))
