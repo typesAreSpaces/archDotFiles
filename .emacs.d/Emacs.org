@@ -722,6 +722,13 @@ This section contains the basic configuration for =org-mode= plus the configurat
     :commands (org-capture org-agenda)
     :hook (org-mode . efs/org-mode-setup)
     :config
+    (setq org-file-apps
+          '((auto-mode . emacs)
+            (directory . emacs)
+            ("\\.mm\\'" . default)
+            ("\\.x?html?\\'" . default)
+            ("\\.pdf\\'" . "zathura %s")))
+
     (setq org-ellipsis " ▾")
 
     (setq org-agenda-start-with-log-mode t)
@@ -854,7 +861,7 @@ This section contains the basic configuration for =org-mode= plus the configurat
 
     (efs/org-font-setup))
 
-#+end_src
+      #+end_src
 
 Update org-latex-classes
 
@@ -1216,7 +1223,8 @@ This will install the [[https://github.com/theia-ide/typescript-language-server]
     (setq TeX-auto-save t)
     (setq TeX-parse-self t)
     (setq-default TeX-master nil)
-    (setq reftex-ref-macro-prompt nil))
+    (setq reftex-ref-macro-prompt nil)
+    (setq font-latex-fontify-script nil))
 
 #+end_src
 
