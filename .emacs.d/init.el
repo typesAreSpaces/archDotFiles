@@ -185,15 +185,16 @@
     "tt" '(counsel-load-theme :which-key "Choose theme")
     "e" '(lambda () (interactive) "Emacs source" (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
     "a" '(lambda () (interactive) "Agenda" (find-file (expand-file-name (concat phd-thesis-org-files-dir "/main.org"))))
-    "b" '(:ignore t :which-key "Edit References")
-    "bs" '(lambda () (interactive) "Edit References" (find-file (expand-file-name (concat scc-reports-dir "/references.bib"))))
-    "bp" '(lambda () (interactive) "Edit References" (find-file (expand-file-name (concat phd-thesis-write-ups-dir "/references.bib"))))
+    "r" '(:ignore t :which-key "Edit References")
+    "rs" '(lambda () (interactive) "Edit References" (find-file (expand-file-name (concat scc-reports-dir "/references.bib"))))
+    "rp" '(lambda () (interactive) "Edit References" (find-file (expand-file-name (concat phd-thesis-write-ups-dir "/references.bib"))))
     "w" '(lambda () (interactive) "Current Work" (find-file (expand-file-name (concat seminar-dir "/Reports/finding_certificates_qm_univariate/main.tex"))))
     "g" '(magit-status :which-key "Magit status")
     "d" '(dired-jump :which-key "Dired jump")
     "m" '(mu4e :which-key "Mu4e")
     "p" '(lambda () (interactive) (yasnippet/goto-parent-file))
     "f" '(lambda () (interactive) (LaTeX-fill-buffer nil))
+    "F" '(lambda () (interactive) (lsp-latex-forward-search))
     "o" '(org-capture nil :which-key "Org-capture")))
 
 (use-package evil
@@ -777,6 +778,71 @@
   :config
   (setq treemacs-is-never-other-window t))
 
+;; (use-package tree-sitter
+;;   :straight (tree-sitter :type git
+;;                          :host github
+;;                          :repo "ubolonton/emacs-tree-sitter"
+;;                          :files ("lisp/*.el"))
+;;   :config (add-to-list 'tree-sitter-major-mode-language-alist '(rustic-mode . rust))
+;;   :hook ((org-mode TeX-mode LaTeX-mode typescript-mode maplev-mode c-mode c++-mode python-mode rustic-mode) . tree-sitter-hl-mode))
+
+(use-package tree-sitter
+  :straight (tree-sitter :type git
+                         :host github
+                         :repo "ubolonton/emacs-tree-sitter"
+                         :files ("lisp/*.el"))
+  :config
+  (add-to-list 'tree-sitter-major-mode-language-alist '(rustic-mode . rust))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(TeX-mode . latex))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(LaTeX-mode . latex))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(latex-mode . latex))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(bibtex-mode . bibtex))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(org-mode . org))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(c-mode . c))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(cpp-mode . cpp))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(python-mode . python))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-mode . typescript))
+  :hook ((latex-mode python-mode rustic-mode) . tree-sitter-hl-mode))
+
+(use-package tree-sitter-langs
+  :straight (tree-sitter-langs :type git
+                               :host github
+                               :repo "ubolonton/emacs-tree-sitter"
+                               :files ("langs/*.el" "langs/queries"))
+  :after tree-sitter)
+
+; TODO: fix bindings and check the appropriate text objects (i.e. block.outer doesnt work)
+(use-package evil-textobj-tree-sitter
+  :config
+  ;; Goto start of next function
+  (define-key evil-normal-state-map (kbd "]f")
+    (lambda ()
+      (interactive)
+      (evil-textobj-tree-sitter-goto-textobj "block.outer")))
+  ;; Goto start of previous function
+  (define-key evil-normal-state-map (kbd "[f")
+    (lambda ()
+      (interactive)
+      (evil-textobj-tree-sitter-goto-textobj "block.outer" t)))
+  ;; Goto end of next function
+  (define-key evil-normal-state-map (kbd "]F")
+    (lambda ()
+      (interactive)
+      (evil-textobj-tree-sitter-goto-textobj "block.outer" nil t)))
+  ;; Goto end of previous function
+  (define-key evil-normal-state-map (kbd "[F")
+    (lambda ()
+      (interactive)
+      (evil-textobj-tree-sitter-goto-textobj "block.outer" t t)))
+
+  ;; bind `function.outer`(entire function block) to `f` for use in things like `vaf`, `yaf`
+  (define-key evil-outer-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "block.outer"))
+  ;; bind `function.inner`(function block without name and args) to `f` for use in things like `vif`, `yif`
+  (define-key evil-inner-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "block.inner"))
+
+  ;; You can also bind multiple items and we will match the first one we can find
+  (define-key evil-outer-text-objects-map "a" (evil-textobj-tree-sitter-get-textobj ("conditional.outer" "loop.outer"))))
+
 (use-package treemacs-evil
   :after treemacs evil)
 
@@ -809,6 +875,9 @@
   :hook (typescript-mode . lsp-deferred)
   :config
   (setq typescript-indent-level 2))
+
+(use-package rustic
+  :straight t)
 
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
@@ -867,8 +936,8 @@
   :hook (python-mode . lsp-deferred)
   :custom
                                         ; NOTE: Set these if Python 3 is called "python3" on your system!
-                                        ; (python-shell-interpreter "python3")
-                                        ; (dap-python-executable "python3")
+  (python-shell-interpreter "python3")
+  (dap-python-executable "python3")
   (dap-python-debugger 'debugpy)
   :config
   (require 'dap-python))
