@@ -5,3 +5,5 @@ libname := libname, "/home/jose/Documents/GithubProjects/phd-thesis/Software/Map
 libname := libname, "/home/jose/Documents/GithubProjects/phd-thesis/Software/Maple/Packages/DorisAlgorithmCompactCase":
 libname := libname, "/home/jose/Documents/GithubProjects/phd-thesis/Software/Maple/Packages/WeifengTwoGenerators":
 libname := libname, "/home/jose/Documents/GithubProjects/phd-thesis/Software/Maple/Packages/NaturalGenerators":
+libname := libname, "/home/jose/Documents/GithubProjects/phd-thesis/Software/Maple/Packages/NaturalGenerators":
+libname := libname, "/home/jose/Documents/GithubProjects/phd-thesis/Software/Maple/Packages/NonNegativeLinComb":
