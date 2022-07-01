@@ -8,6 +8,7 @@ killall -q sxhkd
 sxhkd &
 picom --experimental-backends &
 xset s off -dpms &
+~/.local/scripts/UnseenMail/keep_checking_email.sh &
 emacs --daemon
 
 MONITOR1=DP-0
