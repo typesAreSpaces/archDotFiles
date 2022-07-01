@@ -36,11 +36,12 @@ export LATEX_MACROS_DIR="$HOME/texmf/tex/latex/local"
 # to do with how sed works on other files using WALLPAPERS_DIR
 export WALLPAPERS_DIR="~/Pictures/Wallpapers"
 export SCRIPT_DIR="$HOME/.local/scripts"
+export SCRIPT_DIR="$SCRIPT_DIR:$HOME/.local/scripts/UnseenMail"
 export ZSH_SCRIPT_DIR="$HOME/.config/zsh/scripts"
 
 export PATH="/usr/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.local/scripts:$PATH"
+export PATH="$SCRIPT_DIR:$PATH"
 export PATH="$HOME/.opam/system/bin:$PATH"
 export PATH="$HOME/.opam/4.07.0/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"

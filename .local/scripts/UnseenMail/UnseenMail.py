@@ -11,6 +11,8 @@ import configparser
 
 import requests
 
+file=open("/home/jose/.unread_email", "w")
+
 dirname = os.path.split(os.path.abspath(__file__))[0]
 accounts = configparser.RawConfigParser()
 accounts.read(os.path.abspath(dirname + '/accounts.ini'))
@@ -57,6 +59,8 @@ try:
         else:
             unread = check_imap(currentAccount)
         strFormatted += icon + " " + str(unread) + " "
-        print(strFormatted)
+        file.write(strFormatted)
 except (requests.ConnectionError, requests.Timeout) as exception:
-    print("ﰸ No connection")
+    file.write("ﰸ No connection")
+
+file.close()
