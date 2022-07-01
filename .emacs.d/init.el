@@ -134,6 +134,7 @@
 (dolist (mode '(org-mode-hook
                 term-mode-hook
                 shell-mode-hook
+                vterm-mode-hook
                 markdown-mode-hook
                 mu4e-headers-mode-hook
                 mu4e-view-mode-hook
@@ -811,7 +812,7 @@
                                :files ("langs/*.el" "langs/queries"))
   :after tree-sitter)
 
-; TODO: fix bindings and check the appropriate text objects (i.e. block.outer doesnt work)
+                                        ; TODO: fix bindings and check the appropriate text objects (i.e. block.outer doesnt work)
 (use-package evil-textobj-tree-sitter
   :config
   ;; Goto start of next function
@@ -1047,6 +1048,13 @@
     (setq eshell-visual-commands '("htop" "zsh" "vim")))
 
   (eshell-git-prompt-use-theme 'powerline))
+
+(use-package vterm
+  :commands vterm
+  :config
+  (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")  
+  (setq vterm-shell "zsh")                      
+  (setq vterm-max-scrollback 10000))
 
 (use-package dired
   :ensure nil
