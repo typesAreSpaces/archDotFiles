@@ -58,7 +58,7 @@ try:
             unread = check_gmail(account)
         else:
             unread = check_imap(currentAccount)
-        strFormatted += icon + " " + str(unread) + " "
+        strFormatted += icon + " " + str(unread)
         file.write(strFormatted)
 except (requests.ConnectionError, requests.Timeout) as exception:
     file.write("ﰸ No connection")
