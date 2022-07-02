@@ -191,6 +191,7 @@ This section configures basic UI settings that remove unneeded elements to make 
   (dolist (mode '(org-mode-hook
                   term-mode-hook
                   shell-mode-hook
+                  vterm-mode-hook
                   markdown-mode-hook
                   mu4e-headers-mode-hook
                   mu4e-view-mode-hook
@@ -359,7 +360,10 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
                                          (shell-command-to-string
                                           "ps aux | grep 'mbsync -a' | wc -l | xargs")
                                          "3\n")
-                                        "Running mbsync" ""))
+                                        " Running mbsync " " "))
+                                   "%e" (:eval
+                                         (when (display-graphic-p) (shell-command-to-string
+                                          "~/.local/scripts/check_email.sh")))
                                    (:eval (doom-modeline-format--main))))
 
 #+end_src
@@ -1102,7 +1106,7 @@ The =which-key= integration adds helpful descriptions of the various keys so you
                                  :files ("langs/*.el" "langs/queries"))
     :after tree-sitter)
 
-  ; TODO: fix bindings and check the appropriate text objects (i.e. block.outer doesnt work)
+                                          ; TODO: fix bindings and check the appropriate text objects (i.e. block.outer doesnt work)
   (use-package evil-textobj-tree-sitter
     :config
     ;; Goto start of next function
@@ -1576,6 +1580,19 @@ The downsides to Eshell are that it can be harder to configure than other packag
 
 
     #+end_src
+
+** Vterm
+
+#+begin_src emacs-lisp 
+
+  (use-package vterm
+    :commands vterm
+    :config
+    (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")  
+    (setq vterm-shell "zsh")                      
+    (setq vterm-max-scrollback 10000))
+
+#+end_src
 
 * File Management
 
