@@ -1,18 +1,13 @@
 #! /bin/sh
 
-# Autostart
-setxkbmap
-xmodmap $HOME/.Xmodmap
-[ -f $HOME/.xsessionrc ] && source $HOME/.xsessionrc
+# Autostart for bspwm
 killall -q sxhkd
 sxhkd &
+$HOME/.config/polybar/launch.sh &
 picom --experimental-backends &
 xset s off -dpms &
-~/.local/scripts/UnseenMail/keep_checking_email.sh &
-emacs --daemon
 
 MONITOR1=DP-0
-
 # Configuration 1
 bspc monitor $MONITOR1 -d 1 2 3 4 5 6 7 8 9 10
 # Configuration 2
@@ -22,7 +17,6 @@ bspc monitor $MONITOR1 -d 1 2 3 4 5 6 7 8 9 10
 #bspc monitor $MONITOR2 -d 6 7 8 9 10
 
 feh --bg-scale ~/Pictures/Wallpapers/bridge_and_sunset.png
-$HOME/.config/polybar/launch.sh &
 
 bspc config border_width         3
 bspc config window_gap           20
@@ -39,3 +33,6 @@ bspc rule -a 'Brave-browser' desktop='^6'
 bspc rule -a obs desktop='^8'
 bspc rule -a 'VirtualBox Manager' desktop='^9'
 bspc rule -a 'VirtualBox Machine' desktop='^10'
+
+# Autostart programs
+$HOME/.local/scripts/autostart.sh
