@@ -73,6 +73,8 @@ emacsThemeSwitch(){
       sed -i "s/(load-theme.*/(load-theme 'doom-palenight t))/g" $emacs_dir/init.el
       ;;
   esac
+  emacsclient -nw -c -e "(kill-emacs)"; 
+  emacs --daemon;
 }
 bspwmThemeSwitch(){
   config_file=$HOME/.config/bspwm/bspwmrc
