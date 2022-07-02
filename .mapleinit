@@ -7,4 +7,4 @@ libname := libname, "/home/jose/Documents/GithubProjects/phd-thesis/Software/Map
 libname := libname, "/home/jose/Documents/GithubProjects/phd-thesis/Software/Maple/Packages/NaturalGenerators":
 libname := libname, "/home/jose/Documents/GithubProjects/phd-thesis/Software/Maple/Packages/NonNegativeLinComb":
 libname := libname, "/home/jose/Documents/GithubProjects/phd-thesis/Software/Maple/Packages/WeifengMultipliers":
-libname := libname, "/home/jose/Documents/GithubProjects/phd-thesis/Software/Maple/Packages/StableQuadracticModule":
+libname := libname, "/home/jose/Documents/GithubProjects/phd-thesis/Software/Maple/Packages/StableQuadraticModule":
