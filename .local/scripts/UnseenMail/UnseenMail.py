@@ -11,7 +11,10 @@ import configparser
 
 import requests
 
-file=open("/home/jose/.unread_email", "w")
+def notify(s):
+    file=open("/home/jose/.unread_email", "w")
+    file.write(s)
+    file.close()
 
 dirname = os.path.split(os.path.abspath(__file__))[0]
 accounts = configparser.RawConfigParser()
@@ -59,8 +62,6 @@ try:
         else:
             unread = check_imap(currentAccount)
         strFormatted += icon + " " + str(unread)
-        file.write(strFormatted)
+        notify(strFormatted)
 except (requests.ConnectionError, requests.Timeout) as exception:
-    file.write("ﰸ No connection")
-
-file.close()
+    notify(strFormatted)
