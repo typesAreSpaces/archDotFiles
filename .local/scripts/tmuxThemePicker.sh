@@ -47,7 +47,7 @@ tokyoTheme(){
 
 setTheme(){
   TMUX_PATH=$HOME/.config/tmux
-  cp $TMUX_PATH/tmux.temp.conf $TMUX_PATH/tmux.conf
+  cp $TMUX_PATH/tmux.meta.conf $TMUX_PATH/tmux.conf
   sed -i "s/BG1/$BG1/g" $TMUX_PATH/tmux.conf
   sed -i "s/BG1/$BG1/g" $TMUX_PATH/tmux.conf
   sed -i "s/FG1/$FG1/g" $TMUX_PATH/tmux.conf
