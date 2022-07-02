@@ -8,6 +8,13 @@ killall -q sxhkd
 sxhkd &
 picom --experimental-backends &
 xset s off -dpms &
+~/.local/scripts/UnseenMail/keep_checking_email.sh &
+emacs --daemon
+
+feh --bg-scale ~/Pictures/Wallpapers/iron_lady.jpg
+
+$HOME/.config/polybar/launch.sh &
+
 MONITOR1=eDP1
 if xrandr -q | grep -q "^DP[0-9] connected*"; then
   $HOME/.screenlayout/dell_with_benq_pd.sh;
@@ -19,14 +26,6 @@ if xrandr -q | grep -q "^DP[0-9] connected*"; then
 else
   bspc monitor $MONITOR1 -d 1 2 3 4 5 6 7 8 9 10
 fi
-emacs --daemon
-
-feh --bg-scale ~/Pictures/Wallpapers/iron_lady.jpg
-
-$HOME/.config/polybar/launch.sh &
-
-bspc config -m $MONITOR1 top_padding 15
-bspc config -m $MONITOR1 bottom_padding 15
 
 bspc config border_width         3
 bspc config window_gap           20
