@@ -5,6 +5,7 @@ killall -q sxhkd
 sxhkd &
 picom --experimental-backends &
 xset s off -dpms &
+dunst &
 
 # Monitor setup
 MONITOR1=DP-0
