@@ -3,7 +3,6 @@
 # Autostart for bspwm
 killall -q sxhkd
 sxhkd &
-$HOME/.config/polybar/launch.sh &
 picom --experimental-backends &
 xset s off -dpms &
 
@@ -19,6 +18,7 @@ else
   bspc monitor $MONITOR1 -d 1 2 3 4 5 6 7 8 9 10
 fi
 
+$HOME/.config/polybar/launch.sh &
 feh --bg-scale ~/Pictures/Wallpapers/iron_lady.jpg
 
 bspc config border_width         3
