@@ -3,12 +3,11 @@
 # Autostart for bspwm
 killall -q sxhkd
 sxhkd &
-$HOME/.config/polybar/launch.sh &
 picom --experimental-backends &
 xset s off -dpms &
 
+# Monitor setup
 MONITOR1=eDP1
-
 # Configuration 1
 bspc monitor $MONITOR1 -d 1 2 3 4 5 6 7 8 9 10
 # Configuration 2
@@ -17,8 +16,11 @@ bspc monitor $MONITOR1 -d 1 2 3 4 5 6 7 8 9 10
 #bspc monitor $MONITOR1 -d 1 2 3 4 5
 #bspc monitor $MONITOR2 -d 6 7 8 9 10
 
+# Post Monitor setup
+$HOME/.config/polybar/launch.sh &
 feh --bg-scale ~/Pictures/Wallpapers/bridge_and_sunset.png
 
+# bspwm setup
 bspc config border_width         3
 bspc config window_gap           20
 bspc config focused_border_color "#7aa2f7"
