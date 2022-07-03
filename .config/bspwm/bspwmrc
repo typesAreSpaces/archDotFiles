@@ -1,17 +1,11 @@
 #! /bin/sh
 
-# Autostart
-setxkbmap
-xmodmap $HOME/.Xmodmap
-[ -f $HOME/.xsessionrc ] && source $HOME/.xsessionrc
+# Autostart for bspwm
 killall -q sxhkd
 sxhkd &
+$HOME/.config/polybar/launch.sh &
 picom --experimental-backends &
 xset s off -dpms &
-~/.local/scripts/UnseenMail/keep_checking_email.sh &
-emacs --daemon
-
-$HOME/.config/polybar/launch.sh &
 
 MONITOR1=eDP1
 if xrandr -q | grep -q "^DP[0-9] connected*"; then
@@ -45,3 +39,6 @@ bspc rule -a 'Brave-browser' desktop='^6'
 bspc rule -a obs desktop='^8'
 bspc rule -a 'VirtualBox Manager' desktop='^9'
 bspc rule -a 'VirtualBox Machine' desktop='^10'
+
+# Autostart programs
+$HOME/.local/scripts/autostart.sh
