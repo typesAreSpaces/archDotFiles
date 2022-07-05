@@ -250,7 +250,7 @@
                                       " Running mbsync " " "))
                                  "%e" (:eval
                                        (when (display-graphic-p) (shell-command-to-string
-                                        "~/.local/scripts/check_email.sh")))
+                                                                  "~/.local/scripts/check_email.sh")))
                                  (:eval (doom-modeline-format--main))))
 
 (use-package which-key
@@ -956,6 +956,13 @@
 
 (add-to-list 'auto-mode-alist '("\\.mpl\\'" . maplev-mode))
 (add-to-list 'auto-mode-alist '("\\.mm\\'" . maplev-mode))
+
+(use-package wolfram-mode
+  :config
+  (setq wolfram-program "/usr/local/bin/MathKernel")
+  (setq wolfram-path "~/.Mathematica")
+  (add-to-list 'auto-mode-alist '("\\.m\\'" . wolfram-mode))
+  (add-to-list 'auto-mode-alist '("\\.wl\\'" . wolfram-mode)))
 
 (use-package z3-mode)
 
