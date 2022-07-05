@@ -97,8 +97,6 @@
 (defvar seminar-tasks-mail 
   (concat seminar-org-files-dir "/seminar_tasks.org"))
 
-(use-package beacon)
-
 (setq inhibit-startup-message t)
 
 (scroll-bar-mode -1)               ; Disable visible scrollbar
@@ -108,7 +106,8 @@
 
 (menu-bar-mode -1)                 ; Disable the menu bar
 (desktop-save-mode 1)              ; Store sessions
-(beacon-mode 1)                    ; Enable beacon
+(winner-mode 1)                    ; Enable winner mode
+(setq winner-dont-bind-my-keys t)
 
 (server-start)                     ; Start server
 (setq process-connection-type nil) ; Use pipes
@@ -199,7 +198,10 @@
     "lp" '((lambda () (interactive) (yasnippet/goto-parent-file)) :which-key "Goto (p)arent")
     "lf" '((lambda () (interactive) (LaTeX-fill-buffer nil)) :which-key "Latex (f)ill buffer")
     "lF" '((lambda () (interactive) (lsp-latex-forward-search)) :which-key "Latex (f)orward search")
-    "o" '(org-capture nil :which-key "(o)rg-capture")))
+    "o" '(org-capture nil :which-key "(o)rg-capture")
+    "w" '(:ignore t :which-key "(w)indows related")
+    "wu" '(winner-undo :which-key "Winner (u)ndo")
+    "wr" '(winner-redo :which-key "Winner (r)edo")))
 
 (use-package evil
   :init
