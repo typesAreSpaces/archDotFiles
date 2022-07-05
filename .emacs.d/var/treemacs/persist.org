@@ -7,3 +7,8 @@
  - path :: ~/Documents/GithubProjects/phd-thesis/Software
 ** weekly reports
  - path :: ~/Documents/GithubProjects/phd-thesis/Documents/Write-Ups/weekly_reports
+* z3
+** src
+ - path :: ~/Documents/GithubProjects/z3/src
+** scripts
+ - path :: ~/Documents/GithubProjects/z3/scripts
