@@ -223,7 +223,8 @@
 (use-package evil-collection
   :after evil
   :config
-  (evil-collection-init))
+  (evil-collection-init)
+  (setq forge-add-default-bindings nil))
 
 (use-package command-log-mode
   :commands command-log-mode)

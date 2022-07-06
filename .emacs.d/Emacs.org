@@ -302,7 +302,8 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
   (use-package evil-collection
     :after evil
     :config
-    (evil-collection-init))
+    (evil-collection-init)
+    (setq forge-add-default-bindings nil))
 
 #+end_src
 
