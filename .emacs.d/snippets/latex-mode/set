@@ -3,4 +3,4 @@
 # key: ;set
 # condition: 'auto
 # --
-\\set{$1 ${2:\mid $3}}$0
+\\set{$1${2: \mid $3}}$0
