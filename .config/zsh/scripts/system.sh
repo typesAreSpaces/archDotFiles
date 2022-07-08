@@ -17,6 +17,8 @@ update(){
   echo ">>> Update neovim packages"
   nvim --headless +TSUpdateSync +qa;
   nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync';
+  echo ">>> Update Latex macros"
+  [ -d $LATEX_MACROS_DIR ] && make -C $LATEX_MACROS_DIR
 }
 
 setScreenBrightness(){
