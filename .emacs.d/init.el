@@ -562,7 +562,7 @@
   (setq org-habit-graph-column 60)
 
   (setq org-todo-keywords
-        '((sequence "GOAL(g)" "|")
+        '((sequence "GOAL(g)" "REMINDER(r!)" "|")
           (sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
           (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")
           (sequence "EMAIL(e)" "|")))
