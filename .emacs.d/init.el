@@ -105,7 +105,6 @@
 (set-fringe-mode 10)               ; Give some breathing room
 
 (menu-bar-mode -1)                 ; Disable the menu bar
-(desktop-save-mode 1)              ; Store sessions
 (winner-mode 1)                    ; Enable winner mode
 (setq winner-dont-bind-my-keys t)
 
@@ -768,6 +767,8 @@
   (lsp-headerline-breadcrumb-mode))
 
 (use-package lsp-mode
+  :bind (:map lsp-mode-map
+              ("C-l w b" . lsp-latex-build))
   :commands (lsp lsp-deferred)
   :hook (lsp-mode . efs/lsp-mode-setup)
   :init
@@ -779,14 +780,6 @@
   :hook (lsp-mode . lsp-ui-mode)
   :custom
   (lsp-ui-doc-position 'bottom))
-
-(use-package treemacs
-  :bind
-  (:map global-map
-        ([f8] . treemacs)
-        ([f7] . treemacs-select-window))
-  :config
-  (setq treemacs-is-never-other-window t))
 
 ;; (use-package tree-sitter
 ;;   :straight (tree-sitter :type git
@@ -852,6 +845,14 @@
 
   ;; You can also bind multiple items and we will match the first one we can find
   (define-key evil-outer-text-objects-map "a" (evil-textobj-tree-sitter-get-textobj ("conditional.outer" "loop.outer"))))
+
+(use-package treemacs
+  :bind
+  (:map global-map
+        ([f4] . treemacs)
+        ([f5] . treemacs-select-window))
+  :config
+  (setq treemacs-is-never-other-window t))
 
 (use-package treemacs-evil
   :after treemacs evil)
