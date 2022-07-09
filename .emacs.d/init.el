@@ -766,9 +766,7 @@
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
   (lsp-headerline-breadcrumb-mode))
 
-(use-package lsp-mode
-  :bind (:map lsp-mode-map
-              ("C-l w b" . lsp-latex-build))
+(use-package lsp-mode 
   :commands (lsp lsp-deferred)
   :hook (lsp-mode . efs/lsp-mode-setup)
   :init
@@ -907,6 +905,8 @@
 (add-hook 'LaTeX-mode-hook #'display-fill-column-indicator-mode)
 
 (use-package lsp-latex
+  :bind (:map lsp-mode-map
+              ("C-l w b" . lsp-latex-build))
   :config
   (setq lsp-latex-build-executable "latexmk")
   (setq lsp-latex-build-args '("-pvc" "-pdf" "-interaction=nonstopmode" "-synctex=1" "%f"))

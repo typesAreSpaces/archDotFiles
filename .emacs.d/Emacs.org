@@ -1037,9 +1037,7 @@ The =which-key= integration adds helpful descriptions of the various keys so you
     (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
     (lsp-headerline-breadcrumb-mode))
 
-  (use-package lsp-mode
-    :bind (:map lsp-mode-map
-                ("C-l w b" . lsp-latex-build))
+  (use-package lsp-mode 
     :commands (lsp lsp-deferred)
     :hook (lsp-mode . efs/lsp-mode-setup)
     :init
@@ -1277,6 +1275,8 @@ This will install the [[https://github.com/theia-ide/typescript-language-server]
   (add-hook 'LaTeX-mode-hook #'display-fill-column-indicator-mode)
 
   (use-package lsp-latex
+    :bind (:map lsp-mode-map
+                ("C-l w b" . lsp-latex-build))
     :config
     (setq lsp-latex-build-executable "latexmk")
     (setq lsp-latex-build-args '("-pvc" "-pdf" "-interaction=nonstopmode" "-synctex=1" "%f"))
@@ -1303,7 +1303,7 @@ This will install the [[https://github.com/theia-ide/typescript-language-server]
     (insert (decode-coding-string bibtex-entry 'utf-8))
     (bibtex-fill-entry))
 
-#+end_src
+  #+end_src
 
 **** AUCTex setup
 
