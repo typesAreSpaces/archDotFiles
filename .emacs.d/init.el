@@ -779,19 +779,17 @@
   :custom
   (lsp-ui-doc-position 'bottom))
 
-;; (use-package tree-sitter
-;;   :straight (tree-sitter :type git
-;;                          :host github
-;;                          :repo "ubolonton/emacs-tree-sitter"
-;;                          :files ("lisp/*.el"))
-;;   :config (add-to-list 'tree-sitter-major-mode-language-alist '(rustic-mode . rust))
-;;   :hook ((org-mode TeX-mode LaTeX-mode typescript-mode maplev-mode c-mode c++-mode python-mode rustic-mode) . tree-sitter-hl-mode))
+; :hook (
+                                        ; (org-mode TeX-mode LaTeX-mode typescript-mode
+                                        ; maplev-mode c-mode c++-mode python-mode rustic-mode)
+                                        ;. tree-sitter-hl-mode))
 
 (use-package tree-sitter
   :straight (tree-sitter :type git
                          :host github
                          :repo "ubolonton/emacs-tree-sitter"
                          :files ("lisp/*.el"))
+  :hook ((latex-mode python-mode rustic-mode) . tree-sitter-hl-mode)
   :config
   (add-to-list 'tree-sitter-major-mode-language-alist '(rustic-mode . rust))
   (add-to-list 'tree-sitter-major-mode-language-alist '(TeX-mode . latex))
@@ -802,8 +800,7 @@
   (add-to-list 'tree-sitter-major-mode-language-alist '(c-mode . c))
   (add-to-list 'tree-sitter-major-mode-language-alist '(cpp-mode . cpp))
   (add-to-list 'tree-sitter-major-mode-language-alist '(python-mode . python))
-  (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-mode . typescript))
-  :hook ((latex-mode python-mode rustic-mode) . tree-sitter-hl-mode))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-mode . typescript)))
 
 (use-package tree-sitter-langs
   :straight (tree-sitter-langs :type git
@@ -811,38 +808,6 @@
                                :repo "ubolonton/emacs-tree-sitter"
                                :files ("langs/*.el" "langs/queries"))
   :after tree-sitter)
-
-                                        ; TODO: fix bindings and check the appropriate text objects (i.e. block.outer doesnt work)
-(use-package evil-textobj-tree-sitter
-  :config
-  ;; Goto start of next function
-  (define-key evil-normal-state-map (kbd "]f")
-    (lambda ()
-      (interactive)
-      (evil-textobj-tree-sitter-goto-textobj "block.outer")))
-  ;; Goto start of previous function
-  (define-key evil-normal-state-map (kbd "[f")
-    (lambda ()
-      (interactive)
-      (evil-textobj-tree-sitter-goto-textobj "block.outer" t)))
-  ;; Goto end of next function
-  (define-key evil-normal-state-map (kbd "]F")
-    (lambda ()
-      (interactive)
-      (evil-textobj-tree-sitter-goto-textobj "block.outer" nil t)))
-  ;; Goto end of previous function
-  (define-key evil-normal-state-map (kbd "[F")
-    (lambda ()
-      (interactive)
-      (evil-textobj-tree-sitter-goto-textobj "block.outer" t t)))
-
-  ;; bind `function.outer`(entire function block) to `f` for use in things like `vaf`, `yaf`
-  (define-key evil-outer-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "block.outer"))
-  ;; bind `function.inner`(function block without name and args) to `f` for use in things like `vif`, `yif`
-  (define-key evil-inner-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "block.inner"))
-
-  ;; You can also bind multiple items and we will match the first one we can find
-  (define-key evil-outer-text-objects-map "a" (evil-textobj-tree-sitter-get-textobj ("conditional.outer" "loop.outer"))))
 
 (use-package treemacs
   :bind
