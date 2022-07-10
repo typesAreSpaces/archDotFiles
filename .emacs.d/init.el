@@ -812,8 +812,8 @@
 (use-package treemacs
   :bind
   (:map global-map
-        ([f4] . treemacs)
-        ([f5] . treemacs-select-window))
+        ([f5] . treemacs)
+        ([f4] . treemacs-select-window))
   :config
   (setq treemacs-is-never-other-window t))
 
