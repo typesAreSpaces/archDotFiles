@@ -101,7 +101,6 @@ changeTheme(){
   emacsThemeSwitch $2
   zathuraThemeSwitch $2
   tmuxThemePicker.sh $2
-  tmux source-file $HOME/.config/tmux/tmux.conf
   case $1 in
     "i3")
       wallpaperThemeSwitch $2 "$HOME/.config/i3/config"
