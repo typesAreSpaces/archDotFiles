@@ -1,3 +1,12 @@
+* seminar
+** Reports
+- path :: ~/Documents/GithubProjects/phd-thesis/Documents/Seminars/BeihangUniversity-Fall2021/Reports
+** Notes
+- path :: ~/Documents/GithubProjects/phd-thesis/Documents/Seminars/BeihangUniversity-Fall2021/Notes
+** Presentations
+- path :: ~/Documents/GithubProjects/phd-thesis/Documents/Seminars/BeihangUniversity-Fall2021/Presentations
+** Weifeng Notes
+- path :: ~/Documents/GithubProjects/phd-thesis/Documents/Seminars/BeihangUniversity-Fall2021/Weifeng-Notes
 * reading
 ** Papers
  - path :: ~/Documents/GithubProjects/phd-thesis/Documents/Papers
