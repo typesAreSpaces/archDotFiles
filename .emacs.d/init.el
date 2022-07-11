@@ -167,6 +167,7 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "C-i") 'evil-jump-forward)
 (global-set-key (kbd "C-o") 'evil-jump-backward)
+(global-set-key [(control x) (k)] 'kill-buffer)
 
 (use-package general
   :after evil
