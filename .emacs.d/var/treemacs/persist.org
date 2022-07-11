@@ -7,6 +7,10 @@
  - path :: ~/Documents/GithubProjects/phd-thesis/Software
 ** weekly reports
  - path :: ~/Documents/GithubProjects/phd-thesis/Documents/Write-Ups/weekly_reports
+** books
+ - path :: ~/Documents/GithubProjects/phd-thesis/Documents/Books
+** papers
+ - path :: ~/Documents/GithubProjects/phd-thesis/Documents/Papers
 * z3
 ** src
  - path :: ~/Documents/GithubProjects/z3/src

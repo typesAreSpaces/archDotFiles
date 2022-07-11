@@ -482,9 +482,9 @@
 
 (defhydra hydra-text-scale (:timeout 4)
   "scale text"
-  ("j" text-scale-increase "in")
-  ("k" text-scale-decrease "out")
-  ("f" nil "finished" :exit t))
+  ("k" text-scale-increase "in")
+  ("j" text-scale-decrease "out")
+  ("q" nil "finished" :exit t))
 
 (efs/leader-keys
   "ts" '(hydra-text-scale/body :which-key "scale text"))
