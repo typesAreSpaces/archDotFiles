@@ -812,8 +812,8 @@
 (use-package treemacs
   :bind
   (:map global-map
-        ([f5] . treemacs)
-        ([f4] . treemacs-select-window))
+        ([f4] . treemacs)
+        ([f5] . treemacs-select-window))
   :config
   (setq treemacs-is-never-other-window t))
 
@@ -916,7 +916,13 @@
   (dap-python-executable "python3")
   (dap-python-debugger 'debugpy)
   :config
-  (require 'dap-python))
+  (require 'dap-python)
+  (setq python-indent-offset 2)
+  (setq python-indent 2)
+  (add-hook 'python-mode-hook
+            (function (lambda ()
+                        (setq indent-tabs-mode nil
+                              tab-width 2)))))
 
 (use-package pyvenv
   :after python-mode
