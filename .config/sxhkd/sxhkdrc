@@ -7,7 +7,10 @@ alt + Return
 	alacritty
 
 alt + shift + Return
-  ~/.local/scripts/Scratchpad.sh title terminal-scratchpad st -n terminal-scratchpad -g 160x50 -e tmux 
+  ~/.local/scripts/Scratchpad.sh \
+  title terminal-scratchpad \
+  st -n terminal-scratchpad -g 160x50 -e \
+  tmux new-session -s "$(/home/jose/.local/scripts/tmux-session-number)"
 
 alt + backslash
   alacritty -e tmux attach
@@ -149,7 +152,7 @@ XF86AudioMute
   amixer set Master toggle
 
 ctrl + {Up, Down}
-  amixer set Master {10%+, 10%-}
+  amixer set Master {5%+, 5%-}
 
 ctrl + m
   amixer set Master toggle

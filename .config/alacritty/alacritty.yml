@@ -1,9 +1,9 @@
 shell:
   program: /bin/zsh
   args:
-    - --login
-    - -c
-    - "tmux new-session -s \"$(/home/jose/.local/scripts/tmux-session-number)\""
+    - '--login'
+    - '-c'
+    - tmux new-session -s "$(/home/jose/.local/scripts/tmux-session-number)"
 colors:
   primary:
     background: '0x1a1b26'

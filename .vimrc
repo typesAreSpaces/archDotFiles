@@ -30,3 +30,5 @@ set noswapfile
 set nobackup
 set undofile
 set incsearch 
+
+set shell=zsh\ -i

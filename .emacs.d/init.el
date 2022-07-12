@@ -97,8 +97,6 @@
 (defvar seminar-tasks-mail 
   (concat seminar-org-files-dir "/seminar_tasks.org"))
 
-(use-package beacon)
-
 (setq inhibit-startup-message t)
 
 (scroll-bar-mode -1)               ; Disable visible scrollbar
@@ -107,8 +105,8 @@
 (set-fringe-mode 10)               ; Give some breathing room
 
 (menu-bar-mode -1)                 ; Disable the menu bar
-(desktop-save-mode 1)              ; Store sessions
-(beacon-mode 1)                    ; Enable beacon
+(winner-mode 1)                    ; Enable winner mode
+(setq winner-dont-bind-my-keys t)
 
 (server-start)                     ; Start server
 (setq process-connection-type nil) ; Use pipes
@@ -169,6 +167,7 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "C-i") 'evil-jump-forward)
 (global-set-key (kbd "C-o") 'evil-jump-backward)
+(global-set-key [(control x) (k)] 'kill-buffer)
 
 (use-package general
   :after evil
@@ -178,25 +177,31 @@
     :prefix "SPC"
     :global-prefix "C-SPC")
 
-  (efs/leader-keys
-    "c"  '(evilnc-comment-or-uncomment-lines :which-key "Comment line")
-    "s"  '(shell-command :which-key "Shell command")
-    "t"  '(:ignore t :which-key "Toggles")
-    "te"  '(lambda () (interactive) (ansi-term "/usr/bin/zsh"))
-    "tt" '(counsel-load-theme :which-key "Choose theme")
-    "e" '(lambda () (interactive) "Emacs source" (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
-    "a" '(lambda () (interactive) "Agenda" (find-file (expand-file-name (concat phd-thesis-org-files-dir "/main.org"))))
-    "r" '(:ignore t :which-key "Edit References")
-    "rs" '(lambda () (interactive) "Edit References" (find-file (expand-file-name (concat scc-reports-dir "/references.bib"))))
-    "rp" '(lambda () (interactive) "Edit References" (find-file (expand-file-name (concat phd-thesis-write-ups-dir "/references.bib"))))
-    "w" '(lambda () (interactive) "Current Work" (find-file (expand-file-name (concat seminar-dir "/Reports/finding_certificates_qm_univariate/main.tex"))))
-    "g" '(magit-status :which-key "Magit status")
-    "d" '(dired-jump :which-key "Dired jump")
-    "m" '(mu4e :which-key "Mu4e")
-    "p" '(lambda () (interactive) (yasnippet/goto-parent-file))
-    "f" '(lambda () (interactive) (LaTeX-fill-buffer nil))
-    "F" '(lambda () (interactive) (lsp-latex-forward-search))
-    "o" '(org-capture nil :which-key "Org-capture")))
+  (efs/leader-keys 
+    "e" '(:ignore t :which-key "(e)dit buffer")
+    "ec"  '(evilnc-comment-or-uncomment-lines :which-key "(c)omment line")
+    "ei"  '((lambda () (interactive) (indent-region (point-min) (point-max))) :which-key "(i)ndent buffer")
+    "f" '(:ignore t :which-key "edit (f)iles")
+    "fa" '((lambda () (interactive) (find-file (expand-file-name (concat phd-thesis-org-files-dir "/main.org")))) :which-key "(a)genda")
+    "fe" '((lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org"))) :which-key "(e)macs source")
+    "fw" '((lambda () (interactive) (find-file (expand-file-name (concat seminar-dir "/Reports/finding_certificates_qm_univariate/main.tex")))) :which-key "Current (w)ork")
+    "fr" '(:ignore t :which-key "Edit (r)eferences")
+    "frp" '((lambda () (interactive) (find-file (expand-file-name (concat phd-thesis-write-ups-dir "/references.bib")))) :which-key "Edit (p)hD references")
+    "frs" '((lambda () (interactive) (find-file (expand-file-name (concat scc-reports-dir "/references.bib")))) :which-key "Edit (s)CC references")
+    "s"  '(shell-command :which-key "(s)hell command")
+    "t"  '(:ignore t :which-key "(t)oggles")
+    "tt" '(counsel-load-theme :which-key "Choose (t)heme")
+    "g" '(magit-status :which-key "Ma(g)it status")
+    "d" '(dired-jump :which-key "(d)ired jump")
+    "m" '(mu4e :which-key "(m)u4e")
+    "l" '(:ignore t :which-key "(l)atex related")
+    "lp" '((lambda () (interactive) (yasnippet/goto-parent-file)) :which-key "Goto (p)arent")
+    "lf" '((lambda () (interactive) (LaTeX-fill-buffer nil)) :which-key "Latex (f)ill buffer")
+    "lF" '((lambda () (interactive) (lsp-latex-forward-search)) :which-key "Latex (f)orward search")
+    "o" '(org-capture nil :which-key "(o)rg-capture")
+    "w" '(:ignore t :which-key "(w)indows related")
+    "wu" '(winner-undo :which-key "Winner (u)ndo")
+    "wr" '(winner-redo :which-key "Winner (r)edo")))
 
 (use-package evil
   :init
@@ -218,7 +223,8 @@
 (use-package evil-collection
   :after evil
   :config
-  (evil-collection-init))
+  (evil-collection-init)
+  (setq forge-add-default-bindings nil))
 
 (use-package command-log-mode
   :commands command-log-mode)
@@ -247,7 +253,10 @@
                                        (shell-command-to-string
                                         "ps aux | grep 'mbsync -a' | wc -l | xargs")
                                        "3\n")
-                                      "Running mbsync" ""))
+                                      " Running mbsync " " "))
+                                 "%e" (:eval
+                                       (when (display-graphic-p) (shell-command-to-string
+                                                                  "~/.local/scripts/check_email.sh")))
                                  (:eval (doom-modeline-format--main))))
 
 (use-package which-key
@@ -474,9 +483,9 @@
 
 (defhydra hydra-text-scale (:timeout 4)
   "scale text"
-  ("j" text-scale-increase "in")
-  ("k" text-scale-decrease "out")
-  ("f" nil "finished" :exit t))
+  ("k" text-scale-increase "in")
+  ("j" text-scale-decrease "out")
+  ("q" nil "finished" :exit t))
 
 (efs/leader-keys
   "ts" '(hydra-text-scale/body :which-key "scale text"))
@@ -553,7 +562,7 @@
   (setq org-habit-graph-column 60)
 
   (setq org-todo-keywords
-        '((sequence "GOAL(g)" "|")
+        '((sequence "GOAL(g)" "REMINDER(r!)" "|")
           (sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
           (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")
           (sequence "EMAIL(e)" "|")))
@@ -758,7 +767,7 @@
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
   (lsp-headerline-breadcrumb-mode))
 
-(use-package lsp-mode
+(use-package lsp-mode 
   :commands (lsp lsp-deferred)
   :hook (lsp-mode . efs/lsp-mode-setup)
   :init
@@ -771,27 +780,17 @@
   :custom
   (lsp-ui-doc-position 'bottom))
 
-(use-package treemacs
-  :bind
-  (:map global-map
-        ([f8] . treemacs)
-        ([f7] . treemacs-select-window))
-  :config
-  (setq treemacs-is-never-other-window t))
-
-;; (use-package tree-sitter
-;;   :straight (tree-sitter :type git
-;;                          :host github
-;;                          :repo "ubolonton/emacs-tree-sitter"
-;;                          :files ("lisp/*.el"))
-;;   :config (add-to-list 'tree-sitter-major-mode-language-alist '(rustic-mode . rust))
-;;   :hook ((org-mode TeX-mode LaTeX-mode typescript-mode maplev-mode c-mode c++-mode python-mode rustic-mode) . tree-sitter-hl-mode))
+; :hook (
+                                        ; (org-mode TeX-mode LaTeX-mode typescript-mode
+                                        ; maplev-mode c-mode c++-mode python-mode rustic-mode)
+                                        ;. tree-sitter-hl-mode))
 
 (use-package tree-sitter
   :straight (tree-sitter :type git
                          :host github
                          :repo "ubolonton/emacs-tree-sitter"
                          :files ("lisp/*.el"))
+  :hook ((latex-mode python-mode rustic-mode) . tree-sitter-hl-mode)
   :config
   (add-to-list 'tree-sitter-major-mode-language-alist '(rustic-mode . rust))
   (add-to-list 'tree-sitter-major-mode-language-alist '(TeX-mode . latex))
@@ -802,8 +801,7 @@
   (add-to-list 'tree-sitter-major-mode-language-alist '(c-mode . c))
   (add-to-list 'tree-sitter-major-mode-language-alist '(cpp-mode . cpp))
   (add-to-list 'tree-sitter-major-mode-language-alist '(python-mode . python))
-  (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-mode . typescript))
-  :hook ((latex-mode python-mode rustic-mode) . tree-sitter-hl-mode))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-mode . typescript)))
 
 (use-package tree-sitter-langs
   :straight (tree-sitter-langs :type git
@@ -812,37 +810,13 @@
                                :files ("langs/*.el" "langs/queries"))
   :after tree-sitter)
 
-                                        ; TODO: fix bindings and check the appropriate text objects (i.e. block.outer doesnt work)
-(use-package evil-textobj-tree-sitter
+(use-package treemacs
+  :bind
+  (:map global-map
+        ([f4] . treemacs)
+        ([f5] . treemacs-select-window))
   :config
-  ;; Goto start of next function
-  (define-key evil-normal-state-map (kbd "]f")
-    (lambda ()
-      (interactive)
-      (evil-textobj-tree-sitter-goto-textobj "block.outer")))
-  ;; Goto start of previous function
-  (define-key evil-normal-state-map (kbd "[f")
-    (lambda ()
-      (interactive)
-      (evil-textobj-tree-sitter-goto-textobj "block.outer" t)))
-  ;; Goto end of next function
-  (define-key evil-normal-state-map (kbd "]F")
-    (lambda ()
-      (interactive)
-      (evil-textobj-tree-sitter-goto-textobj "block.outer" nil t)))
-  ;; Goto end of previous function
-  (define-key evil-normal-state-map (kbd "[F")
-    (lambda ()
-      (interactive)
-      (evil-textobj-tree-sitter-goto-textobj "block.outer" t t)))
-
-  ;; bind `function.outer`(entire function block) to `f` for use in things like `vaf`, `yaf`
-  (define-key evil-outer-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "block.outer"))
-  ;; bind `function.inner`(function block without name and args) to `f` for use in things like `vif`, `yif`
-  (define-key evil-inner-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "block.inner"))
-
-  ;; You can also bind multiple items and we will match the first one we can find
-  (define-key evil-outer-text-objects-map "a" (evil-textobj-tree-sitter-get-textobj ("conditional.outer" "loop.outer"))))
+  (setq treemacs-is-never-other-window t))
 
 (use-package treemacs-evil
   :after treemacs evil)
@@ -897,6 +871,8 @@
 (add-hook 'LaTeX-mode-hook #'display-fill-column-indicator-mode)
 
 (use-package lsp-latex
+  :bind (:map lsp-mode-map
+              ("C-l w b" . lsp-latex-build))
   :config
   (setq lsp-latex-build-executable "latexmk")
   (setq lsp-latex-build-args '("-pvc" "-pdf" "-interaction=nonstopmode" "-synctex=1" "%f"))
@@ -941,7 +917,13 @@
   (dap-python-executable "python3")
   (dap-python-debugger 'debugpy)
   :config
-  (require 'dap-python))
+  (require 'dap-python)
+  (setq python-indent-offset 2)
+  (setq python-indent 2)
+  (add-hook 'python-mode-hook
+            (function (lambda ()
+                        (setq indent-tabs-mode nil
+                              tab-width 2)))))
 
 (use-package pyvenv
   :after python-mode
@@ -953,6 +935,13 @@
 
 (add-to-list 'auto-mode-alist '("\\.mpl\\'" . maplev-mode))
 (add-to-list 'auto-mode-alist '("\\.mm\\'" . maplev-mode))
+
+(use-package wolfram-mode
+  :config
+  (setq wolfram-program "/usr/local/bin/MathKernel")
+  (setq wolfram-path "~/.Mathematica")
+  (add-to-list 'auto-mode-alist '("\\.m\\'" . wolfram-mode))
+  (add-to-list 'auto-mode-alist '("\\.wl\\'" . wolfram-mode)))
 
 (use-package z3-mode)
 
