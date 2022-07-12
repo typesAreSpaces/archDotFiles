@@ -167,6 +167,7 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "C-i") 'evil-jump-forward)
 (global-set-key (kbd "C-o") 'evil-jump-backward)
+(global-set-key [(control x) (k)] 'kill-buffer)
 
 (use-package general
   :after evil
@@ -482,9 +483,9 @@
 
 (defhydra hydra-text-scale (:timeout 4)
   "scale text"
-  ("j" text-scale-increase "in")
-  ("k" text-scale-decrease "out")
-  ("f" nil "finished" :exit t))
+  ("k" text-scale-increase "in")
+  ("j" text-scale-decrease "out")
+  ("q" nil "finished" :exit t))
 
 (efs/leader-keys
   "ts" '(hydra-text-scale/body :which-key "scale text"))
