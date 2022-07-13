@@ -202,6 +202,9 @@ This section configures basic UI settings that remove unneeded elements to make 
                   eshell-mode-hook))
     (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
+  (add-to-list 'auto-mode-alist '("\\.dat\\'" . text-mode))
+  (add-to-list 'auto-mode-alist '("\\.dat-s\\'" . text-mode))
+
 #+end_src
 
 ** Dashboard Configuration
@@ -327,7 +330,7 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
 #+begin_src emacs-lisp
 
   (use-package doom-themes
-    :init (load-theme 'doom-palenight t))
+    :init (load-theme 'doom-gruvbox t))
 
 #+end_src
 
