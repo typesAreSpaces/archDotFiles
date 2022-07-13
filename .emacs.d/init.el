@@ -875,7 +875,7 @@
 
 (use-package lsp-latex
   :bind (:map lsp-mode-map
-              ("C-l w r" . lsp-latex-restart)
+              ("C-l w r" . lsp-workspace-restart)
               ("C-l w b" . lsp-latex-build))
   :config
   (setq lsp-latex-build-executable "latexmk")
