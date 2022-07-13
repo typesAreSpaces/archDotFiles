@@ -24,7 +24,7 @@ bspc config -m $MONITOR1 bottom_padding 20
 
 # Post Monitor setup
 $HOME/.config/polybar/launch.sh &
-feh --bg-scale ~/Pictures/Wallpapers/iron_lady.jpg
+feh --bg-scale ~/Pictures/Wallpapers/mountains.jpg
 
 # bspwm setup
 bspc config border_width         3

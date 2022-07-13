@@ -145,6 +145,9 @@
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
+(add-to-list 'auto-mode-alist '("\\.dat\\'" . text-mode))
+(add-to-list 'auto-mode-alist '("\\.dat-s\\'" . text-mode))
+
 (use-package dashboard
   :ensure t
   :diminish dashboard-mode
