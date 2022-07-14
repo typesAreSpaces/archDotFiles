@@ -154,6 +154,9 @@ super + e
 super + s
   sleep 0.3; scrot -s --freeze
 
+super + m
+  Mathematica
+
 super + shift + {e, v}
   ~/.local/scripts/changeKBD {CTRL, ESC}
 
