@@ -19,6 +19,9 @@ alt + backslash
 alt + {_, shift + } @space
   rofi -show {run, window} -display-drun "" -theme ~/.config/rofi/launchers/text/style_3.rasi
 
+super + e
+  emacsclient -c
+
 # make sxhkd reload its configuration files:
 alt + Escape
 	pkill -USR1 -x sxhkd
