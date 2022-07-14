@@ -2,7 +2,6 @@
 # wm independent hotkeys
 #
 
-# terminal emulator
 alt + Return
 	alacritty
 
@@ -18,9 +17,6 @@ alt + backslash
 # program launcher
 alt + {_, shift + } @space
   rofi -show {run, window} -display-drun "" -theme ~/.config/rofi/launchers/text/style_3.rasi
-
-super + e
-  emacsclient -c
 
 # make sxhkd reload its configuration files:
 alt + Escape
@@ -148,6 +144,19 @@ alt + {Left,Down,Up,Right}
 ctrl + shift + {h,j,k,l}
   ~/.local/scripts/bspwm_smart_move {west,south,north,east}
 
+# 
+# app shortcuts
+# 
+
+super + e
+  emacsclient -c
+
+super + s
+  sleep 0.3; scrot -s --freeze
+
+super + shift + {e, v}
+  ~/.local/scripts/changeKBD {CTRL, ESC}
+
 {XF86AudioRaiseVolume,XF86AudioLowerVolume}
   amixer set Master {10%+, 10%-}
 
@@ -159,9 +168,3 @@ ctrl + {Up, Down}
 
 ctrl + m
   amixer set Master toggle
-
-alt + shift + {e, v}
-  ~/.local/scripts/changeKBD {CTRL, ESC}
-
-super + s
-  sleep 0.3; scrot -s --freeze
