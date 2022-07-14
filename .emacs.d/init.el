@@ -184,6 +184,8 @@
     "e" '(:ignore t :which-key "(e)dit buffer")
     "ec"  '(evilnc-comment-or-uncomment-lines :which-key "(c)omment line")
     "ei"  '((lambda () (interactive) (indent-region (point-min) (point-max))) :which-key "(i)ndent buffer")
+    "ey" '(simpleclip-copy :which-key "clipboard (y)ank")
+    "ep" '(simpleclip-paste :which-key "clipboard (p)aste")
     "f" '(:ignore t :which-key "edit (f)iles")
     "fa" '((lambda () (interactive) (find-file (expand-file-name (concat phd-thesis-org-files-dir "/main.org")))) :which-key "(a)genda")
     "fe" '((lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org"))) :which-key "(e)macs source")
@@ -875,6 +877,7 @@
 
 (use-package lsp-latex
   :bind (:map lsp-mode-map
+              ("C-l w r" . lsp-workspace-restart)
               ("C-l w b" . lsp-latex-build))
   :config
   (setq lsp-latex-build-executable "latexmk")
