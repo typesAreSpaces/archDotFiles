@@ -725,7 +725,7 @@
 (use-package visual-fill-column
   :hook ((org-mode . efs/org-mode-visual-fill)
          (markdown-mode . efs/org-mode-visual-fill)
-         (Tex-mode . efs/org-mode-visual-fill)
+         (TeX-mode . efs/org-mode-visual-fill)
          (LaTeX-mode . efs/org-mode-visual-fill)
          (mu4e-main-mode . efs/org-mode-visual-fill)))
 
@@ -913,6 +913,8 @@
   (setq-default TeX-master nil)
   (setq reftex-ref-macro-prompt nil)
   (setq font-latex-fontify-script nil))
+
+(add-to-list 'auto-mode-alist '("\\.tex\\'" . LaTeX-mode))
 
 (use-package python-mode
   :ensure t
