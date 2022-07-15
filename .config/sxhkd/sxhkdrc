@@ -160,6 +160,9 @@ super + m
 super + shift + {e, v}
   ~/.local/scripts/changeKBD {CTRL, ESC}
 
+super + k
+  ~/.local/scripts/toggleKBD
+
 {XF86AudioRaiseVolume,XF86AudioLowerVolume}
   amixer set Master {10%+, 10%-}
 
