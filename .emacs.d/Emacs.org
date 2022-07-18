@@ -1373,6 +1373,13 @@ You can use the pyvenv package to use =virtualenv= environments in Emacs.  The =
 
 #+end_src
 
+*** TOML mode
+#+begin_src emacs-lisp 
+
+  (use-package toml-mode)
+
+#+end_src
+
 ** Company Mode
 
 [[http://company-mode.github.io/][Company Mode]] provides a nicer in-buffer completion interface than =completion-at-point= which is more reminiscent of what you would expect from an IDE.  We add a simple configuration to make the keybindings a little more useful (=TAB= now completes the selection and initiates completion at the current location if needed).
@@ -1448,6 +1455,14 @@ Emacs' built in commenting functionality =comment-dwim= (usually bound to =M-;=)
 
   (use-package evil-nerd-commenter
     :bind ("M-/" . evilnc-comment-or-uncomment-lines))
+
+#+end_src
+
+** Rainbow mode
+
+#+begin_src emacs-lisp 
+
+  (use-package rainbow-mode)
 
 #+end_src
 
