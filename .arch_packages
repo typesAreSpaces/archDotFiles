@@ -29,9 +29,9 @@ bspwm
 btop
 ccls
 cddlib
+cdir-git
 cheese
 cmake
-code
 colorpicker
 compiledb
 composer
@@ -46,6 +46,7 @@ dolphin
 dolphin-plugins
 dosfstools
 drkonqi
+dunst
 dust
 efibootmgr
 eigen
@@ -137,6 +138,7 @@ kompare
 konsole
 krdc
 krfb
+kross-interpreters
 kscreen
 kscreenlocker
 ksnakeduel
@@ -152,12 +154,12 @@ kwallet-pam
 kwalletmanager
 kwave
 kwayland-integration
-kwayland-server
 kwin
 kwrited
 lapack
 libcurl-gnutls
 libfakekey
+libgmp-static
 libkscreen
 libksysguard
 libreoffice-fresh
@@ -203,7 +205,6 @@ oxygen
 package-query
 packagekit-qt5
 pacman-contrib
-pandoc
 papirus-icon-theme
 paru
 pass
@@ -262,6 +263,7 @@ signon-kwallet-extension
 singular
 skypeforlinux-stable-bin
 spectacle
+st
 sudo
 svgpart
 sweeper
@@ -295,7 +297,7 @@ tree-sitter
 ttf-fira-code
 ufw
 uwufetch
-vampire
+valgrind
 vi
 vim
 virtualbox
@@ -311,6 +313,7 @@ xclip
 xdg-desktop-portal-kde
 xdg-ninja-git
 xdg-user-dirs
+xdo
 xdotool
 xf86-video-intel
 xf86-video-vesa
@@ -357,6 +360,7 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 xsel
+yaourt
 yasm
 yay-git
 yq
