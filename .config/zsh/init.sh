@@ -11,6 +11,7 @@ ACTIVE_PROJECTS=(\
   "$PHD_THESIS_DIR" \
   "$LATEX_MACROS_DIR" \
   "$GITHUB_PROJECTS_DIR/QuickTex" \
+  "$GITHUB_PROJECTS_DIR/starter-hugo-academic" \
 )
 LOCAL_ZSH_SCRIPTS=(\
   "$ZSH_SCRIPT_DIR/system.sh" \

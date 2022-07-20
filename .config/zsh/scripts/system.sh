@@ -17,6 +17,8 @@ update(){
   echo ">>> Update neovim packages"
   nvim --headless +TSUpdateSync +qa;
   nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync';
+  echo ">>> Update Latex macros"
+  [ -d $LATEX_MACROS_DIR ] && make -C $LATEX_MACROS_DIR
 }
 
 setScreenBrightness(){
@@ -48,11 +50,11 @@ cdclip(){
 }
 
 updateArchPackages(){ 
-  sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort .arch_packages))
+  sudo pacman -Qqe > .arch_packages
 }
 
 installArchPackages(){ 
-  sudo pacman -S --needed - < .arch_packages 
+  paru -S --needed - < .arch_packages 
 }
 
 changeVolume(){

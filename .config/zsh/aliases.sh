@@ -28,8 +28,9 @@ alias c="clear"
 alias e="emacsclient -nw -c"
 alias ec="emacsclient -nw -c"
 alias re="emacsclient -nw -c -e \"(kill-emacs)\"; emacs --daemon"
+alias ke="emacsclient -nw -c -e \"(kill-emacs)\""
 alias todo="emacs -nw $PHD_THESIS_DIR/Documents/Org-Files/research_tasks.org"
-alias updatetodos="$SCRIPT_DIR/updateTodoLists.sh"
+alias updatetodos="$HOME/.local/scripts/updateTodoLists.sh"
 alias addref="nvim $PHD_THESIS_DIR/Documents/Write-Ups/references.bib"
 alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
 alias ccwr="changeCurrentWeeklyReport"
@@ -44,6 +45,7 @@ alias agenda="tmux rename-session agenda;\
 alias spass="SPASS"
 alias singular="Singular"
 alias mozilla="firefox"
+alias printd="quick_attachment.py 249wdmk85qktm@hpeprint.com "
 
 # Docker aliases
 alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it seahorn/seahorn-llvm5"

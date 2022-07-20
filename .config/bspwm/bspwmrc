@@ -1,36 +1,31 @@
 #! /bin/sh
 
-# Autostart
-setxkbmap
-xmodmap $HOME/.Xmodmap
-[ -f $HOME/.xsessionrc ] && source $HOME/.xsessionrc
+# Autostart for bspwm
 killall -q sxhkd
 sxhkd &
 picom --experimental-backends &
 xset s off -dpms &
-emacs --daemon
+dunst &
 
+# Monitor setup
 MONITOR=eDP1
 if xrandr -q | grep -q "^HDMI[0-9] connected*"; then
   $HOME/.screenlayout/dual_screen.sh;
   MONITOR2=HDMI2
   bspc monitor $MONITOR2 -d 1 2 3 4 5 
   bspc monitor $MONITOR1 -d 1 2 3 4 5
-  bspc rule -a firefox desktop='^2'
-  bspc rule -a Thunderbird desktop='^3'
 else
   bspc monitor $MONITOR1 -d 1 2 3 4 5 6 7 8 9 10
-  bspc rule -a firefox desktop='^7'
-  bspc rule -a Thunderbird desktop='^8'
 fi
 
-feh --bg-scale ~/Pictures/Wallpapers/minimal_mountains.png
+# Post Monitor setup
 $HOME/.config/polybar/launch.sh &
-bsp-layout set ntall 1 -- --master-size 0.53&
+feh --bg-scale ~/Pictures/Wallpapers/mountains.jpg
 
+# bspwm setup
 bspc config border_width         3
 bspc config window_gap           20
-bspc config focused_border_color "#88C0D0"
+bspc config focused_border_color "#689d6a"
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
@@ -38,7 +33,9 @@ bspc config gapless_monocle      true
 
 bspc rule -a Zathura state=tiled 
 bspc rule -a Emacs state=tiled 
-bspc rule -a firefox desktop='^2'
 bspc rule -a obs desktop='^8'
 bspc rule -a 'VirtualBox Manager' desktop='^9'
 bspc rule -a 'VirtualBox Machine' desktop='^10'
+
+# Autostart programs
+$HOME/.local/scripts/autostart.sh

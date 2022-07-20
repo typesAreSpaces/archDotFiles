@@ -6,12 +6,18 @@
 super + Return
 	alacritty
 
-alt + backslash
+super + shift + Return
+  ~/.local/scripts/Scratchpad.sh \
+  title terminal-scratchpad \
+  st -n terminal-scratchpad -g 160x50 -e \
+  tmux new-session -s "$(/home/jose/.local/scripts/tmux-session-number)"
+
+super + backslash
   alacritty -e tmux attach
 
 # program launcher
-super + @space
-  rofi -show drun -display-drun "" -theme ~/.config/rofi/launchers/text/style_3.rasi
+super + {_, shift + } @space
+  rofi -show {run, window} -display-drun "" -theme ~/.config/rofi/launchers/text/style_3.rasi
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -22,15 +28,15 @@ super + Escape
 #
 
 # turn off computer 
-alt + shift + p
+super + shift + p
   emacsclient -e "(kill-emacs)"; shutdown -h 0
 
 # reboot computer 
-alt + shift + r
+super + shift + r
   emacsclient -e "(kill-emacs)"; reboot
 
 # lockscreen
-alt + shift + x
+super + shift + x
   betterlockscreen -l dim
 
 # reboot computer 
@@ -143,8 +149,27 @@ super + {Left,Down,Up,Right}
 ctrl + shift + {h,j,k,l}
   ~/.local/scripts/bspwm_smart_move {west,south,north,east}
 
+# 
+# app shortcuts
+# 
+
+super + e
+  emacsclient -c
+
+super + s
+  sleep 0.3; scrot -s --freeze
+
+super + m
+  Mathematica
+
+super + shift + {e, v}
+  ~/.local/scripts/changeKBD {CTRL, ESC}
+
+super + k
+  ~/.local/scripts/toggleKBD
+
 {XF86AudioRaiseVolume,XF86AudioLowerVolume}
-  amixer set Master {10%+, 10%-}
+  amixer set Master {5%+, 5%-}
 
 XF86AudioMute
   amixer set Master toggle
@@ -154,9 +179,3 @@ ctrl + {Up, Down}
 
 ctrl + m
   amixer set Master toggle
-
-alt + shift + {e, v}
-  ~/.local/scripts/changeKBD {CTRL, ESC}
-
-super + s
-  sleep 0.3; scrot -s --freeze
