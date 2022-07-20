@@ -27,4 +27,4 @@ map <C--> zoom out
 map i recolor
 map p print
 
-include zathura-gruvbox-theme
+include zathura-nord-theme
