@@ -1025,6 +1025,16 @@ This snippet adds a hook to =org-mode= buffers so that =efs/org-babel-tangle-con
 
 #+end_src
 
+** Avy
+
+#+begin_src emacs-lisp 
+
+  (use-package avy
+    :config
+    (setq avy-all-windows 'all-frames))
+
+#+end_src
+
 ** Languages
 
 *** IDE Features with lsp-mode
