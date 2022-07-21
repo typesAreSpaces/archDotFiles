@@ -3,7 +3,7 @@
 # Autostart for bspwm
 killall -q sxhkd
 sxhkd &
-picom --experimental-backends &
+# picom --experimental-backends &
 xset s off -dpms &
 dunst &
 
