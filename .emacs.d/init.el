@@ -68,6 +68,9 @@
 (defvar efs/frame-transparency '(90 . 90))
 
 (defvar phd-thesis-dir "~/Documents/GithubProjects/phd-thesis")
+(defvar ta-org-files-dir 
+  (concat phd-thesis-dir
+          "/Documents/Semesters/Fall/2022/TA-CS-241/Org-Files"))
 (defvar phd-thesis-write-ups-dir
   (concat phd-thesis-dir
           "/Documents/Write-Ups"))
@@ -83,6 +86,8 @@
 
 (defvar seminar-dir (concat phd-thesis-dir "/Documents/Seminars/BeihangUniversity-Fall2021"))
 (defvar seminar-org-files-dir (concat seminar-dir "/Org-Files"))
+(defvar ta-tasks-mail 
+  (concat ta-org-files-dir "/current_tasks.org"))
 
 (defvar research-tasks-mail 
   (concat phd-thesis-org-files-dir "/research_tasks.org"))
@@ -665,6 +670,10 @@
           ("me" "Seminar Tasks" entry
            (file+olp seminar-tasks-mail "EMAIL")
            "** TODO Check this email %a"
+           :immediate-finish t)
+          ("mt" "TA Tasks" entry
+           (file+olp ta-tasks-mail "EMAIL")
+           "** TODO Check this email %a"
            :immediate-finish t)))
 
   (define-key global-map (kbd "C-c s")
@@ -767,6 +776,10 @@
   (persp-mode-prefix-key (kbd "C-x M-p"))
   :init
   (persp-mode))
+
+(use-package avy
+  :config
+  (setq avy-all-windows 'all-frames))
 
 (defun efs/lsp-mode-setup ()
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
@@ -1210,6 +1223,7 @@
           ("/unm/Drafts". ?d)
           ("/unm/Prof. Kapur". ?k)
           ("/unm/Prof. Kapur/Side projects/Seminars/Beihang University". ?b)
+          ("/unm/TA Work/CS 241". ?c)
           ("/unm/You got a Package!". ?p)
           ("/unm/Archive". ?a)
           ("/cs-unm/Inbox". ?I)
