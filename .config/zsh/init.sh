@@ -12,6 +12,7 @@ ACTIVE_PROJECTS=(\
   "$LATEX_MACROS_DIR" \
   "$GITHUB_PROJECTS_DIR/QuickTex" \
   "$GITHUB_PROJECTS_DIR/starter-hugo-academic" \
+  "$PHD_THESIS_DIR/Documents/Semesters/Fall/2022/TA-CS-241/Assignments" \
 )
 LOCAL_ZSH_SCRIPTS=(\
   "$ZSH_SCRIPT_DIR/system.sh" \
