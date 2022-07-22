@@ -169,13 +169,13 @@ super + k
   ~/.local/scripts/toggleKBD
 
 {XF86AudioRaiseVolume,XF86AudioLowerVolume}
-  amixer set Master {5%+, 5%-}
+  amixer set Master {10%+, 10%-}
 
 XF86AudioMute
   amixer set Master toggle
 
 ctrl + {Up, Down}
-  amixer set Master {10%+, 10%-}
+  amixer set Master {5%+, 5%-}
 
 ctrl + m
   amixer set Master toggle
