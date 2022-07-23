@@ -779,7 +779,9 @@
 
 (use-package avy
   :config
-  (setq avy-all-windows 'all-frames))
+  (setq avy-all-windows 'all-frames)
+  (global-set-key (kbd "C-:") 'avy-goto-char)
+  )
 
 (defun efs/lsp-mode-setup ()
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))

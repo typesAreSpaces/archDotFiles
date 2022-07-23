@@ -1040,7 +1040,9 @@ This snippet adds a hook to =org-mode= buffers so that =efs/org-babel-tangle-con
 
   (use-package avy
     :config
-    (setq avy-all-windows 'all-frames))
+    (setq avy-all-windows 'all-frames)
+    (global-set-key (kbd "C-:") 'avy-goto-char)
+    )
 
 #+end_src
 
