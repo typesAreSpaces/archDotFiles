@@ -15,6 +15,7 @@ alias ta="cd $CURRENT_TA_DIR"
 alias thesis="cd $WRITE_UPS_DIR/thesis"
 alias personal_notes="cd $WRITE_UPS_DIR/personal_notes"
 alias seminar="cd $SEMINAR"
+alias website="cd $WEBSITE_DIR"
 alias scc="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-nsf-proposal"
 
 # Program aliases
