@@ -169,8 +169,5 @@ super + k
 XF86AudioMute
   amixer set Master toggle
 
-ctrl + {Up, Down}
-  amixer set Master {5%+, 5%-}
-
-ctrl + m
-  amixer set Master toggle
+ctrl + {Up, Down, m}
+  ~/.local/scripts/volume.sh {up, down, mute}
