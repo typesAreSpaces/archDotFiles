@@ -1,7 +1,8 @@
 update(){
   echo ">>> Update local projects"
-  for project in ${ACTIVE_PROJECTS[@]}; do
+  for project url in ${(kv)ACTIVE_PROJECTS}; do
     echo ">>> Updating project: $project"
+    [ ! -d $project ] && git clone $url $project
     pushd $project
     git pull
     popd

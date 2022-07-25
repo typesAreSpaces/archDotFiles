@@ -218,6 +218,7 @@
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
   (setq evil-want-C-u-scroll t)
+  (setq evil-want-C-i-jump nil)
   :config
   (evil-mode 1)
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
@@ -779,7 +780,9 @@
 
 (use-package avy
   :config
-  (setq avy-all-windows 'all-frames))
+  (setq avy-all-windows 'all-frames)
+  (global-set-key (kbd "C-:") 'avy-goto-char)
+  )
 
 (defun efs/lsp-mode-setup ()
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
