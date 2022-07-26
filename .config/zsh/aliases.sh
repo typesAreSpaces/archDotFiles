@@ -11,9 +11,11 @@ alias papers_for_thesis="cd $PHD_THESIS_DIR/Documents/Papers"
 alias extra="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-talks/mpi21"
 #alias report="cd $REPORTS_DIR/$CURRENT_REPORT"
 alias report="cd $SEMINAR_REPORTS/$CURRENT_REPORT"
+alias ta="cd $CURRENT_TA_DIR"
 alias thesis="cd $WRITE_UPS_DIR/thesis"
 alias personal_notes="cd $WRITE_UPS_DIR/personal_notes"
 alias seminar="cd $SEMINAR"
+alias website="cd $WEBSITE_DIR"
 alias scc="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-nsf-proposal"
 
 # Program aliases

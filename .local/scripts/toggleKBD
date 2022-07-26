@@ -1,0 +1,12 @@
+#!/bin/sh
+
+CURRENT_BINDING="$(cat ~/.current_binding | xargs)"
+
+case $CURRENT_BINDING in
+   ESC)
+     ~/.local/scripts/changeKBD 'CTRL'
+   ;;
+   CTRL)
+     ~/.local/scripts/changeKBD 'ESC'
+   ;;
+esac

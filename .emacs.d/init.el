@@ -68,6 +68,9 @@
 (defvar efs/frame-transparency '(90 . 90))
 
 (defvar phd-thesis-dir "~/Documents/GithubProjects/phd-thesis")
+(defvar ta-org-files-dir 
+  (concat phd-thesis-dir
+          "/Documents/Semesters/Fall/2022/TA-CS-241/Org-Files"))
 (defvar phd-thesis-write-ups-dir
   (concat phd-thesis-dir
           "/Documents/Write-Ups"))
@@ -83,6 +86,8 @@
 
 (defvar seminar-dir (concat phd-thesis-dir "/Documents/Seminars/BeihangUniversity-Fall2021"))
 (defvar seminar-org-files-dir (concat seminar-dir "/Org-Files"))
+(defvar ta-tasks-mail 
+  (concat ta-org-files-dir "/current_tasks.org"))
 
 (defvar research-tasks-mail 
   (concat phd-thesis-org-files-dir "/research_tasks.org"))
@@ -145,6 +150,9 @@
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
+(add-to-list 'auto-mode-alist '("\\.dat\\'" . text-mode))
+(add-to-list 'auto-mode-alist '("\\.dat-s\\'" . text-mode))
+
 (use-package dashboard
   :ensure t
   :diminish dashboard-mode
@@ -181,6 +189,8 @@
     "e" '(:ignore t :which-key "(e)dit buffer")
     "ec"  '(evilnc-comment-or-uncomment-lines :which-key "(c)omment line")
     "ei"  '((lambda () (interactive) (indent-region (point-min) (point-max))) :which-key "(i)ndent buffer")
+    "ey" '(simpleclip-copy :which-key "clipboard (y)ank")
+    "ep" '(simpleclip-paste :which-key "clipboard (p)aste")
     "f" '(:ignore t :which-key "edit (f)iles")
     "fa" '((lambda () (interactive) (find-file (expand-file-name (concat phd-thesis-org-files-dir "/main.org")))) :which-key "(a)genda")
     "fe" '((lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org"))) :which-key "(e)macs source")
@@ -208,6 +218,7 @@
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
   (setq evil-want-C-u-scroll t)
+  (setq evil-want-C-i-jump nil)
   :config
   (evil-mode 1)
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
@@ -660,6 +671,10 @@
           ("me" "Seminar Tasks" entry
            (file+olp seminar-tasks-mail "EMAIL")
            "** TODO Check this email %a"
+           :immediate-finish t)
+          ("mt" "TA Tasks" entry
+           (file+olp ta-tasks-mail "EMAIL")
+           "** TODO Check this email %a"
            :immediate-finish t)))
 
   (define-key global-map (kbd "C-c s")
@@ -720,7 +735,7 @@
 (use-package visual-fill-column
   :hook ((org-mode . efs/org-mode-visual-fill)
          (markdown-mode . efs/org-mode-visual-fill)
-         (Tex-mode . efs/org-mode-visual-fill)
+         (TeX-mode . efs/org-mode-visual-fill)
          (LaTeX-mode . efs/org-mode-visual-fill)
          (mu4e-main-mode . efs/org-mode-visual-fill)))
 
@@ -762,6 +777,12 @@
   (persp-mode-prefix-key (kbd "C-x M-p"))
   :init
   (persp-mode))
+
+(use-package avy
+  :config
+  (setq avy-all-windows 'all-frames)
+  (global-set-key (kbd "C-:") 'avy-goto-char)
+  )
 
 (defun efs/lsp-mode-setup ()
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
@@ -872,6 +893,7 @@
 
 (use-package lsp-latex
   :bind (:map lsp-mode-map
+              ("C-l w r" . lsp-workspace-restart)
               ("C-l w b" . lsp-latex-build))
   :config
   (setq lsp-latex-build-executable "latexmk")
@@ -907,6 +929,8 @@
   (setq-default TeX-master nil)
   (setq reftex-ref-macro-prompt nil)
   (setq font-latex-fontify-script nil))
+
+(add-to-list 'auto-mode-alist '("\\.tex\\'" . LaTeX-mode))
 
 (use-package python-mode
   :ensure t
@@ -944,6 +968,8 @@
   (add-to-list 'auto-mode-alist '("\\.wl\\'" . wolfram-mode)))
 
 (use-package z3-mode)
+
+(use-package toml-mode)
 
 (use-package company
   :after lsp-mode
@@ -988,6 +1014,8 @@
 
 (use-package evil-nerd-commenter
   :bind ("M-/" . evilnc-comment-or-uncomment-lines))
+
+(use-package rainbow-mode)
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -1198,6 +1226,7 @@
           ("/unm/Drafts". ?d)
           ("/unm/Prof. Kapur". ?k)
           ("/unm/Prof. Kapur/Side projects/Seminars/Beihang University". ?b)
+          ("/unm/TA Work/CS 241". ?c)
           ("/unm/You got a Package!". ?p)
           ("/unm/Archive". ?a)
           ("/cs-unm/Inbox". ?I)

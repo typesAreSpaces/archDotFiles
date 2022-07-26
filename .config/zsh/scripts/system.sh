@@ -1,7 +1,8 @@
 update(){
   echo ">>> Update local projects"
-  for project in ${ACTIVE_PROJECTS[@]}; do
+  for project url in ${(kv)ACTIVE_PROJECTS}; do
     echo ">>> Updating project: $project"
+    [ ! -d $project ] && git clone $url $project
     pushd $project
     git pull
     popd
@@ -64,4 +65,17 @@ tns(){
 
 trs(){
   tmux rename-session $1
+}
+
+_grading(){
+  cd $CURRENT_TA_DIR/Assignments/Project-3/Students 
+}
+
+grading(){
+  tmux rename-session grading
+  tmux rename-window -t grading:1 todo
+  cd $CURRENT_TA_DIR/Assignments/Project-3/Students 
+  tmux new-window -n "evaluation"
+  tmux new-window -n "implementation" 
+  tmux new-window -n "paper"
 }

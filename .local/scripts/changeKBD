@@ -4,9 +4,11 @@ setxkbmap -option
 
 case $1 in
    ESC)
-   xmodmap /home/jose/.XmodmapVim
+   xmodmap ~/.XmodmapVim
+   echo "ESC" > ~/.current_binding
    ;;
    CTRL)
-   xmodmap /home/jose/.Xmodmap
+   xmodmap ~/.Xmodmap
+   echo "CTRL" > ~/.current_binding
    ;;
 esac

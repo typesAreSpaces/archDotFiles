@@ -117,6 +117,9 @@ We use the [[https://github.com/emacscollective/no-littering/blob/master/no-litt
   (defvar efs/frame-transparency '(90 . 90))
 
   (defvar phd-thesis-dir "~/Documents/GithubProjects/phd-thesis")
+  (defvar ta-org-files-dir 
+    (concat phd-thesis-dir
+            "/Documents/Semesters/Fall/2022/TA-CS-241/Org-Files"))
   (defvar phd-thesis-write-ups-dir
     (concat phd-thesis-dir
             "/Documents/Write-Ups"))
@@ -132,6 +135,8 @@ We use the [[https://github.com/emacscollective/no-littering/blob/master/no-litt
 
   (defvar seminar-dir (concat phd-thesis-dir "/Documents/Seminars/BeihangUniversity-Fall2021"))
   (defvar seminar-org-files-dir (concat seminar-dir "/Org-Files"))
+  (defvar ta-tasks-mail 
+    (concat ta-org-files-dir "/current_tasks.org"))
 
   (defvar research-tasks-mail 
     (concat phd-thesis-org-files-dir "/research_tasks.org"))
@@ -202,6 +207,9 @@ This section configures basic UI settings that remove unneeded elements to make 
                   eshell-mode-hook))
     (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
+  (add-to-list 'auto-mode-alist '("\\.dat\\'" . text-mode))
+  (add-to-list 'auto-mode-alist '("\\.dat-s\\'" . text-mode))
+
 #+end_src
 
 ** Dashboard Configuration
@@ -260,6 +268,8 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
       "e" '(:ignore t :which-key "(e)dit buffer")
       "ec"  '(evilnc-comment-or-uncomment-lines :which-key "(c)omment line")
       "ei"  '((lambda () (interactive) (indent-region (point-min) (point-max))) :which-key "(i)ndent buffer")
+      "ey" '(simpleclip-copy :which-key "clipboard (y)ank")
+      "ep" '(simpleclip-paste :which-key "clipboard (p)aste")
       "f" '(:ignore t :which-key "edit (f)iles")
       "fa" '((lambda () (interactive) (find-file (expand-file-name (concat phd-thesis-org-files-dir "/main.org")))) :which-key "(a)genda")
       "fe" '((lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org"))) :which-key "(e)macs source")
@@ -287,6 +297,7 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
     (setq evil-want-integration t)
     (setq evil-want-keybinding nil)
     (setq evil-want-C-u-scroll t)
+    (setq evil-want-C-i-jump nil)
     :config
     (evil-mode 1)
     (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
@@ -855,6 +866,10 @@ This section contains the basic configuration for =org-mode= plus the configurat
             ("me" "Seminar Tasks" entry
              (file+olp seminar-tasks-mail "EMAIL")
              "** TODO Check this email %a"
+             :immediate-finish t)
+            ("mt" "TA Tasks" entry
+             (file+olp ta-tasks-mail "EMAIL")
+             "** TODO Check this email %a"
              :immediate-finish t)))
 
     (define-key global-map (kbd "C-c s")
@@ -943,7 +958,7 @@ We use [[https://github.com/joostkremers/visual-fill-column][visual-fill-column]
   (use-package visual-fill-column
     :hook ((org-mode . efs/org-mode-visual-fill)
            (markdown-mode . efs/org-mode-visual-fill)
-           (Tex-mode . efs/org-mode-visual-fill)
+           (TeX-mode . efs/org-mode-visual-fill)
            (LaTeX-mode . efs/org-mode-visual-fill)
            (mu4e-main-mode . efs/org-mode-visual-fill)))
 
@@ -1017,6 +1032,18 @@ This snippet adds a hook to =org-mode= buffers so that =efs/org-babel-tangle-con
     (persp-mode-prefix-key (kbd "C-x M-p"))
     :init
     (persp-mode))
+
+#+end_src
+
+** Avy
+
+#+begin_src emacs-lisp 
+
+  (use-package avy
+    :config
+    (setq avy-all-windows 'all-frames)
+    (global-set-key (kbd "C-:") 'avy-goto-char)
+    )
 
 #+end_src
 
@@ -1242,6 +1269,7 @@ This will install the [[https://github.com/theia-ide/typescript-language-server]
 
   (use-package lsp-latex
     :bind (:map lsp-mode-map
+                ("C-l w r" . lsp-workspace-restart)
                 ("C-l w b" . lsp-latex-build))
     :config
     (setq lsp-latex-build-executable "latexmk")
@@ -1283,6 +1311,8 @@ This will install the [[https://github.com/theia-ide/typescript-language-server]
     (setq-default TeX-master nil)
     (setq reftex-ref-macro-prompt nil)
     (setq font-latex-fontify-script nil))
+
+  (add-to-list 'auto-mode-alist '("\\.tex\\'" . LaTeX-mode))
 
 #+end_src
 
@@ -1365,6 +1395,13 @@ You can use the pyvenv package to use =virtualenv= environments in Emacs.  The =
 
 #+end_src
 
+*** TOML mode
+#+begin_src emacs-lisp 
+
+  (use-package toml-mode)
+
+#+end_src
+
 ** Company Mode
 
 [[http://company-mode.github.io/][Company Mode]] provides a nicer in-buffer completion interface than =completion-at-point= which is more reminiscent of what you would expect from an IDE.  We add a simple configuration to make the keybindings a little more useful (=TAB= now completes the selection and initiates completion at the current location if needed).
@@ -1440,6 +1477,14 @@ Emacs' built in commenting functionality =comment-dwim= (usually bound to =M-;=)
 
   (use-package evil-nerd-commenter
     :bind ("M-/" . evilnc-comment-or-uncomment-lines))
+
+#+end_src
+
+** Rainbow mode
+
+#+begin_src emacs-lisp 
+
+  (use-package rainbow-mode)
 
 #+end_src
 
@@ -1924,6 +1969,7 @@ mu index
             ("/unm/Drafts". ?d)
             ("/unm/Prof. Kapur". ?k)
             ("/unm/Prof. Kapur/Side projects/Seminars/Beihang University". ?b)
+            ("/unm/TA Work/CS 241". ?c)
             ("/unm/You got a Package!". ?p)
             ("/unm/Archive". ?a)
             ("/cs-unm/Inbox". ?I)

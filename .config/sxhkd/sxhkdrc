@@ -2,7 +2,6 @@
 # wm independent hotkeys
 #
 
-# terminal emulator
 alt + Return
 	alacritty
 
@@ -145,20 +144,30 @@ alt + {Left,Down,Up,Right}
 ctrl + shift + {h,j,k,l}
   ~/.local/scripts/bspwm_smart_move {west,south,north,east}
 
+# 
+# app shortcuts
+# 
+
+super + e
+  emacsclient -c
+
+super + s
+  sleep 0.3; scrot -s --freeze
+
+super + m
+  Mathematica
+
+super + shift + {e, v}
+  ~/.local/scripts/changeKBD {CTRL, ESC}
+
+super + k
+  ~/.local/scripts/toggleKBD
+
 {XF86AudioRaiseVolume,XF86AudioLowerVolume}
   amixer set Master {10%+, 10%-}
 
 XF86AudioMute
   amixer set Master toggle
 
-ctrl + {Up, Down}
-  amixer set Master {5%+, 5%-}
-
-ctrl + m
-  amixer set Master toggle
-
-alt + shift + {e, v}
-  ~/.local/scripts/changeKBD {CTRL, ESC}
-
-super + s
-  sleep 0.3; scrot -s --freeze
+ctrl + {Up, Down, m}
+  ~/.local/scripts/volume.sh {up, down, mute}

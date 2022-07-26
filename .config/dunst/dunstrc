@@ -294,6 +294,10 @@
     mouse_middle_click = do_action, close_current
     mouse_right_click = close_all
 
+[frame]
+  width = 1
+  color = "#83a598"
+
 # Experimental features that may or may not work correctly. Do not expect them
 # to have a consistent behaviour across releases.
 [experimental]
@@ -315,8 +319,8 @@
     #default_icon = /path/to/icon
 
 [urgency_normal]
-    background = "#285577"
-    foreground = "#ffffff"
+    background = "#A79680"
+    foreground = "#ebdbb2"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
