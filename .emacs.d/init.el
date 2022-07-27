@@ -1012,6 +1012,9 @@
 (use-package forge
   :after magit)
 
+;TODO: https://github.com/emacsorphanage/git-gutter
+;(use-package git-gutter)
+
 (use-package evil-nerd-commenter
   :bind ("M-/" . evilnc-comment-or-uncomment-lines))
 
