@@ -1,0 +1,17 @@
+#!/bin/sh
+
+CURRENT_BINDING=$1
+
+case $CURRENT_BINDING in
+   MAC)
+     cp ~/.config/sxhkd/sxhkdrc_mac_layout ~/.config/sxhkd/sxhkdrc
+   ;;
+   WIN)
+     cp ~/.config/sxhkd/sxhkdrc_win_layout ~/.config/sxhkd/sxhkdrc
+   ;;
+   *)
+     cp ~/.config/sxhkd/sxhkdrc_mac_layout ~/.config/sxhkd/sxhkdrc
+   ;;
+esac
+
+pkill -USR1 -x sxhkd
