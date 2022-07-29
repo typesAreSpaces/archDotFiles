@@ -1,3 +1,6 @@
 [submodule "texmf/tex/latex/local"]
 	path = texmf/tex/latex/local
 	url = git@github.com:typesAreSpaces/PersonalLatexMacros.git
+[submodule "/home/jose/.emacs.d"]
+	path = /home/jose/.emacs.d
+	url = https://github.com/plexus/chemacs2
