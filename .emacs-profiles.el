@@ -10,7 +10,7 @@
   )
   ("spacemacs" . ((user-emacs-directory . "~/.config/spacemacs")
                    (server-name . "spacemacs")
-                   (env . (("SPACEMACSDIR" . "~/.config/spacemacs")))
+                   (env . (("SPACEMACSDIR" . "~/.spacemacs.d")))
                   )
   )
 )
