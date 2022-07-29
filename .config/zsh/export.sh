@@ -5,6 +5,7 @@
 export HISTIGNORE='*sudo -S*'
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_PLUGINS='/usr/share/zsh/plugins'
+export DISABLE_AUTO_UPDATE=true
 export GTK_PATH='/usr/lib/gtk-2.0'
 export _JAVA_AWT_WM_NONREPARENTING=1
 export LD_PRELOAD=/lib/libfreetype.so
