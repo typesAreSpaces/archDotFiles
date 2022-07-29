@@ -79,16 +79,16 @@ grading(){
   tmux new-window -n "paper"
 }
 
-e(){
-  emacsclient -nw -c -s $1 -a emacs
+et(){
+  emacsclient -t -s $1 -a emacs
 }
 ec(){
-  emacsclient -nw -c -s $1 -a emacs
-}
-re(){
-  emacsclient -s $1 -a emacs -e "(kill-emacs)"
-  emacs --with-profile=$1 --daemon &
+  emacsclient -c -s $1 -a emacs
 }
 ke(){
   emacsclient -s $1 -a emacs -e "(kill-emacs)"
+}
+re(){
+  ke $1
+  emacs --with-profile=$1 --daemon &
 }
