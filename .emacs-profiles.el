@@ -13,4 +13,8 @@
                    (env . (("SPACEMACSDIR" . "~/.spacemacs.d")))
                   )
   )
+  ("prelude" . ((user-emacs-directory . "~/.config/prelude")
+                   (server-name . "prelude")
+               )
+  )
 )
