@@ -27,23 +27,12 @@ alias v="vim"
 alias nv="nvim --listen localhost:12345"
 alias nvs="nvim --listen localhost:12345 -S session"
 alias c="clear"
-alias e="emacsclient -nw -c"
-alias ec="emacsclient -nw -c"
-alias re="emacsclient -nw -c -e \"(kill-emacs)\"; emacs --daemon"
-alias ke="emacsclient -nw -c -e \"(kill-emacs)\""
-alias todo="emacs -nw $PHD_THESIS_DIR/Documents/Org-Files/research_tasks.org"
 alias updatetodos="$HOME/.local/scripts/updateTodoLists.sh"
 alias addref="nvim $PHD_THESIS_DIR/Documents/Write-Ups/references.bib"
 alias smtinterpol="java -jar $APPS_DIR/smtinterpol-2.5-663-gf15aa217.jar"
 alias ccwr="changeCurrentWeeklyReport"
 alias qcu="quickConfigUpdate"
-alias bsptall1="bspLayout tall 1"
 alias tksr="tmux kill-server"
-alias agenda="tmux rename-session agenda;\
-  tmux rename-window -t agenda:1 org-agenda; \
-  tmux send-keys -t agenda:1 \
-  emacsclient\ -nw\ $TODOLIST_DIR/main.org\ \
-  C-m;"
 alias spass="SPASS"
 alias singular="Singular"
 alias mozilla="firefox"
