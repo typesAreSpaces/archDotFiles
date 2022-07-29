@@ -4,3 +4,6 @@
 [submodule "/home/jose/.emacs.d"]
 	path = /home/jose/.emacs.d
 	url = https://github.com/plexus/chemacs2
+[submodule ".emacs.d"]
+	path = .emacs.d
+	url = https://github.com/plexus/chemacs2
