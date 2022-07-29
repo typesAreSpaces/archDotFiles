@@ -79,6 +79,9 @@ grading(){
   tmux new-window -n "paper"
 }
 
+e(){
+  emacs --with-profile=$1
+}
 et(){
   emacsclient -t -s $1 -a emacs
 }
