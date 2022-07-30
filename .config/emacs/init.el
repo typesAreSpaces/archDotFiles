@@ -46,7 +46,7 @@
 
 (add-hook 'emacs-startup-hook #'efs/display-startup-time)
 
-; NOTE: If you want to move everything out of the ~/.emacs.d folder
+; NOTE: If you want to move everything out of the (expand-file-name user-emacs-directory) folder
                                         ; reliably, set `user-emacs-directory` before loading no-littering!
                                         ;(setq user-emacs-directory "~/.cache/emacs")
 
@@ -169,7 +169,7 @@
 (set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height efs/default-font-size)
 
                                         ; Set the variable pitch face
-(set-face-attribute 'variable-pitch nil :font "Cantarell" :height efs/default-variable-font-size :weight 'regular)
+(set-face-attribute 'variable-pitch nil :font "Fira Code Retina" :height efs/default-variable-font-size :weight 'regular)
 
 ; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -193,7 +193,7 @@
     "ep" '(simpleclip-paste :which-key "clipboard (p)aste")
     "f" '(:ignore t :which-key "edit (f)iles")
     "fa" '((lambda () (interactive) (find-file (expand-file-name (concat phd-thesis-org-files-dir "/main.org")))) :which-key "(a)genda")
-    "fe" '((lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org"))) :which-key "(e)macs source")
+    "fe" '((lambda () (interactive) (find-file (expand-file-name "Emacs.org" user-emacs-directory))) :which-key "(e)macs source")
     "fw" '((lambda () (interactive) (find-file (expand-file-name (concat seminar-dir "/Reports/finding_certificates_qm_univariate/main.tex")))) :which-key "Current (w)ork")
     "fr" '(:ignore t :which-key "Edit (r)eferences")
     "frp" '((lambda () (interactive) (find-file (expand-file-name (concat phd-thesis-write-ups-dir "/references.bib")))) :which-key "Edit (p)hD references")
@@ -516,7 +516,7 @@
                   (org-level-6 . 1.1)
                   (org-level-7 . 1.1)
                   (org-level-8 . 1.1)))
-    (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
+    (set-face-attribute (car face) nil :font "Fira Code Retina" :weight 'regular :height (cdr face)))
 
                                         ; Ensure that anything that should be fixed-pitch in Org files appears that way
   (set-face-attribute 'org-block nil    :foreground nil :inherit 'fixed-pitch)
@@ -563,9 +563,9 @@
   (setq org-log-into-drawer t)
 
   (setq org-agenda-files
-        '("~/.emacs.d/Org-Files/Tasks.org"
-          "~/.emacs.d/Org-Files/Habits.org"
-          "~/.emacs.d/Org-Files/Birthdays.org"))
+        '((expand-file-name "Org-Files/Tasks.org" user-emacs-directory)
+          (expand-file-name "Org-Files/Habits.org" user-emacs-directory)
+          (expand-file-name "Org-Files/Birthdays.org" user-emacs-directory)))
 
   (require 'org-habit)
   (require 'org-protocol)
@@ -759,7 +759,7 @@
 
 (use-package yasnippet
   :config
-  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  (setq yas-snippet-dirs `(,(expand-file-name "snippets" user-emacs-directory)))
   (setq yas-key-syntaxes '(yas-longest-key-from-whitespace "w_.()" "w_." "w_" "w"))
   (define-key yas-minor-mode-map (kbd "C-g") 'evil-normal-state)
   (define-key yas-keymap (kbd "C-g") 'evil-normal-state)
@@ -767,7 +767,7 @@
 
 (use-package yasnippet-snippets)
 
-(load "~/.emacs.d/snippets/yasnippet-scripts.el")
+(load (expand-file-name "snippets/yasnippet-scripts.el" user-emacs-directory))
 
 (use-package perspective
   :ensure t
@@ -1011,6 +1011,9 @@
                                         ; - https://magit.vc/manual/ghub/Getting-Started.html#Getting-Started
 (use-package forge
   :after magit)
+
+;TODO: https://github.com/emacsorphanage/git-gutter
+;(use-package git-gutter)
 
 (use-package evil-nerd-commenter
   :bind ("M-/" . evilnc-comment-or-uncomment-lines))

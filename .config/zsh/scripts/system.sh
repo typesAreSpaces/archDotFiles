@@ -12,9 +12,9 @@ update(){
   echo ">>> Update software"
   paru;
   echo ">>> Update emacs packages"
-  emacsclient -e "(auto-package-update-now)"
-  emacsclient -e "(straight-pull-all)"
-  emacsclient -e "(straight-rebuild-all)"
+  emacsclient -s jose -a emacs -e "(auto-package-update-now)"
+  emacsclient -s jose -a emacs -e "(straight-pull-all)"
+  emacsclient -s jose -a emacs -e "(straight-rebuild-all)"
   echo ">>> Update neovim packages"
   nvim --headless +TSUpdateSync +qa;
   nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync';
@@ -34,10 +34,6 @@ se(){
   du -a $(pwd) | awk '{ gsub (" ", "\\ ", $0); $1 = ""; print $0; }' | fzf | xargs -r xdg-open; 
 }
 
-getSinkSource(){ 
-  pacmd list-sinks | grep "index" | grep -o "[0-9]*" 
-}
-
 pwdclip(){ 
   pwd | awk '{gsub( " ","\\ " ); print}' | xclip -selection c 
 }
@@ -49,20 +45,14 @@ cdclip(){
 updateArchPackages(){ 
   sudo pacman -Qqe > .arch_packages
 }
-
 installArchPackages(){ 
   paru -S --needed - < .arch_packages 
-}
-
-changeVolume(){
-  pactl set-sink-volume $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") $1
 }
 
 tns(){
   tmux new -s $1 -d
   tmux switch -t $1
 }
-
 trs(){
   tmux rename-session $1
 }
@@ -70,7 +60,6 @@ trs(){
 _grading(){
   cd $CURRENT_TA_DIR/Assignments/Project-3/Students 
 }
-
 grading(){
   tmux rename-session grading
   tmux rename-window -t grading:1 todo
@@ -78,4 +67,24 @@ grading(){
   tmux new-window -n "evaluation"
   tmux new-window -n "implementation" 
   tmux new-window -n "paper"
+}
+
+e(){
+  emacs --with-profile=$1 ${@:2}
+}
+et(){
+  emacsclient -t -s $1 -a emacs ${@:2}
+}
+ec(){
+  emacsclient -c -s $1 -a emacs ${@:2}
+}
+ne(){
+  emacs --with-profile=$1 --daemon &
+}
+ke(){
+  emacsclient -s $1 -a emacs -e "(kill-emacs)"
+}
+re(){
+  ke $1
+  ne $1
 }
