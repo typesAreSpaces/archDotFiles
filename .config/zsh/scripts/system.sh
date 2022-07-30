@@ -23,7 +23,7 @@ update(){
 }
 
 setScreenBrightness(){
-  xrandr --output DP-0 --brightness $1
+  xrandr --output eDP1 --brightness $1
 }
 
 setKeyboardBrightness(){
