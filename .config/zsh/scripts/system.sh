@@ -70,13 +70,13 @@ grading(){
 }
 
 e(){
-  emacs --with-profile=$1
+  emacs --with-profile=$1 ${@:2}
 }
 et(){
-  emacsclient -t -s $1 -a emacs
+  emacsclient -t -s $1 -a emacs ${@:2}
 }
 ec(){
-  emacsclient -c -s $1 -a emacs
+  emacsclient -c -s $1 -a emacs ${@:2}
 }
 ne(){
   emacs --with-profile=$1 --daemon &
