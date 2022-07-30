@@ -1,6 +1,15 @@
 [submodule "texmf/tex/latex/local"]
 	path = texmf/tex/latex/local
 	url = git@github.com:typesAreSpaces/PersonalLatexMacros.git
-[submodule "/home/jose/.emacs.d"]
-	path = /home/jose/.emacs.d
+[submodule ".emacs.d"]
+	path = .emacs.d
 	url = https://github.com/plexus/chemacs2
+[submodule ".config/doom"]
+	path = .config/doom
+	url = https://github.com/doomemacs/doomemacs
+[submodule ".config/spacemacs"]
+	path = .config/spacemacs
+	url = https://github.com/syl20bnr/spacemacs
+[submodule "/home/jose/.config/prelude"]
+	path = /home/jose/.config/prelude
+	url = https://github.com/bbatsov/prelude.git
