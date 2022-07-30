@@ -34,10 +34,6 @@ se(){
   du -a $(pwd) | awk '{ gsub (" ", "\\ ", $0); $1 = ""; print $0; }' | fzf | xargs -r xdg-open; 
 }
 
-getSinkSource(){ 
-  pacmd list-sinks | grep "index" | grep -o "[0-9]*" 
-}
-
 pwdclip(){ 
   pwd | awk '{gsub( " ","\\ " ); print}' | xclip -selection c 
 }
@@ -49,13 +45,8 @@ cdclip(){
 updateArchPackages(){ 
   sudo pacman -Qqe > .arch_packages
 }
-
 installArchPackages(){ 
   paru -S --needed - < .arch_packages 
-}
-
-changeVolume(){
-  pactl set-sink-volume $(pacmd list-sinks | grep "index" | grep -o "[0-9]*") $1
 }
 
 tns(){
@@ -69,7 +60,6 @@ trs(){
 _grading(){
   cd $CURRENT_TA_DIR/Assignments/Project-3/Students 
 }
-
 grading(){
   tmux rename-session grading
   tmux rename-window -t grading:1 todo
@@ -80,15 +70,21 @@ grading(){
 }
 
 e(){
-  emacsclient -nw -c -s $1 -a emacs
+  emacs --with-profile=$1 ${@:2}
+}
+et(){
+  emacsclient -t -s $1 -a emacs ${@:2}
 }
 ec(){
-  emacsclient -nw -c -s $1 -a emacs
+  emacsclient -c -s $1 -a emacs ${@:2}
 }
-re(){
-  emacsclient -s $1 -a emacs -e "(kill-emacs)"
+ne(){
   emacs --with-profile=$1 --daemon &
 }
 ke(){
   emacsclient -s $1 -a emacs -e "(kill-emacs)"
+}
+re(){
+  ke $1
+  ne $1
 }
