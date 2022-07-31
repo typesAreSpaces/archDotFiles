@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: Big Disjunction
-# key: ;biglor
-# condition: 'auto
-# --
-\\bigvee_{$1}^{$2}{$3}$0
