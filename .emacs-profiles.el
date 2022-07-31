@@ -5,7 +5,7 @@
   )
   ("doom" . ((user-emacs-directory . "~/.config/emacs")
              (server-name . "doom")
-             (env . (("DOOMDIR" . "~/.doom.d")))
+             (env . (("DOOMDIR" . "~/.config/doom")))
             )
   )
   ("spacemacs" . ((user-emacs-directory . "~/.config/spacemacs")
