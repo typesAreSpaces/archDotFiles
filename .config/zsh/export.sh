@@ -2,6 +2,7 @@
 # ZSHRC config
 #export TERM=xterm-256color
 
+export PNPM_HOME="/home/jose/.local/share/pnpm"
 export HISTIGNORE='*sudo -S*'
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_PLUGINS='/usr/share/zsh/plugins'
@@ -64,3 +65,4 @@ export PATH="$MATLAB_DIR:$PATH"
 export PATH="$GITHUB_PROJECTS_DIR/M2/M2:$PATH"
 export PATH="$GITHUB_PROJECTS_DIR/Singular4/bin:$PATH"
 export PATH="$GITHUB_PROJECTS_DIR/sdpa-gmp:$PATH"
+export PATH="$PNPM_HOME:$PATH"
