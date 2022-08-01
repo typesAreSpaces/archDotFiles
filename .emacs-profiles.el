@@ -1,9 +1,9 @@
 (
-  ("jose" . ((user-emacs-directory . "~/.config/emacs")
+  ("jose" . ((user-emacs-directory . "~/.config/jose-emacs")
              (server-name . "jose")
             )
   )
-  ("doom" . ((user-emacs-directory . "~/.config/doom")
+  ("doom" . ((user-emacs-directory . "~/.config/emacs")
              (server-name . "doom")
              (env . (("DOOMDIR" . "~/.config/doom")))
             )
