@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: input
-# key: ;input
-# condition: 'auto
-# --
-`(yasnippet/input (car kill-ring))`
