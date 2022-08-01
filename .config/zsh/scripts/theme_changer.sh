@@ -58,18 +58,18 @@ nvimThemeSwitch(){
   esac
 }
 emacsThemeSwitch(){
-  emacs_dir=$HOME/.emacs.d
+  emacs_dir=$HOME/.config/jose-emacs
   case $1 in
     "gruvbox")
-      sed -i "s/(load-theme.*/(load-theme 'doom-gruvbox t))/g" $emacs_dir/Emacs.org
+      sed -i "s/(load-theme.*/(load-theme 'doom-gruvbox t))/g" $emacs_dir/config.org
       sed -i "s/(load-theme.*/(load-theme 'doom-gruvbox t))/g" $emacs_dir/init.el
       ;;
     "nord")
-      sed -i "s/(load-theme.*/(load-theme 'doom-nord t))/g" $emacs_dir/Emacs.org
+      sed -i "s/(load-theme.*/(load-theme 'doom-nord t))/g" $emacs_dir/config.org
       sed -i "s/(load-theme.*/(load-theme 'doom-nord t))/g" $emacs_dir/init.el
       ;;
     "tokyo")
-      sed -i "s/(load-theme.*/(load-theme 'doom-palenight t))/g" $emacs_dir/Emacs.org
+      sed -i "s/(load-theme.*/(load-theme 'doom-palenight t))/g" $emacs_dir/config.org
       sed -i "s/(load-theme.*/(load-theme 'doom-palenight t))/g" $emacs_dir/init.el
       ;;
   esac
