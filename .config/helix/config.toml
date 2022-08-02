@@ -11,3 +11,6 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
+
+[keys.insert]
+C-g = "normal_mode"
