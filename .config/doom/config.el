@@ -181,12 +181,6 @@
  mu4e-view-image-max-width 800
  mu4e-hide-index-messages t)
 
-(general-create-definer efs/leader-keys
-  :keymaps '(normal insert visual emacs)
-  :prefix "SPC"
-  ;:global-prefix "C-SPC"
-  )
-
 (defvar phd-thesis-dir "~/Documents/GithubProjects/phd-thesis")
 (defvar ta-org-files-dir 
   (concat phd-thesis-dir
@@ -222,33 +216,39 @@
 (defvar seminar-tasks-mail 
   (concat seminar-org-files-dir "/seminar_tasks.org"))
 
-(efs/leader-keys
- "e" '(:ignore t :which-key "(e)dit buffer")
- ;"ec"  '(evilnc-comment-or-uncomment-lines :which-key "(c)omment line")
- ;"ei"  '((lambda () (interactive) (indent-region (point-min) (point-max))) :which-key "(i)ndent buffer")
- ;"ey" '(simpleclip-copy :which-key "clipboard (y)ank")
- ;"ep" '(simpleclip-paste :which-key "clipboard (p)aste")
- "f" '(:ignore t :which-key "edit (f)iles")
- "fa" '((lambda () (interactive) (find-file (expand-file-name (concat phd-thesis-org-files-dir "/main.org")))) :which-key "(a)genda")
- "fw" '((lambda () (interactive) (find-file (expand-file-name (concat seminar-dir "/Reports/finding_certificates_qm_univariate/main.tex")))) :which-key "Current (w)ork")
- ;"fr" '(:ignore t :which-key "Edit (r)eferences")
- ;"frp" '((lambda () (interactive) (find-file (expand-file-name (concat phd-thesis-write-ups-dir "/references.bib")))) :which-key "Edit (p)hD references")
- ;"frs" '((lambda () (interactive) (find-file (expand-file-name (concat scc-reports-dir "/references.bib")))) :which-key "Edit (s)CC references")
- ;"s"  '(shell-command :which-key "(s)hell command")
- ;"t"  '(:ignore t :which-key "(t)oggles")
- ;"tt" '(counsel-load-theme :which-key "Choose (t)heme")
- ;"g" '(magit-status :which-key "Ma(g)it status")
- ;"d" '(dired-jump :which-key "(d)ired jump")
- ;"m" '(mu4e :which-key "(m)u4e")
- ;"l" '(:ignore t :which-key "(l)atex related")
- ;"lp" '((lambda () (interactive) (yasnippet/goto-parent-file)) :which-key "Goto (p)arent")
- ;"lf" '((lambda () (interactive) (LaTeX-fill-buffer nil)) :which-key "Latex (f)ill buffer")
- ;"lF" '((lambda () (interactive) (lsp-latex-forward-search)) :which-key "Latex (f)orward search")
- ;"o" '(org-capture nil :which-key "(o)rg-capture")
- ;"w" '(:ignore t :which-key "(w)indows related")
- ;"wu" '(winner-undo :which-key "Winner (u)ndo")
- ;"wr" '(winner-redo :which-key "Winner (r)edo")
- )
+;; (general-create-definer efs/leader-keys
+;;   :keymaps '(normal insert visual emacs)
+;;   :prefix "SPC"
+;;   ;:global-prefix "C-SPC"
+;;   )
+
+;; (efs/leader-keys
+;;  "e" '(:ignore t :which-key "(e)dit buffer")
+;;  ;"ec"  '(evilnc-comment-or-uncomment-lines :which-key "(c)omment line")
+;;  ;"ei"  '((lambda () (interactive) (indent-region (point-min) (point-max))) :which-key "(i)ndent buffer")
+;;  ;"ey" '(simpleclip-copy :which-key "clipboard (y)ank")
+;;  ;"ep" '(simpleclip-paste :which-key "clipboard (p)aste")
+;;  "f" '(:ignore t :which-key "edit (f)iles")
+;;  "fa" '((lambda () (interactive) (find-file (expand-file-name (concat phd-thesis-org-files-dir "/main.org")))) :which-key "(a)genda")
+;;  "fw" '((lambda () (interactive) (find-file (expand-file-name (concat seminar-dir "/Reports/finding_certificates_qm_univariate/main.tex")))) :which-key "Current (w)ork")
+;;  ;"fr" '(:ignore t :which-key "Edit (r)eferences")
+;;  ;"frp" '((lambda () (interactive) (find-file (expand-file-name (concat phd-thesis-write-ups-dir "/references.bib")))) :which-key "Edit (p)hD references")
+;;  ;"frs" '((lambda () (interactive) (find-file (expand-file-name (concat scc-reports-dir "/references.bib")))) :which-key "Edit (s)CC references")
+;;  ;"s"  '(shell-command :which-key "(s)hell command")
+;;  ;"t"  '(:ignore t :which-key "(t)oggles")
+;;  ;"tt" '(counsel-load-theme :which-key "Choose (t)heme")
+;;  ;"g" '(magit-status :which-key "Ma(g)it status")
+;;  ;"d" '(dired-jump :which-key "(d)ired jump")
+;;  ;"m" '(mu4e :which-key "(m)u4e")
+;;  ;"l" '(:ignore t :which-key "(l)atex related")
+;;  ;"lp" '((lambda () (interactive) (yasnippet/goto-parent-file)) :which-key "Goto (p)arent")
+;;  ;"lf" '((lambda () (interactive) (LaTeX-fill-buffer nil)) :which-key "Latex (f)ill buffer")
+;;  ;"lF" '((lambda () (interactive) (lsp-latex-forward-search)) :which-key "Latex (f)orward search")
+;;  ;"o" '(org-capture nil :which-key "(o)rg-capture")
+;;  ;"w" '(:ignore t :which-key "(w)indows related")
+;;  ;"wu" '(winner-undo :which-key "Winner (u)ndo")
+;;  ;"wr" '(winner-redo :which-key "Winner (r)edo")
+;;  )
 
 (setq yas-snippet-dirs '("/home/jose/.config/jose-emacs/snippets"))
 (setq yas-key-syntaxes '(yas-longest-key-from-whitespace "w_.()" "w_." "w_" "w"))

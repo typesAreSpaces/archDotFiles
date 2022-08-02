@@ -1,5 +1,4 @@
 # General aliases
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias sshLocalUbuntuVM="ssh -p 2222 jose@127.0.0.1"
 alias sshJose='ssh -X jose@10.88.167.53'
 alias dict='sdcv'
@@ -37,6 +36,7 @@ alias spass="SPASS"
 alias singular="Singular"
 alias mozilla="firefox"
 alias printd="quick_attachment.py 249wdmk85qktm@hpeprint.com "
+alias s="sxiv"
 
 # Docker aliases
 alias seahorn="systemctl start docker && sudo docker run -v $(pwd):/host -it seahorn/seahorn-llvm5"
