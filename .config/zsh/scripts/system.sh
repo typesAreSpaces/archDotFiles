@@ -1,5 +1,4 @@
-update(){
-  echo ">>> Update local projects"
+updateActiveProjects(){
   for project url in ${(kv)ACTIVE_PROJECTS}; do
     echo ">>> Updating project: $project"
     [ ! -d $project ] && git clone $url $project
@@ -7,6 +6,10 @@ update(){
     git pull
     popd
   done
+}
+update(){
+  echo ">>> Update local projects"
+  updateActiveProjects
   echo ">>> Update config"
   updateMachine.sh;
   echo ">>> Update software"

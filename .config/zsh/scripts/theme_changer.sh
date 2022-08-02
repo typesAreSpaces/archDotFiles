@@ -58,23 +58,22 @@ nvimThemeSwitch(){
   esac
 }
 emacsThemeSwitch(){
-  emacs_dir=$HOME/.emacs.d
   case $1 in
     "gruvbox")
-      sed -i "s/(load-theme.*/(load-theme 'doom-gruvbox t))/g" $emacs_dir/Emacs.org
-      sed -i "s/(load-theme.*/(load-theme 'doom-gruvbox t))/g" $emacs_dir/init.el
+      sed -i "s/(load-theme.*/(load-theme 'doom-gruvbox t))/g" $EMACS_DIR/config.org
+      sed -i "s/(load-theme.*/(load-theme 'doom-gruvbox t))/g" $EMACS_DIR/init.el
       ;;
     "nord")
-      sed -i "s/(load-theme.*/(load-theme 'doom-nord t))/g" $emacs_dir/Emacs.org
-      sed -i "s/(load-theme.*/(load-theme 'doom-nord t))/g" $emacs_dir/init.el
+      sed -i "s/(load-theme.*/(load-theme 'doom-nord t))/g" $EMACS_DIR/config.org
+      sed -i "s/(load-theme.*/(load-theme 'doom-nord t))/g" $EMACS_DIR/init.el
       ;;
     "tokyo")
-      sed -i "s/(load-theme.*/(load-theme 'doom-palenight t))/g" $emacs_dir/Emacs.org
-      sed -i "s/(load-theme.*/(load-theme 'doom-palenight t))/g" $emacs_dir/init.el
+      sed -i "s/(load-theme.*/(load-theme 'doom-palenight t))/g" $EMACS_DIR/config.org
+      sed -i "s/(load-theme.*/(load-theme 'doom-palenight t))/g" $EMACS_DIR/init.el
       ;;
   esac
-  emacsclient -nw -c -e "(kill-emacs)"; 
-  emacs --daemon;
+  emacsclient -s $EMACS_PROFILE -a emacs -e "(kill-emacs)"; 
+  emacs --with-profile=$EMACS_PROFILE --daemon &;
 }
 bspwmThemeSwitch(){
   config_file=$HOME/.config/bspwm/bspwmrc
