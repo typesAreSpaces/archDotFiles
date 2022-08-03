@@ -149,7 +149,7 @@ ctrl + shift + {h,j,k,l}
 # 
 
 super + e
-  emacsclient -c
+  emacsclient -c -s jose -a emacs
 
 super + s
   sleep 0.3; scrot -s --freeze
