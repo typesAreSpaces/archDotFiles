@@ -172,5 +172,6 @@ XF86AudioMute
 ctrl + {Up, Down, m}
   ~/.local/scripts/volume.sh {up, down, mute}
 
+# hide/{unhide last hidden window}
 super + {_, shift +} + h
-  bspc node {--flag hidden=on, $(bspc query -N -n .hidden.local.window) --flag hidden=off}
+  bspc node {--flag hidden=on, $(bspc query -N -n .hidden.local.window | head -1) --flag hidden=off}
