@@ -171,3 +171,6 @@ XF86AudioMute
 
 ctrl + {Up, Down, m}
   ~/.local/scripts/volume.sh {up, down, mute}
+
+super + {_, shift +} + h
+  bspc node {--flag hidden=on, $(bspc query -N -n .hidden.local.window) --flag hidden=off}
