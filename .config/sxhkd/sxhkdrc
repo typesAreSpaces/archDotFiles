@@ -60,8 +60,8 @@ super + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
 # swap the current node and the biggest node
-super + g
-	bspc node -s biggest
+#super + g
+	#bspc node -s biggest
 
 #
 # state/flags
@@ -180,5 +180,5 @@ ctrl + {Up, Down, m}
   ~/.local/scripts/volume.sh {up, down, mute}
 
 # hide/{unhide last hidden window}
-super + {_, shift +} + h
+super + {_, shift +} + g
   bspc node {--flag hidden=on, $(bspc query -N -n .hidden.local.window | head -1) --flag hidden=off}
