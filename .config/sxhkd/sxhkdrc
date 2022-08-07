@@ -95,10 +95,10 @@ alt + bracket{left,right}
 	#bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
-alt + {o,i}
-  bspc wm -h off; \
-  bspc node {older,newer} -f; \
-  bspc wm -h on
+#alt + {o,i}
+  #bspc wm -h off; \
+  #bspc node {older,newer} -f; \
+  #bspc wm -h on
 
 # focus or send to the given desktop
 alt + {_,shift + }{1-9,0}
@@ -149,7 +149,7 @@ ctrl + shift + {h,j,k,l}
 # 
 
 super + e
-  emacsclient -c
+  emacsclient -c -s jose -a emacs
 
 super + s
   sleep 0.3; scrot -s --freeze
@@ -171,3 +171,7 @@ XF86AudioMute
 
 ctrl + {Up, Down, m}
   ~/.local/scripts/volume.sh {up, down, mute}
+
+# hide/{unhide last hidden window}
+super + {_, shift +} + h
+  bspc node {--flag hidden=on, $(bspc query -N -n .hidden.local.window | head -1) --flag hidden=off}

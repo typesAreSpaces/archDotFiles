@@ -2,6 +2,7 @@
 # ZSHRC config
 #export TERM=xterm-256color
 
+export PNPM_HOME="/home/jose/.local/share/pnpm"
 export HISTIGNORE='*sudo -S*'
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_PLUGINS='/usr/share/zsh/plugins'
@@ -13,6 +14,8 @@ export LD_LIBRARY_PATH=/usr/local/lib
 export POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 export APPS_DIR="$HOME/Documents/Apps"
+export EMACS_DIR="$HOME/.config/jose-emacs"
+export EMACS_PROFILE="jose"
 export MATLAB_DIR="$APPS_DIR/MATLAB/R2022a/bin"
 export MSAT_DIR="$APPS_DIR/mathsat-5.6.5-linux-x86_64"
 export GITHUB_ACCOUNT_URL="https://github.com/typesAreSpaces"
@@ -51,7 +54,7 @@ export PATH="$HOME/.opam/4.07.0/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH" 
 export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
-export PATH="$HOME/.config/doom/bin:$PATH"
+export PATH="$HOME/.config/emacs/bin:$PATH"
 export PATH="$APPS_DIR:$PATH"
 export PATH="$APPS_DIR/Maple/maple2019/bin:$PATH"
 export PATH="$APPS_DIR/LADR-2009-11A/bin:$PATH"
@@ -62,3 +65,5 @@ export PATH="$MATLAB_DIR:$PATH"
 export PATH="$GITHUB_PROJECTS_DIR/M2/M2:$PATH"
 export PATH="$GITHUB_PROJECTS_DIR/Singular4/bin:$PATH"
 export PATH="$GITHUB_PROJECTS_DIR/sdpa-gmp:$PATH"
+export PATH="$GITHUB_PROJECTS_DIR/bspswallow:$PATH"
+export PATH="$PNPM_HOME:$PATH"

@@ -4,12 +4,15 @@
 [submodule ".emacs.d"]
 	path = .emacs.d
 	url = https://github.com/plexus/chemacs2
-[submodule ".config/doom"]
-	path = .config/doom
+[submodule ".config/emacs"]
+	path = .config/emacs
 	url = https://github.com/doomemacs/doomemacs
 [submodule ".config/spacemacs"]
 	path = .config/spacemacs
 	url = https://github.com/syl20bnr/spacemacs
-[submodule "/home/jose/.config/prelude"]
-	path = /home/jose/.config/prelude
+[submodule ".config/prelude"]
+	path = .config/prelude
 	url = https://github.com/bbatsov/prelude.git
+[submodule ".config/jose-emacs"]
+	path = .config/jose-emacs
+	url = git@github.com:typesAreSpaces/.emacs.d.git
