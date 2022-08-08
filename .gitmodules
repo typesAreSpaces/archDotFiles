@@ -7,12 +7,12 @@
 [submodule ".config/emacs"]
 	path = .config/emacs
 	url = https://github.com/doomemacs/doomemacs
-[submodule ".config/spacemacs"]
-	path = .config/spacemacs
-	url = https://github.com/syl20bnr/spacemacs
 [submodule ".config/prelude"]
 	path = .config/prelude
 	url = https://github.com/bbatsov/prelude.git
 [submodule ".config/jose-emacs"]
 	path = .config/jose-emacs
 	url = git@github.com:typesAreSpaces/.emacs.d.git
+[submodule ".config/spacemacs"]
+	path = .config/spacemacs
+	url = https://github.com/syl20bnr/spacemacs
