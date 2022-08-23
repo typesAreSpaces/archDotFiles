@@ -1,5 +1,5 @@
 {
-    "window.zoomLevel": 4,
+    "window.zoomLevel": 1,
     "security.workspace.trust.banner": "always",
     "workbench.colorTheme": "Tokyo Night",
     "files.exclude": {
