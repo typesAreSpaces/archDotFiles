@@ -33,3 +33,6 @@ done
 for SCRIPT in ${LOCAL_ZSH_SCRIPTS[@]}; do 
   [ -f $SCRIPT ] && source $SCRIPT
 done
+
+# opam configuration
+[[ ! -r /home/jose/.opam/opam-init/init.zsh ]] || source /home/jose/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
