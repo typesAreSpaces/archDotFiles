@@ -1,0 +1,23 @@
+{
+    "window.zoomLevel": 1,
+    "security.workspace.trust.banner": "always",
+    "workbench.colorTheme": "Tokyo Night",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/*.olean": true
+    },
+    "vim.insertModeKeyBindings": [
+    {
+      "before": ["<C-g>"],
+      "after": ["<Esc>"]
+    }
+  ],
+    "vim.commandLineModeKeyBindings": [
+    
+    ]
+}
