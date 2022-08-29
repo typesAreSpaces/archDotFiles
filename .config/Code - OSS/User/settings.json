@@ -1,7 +1,7 @@
 {
     "window.zoomLevel": 1,
     "security.workspace.trust.banner": "always",
-    "workbench.colorTheme": "Tokyo Night",
+    "workbench.colorTheme": "Gruvbox Material Dark",
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
