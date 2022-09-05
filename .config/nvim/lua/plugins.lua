@@ -27,7 +27,7 @@ return require('packer').startup(function()
   use { 
     'nvim-treesitter/nvim-treesitter', 
     run = ':TSUpdate', 
-    event = "BufWinEnter",
+    --event = "BufWinEnter",
     config = get_config("treesitter") 
   }
   use { 
@@ -88,6 +88,10 @@ return require('packer').startup(function()
   use 'iamcco/markdown-preview.nvim'
   use 'rhysd/vim-grammarous'
   use 'sotte/presenting.vim'
+  use {
+    'nvim-orgmode/orgmode', 
+    config = get_config("orgmode-config")
+  }
 
   -- # Themes
   use 'chriskempson/base16-vim'
