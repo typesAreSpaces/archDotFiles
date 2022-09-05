@@ -92,6 +92,10 @@ return require('packer').startup(function()
     'nvim-orgmode/orgmode', 
     config = get_config("orgmode-config")
   }
+  use {
+    'akinsho/org-bullets.nvim', 
+    config = get_config("org-bullets-config")
+  }
 
   -- # Themes
   use 'chriskempson/base16-vim'
