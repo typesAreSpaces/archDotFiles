@@ -1,5 +1,3 @@
---vim.cmd("call wilder#set_option('renderer', wilder#popupmenu_renderer({'highlighter': wilder#basic_highlighter(),'highlights': {'accent': wilder#make_hl('WilderAccent', 'Pmenu', [{}, {}, {'foreground': '#f4468f'}]),},}))")
-
 local wilder = require('wilder')
 
 wilder.setup({
