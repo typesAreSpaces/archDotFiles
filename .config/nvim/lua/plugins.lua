@@ -41,7 +41,7 @@ return require('packer').startup(function()
   use 'quangnguyen30192/cmp-nvim-ultisnips'
   use { 
     'hrsh7th/nvim-cmp', 
-    config = get_config("cmp") 
+    config = get_config("cmp-no-cmdline") 
   }
   use { 
     'nvim-telescope/telescope.nvim', 
