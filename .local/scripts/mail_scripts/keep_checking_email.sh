@@ -9,7 +9,6 @@ DIR=/home/jose/Mail/unm/Inbox/new
 
 while [ 1 ]; do
   # python ~/.local/scripts/UnseenMail/UnseenMail.py
-  if [ -s $ENABLE_MBSYNC ]; then mbsync -a; fi
   if [ "$(cat .enable_mbsync | xargs)" = "yes" ]; then mbsync -a; fi
   echo ' '> $FILE
   ls $DIR | wc -l | xargs >> $FILE
