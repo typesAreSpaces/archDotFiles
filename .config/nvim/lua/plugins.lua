@@ -27,7 +27,7 @@ return require('packer').startup(function()
   use { 
     'nvim-treesitter/nvim-treesitter', 
     run = ':TSUpdate', 
-    event = "BufWinEnter",
+    --event = "BufWinEnter",
     config = get_config("treesitter") 
   }
   use { 
@@ -41,7 +41,7 @@ return require('packer').startup(function()
   use 'quangnguyen30192/cmp-nvim-ultisnips'
   use { 
     'hrsh7th/nvim-cmp', 
-    config = get_config("cmp") 
+    config = get_config("cmp-no-cmdline") 
   }
   use { 
     'nvim-telescope/telescope.nvim', 
@@ -88,6 +88,14 @@ return require('packer').startup(function()
   use 'iamcco/markdown-preview.nvim'
   use 'rhysd/vim-grammarous'
   use 'sotte/presenting.vim'
+  use {
+    'nvim-orgmode/orgmode', 
+    config = get_config("orgmode-config")
+  }
+  use {
+    'akinsho/org-bullets.nvim', 
+    config = get_config("org-bullets-config")
+  }
 
   -- # Themes
   use 'chriskempson/base16-vim'
