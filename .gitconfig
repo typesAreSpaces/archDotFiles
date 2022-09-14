@@ -12,3 +12,5 @@
 	defaultBranch = main
 [core]
 	excludesfile = /home/jose/.gitignore_global
+[submodule]
+	recurse = false

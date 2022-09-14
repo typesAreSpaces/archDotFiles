@@ -35,4 +35,7 @@ vim.wo.number = true
 base16colorspace = 256
 vim.g.gruvbox_contrast_dark = 'hard'
 vim.g.gruvbox_invert_selection = '0'
-vim.cmd([[color tokyonight]])
+vim.cmd([[color gruvbox-material]])
+
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = 'nc'
