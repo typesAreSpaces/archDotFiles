@@ -54,6 +54,11 @@ return require('packer').startup(function()
     after = "telescope.nvim",
     config = get_config("telescope-ultisnips")
   }
+  use {
+    'nvim-telescope/telescope-file-browser.nvim',
+    after = "telescope.nvim",
+    config = get_config("telescope-file-browser-config")
+  }
   use 'mbbill/undotree'
   use 'jeffkreeftmeijer/vim-numbertoggle'
   use 'preservim/nerdcommenter'
