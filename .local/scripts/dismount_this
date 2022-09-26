@@ -1,0 +1,6 @@
+#!/bin/sh
+
+device=$1
+mount_dir="$(pwd)/dev"
+sudo umount $device
+rm -rf $mount_dir

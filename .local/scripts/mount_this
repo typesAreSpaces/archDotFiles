@@ -1,0 +1,6 @@
+#!/bin/sh
+
+device=$1
+mount_dir="$(pwd)$device"
+mkdir -p $mount_dir
+sudo mount $device $mount_dir
