@@ -16,3 +16,6 @@
 [submodule ".emacs.d"]
 	path = .emacs.d
 	url = https://github.com/plexus/chemacs2
+[submodule ".config/tmux"]
+	path = .config/tmux
+	url = git@github.com:typesAreSpaces/tmux.config.git
