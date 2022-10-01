@@ -87,6 +87,20 @@
 
 (setq mu4e-change-filenames-when-moving t)
 
+; SMTP settings
+(setq sendmail-program "/usr/bin/msmtp"
+      message-sendmail-f-is-evil t
+      message-sendmail-extra-arguments '("--read-envelope-from")
+      send-mail-function 'smtpmail-send-it
+      message-send-mail-function 'message-send-mail-with-sendmail)
+
+(setq smtpmail-debug-info t)
+(setq starttls-use-gnutls t)
+
+(setq mu4e-update-interval 600)
+(setq mu4e-get-mail-command "mbsync -a")
+(setq mu4e-maildir "~/Mail")
+
 (with-eval-after-load "mm-decode"
   (add-to-list 'mm-discouraged-alternatives "text/html")
   (add-to-list 'mm-discouraged-alternatives "text/richtext"))
@@ -94,10 +108,6 @@
 (defun jcs-view-in-eww (msg)
   (eww-browse-url (concat "file://" (mu4e~write-body-to-html msg))))
 (add-to-list 'mu4e-view-actions '("Eww view" . jcs-view-in-eww) t)
-
-(setq mu4e-update-interval 600)
-(setq mu4e-get-mail-command "mbsync -a")
-(setq mu4e-root-maildir "~/Mail")
 
 (defun refile-func (msg)
   (cond
@@ -117,56 +127,56 @@
 
 (setq mu4e-contexts
       (list
-                                        ; School account
+					; School account
        (make-mu4e-context
-        :name "School"
-        :match-func
-        (lambda (msg)
-          (when msg
-            (string-prefix-p "/unm" (mu4e-message-field msg :maildir))))
-        :vars '((user-mail-address  . "jabelcastellanosjoo@unm.edu")
-                (user-full-name     . "Jose Abel Castellanos Joo")
-                (mu4e-drafts-folder . "/unm/Drafts")
-                (mu4e-sent-folder   . "/unm/Sent")
-                (mu4e-refile-folder . refile-func)
-                (mu4e-trash-folder  . "/unm/Trash")
-                (smtpmail-smtp-server . "smtp.office365.com")
-                (smtpmail-smtp-service . 587)
-                (smtpmail-stream-type . starttls)))
-                                        ; School CS department account
+	:name "School"
+	:match-func
+	(lambda (msg)
+	  (when msg
+	    (string-prefix-p "/unm" (mu4e-message-field msg :maildir))))
+	:vars '((user-mail-address  . "jabelcastellanosjoo@unm.edu")
+		(user-full-name     . "Jose Abel Castellanos Joo")
+		(mu4e-drafts-folder . "/unm/Drafts")
+		(mu4e-sent-folder   . "/unm/Sent")
+		(mu4e-refile-folder . refile-func)
+		(mu4e-trash-folder  . "/unm/Trash")
+		(smtpmail-smtp-server . "smtp.office365.com")
+		(smtpmail-smtp-service . 587)
+		(smtpmail-stream-type . starttls)))
+					; School CS department account
        (make-mu4e-context
-        :name "CS department"
-        :match-func
-        (lambda (msg)
-          (when msg
-            (string-prefix-p "/cs-unm" (mu4e-message-field msg :maildir))))
-        :vars '((user-mail-address  . "jose.castellanosjoo@cs.unm.edu")
-                (user-full-name     . "Jose Abel Castellanos Joo")
-                (mu4e-drafts-folder . "/cs-unm/Drafts")
-                                        ;(mu4e-sent-folder   . "/cs-unm/Sent")
-                (mu4e-refile-folder . "/cs-unm/Inbox")
-                (mu4e-trash-folder  . "/cs-unm/Trash")
-                (smtpmail-smtp-server . "snape.cs.unm.edu")
-                (smtpmail-smtp-service . 1200)
-                (smtpmail-stream-type . starttls)))))
+	:name "CS department"
+	:match-func
+	(lambda (msg)
+	  (when msg
+	    (string-prefix-p "/cs-unm" (mu4e-message-field msg :maildir))))
+	:vars '((user-mail-address  . "jose.castellanosjoo@cs.unm.edu")
+		(user-full-name     . "Jose Abel Castellanos Joo")
+		(mu4e-drafts-folder . "/cs-unm/Drafts")
+					;(mu4e-sent-folder   . "/cs-unm/Sent")
+		(mu4e-refile-folder . "/cs-unm/Inbox")
+		(mu4e-trash-folder  . "/cs-unm/Trash")
+		(smtpmail-smtp-server . "snape.cs.unm.edu")
+		(smtpmail-smtp-service . 1200)
+		(smtpmail-stream-type . starttls)))))
 
 (setq mu4e-context-policy 'pick-first)
 
 (setq mu4e-maildir-shortcuts
       '(("/unm/Inbox" . ?i)
-        ("/unm/Sent"  . ?s)
-        ("/unm/Trash" . ?t)
-        ("/unm/Drafts". ?d)
-        ("/unm/Prof. Kapur". ?k)
-        ("/unm/Prof. Kapur/Side projects/Seminars/Beihang University". ?b)
-        ("/unm/TA Work/CS 241". ?c)
-        ("/unm/You got a Package!". ?p)
-        ("/unm/Archive". ?a)
-        ("/cs-unm/Inbox". ?I)
-        ("/cs-unm/Trash". ?T)
-        ("/cs-unm/Drafts". ?D)))
+	("/unm/Sent"  . ?s)
+	("/unm/Trash" . ?t)
+	("/unm/Drafts". ?d)
+	("/unm/Prof. Kapur". ?k)
+	("/unm/Prof. Kapur/Side projects/Seminars/Beihang University". ?b)
+	("/unm/TA Work/CS 241". ?c)
+	("/unm/You got a Package!". ?p)
+	("/unm/Archive". ?a)
+	("/cs-unm/Inbox". ?I)
+	("/cs-unm/Trash". ?T)
+	("/cs-unm/Drafts". ?D)))
+
 (setq mu4e-use-fancy-chars t)
-(setq message-send-mail-function 'smtpmail-send-it)
 (setq mu4e-attachment-dir  "~/Downloads")
 (setq mu4e-headers-show-threads nil)
 (setq mu4e-confirm-quit nil)
@@ -175,7 +185,7 @@
 (setq message-citation-line-format "On %d %b %Y at %R, %f wrote:\n")
 (setq message-citation-line-function 'message-insert-formatted-citation-line)
 (setq
-                                        ; Display
+					; Display
  mu4e-view-show-addresses t
  mu4e-view-show-images t
  mu4e-view-image-max-width 800
@@ -184,17 +194,17 @@
 (defvar phd-thesis-dir "~/Documents/GithubProjects/phd-thesis")
 (defvar ta-org-files-dir 
   (concat phd-thesis-dir
-          "/Documents/Semesters/Fall/2022/TA-CS-241/Org-Files"))
+	  "/Documents/Semesters/Fall/2022/TA-CS-241/Org-Files"))
 (defvar phd-thesis-write-ups-dir
   (concat phd-thesis-dir
-          "/Documents/Write-Ups"))
+	  "/Documents/Write-Ups"))
 (defvar phd-thesis-org-files-dir
   (concat phd-thesis-dir
-          "/Documents/Org-Files"))
+	  "/Documents/Org-Files"))
 
 (defvar scc-dir 
   (concat phd-thesis-dir
-          "/Documents/Side-Projects/kapur-nsf-proposal"))
+	  "/Documents/Side-Projects/kapur-nsf-proposal"))
 (defvar scc-reports-dir (concat scc-dir "/Reports"))
 (defvar scc-org-files-dir (concat scc-dir "/Org-Files"))
 
@@ -252,8 +262,8 @@
 
 (setq yas-snippet-dirs '("/home/jose/.config/jose-emacs/snippets"))
 (setq yas-key-syntaxes '(yas-longest-key-from-whitespace "w_.()" "w_." "w_" "w"))
-;(define-key yas-minor-mode-map (kbd "C-g") 'evil-normal-state)
-;(define-key yas-keymap (kbd "C-g") 'evil-normal-state)
+					;(define-key yas-minor-mode-map (kbd "C-g") 'evil-normal-state)
+					;(define-key yas-keymap (kbd "C-g") 'evil-normal-state)
 (yas-global-mode 1)
 
 (load "/home/jose/.config/jose-emacs/snippets/yasnippet-scripts.el")
