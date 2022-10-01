@@ -34,10 +34,6 @@ alt + shift + p
 alt + shift + r
   emacsclient -e "(kill-emacs)"; reboot
 
-# lockscreen
-alt + shift + x
-  betterlockscreen -l dim
-
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
@@ -162,6 +158,13 @@ super + shift + {e, v}
 
 super + k
   ~/.local/scripts/toggleKBD
+
+# lockscreen
+super + shift + x
+  betterlockscreen -l dim
+
+super + x
+  xtrlock
 
 {XF86AudioRaiseVolume,XF86AudioLowerVolume}
   amixer set Master {10%+, 10%-}
