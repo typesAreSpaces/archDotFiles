@@ -10,9 +10,12 @@
 [submodule ".config/prelude"]
 	path = .config/prelude
 	url = https://github.com/bbatsov/prelude.git
-[submodule ".config/spacemacs"]
-	path = .config/spacemacs
-	url = https://github.com/syl20bnr/spacemacs
 [submodule ".emacs.d"]
 	path = .emacs.d
 	url = https://github.com/plexus/chemacs2
+[submodule ".config/tmux"]
+	path = .config/tmux
+	url = git@github.com:typesAreSpaces/tmux.config.git
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = git@github.com:typesAreSpaces/nvim.conf.git
