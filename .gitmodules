@@ -16,6 +16,3 @@
 [submodule ".config/tmux"]
 	path = .config/tmux
 	url = git@github.com:typesAreSpaces/tmux.config.git
-[submodule ".config/nvim"]
-	path = .config/nvim
-	url = git@github.com:typesAreSpaces/nvim.conf.git
