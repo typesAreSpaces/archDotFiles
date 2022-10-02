@@ -17,7 +17,7 @@ alias personal_notes="cd $WRITE_UPS_DIR/personal_notes"
 alias seminar="cd $SEMINAR"
 alias website="cd $WEBSITE_DIR"
 alias scc="cd $PHD_THESIS_DIR/Documents/Side-Projects/kapur-nsf-proposal"
-alias maxdiff="cd $PHD_THESIS_DIR/Documents/Side-Projects/MaxDiffProject"
+alias maxdiff="cd $PHD_THESIS_DIR/Documents/Side-Projects/MaxDiff"
 
 # Program aliases
 alias open="xdg-open"
