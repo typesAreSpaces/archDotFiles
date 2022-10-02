@@ -11,5 +11,7 @@ POWERLEVEL10K_DIR="$HOME/.config/zsh/themes/zsh-theme-powerlevel10k"
   && source "$POWERLEVEL10K_DIR/powerlevel10k.zsh-theme"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+P10K_DIR="$HOME/.config/zsh/scripts/.p10k.zsh"
+#[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+[[ -f "$P10K_DIR" ]] && source "$P10K_DIR"
 
