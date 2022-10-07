@@ -8,3 +8,4 @@ echo "CTRL" > ~/.current_binding
   && $HOME/.local/scripts/mail_scripts/keep_checking_email.sh&
 [ "$(ps aux | grep 'emacs' | wc -l | xargs)" = "1" ] \
   && emacs --with-profile=jose --daemon &
+xset s off -dpms &
