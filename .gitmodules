@@ -1,3 +1,21 @@
 [submodule "texmf/tex/latex/local"]
 	path = texmf/tex/latex/local
 	url = git@github.com:typesAreSpaces/PersonalLatexMacros.git
+[submodule ".config/emacs"]
+	path = .config/emacs
+	url = https://github.com/doomemacs/doomemacs
+[submodule ".config/prelude"]
+	path = .config/prelude
+	url = https://github.com/bbatsov/prelude.git
+[submodule ".emacs.d"]
+	path = .emacs.d
+	url = https://github.com/plexus/chemacs2
+[submodule ".config/jose-emacs"]
+	path = .config/jose-emacs
+	url = git@github.com:typesAreSpaces/.emacs.d
+[submodule ".config/tmux"]
+	path = .config/tmux
+	url = git@github.com:typesAreSpaces/tmux.config.git
+[submodule ".config/zsh"]
+	path = .config/zsh
+	url = git@github.com:typesAreSpaces/zsh.config.git
