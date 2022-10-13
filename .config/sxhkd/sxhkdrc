@@ -52,18 +52,16 @@ super + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
 # swap the current node and the biggest node
-#super + g
-	#bspc node -s biggest
+super + g
+	bspc node -s biggest
 
 #
 # state/flags
 #
 
 # set the window state
-#super + {t,shift + t,s,f}
-	#bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
-super + {t,shift + t,f}
-	bspc node -t {tiled,pseudo_tiled,fullscreen}
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
 super + ctrl + {m,x,y,z}
@@ -90,14 +88,14 @@ super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
-super + {grave,Tab}
-	bspc {node,desktop} -f last
+#super + {grave,Tab}
+#	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
-#alt + {o,i}
-  #bspc wm -h off; \
-  #bspc node {older,newer} -f; \
-  #bspc wm -h on
+#super + {o,i}
+	#bspc wm -h off; \
+	#bspc node {older,newer} -f; \
+	#bspc wm -h on
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
@@ -148,7 +146,7 @@ ctrl + shift + {h,j,k,l}
 # 
 
 super + e
-  emacsclient -c -s jose -a emacs
+  emacsclient -c
 
 super + s
   sleep 0.3; scrot -s --freeze
@@ -170,7 +168,7 @@ super + x
   xtrlock
 
 {XF86AudioRaiseVolume,XF86AudioLowerVolume}
-  amixer set Master {5%+, 5%-}
+  amixer set Master {10%+, 10%-}
 
 XF86AudioMute
   amixer set Master toggle
@@ -179,5 +177,5 @@ ctrl + {Up, Down, m}
   ~/.local/scripts/volume.sh {up, down, mute}
 
 # hide/{unhide last hidden window}
-super + {_, shift +} + g
+super + {_, shift +} + h
   bspc node {--flag hidden=on, $(bspc query -N -n .hidden.local.window | head -1) --flag hidden=off}
