@@ -87,7 +87,7 @@
 
 (setq mu4e-change-filenames-when-moving t)
 
-; SMTP settings
+					; SMTP settings
 (setq sendmail-program "/usr/bin/msmtp"
       message-sendmail-f-is-evil t
       message-sendmail-extra-arguments '("--read-envelope-from")
@@ -163,18 +163,19 @@
 (setq mu4e-context-policy 'pick-first)
 
 (setq mu4e-maildir-shortcuts
-      '(("/unm/Inbox" . ?i)
-	("/unm/Sent"  . ?s)
-	("/unm/Trash" . ?t)
-	("/unm/Drafts". ?d)
-	("/unm/Prof. Kapur". ?k)
-	("/unm/Prof. Kapur/Side projects/Seminars/Beihang University". ?b)
-	("/unm/TA Work/CS 241". ?c)
-	("/unm/You got a Package!". ?p)
-	("/unm/Archive". ?a)
-	("/cs-unm/Inbox". ?I)
-	("/cs-unm/Trash". ?T)
-	("/cs-unm/Drafts". ?D)))
+        '(("/unm/Inbox" . ?i)
+          ("/unm/Sent"  . ?s)
+          ("/unm/Trash" . ?t)
+          ("/unm/Drafts". ?d)
+          ("/unm/Prof. Kapur". ?k)
+          ("/unm/Prof. Kapur/Side projects/Seminars/Beihang University". ?b)
+          ("/unm/Prof. Kapur/Side projects/MaxDiff Extension". ?m)
+          ("/unm/TA Work/CS 241". ?c)
+          ("/unm/You got a Package!". ?p)
+          ("/unm/Archive". ?a)
+          ("/cs-unm/Inbox". ?I)
+          ("/cs-unm/Trash". ?T)
+          ("/cs-unm/Drafts". ?D)))
 
 (setq mu4e-use-fancy-chars t)
 (setq mu4e-attachment-dir  "~/Downloads")
@@ -195,6 +196,9 @@
 (defvar ta-org-files-dir 
   (concat phd-thesis-dir
 	  "/Documents/Semesters/Fall/2022/TA-CS-241/Org-Files"))
+(defvar maxdiff-org-files-dir 
+  (concat phd-thesis-dir
+          "/Documents/Side-Projects/MaxDiff/Documents/org"))
 (defvar phd-thesis-write-ups-dir
   (concat phd-thesis-dir
 	  "/Documents/Write-Ups"))
@@ -212,6 +216,9 @@
 (defvar seminar-org-files-dir (concat seminar-dir "/Org-Files"))
 (defvar ta-tasks-mail 
   (concat ta-org-files-dir "/current_tasks.org"))
+
+(defvar maxdiff-agenda-mail
+  (concat maxdiff-org-files-dir "/agenda.org"))
 
 (defvar research-tasks-mail 
   (concat phd-thesis-org-files-dir "/research_tasks.org"))
@@ -267,3 +274,5 @@
 (yas-global-mode 1)
 
 (load "/home/jose/.config/jose-emacs/snippets/yasnippet-scripts.el")
+
+(setq font-latex-fontify-script nil)
