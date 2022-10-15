@@ -1,12 +1,6 @@
-[submodule "texmf/tex/latex/local"]
-	path = texmf/tex/latex/local
-	url = git@github.com:typesAreSpaces/PersonalLatexMacros.git
 [submodule ".config/emacs"]
 	path = .config/emacs
 	url = https://github.com/doomemacs/doomemacs
-[submodule ".config/jose-emacs"]
-	path = .config/jose-emacs
-	url = https://github.com/typesAreSpaces/.emacs.d
 [submodule ".config/prelude"]
 	path = .config/prelude
 	url = https://github.com/bbatsov/prelude.git
@@ -22,3 +16,15 @@
 [submodule ".config/zsh"]
 	path = .config/zsh
 	url = git@github.com:typesAreSpaces/zsh.config.git
+[submodule "texmf/tex/latex/local"]
+	path = texmf/tex/latex/local
+	url = git@github.com:typesAreSpaces/PersonalLatexMacros.git
+[submodule ".config/jose-emacs"]
+	path = .config/jose-emacs
+	url = git@github.com:typesAreSpaces/.emacs.d.git
+[submodule ".config/vim"]
+	path = .config/vim
+	url = git@github.com:typesAreSpaces/vim.conf
+[submodule ".config/helix"]
+	path = .config/helix
+	url = git@github.com:typesAreSpaces/helix.conf
