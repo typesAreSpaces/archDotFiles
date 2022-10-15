@@ -25,3 +25,6 @@
 [submodule ".config/vim"]
 	path = .config/vim
 	url = git@github.com:typesAreSpaces/vim.conf
+[submodule ".config/helix"]
+	path = .config/helix
+	url = git@github.com:typesAreSpaces/helix.conf
