@@ -28,3 +28,6 @@
 [submodule ".config/helix"]
 	path = .config/helix
 	url = git@github.com:typesAreSpaces/helix.conf
+[submodule ".config/xmodmap"]
+	path = .config/xmodmap
+	url = git@github.com:typesAreSpaces/xmodmap.conf
