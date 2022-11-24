@@ -28,3 +28,6 @@
 [submodule ".config/xmodmap"]
 	path = .config/xmodmap
 	url = git@github.com:typesAreSpaces/xmodmap.conf
+[submodule ".config/jose-emacs"]
+	path = .config/jose-emacs
+	url = git@github.com:typesAreSpaces/.emacs.d.git
