@@ -37,6 +37,7 @@ cdir-git
 cheese
 cmake
 code
+code-minimap
 colorpicker
 compiledb
 composer
@@ -71,6 +72,7 @@ flint
 frobby
 fzf
 gcc
+geekbench
 gfan
 ghc
 gimp
@@ -167,6 +169,7 @@ kwayland-integration
 kwin
 kwrited
 lapack
+lapce
 libcurl-gnutls
 libfakekey
 libgmp-static
@@ -203,6 +206,7 @@ netctl
 network-manager-applet
 networkmanager
 nitrogen
+nodejs
 noise-suppression-for-voice
 npm
 nvidia
@@ -215,6 +219,7 @@ okular
 opam
 openblas
 opendoas
+openssl-1.1
 os-prober
 oxygen
 package-query
@@ -266,7 +271,6 @@ rsync
 rubber
 ruby-irb
 rust-analyzer
-sagemath
 screenkey
 scrot
 scscp
@@ -285,6 +289,7 @@ st
 sudo
 svgpart
 sweeper
+swi-prolog
 sxhkd
 sxiv
 systemsettings
@@ -314,6 +319,8 @@ transmission-gtk
 tree
 tree-sitter
 ttf-fira-code
+ttf-jetbrains-mono
+ttf-ms-win10-auto
 ufw
 update-grub
 uwufetch

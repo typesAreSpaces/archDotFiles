@@ -158,7 +158,7 @@ super + shift + {e, v}
   ~/.local/scripts/changeKBD {CTRL, ESC}
 
 super + k
-  ~/.local/scripts/toggleKBD
+  ~/.config/xmodmap/toggleKBD
 
 # lockscreen
 super + shift + x
