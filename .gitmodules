@@ -28,12 +28,3 @@
 [submodule ".config/helix"]
 	path = .config/helix
 	url = git@github.com:typesAreSpaces/helix.conf
-[submodule ".config/xmodmap"]
-	path = .config/xmodmap
-	url = git@github.com:typesAreSpaces/xmodmap.conf
-[submodule ".config/bspwm"]
-	path = .config/bspwm
-	url = git@github.com:typesAreSpaces/bspwm.config
-[submodule ".config/sxhkd"]
-	path = .config/sxhkd
-	url = git@github.com:typesAreSpaces/sxhkd.config
