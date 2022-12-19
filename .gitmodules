@@ -37,3 +37,6 @@
 [submodule ".config/sxhkd"]
 	path = .config/sxhkd
 	url = git@github.com:typesAreSpaces/sxhkd.config
+[submodule ".local/scripts"]
+	path = .local/scripts
+	url = git@github.com:typesAreSpaces/localScripts
