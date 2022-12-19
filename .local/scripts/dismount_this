@@ -1,6 +1,0 @@
-#!/bin/sh
-
-device=$1
-mount_dir="/home/jose/USBs/$device"
-sudo umount $device
-rm -rf $mount_dir
