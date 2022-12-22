@@ -1,6 +1,0 @@
-#!/bin/sh
-
-device=$1
-mount_dir="/home/jose/USBs/$device"
-mkdir -p $mount_dir
-sudo mount $device $mount_dir
