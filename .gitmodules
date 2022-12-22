@@ -40,3 +40,12 @@
 [submodule ".local/scripts"]
 	path = .local/scripts
 	url = git@github.com:typesAreSpaces/localScripts
+[submodule ".config/zathura"]
+	path = .config/zathura
+	url = git@github.com:typesAreSpaces/zathura.conf.git
+[submodule ".config/latexmk"]
+	path = .config/latexmk
+	url = git@github.com:typesAreSpaces/latexmk.conf.git
+[submodule ".config/alacritty"]
+	path = .config/alacritty
+	url = git@github.com:typesAreSpaces/alacritty.conf.git
