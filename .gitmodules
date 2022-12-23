@@ -49,3 +49,6 @@
 [submodule ".config/alacritty"]
 	path = .config/alacritty
 	url = git@github.com:typesAreSpaces/alacritty.conf.git
+[submodule ".config/polybar"]
+	path = .config/polybar
+	url = git@github.com:typesAreSpaces/polybar.conf.git
