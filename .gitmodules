@@ -49,9 +49,3 @@
 [submodule ".config/xmodmap"]
 	path = .config/xmodmap
 	url = git@github.com:typesAreSpaces/xmodmap.config
-[submodule ".config/polybar"]
-	path = .config/polybar
-	url = git@github.com:typesAreSpaces/polybar.conf
-[submodule ".config/rofi"]
-	path = .config/rofi
-	url = git@github.com:typesAreSpaces/rofi.conf
