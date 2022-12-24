@@ -46,3 +46,6 @@
 [submodule ".config/alacritty"]
 	path = .config/alacritty
 	url = git@github.com:typesAreSpaces/alacritty.conf.git
+[submodule ".config/xmodmap"]
+	path = .config/xmodmap
+	url = git@github.com:typesAreSpaces/xmodmap.config
