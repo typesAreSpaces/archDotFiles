@@ -55,3 +55,6 @@
 [submodule ".config/rofi"]
 	path = .config/rofi
 	url = git@github.com:typesAreSpaces/rofi.conf
+[submodule ".local/scripts"]
+	path = .local/scripts
+	url = git@github.com:typesAreSpaces/localScripts
