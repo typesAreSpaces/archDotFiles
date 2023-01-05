@@ -1,0 +1,2 @@
+xinput set-prop "bcm5974" 300 1
+xinput set-prop "bcm5974" 308 1
