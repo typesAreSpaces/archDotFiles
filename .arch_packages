@@ -29,10 +29,12 @@ code
 code-minimap
 cups
 dialog
+discord
 discover
 dolphin
 dolphin-plugins
 dosfstools
+downgrade
 drkonqi
 dunst
 efibootmgr
@@ -60,6 +62,12 @@ gwenview
 helix
 htop
 hugo
+<<<<<<< HEAD
+=======
+hwdetect
+hypr-git
+i3-wm
+>>>>>>> master
 inotify-tools
 intel-ucode
 ispell
@@ -142,7 +150,11 @@ linux-firmware
 linux-headers
 lokalize
 lua-language-server
+<<<<<<< HEAD
 lua52
+=======
+luarocks
+>>>>>>> master
 luit
 m4
 make

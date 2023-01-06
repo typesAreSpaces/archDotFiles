@@ -1,2 +1,2 @@
-xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" 333 1
-xinput set-prop "SYNA2393:00 06CB:7A13 Touchpad" 315 1
+xinput set-prop "bcm5974" 300 1
+xinput set-prop "bcm5974" 308 1
