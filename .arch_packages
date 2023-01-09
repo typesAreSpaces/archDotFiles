@@ -32,12 +32,14 @@ cups
 curl
 dateutils
 dialog
+discord
 discover
 dmenu
 docker
 dolphin
 dolphin-plugins
 dosfstools
+downgrade
 drkonqi
 dunst
 dust
@@ -71,7 +73,8 @@ hplip
 htop
 hugo
 hwdetect
-i3-gaps
+hypr-git
+i3-wm
 inotify-tools
 intel-ucode
 isync
@@ -154,6 +157,7 @@ linux-headers
 llvm
 lokalize
 lua-language-server
+luarocks
 luit
 m4
 make
