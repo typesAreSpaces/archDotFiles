@@ -12,7 +12,7 @@
 	url = git@github.com:typesAreSpaces/PersonalLatexMacros.git
 [submodule ".config/jose-emacs"]
 	path = .config/jose-emacs
-	url = git@github.com:typesAreSpaces/.emacs.d.git
+	url = git@github.com:typesAreSpaces/.emacs.d
 [submodule ".config/vim"]
 	path = .config/vim
 	url = git@github.com:typesAreSpaces/vim.conf
