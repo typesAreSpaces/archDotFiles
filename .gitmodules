@@ -49,3 +49,6 @@
 [submodule ".config/rofi"]
 	path = .config/rofi
 	url = git@github.com:typesAreSpaces/rofi.conf
+[submodule ".emacs.d"]
+	path = .emacs.d
+	url = git@github.com:typesAreSpaces/chemacs2.git
