@@ -54,7 +54,7 @@
 	url = git@github.com:typesAreSpaces/chemacs2.git
 [submodule ".config/emacs"]
 	path = .config/emacs
-	url = git@github.com:typesAreSpaces/doom.git
+	url = git@github.com:typesAreSpaces/doomemacs.git
 [submodule ".config/prelude"]
 	path = .config/prelude
 	url = git@github.com:typesAreSpaces/prelude.git
