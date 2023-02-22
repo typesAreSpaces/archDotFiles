@@ -61,3 +61,6 @@
 [submodule ".config/prelude"]
 	path = .config/prelude
 	url = git@github.com:typesAreSpaces/prelude.git
+[submodule ".config/lambda-emacs"]
+	path = .config/lambda-emacs
+	url = git@github.com:typesAreSpaces/lambda-emacs.git
