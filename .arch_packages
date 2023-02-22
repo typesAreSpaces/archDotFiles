@@ -44,6 +44,7 @@ composer
 cups
 dateutils
 dialog
+discord
 discover
 docker
 docx2txt
@@ -51,6 +52,7 @@ doi2bib
 dolphin
 dolphin-plugins
 dosfstools
+downgrade
 drkonqi
 dunst
 dust
@@ -96,7 +98,7 @@ htop
 hugo
 hwdetect
 hypr-git
-i3-gaps
+i3-wm
 inotify-tools
 intel-ucode
 isync
@@ -185,6 +187,7 @@ linux-headers
 llvm
 lokalize
 lua-language-server
+luarocks
 luit
 m4
 make
