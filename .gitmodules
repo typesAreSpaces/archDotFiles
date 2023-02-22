@@ -61,3 +61,6 @@
 [submodule ".config/spacemacs"]
 	path = .config/spacemacs
 	url = git@github.com:typesAreSpaces/spacemacs.git
+[submodule ".config/lambda-emacs"]
+	path = .config/lambda-emacs
+	url = git@github.com:typesAreSpaces/lambda-emacs.git
