@@ -64,3 +64,6 @@
 [submodule ".config/lambda-emacs"]
 	path = .config/lambda-emacs
 	url = git@github.com:typesAreSpaces/lambda-emacs.git
+[submodule ".config/god-layer"]
+	path = .config/god-layer
+	url = git@github.com:typesAreSpaces/.emacs.d.git
