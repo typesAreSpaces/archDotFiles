@@ -2,8 +2,10 @@ acpi
 akonadi-import-wizard
 alacritty
 alsa-utils
-apg
+amd-ucode
+amp
 arandr
+archiso
 ark
 audiocd-kio
 autoconf
@@ -31,6 +33,8 @@ cups
 dialog
 discord
 discover
+docker
+docx2txt
 dolphin
 dolphin-plugins
 dosfstools
@@ -62,12 +66,9 @@ gwenview
 helix
 htop
 hugo
-<<<<<<< HEAD
-=======
 hwdetect
 hypr-git
 i3-wm
->>>>>>> master
 inotify-tools
 intel-ucode
 ispell
@@ -138,7 +139,9 @@ kwave
 kwayland-integration
 kwin
 kwrited
-ld-lsb
+lapack
+libcurl-gnutls
+libfakekey
 libgmp-static
 libkscreen
 libksysguard
@@ -150,11 +153,7 @@ linux-firmware
 linux-headers
 lokalize
 lua-language-server
-<<<<<<< HEAD
-lua52
-=======
 luarocks
->>>>>>> master
 luit
 m4
 make
@@ -181,7 +180,8 @@ openssl-1.1
 os-prober
 oxygen
 packagekit-qt5
-pandoc
+pacman-contrib
+pandoc-cli
 papirus-icon-theme
 paru
 pass
@@ -206,6 +206,9 @@ poxml
 print-manager
 python-pip
 python-pyalsa
+python-pydot
+qhull
+racket
 ranger
 reflector
 ripgrep
@@ -226,8 +229,7 @@ skypeforlinux-stable-bin
 spectacle
 speedometer
 st
-step
-sublime-text-4
+stack
 sudo
 svgpart
 sweeper
@@ -251,7 +253,11 @@ texlive-publishers
 texlive-science
 thefuck
 tmux
-topgrade
+topgrade-bin
+transmission-cli
+transmission-gtk
+tree
+tree-sitter
 ttf-fira-code
 ufw
 unzip
@@ -259,8 +265,7 @@ uwufetch
 vi
 vim
 virtualbox
-virtualbox-guest-goodies
-virtualbox-guest-utils
+virtualbox-guest-iso
 vlc
 wget
 which
@@ -318,6 +323,8 @@ xsel
 yq
 zathura
 zathura-pdf-poppler
+zathura-ps
+zee-git
 zip
 zoom
 zoxide
