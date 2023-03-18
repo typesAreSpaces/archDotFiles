@@ -4,7 +4,9 @@ acpilight
 alacritty
 alsa-utils
 amd-ucode
+amp
 arandr
+archiso
 ark
 aspell
 aspell-en
@@ -48,7 +50,6 @@ discord
 discover
 docker
 docx2txt
-doi2bib
 dolphin
 dolphin-plugins
 dosfstools
@@ -91,7 +92,6 @@ grub
 gsl
 gtest
 gwenview
-haskell-language-server
 helix
 hplip
 htop
@@ -171,7 +171,6 @@ kwayland-integration
 kwin
 kwrited
 lapack
-lapce
 libcurl-gnutls
 libfakekey
 libgmp-static
@@ -228,7 +227,7 @@ oxygen
 package-query
 packagekit-qt5
 pacman-contrib
-pandoc
+pandoc-cli
 papirus-icon-theme
 pari
 paru
@@ -264,6 +263,7 @@ python-pip
 python-pyalsa
 python-pydot
 qhull
+racket
 ranger
 reflector
 ripgrep
@@ -289,6 +289,7 @@ skypeforlinux-stable-bin
 slim
 spectacle
 st
+stack
 sudo
 svgpart
 sweeper
@@ -316,7 +317,7 @@ time
 tix
 tk
 tmux
-topgrade
+topgrade-bin
 transmission-cli
 transmission-gtk
 tree
@@ -331,7 +332,6 @@ valgrind
 vi
 vim
 virtualbox
-virtualbox-ext-oracle
 virtualbox-guest-iso
 vlc
 wallset
@@ -397,6 +397,7 @@ yq
 zathura
 zathura-pdf-poppler
 zathura-ps
+zee-git
 zip
 zoom
 zoxide
