@@ -3,7 +3,9 @@ acpilight
 alacritty
 alsa-utils
 amd-ucode
+amp
 arandr
+archiso
 ark
 audiocd-kio
 autoconf
@@ -36,6 +38,7 @@ discord
 discover
 dmenu
 docker
+docx2txt
 dolphin
 dolphin-plugins
 dosfstools
@@ -146,6 +149,7 @@ kwayland-integration
 kwin
 kwrited
 lapack
+libcurl-gnutls
 libfakekey
 libkscreen
 libksysguard
@@ -186,6 +190,8 @@ os-prober
 oxygen
 packagekit-qt5
 pacman-contrib
+pandoc-cli
+papirus-icon-theme
 pari
 paru
 pass
@@ -217,7 +223,7 @@ python-pip
 python-pyalsa
 python-pydot
 qhull
-qutebrowser
+racket
 ranger
 reflector
 rlwrap
@@ -237,7 +243,7 @@ slim
 spectacle
 spotifyd
 st
-step
+stack
 sudo
 svgpart
 sweeper
@@ -262,7 +268,7 @@ thefuck
 time
 tk
 tmux
-topgrade
+topgrade-bin
 transmission-cli
 transmission-gtk
 tree
@@ -333,6 +339,7 @@ yq
 zathura
 zathura-pdf-poppler
 zathura-ps
+zee-git
 zip
 zoom
 zoxide
