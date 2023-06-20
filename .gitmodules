@@ -64,3 +64,9 @@
 [submodule ".config/lambda-emacs"]
 	path = .config/lambda-emacs
 	url = git@github.com:typesAreSpaces/lambda-emacs.git
+[submodule ".config/NvChad"]
+	path = .config/NvChad
+	url = git@github.com:typesAreSpaces/NvChad.git
+[submodule ".config/LazyVim"]
+	path = .config/LazyVim
+	url = git@github.com:typesAreSpaces/starter.git
