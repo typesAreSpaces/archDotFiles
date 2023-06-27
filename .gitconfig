@@ -1,6 +1,6 @@
 [user]
 	email = jabelcastellanosjoo@unm.edu
-  name = jose
+	name = Jose Abel Castellanos Joo
 [lfs]
   batch = false
 [filter "lfs"]
@@ -12,3 +12,7 @@
 	defaultBranch = main
 [core]
 	excludesfile = /home/jose/.gitignore_global
+[pull]
+	rebase = false
+[push]
+	default = simple
