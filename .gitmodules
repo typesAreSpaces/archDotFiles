@@ -73,3 +73,6 @@
 [submodule ".config/sioyek"]
 	path = .config/sioyek
 	url = git@github.com:typesAreSpaces/sioyek.conf
+[submodule ".config/doom"]
+	path = .config/doom
+	url = git@github.com:typesAreSpaces/doom.config
