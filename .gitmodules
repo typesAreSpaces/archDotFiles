@@ -73,3 +73,6 @@
 [submodule ".config/doom"]
 	path = .config/doom
 	url = git@github.com:typesAreSpaces/doom.config
+[submodule ".emacs.d"]
+	path = .emacs.d
+	url = git@github.com:typesAreSpaces/chemacs2.git
